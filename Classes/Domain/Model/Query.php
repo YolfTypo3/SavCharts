@@ -31,7 +31,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * The databaseId variable.
      *
-     * @var \YolfTypo3\SavCharts\Domain\Model\Database    
+     * @var \YolfTypo3\SavCharts\Domain\Model\Database
      */
     protected $databaseId;
 
@@ -103,12 +103,12 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
-    }    
+    }
 
     /**
      * Getter for databaseId.
      *
-     * @return \YolfTypo3\SavCharts\Domain\Model\Database    
+     * @return \YolfTypo3\SavCharts\Domain\Model\Database
      */
     public function getDatabaseId()
     {
@@ -124,7 +124,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setDatabaseId($databaseId)
     {
         $this->databaseId = $databaseId;
-    }    
+    }
 
     /**
      * Getter for selectClause.
@@ -145,7 +145,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSelectClause($selectClause)
     {
         $this->selectClause = $selectClause;
-    }    
+    }
 
     /**
      * Getter for fromClause.
@@ -166,7 +166,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setFromClause($fromClause)
     {
         $this->fromClause = $fromClause;
-    }    
+    }
 
     /**
      * Getter for whereClause.
@@ -187,7 +187,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setWhereClause($whereClause)
     {
         $this->whereClause = $whereClause;
-    }    
+    }
 
     /**
      * Getter for groupbyClause.
@@ -208,7 +208,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setGroupbyClause($groupbyClause)
     {
         $this->groupbyClause = $groupbyClause;
-    }    
+    }
 
     /**
      * Getter for orderbyClause.
@@ -229,7 +229,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setOrderbyClause($orderbyClause)
     {
         $this->orderbyClause = $orderbyClause;
-    }    
+    }
 
     /**
      * Getter for limitClause.
@@ -250,7 +250,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setLimitClause($limitClause)
     {
         $this->limitClause = $limitClause;
-    }    
+    }
 
 }
 ?>

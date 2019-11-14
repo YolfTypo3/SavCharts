@@ -117,7 +117,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
-    }    
+    }
 
     /**
      * Getter for driver.
@@ -138,7 +138,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setDriver($driver)
     {
         $this->driver = $driver;
-    }    
+    }
 
     /**
      * Getter for tables.
@@ -159,7 +159,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTables($tables)
     {
         $this->tables = $tables;
-    }    
+    }
 
     /**
      * Getter for host.
@@ -180,7 +180,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setHost($host)
     {
         $this->host = $host;
-    }    
+    }
 
     /**
      * Getter for port.
@@ -201,7 +201,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setPort($port)
     {
         $this->port = $port;
-    }    
+    }
 
     /**
      * Getter for socket.
@@ -222,7 +222,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSocket($socket)
     {
         $this->socket = $socket;
-    }    
+    }
 
     /**
      * Getter for name.
@@ -243,7 +243,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setName($name)
     {
         $this->name = $name;
-    }    
+    }
 
     /**
      * Getter for username.
@@ -264,7 +264,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setUsername($username)
     {
         $this->username = $username;
-    }    
+    }
 
     /**
      * Getter for userpassword.
@@ -285,7 +285,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setUserpassword($userpassword)
     {
         $this->userpassword = $userpassword;
-    }    
+    }
 
     /**
      * Getter for persistent.
@@ -306,7 +306,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setPersistent($persistent)
     {
         $this->persistent = $persistent;
-    }    
+    }
 
 }
 ?>
