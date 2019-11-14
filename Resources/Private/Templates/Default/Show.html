@@ -1,0 +1,11 @@
+<f:flashMessages />
+<f:for each="{canvases}" as="canvas">
+<div class="charts chart{canvas.chartId}">
+    <canvas id="canvas{canvas.chartId}" width="{canvas.width}" height="{canvas.height}"></canvas>
+	<f:if condition="{canvas.csvFileName}">
+	<div class="csv">
+	    <a href="{canvas.csvFileName}" target="_blank"><f:image src="EXT:sav_charts/Resources/Public/Icons/csv.gif" alt="csv" /></a>
+	</div>
+	</f:if>
+</div>
+</f:for>

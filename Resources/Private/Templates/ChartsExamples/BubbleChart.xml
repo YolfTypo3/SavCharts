@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<bubbleChart id="1" data="data#bubbleChartData" options="data#bubbleChartOptions" >
+	
+        <marker id="label0">First Dataset</marker> 
+        
+		<data id="dataSet0">
+            <item key="0">
+                <item key="x" value="20"/> 
+                <item key="y" value="30"/>  
+                <item key="r" value="15"/>                                   
+            </item>
+            <item key="1">
+                <item key="x" value="40"/> 
+                <item key="y" value="10"/>  
+                <item key="r" value="10"/>                                   
+            </item>
+		</data>
+	
+		<marker id="backgroundColor0">#FF6384</marker>	
+	
+		<data id="hoverBackgroundColor0">#FF6384</data>	
+	
+		<data id="set0">
+            <item key="label" value="marker#label0" />
+			<item key="data" value="data#dataSet0" />
+			<item key="backgroundColor" value="marker#backgroundColor0" />
+			<item key="hoverBackgroundColor" value="marker#hoverBackgroundColor0" />			
+		</data>	
+
+        <data id="dataSets">
+            <item key="0" value="data#set0" />           
+        </data>    
+        
+        <data id="bubbleChartData">
+            <item key="labels" value="data#labels" />           
+            <item key="datasets" value="data#dataSets" />       
+        </data>     
+    
+        <data id="bubbleChartOptions">
+        </data>
+        		
+	</bubbleChart>
+</charts>

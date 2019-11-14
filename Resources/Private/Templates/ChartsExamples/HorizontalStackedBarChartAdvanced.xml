@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<horizontalStackedBarChart id="1" data="data#horizontalStackedBarChartData" options="data#horizontalStackedBarChartOptions" width="marker#width" height="marker#height">
+	
+        <marker id="title">My Title</marker>
+        <marker id="width">600</marker>
+        <marker id="height">400</marker>
+
+        <!-- Defines sample labels for the x-axis -->       
+        <data id="labels">
+            January, February, March, April, May, June, July
+        </data>
+
+        <!-- Defines sample data for the template -->   
+        <data id="sampleData">
+            65, 59, 80, 81, 56, 55, 40
+        </data>
+                
+        <!-- Loads the color template --> 
+        <template id="color">
+            <loadTemplate fileName="typo3conf/ext/sav_charts/Resources/Private/Templates/ChartsExamples/DefaultColors.xml"/>
+        </template>
+       
+        <!-- Defines the data -->
+        <for id="initData" each="data#lowIntensityColors">          
+            <data id="initData" overload="1">
+                <item key="for#initData:key" value="data#sampleData" />
+            </data>
+        </for>  
+        <data id="data">
+            <setData values="data#initData" />
+        </data>
+
+        <!-- Defines the labels -->
+        <for id="initLabels" each="data#data"> 
+            <marker id="labelSetId" overload="1">
+                <setMarkerByPieces part1="labelSet" part2="for#initLabels:key" />                
+            </marker>
+             <marker id="marker#labelSetId">
+                <setMarkerByPieces part1="Label " part2="for#initLabels:key" />                
+            </marker>         
+        </for> 
+                                      
+        <!-- Defines the sets -->
+        <for id="initSets" each="data#data">     
+            <marker id="setId" overload="1">
+                <setMarkerByPieces part1="set" part2="for#initSets:key" />                
+            </marker>  
+            <marker id="labelSetId" overload="1">
+                <setMarkerByPieces part1="labelSet" part2="for#initSets:key" />                
+            </marker>
+                          
+            <data id="marker#setId">
+                <item key="label" value="marker#marker#labelSetId" />
+                <item key="backgroundColor" value="data#middleIntensityColors:for#initSets:key" />
+                <item key="borderColor" value="data#fullIntensityColors:for#initSets:key" />
+                <item key="borderWidth">1</item>                   
+                <item key="hoverBackgroundColor" value="data#veryHighIntensityColors:for#initSets:key" />
+                <item key="data" value="for#initSets:value" />
+            </data> 
+            <data id="dataSets" overload="1">
+                <item key="for#initSets:key" value="data#marker#setId" />
+            </data>                         
+        </for> 			
+	
+		<data id="horizontalStackedBarChartData">
+			<item key="labels" value="data#labels" />			
+			<item key="datasets" value="data#dataSets" />		
+		</data>	
+		
+        <data id="horizontalStackedBarChartOptions">
+            <item key="animation"></item>
+            <item key="responsive"></item>            
+            <item key="title">
+                <item key="display" value="1" />
+                <item key="text" value="marker#title" />
+            </item>
+            <item key="tooltips">
+                <item key="backgroundColor">rgba(0,0,0,0.7)</item>
+            </item>     
+        </data>
+        
+        <!-- Prepares data for exportation in CSV if requested -->        
+        <for id="initDataExport" each="data#legend">       
+            <data id="dataExport" overload="1">
+                <item key="for#initDataExport:key" value="data#data:for#initDataExport:key" />
+            </data> 
+        </for> 
+    
+        <data id="columnHeader">
+            <setData values="data#legend" />
+        </data>             
+        
+	</horizontalStackedBarChart>
+	
+</charts>

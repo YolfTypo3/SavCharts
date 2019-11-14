@@ -1,0 +1,9 @@
+.charts canvas {
+    display: inline-block;
+}
+
+.charts div.csv {
+    display: inline-block;
+    margin: 10px 0 0 10px;
+    vertical-align: top;
+}

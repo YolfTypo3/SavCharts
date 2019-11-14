@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<radarChart id="1" data="data#radarChartData" options="data#radarChartOptions" >
+
+        <marker id="labelSet0">My First dataset</marker>
+        <marker id="labelSet1">My Second dataset</marker>   
+        	
+		<data id="labels">
+			Eating, Drinking, Sleeping, Designing, Coding, Cycling, Running
+		</data>
+	
+		<data id="dataSet0">
+			65, 59, 90, 81, 56, 55, 40
+		</data>
+		
+		<data id="dataSet1">
+			28, 48, 40, 19, 96, 27, 100
+		</data>			
+	
+		<data id="set0">
+            <item key="label" value="marker#labelSet0" />
+            <item key="backgroundColor">rgba(220,220,220,0.2)</item>
+            <item key="borderColor">rgba(220,220,220,1)</item>
+            <item key="pointBackgroundColor">#fff</item>            
+            <item key="pointBorderColor">rgba(220,220,220,1)</item>
+            <item key="pointHoverBackgroundColor">rgba(220,220,220,1)</item>         
+            <item key="data" value="data#dataSet0" />
+		</data>	
+	
+		<data id="set1">
+            <item key="label" value="marker#labelSet1" />
+            <item key="backgroundColor">rgba(151,187,205,0.2)</item>
+            <item key="borderColor">rgba(151,187,205,1)</item>
+            <item key="pointBackgroundColor">#fff</item>             
+            <item key="pointBorderColor">rgba(151,187,205,1)</item>
+            <item key="pointHoverBackgroundColor">rgba(151,187,205,1)</item>       
+            <item key="data" value="data#dataSet1" />
+		</data>		
+	
+		<data id="dataSets">
+			<item key="0" value="data#set0" />
+			<item key="1" value="data#set1" />
+		</data>		
+	
+		<data id="radarChartData">
+			<item key="labels" value="data#labels" />			
+			<item key="datasets" value="data#dataSets" />		
+		</data>	
+		
+        <data id="radarChartOptions">   
+        </data>
+        
+	</radarChart>
+</charts>

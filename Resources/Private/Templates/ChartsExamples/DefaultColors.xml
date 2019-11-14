@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>	
+        <data id="lowIntensityColors">
+            <item key="0">rgba(77, 77, 77, 0.2)</item>
+            <item key="1">rgba(93, 165, 218, 0.2)</item>
+            <item key="2">rgba(250, 164, 58, 0.2)</item>
+            <item key="3">rgba(96, 189, 104, 0.2)</item>
+            <item key="4">rgba(241, 124, 176, 0.2)</item>
+            <item key="5">rgba(178, 145, 47, 0.2)</item>
+            <item key="6">rgba(178, 118, 178, 0.2)</item>
+            <item key="7">rgba(222, 207, 63, 0.2)</item>
+            <item key="8">rgba(241, 88, 84, 0.2)</item>
+        </data>
+        
+        <data id="middleIntensityColors">
+            <item key="0">rgba(77, 77, 77, 0.5)</item>
+            <item key="1">rgba(93, 165, 218, 0.5)</item>
+            <item key="2">rgba(250, 164, 58, 0.5)</item>
+            <item key="3">rgba(96, 189, 104, 0.5)</item>
+            <item key="4">rgba(241, 124, 176, 0.5)</item>
+            <item key="5">rgba(178, 145, 47, 0.5)</item>
+            <item key="6">rgba(178, 118, 178, 0.5)</item>
+            <item key="7">rgba(222, 207, 63, 0.5)</item>
+            <item key="8">rgba(241, 88, 84, 0.5)</item>
+        </data>   
+                       
+        <data id="highIntensityColors">
+            <item key="0">rgba(77, 77, 77, 0.75)</item>
+            <item key="1">rgba(93, 165, 218, 0.75)</item>
+            <item key="2">rgba(250, 164, 58, 0.75)</item>
+            <item key="3">rgba(96, 189, 104, 0.75)</item>
+            <item key="4">rgba(241, 124, 176, 0.75)</item>
+            <item key="5">rgba(178, 145, 47, 0.75)</item>
+            <item key="6">rgba(178, 118, 178, 0.75)</item>
+            <item key="7">rgba(222, 207, 63, 0.75)</item>
+            <item key="8">rgba(241, 88, 84, 0.75)</item>
+        </data>	
+
+        <data id="veryHighIntensityColors">
+            <item key="0">rgba(77, 77, 77, 0.8)</item>
+            <item key="1">rgba(93, 165, 218, 0.8)</item>
+            <item key="2">rgba(250, 164, 58, 0.8)</item>
+            <item key="3">rgba(96, 189, 104, 0.8)</item>
+            <item key="4">rgba(241, 124, 176, 0.8)</item>
+            <item key="5">rgba(178, 145, 47, 0.8)</item>
+            <item key="6">rgba(178, 118, 178, 0.8)</item>
+            <item key="7">rgba(222, 207, 63, 0.8)</item>
+            <item key="8">rgba(241, 88, 84, 0.8)</item>
+        </data> 
+
+        <data id="fullIntensityColors">
+            <item key="0">rgba(77, 77, 77, 1)</item>
+            <item key="1">rgba(93, 165, 218, 1)</item>
+            <item key="2">rgba(250, 164, 58, 1)</item>
+            <item key="3">rgba(96, 189, 104, 1)</item>
+            <item key="4">rgba(241, 124, 176, 1)</item>
+            <item key="5">rgba(178, 145, 47, 1)</item>
+            <item key="6">rgba(178, 118, 178, 1)</item>
+            <item key="7">rgba(222, 207, 63, 1)</item>
+            <item key="8">rgba(241, 88, 84, 1)</item>
+        </data> 
+ 
+</charts>

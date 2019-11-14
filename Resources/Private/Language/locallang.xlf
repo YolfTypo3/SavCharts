@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-02-01T18:56:26Z" product-name="sav_charts">
+		<header/>
+		<body>
+            <trans-unit id="pi_flexform.sheetTitle.sDEF" xml:space="preserve">		
+                <source>General</source>
+            </trans-unit>   
+            <trans-unit id="plugin_title" xml:space="preserve">
+                <source>SAV Charts</source>
+            </trans-unit>	
+            <trans-unit id="plugin_wizard_description" xml:space="preserve">
+                <source>Displays charts using XML template.</source>
+            </trans-unit>          
+            <trans-unit id="tx_savcharts_domain_model_query.database_id.I.0" xml:space="preserve">
+                <source>TYPO3 Database</source>
+            </trans-unit>    
+            <trans-unit id="error.databaseConnectionFailed" xml:space="preserve">
+                <source>Connection to the database "%s" failed.</source>
+            </trans-unit>   
+            <trans-unit id="error.exportCsv" xml:space="preserve">
+                <source>Export in CSV format cannot be done ("%s" must be an array).</source>
+            </trans-unit>       
+			<trans-unit id="error.incorrectReferenceTag" xml:space="preserve">
+				<source>The reference must refer to a tag "%s".</source>
+			</trans-unit>			
+			<trans-unit id="error.incorrectReferenceValue" xml:space="preserve">
+				<source>The reference "%s#%s" returned an incorrect value.</source>
+			</trans-unit>	
+			<trans-unit id="error.missingAttribute" xml:space="preserve">
+				<source>Missing attribute "%s" in tag "%s".</source>
+			</trans-unit>				
+			<trans-unit id="error.queriesMustBeAllowed" xml:space="preserve">
+				<source>Queries must be allowed to use "%s".</source>
+			</trans-unit>				
+			<trans-unit id="error.queryError" xml:space="preserve">
+				<source>Error in query: #%s.</source>
+			</trans-unit>	  								
+			<trans-unit id="error.queryManagerMissing" xml:space="preserve">
+				<source>A query manager must be defined by a hook for %s.</source>
+			</trans-unit>			
+			<trans-unit id="error.queryManagerRequired" xml:space="preserve">
+				<source>A query manager is required to use "%s" (see setQueryManager in query xml tag).</source>
+			</trans-unit>												
+			<trans-unit id="error.queryMissingColumn" xml:space="preserve">
+				<source>The column "%s" is missing in the query.</source>
+			</trans-unit>
+			<trans-unit id="error.queryReturnedNull" xml:space="preserve">
+				<source>The query #%s returned NULL.</source>
+			</trans-unit>												
+			<trans-unit id="error.referenceNotWellFormed" xml:space="preserve">
+				<source>The attribute value "%s" is not a well-formed reference.</source>
+			</trans-unit>	
+            <trans-unit id="error.tableNotFound" xml:space="preserve">
+                <source>Table not found in "%s".</source>
+            </trans-unit>   			
+			<trans-unit id="error.unknownClass" xml:space="preserve">
+				<source>Unknown class: "%s".</source>
+			</trans-unit>	
+            <trans-unit id="error.unknownFile" xml:space="preserve">
+                <source>The file "%s" does not exist.</source>
+            </trans-unit>  				
+			<trans-unit id="error.unknownXmlTag" xml:space="preserve">
+				<source>Unknown xml tag: "%s".</source>
+			</trans-unit>											
+			<trans-unit id="error.xmlSyntaxError" xml:space="preserve">
+				<source>Syntax error: %s. Check line %s in "%s".</source>
+			</trans-unit>			
+			<trans-unit id="pi_flexform.allowQueries" xml:space="preserve">
+				<source>Allow queries (Admin)</source>
+			</trans-unit>			
+			<trans-unit id="pi_flexform.xmlMarkersConfig" xml:space="preserve">
+				<source>Markers</source>
+			</trans-unit>
+			<trans-unit id="pi_flexform.xmlDataConfig" xml:space="preserve">
+				<source>Data</source>
+			</trans-unit>
+			<trans-unit id="pi_flexform.xmlQueriesConfig" xml:space="preserve">
+				<source>Queries</source>
+			</trans-unit>
+			<trans-unit id="pi_flexform.xmlTemplatesConfig" xml:space="preserve">
+				<source>Templates</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

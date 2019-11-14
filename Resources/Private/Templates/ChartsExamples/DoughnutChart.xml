@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<doughnutChart id="1" data="data#doughnutChartData" options="data#doughnutChartOptions" >
+			
+		<data id="dataSet0">
+			300, 500, 100
+		</data>
+	
+		<data id="backgroundColor">
+			#F7464A, #46BFBD, #FDB45C
+		</data>	
+	
+		<data id="hoverBackgroundColor">
+			#FF5A5E, #5AD3D1, #FFC870
+		</data>	
+		
+		<data id="labels">
+			Red, Green, Yellow
+		</data>	
+	
+		<data id="set0">
+			<item key="data" value="data#dataSet0" />
+			<item key="backgroundColor" value="data#backgroundColor" />
+			<item key="hoverBackgroundColor" value="data#hoverBackgroundColor" />			
+		</data>	
+		
+        <data id="dataSets">
+            <item key="0" value="data#set0" />           
+        </data>    
+        
+        <data id="doughnutChartData">
+            <item key="labels" value="data#labels" />           
+            <item key="datasets" value="data#dataSets" />       
+        </data>     
+    
+        <data id="doughnutChartOptions">
+        </data>
+        		
+	</doughnutChart>
+</charts>

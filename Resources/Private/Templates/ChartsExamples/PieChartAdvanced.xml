@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<pieChart id="1" data="data#pieChartData" options="data#pieChartOptions" width="marker#width" height="marker#height">
+
+        <marker id="title">My Title</marker>
+        <marker id="width">600</marker>
+        <marker id="height">400</marker>
+        	
+        <data id="data">
+            300, 500, 100
+        </data>
+        
+        <!-- Loads the color template --> 
+        <template id="color">
+            <loadTemplate fileName="typo3conf/ext/sav_charts/Resources/Private/Templates/ChartsExamples/DefaultColors.xml"/>
+        </template>      
+                
+        <data id="labels">
+            Red, Green, Yellow
+        </data> 
+    
+        <data id="set0">
+            <item key="data" value="data#data" />
+            <item key="backgroundColor" value="data#middleIntensityColors" />
+            <item key="hoverBackgroundColor" value="data#veryHighIntensityColors" />           
+        </data> 
+        
+        <data id="dataSets">
+            <item key="0" value="data#set0" />           
+        </data>    
+        
+        <data id="pieChartData">
+            <item key="labels" value="data#labels" />           
+            <item key="datasets" value="data#dataSets" />       
+        </data>     
+		
+        <data id="pieChartOptions">
+            <item key="animation"></item>
+            <item key="responsive"></item>
+            <item key="title">
+                <item key="display" value="1" />
+                <item key="text" value="marker#title" />
+            </item>
+            <item key="tooltips">
+                <item key="backgroundColor">rgba(0,0,0,0.7)</item>
+            </item>           
+        </data>
+        
+	</pieChart>
+</charts>

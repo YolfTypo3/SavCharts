@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2019-08-09T11:46:11Z" product-name="sav_charts">
+        <header/>
+        <body>
+            <trans-unit id="tx_savcharts_domain_model_database" xml:space="preserve">
+                <source>SAV Charts Database</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.title" xml:space="preserve">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.driver" xml:space="preserve">
+                <source>Driver</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.tables" xml:space="preserve">
+                <source>Concerned tables</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.host" xml:space="preserve">
+                <source>Host</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.port" xml:space="preserve">
+                <source>Port</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.socket" xml:space="preserve">
+                <source>Socket</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.name" xml:space="preserve">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.username" xml:space="preserve">
+                <source>User name</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.userpassword" xml:space="preserve">
+                <source>User password</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_database.persistent" xml:space="preserve">
+                <source>Persistent</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query" xml:space="preserve">
+                <source>SAV Charts Query</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.title" xml:space="preserve">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.database_id" xml:space="preserve">
+                <source>Database</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.database_id.I.0" xml:space="preserve">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.select_clause" xml:space="preserve">
+                <source>SELECT Clause</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.from_clause" xml:space="preserve">
+                <source>FROM Clause</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.where_clause" xml:space="preserve">
+                <source>WHERE Clause</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.groupby_clause" xml:space="preserve">
+                <source>GROUP BY Clause</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.orderby_clause" xml:space="preserve">
+                <source>ORDER BY Clause</source>
+            </trans-unit>
+            <trans-unit id="tx_savcharts_domain_model_query.limit_clause" xml:space="preserve">
+                <source>LIMIT Clause</source>
+            </trans-unit>
+            <trans-unit id="tt_content.list_type_pi1" xml:space="preserve">
+                <source>SAV Charts</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
+

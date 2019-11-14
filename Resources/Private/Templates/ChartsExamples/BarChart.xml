@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<barChart id="1" data="data#barChartData" options="data#barChartOptions" >
+	
+        <marker id="labelSet0">My First dataset</marker>
+        <marker id="labelSet1">My Second dataset</marker>   
+        		
+		<data id="labels">
+			January, February, March, April, May, June, July
+		</data>
+	
+		<data id="dataSet0">
+			65, 59, 80, 81, 56, 55, 4
+		</data>
+		
+		<data id="dataSet1">
+			28, 48, 40, 19, 86, 27, 9
+		</data>			
+	
+		<data id="set0">
+            <item key="label" value="marker#labelSet0" />
+            <item key="backgroundColor">rgba(220,220,220,0.5)</item>
+            <item key="borderColor">rgba(220,220,220,0.8)</item>
+            <item key="borderWidth">1</item>            
+            <item key="hoverBackgroundColor">rgba(220,220,220,0.75)</item>
+            <item key="hoverBorderColor">rgba(220,220,220,1)</item>
+            <item key="data" value="data#dataSet0" />
+		</data>	
+	
+		<data id="set1">
+            <item key="label" value="marker#labelSet1" />
+            <item key="backgroundColor">rgba(151,187,205,0.5)</item>
+            <item key="borderColor">rgba(151,187,205,0.8)</item>
+            <item key="borderWidth">1</item>    
+            <item key="hoverBackgroundColor">rgba(151,187,205,0.75)</item>
+            <item key="hoverBorderColor">rgba(151,187,205,1)</item>
+            <item key="data" value="data#dataSet1" />
+		</data>		
+	
+		<data id="dataSets">
+			<item key="0" value="data#set0" />
+			<item key="1" value="data#set1" />
+		</data>		
+	
+		<data id="barChartData">
+			<item key="labels" value="data#labels" />			
+			<item key="datasets" value="data#dataSets" />		
+		</data>	
+		
+        <data id="barChartOptions">
+        </data>		
+		
+	</barChart>
+</charts>

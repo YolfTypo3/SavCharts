@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" >
+			
+        <marker id="labelSet0">My First dataset</marker>
+        <marker id="labelSet1">My Second dataset</marker>		
+		
+		<data id="labels">
+			January, February, March, April, May, June, July
+		</data>
+	
+		<data id="dataSet0">
+			65, 59, 80, 81, 56, 55, 40
+		</data>
+		
+		<data id="dataSet1">
+			28, 48, 40, 19, 86, 27, 90
+		</data>			
+	
+		<data id="set0">
+            <item key="label" value="marker#labelSet0" />
+            <item key="backgroundColor">rgba(220,220,220,0.2)</item>
+            <item key="pointColor">rgba(220,220,220,1)</item>
+            <item key="pointBackgroundColor">#fff</item>
+            <item key="pointHoverBackgroundColor">rgba(220,220,220,1)</item>
+            <item key="data" value="data#dataSet0" />
+		</data>	
+	
+		<data id="set1">
+            <item key="label" value="marker#labelSet1" />
+            <item key="backgroundColor">rgba(151,187,205,0.2)</item>
+            <item key="pointColor">rgba(151,187,205,1)</item>
+            <item key="pointBackgroundColor">#fff</item>
+            <item key="pointHoverBackgroundColor">rgba(151,187,205,1)</item>            
+            <item key="data" value="data#dataSet1" />
+		</data>		
+	
+		<data id="dataSets">
+			<item key="0" value="data#set0" />
+			<item key="1" value="data#set1" />
+		</data>		
+	
+		<data id="lineChartData">
+			<item key="labels" value="data#labels" />			
+			<item key="datasets" value="data#dataSets" />		
+		</data>	
+		
+        <data id="lineChartOptions">
+        </data>		
+		
+	</lineChart>
+</charts>
