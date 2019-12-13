@@ -78,7 +78,7 @@
             </item>
             <item key="tooltips">
                 <item key="backgroundColor">rgba(0,0,0,0.7)</item>
-            </item>                        
+            </item>                                 
         </data>		
 		
         <!-- Prepares data for exportation in CSV if requested -->       

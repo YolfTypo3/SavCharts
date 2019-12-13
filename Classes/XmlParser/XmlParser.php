@@ -548,7 +548,10 @@ class XmlParser
                     if (self::isReference($value) !== false) {
                         $value = self::getValueFromReference($value);
                     }
-                    if ($value === 'true') {
+                    $type = (string) $child->attributes()->type;
+                    if ($type === 'function') {
+                        $value = '<!--' . $value . '-->';
+                    } elseif ($value === 'true') {
                         $value = true;
                     } elseif ($value === 'false') {
                         $value = false;

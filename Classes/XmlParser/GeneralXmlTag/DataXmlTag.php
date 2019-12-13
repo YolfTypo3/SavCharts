@@ -129,7 +129,10 @@ class DataXmlTag extends AbstractXmlTag
             if (XmlParser::isReference($value) !== false) {
                 $value = XmlParser::getValueFromReference($value);
             }
-            if ($value === 'true') {
+            $type = (string) $element->attributes()->type;
+            if ($type === 'function') {
+                $this->xmlTagValue[$key] = '<!--' . $value . '-->';
+            } elseif ($value === 'true') {
                 $this->xmlTagValue[$key] = true;
             } elseif ($value === 'false') {
                 $this->xmlTagValue[$key] = false;

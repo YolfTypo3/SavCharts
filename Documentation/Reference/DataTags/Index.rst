@@ -140,7 +140,10 @@ item
     Attributes\:
 
     - key (required)\: the key for the item.
-    - value\: if set, the value is defined directly or by athe reference, for exammple "data#myDataId".
+    - value\: if set, the value is defined directly or by the reference, for example "data#myDataId".
+      If value is equal to **true** or **false** then a boolean value is generated for this item.
+    - type\: if this attribute is equal to **function**, the value attribute is taken as
+      the name of a javascript function.
     - values\: if set, a comma-sparated list of values is assumed
     - if no value or values attribute is provided, the tag childs can be a value or other <item> tags.
 

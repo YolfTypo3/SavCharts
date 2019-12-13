@@ -23,7 +23,7 @@ Set the attribute **value** to **true** or **false**.
       <item key="tooltips">
           <item key="backgroundColor">rgba(0,0,0,0.7)</item>
       </item>                        
-   </data>	
+   </data>	   
 
 How to Set the y-Axis Properties?
 =================================
@@ -180,3 +180,16 @@ Save, clear the cache and go in the frontend.
 
 .. figure:: ../Images/FAQ/showallTootipsPluginInFrontend.png
 
+How to call a JavaScript Function on Events?
+============================================
+
+The following configuration shows how to associate the JavaScript function 
+**newLegendClickHandler** with the **onClick** event of the **legend**. 
+
+.. code::
+
+   <data id="barChartOptions">
+        	<item key="legend">
+        		<item key="onClick" type="function" value="newLegendClickHandler" />
+        	</item>                        
+   </data>	
