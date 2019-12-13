@@ -70,10 +70,10 @@
 		</data>	
 		
         <data id="barChartOptions">
-            <item key="animation"></item>
-            <item key="responsive"></item>
+            <item key="animation" value="false" />
+            <item key="responsive" value="false" />
             <item key="title">
-                <item key="display" value="1" />
+                <item key="display" value="true" />
                 <item key="text" value="marker#title" />
             </item>
             <item key="tooltips">
