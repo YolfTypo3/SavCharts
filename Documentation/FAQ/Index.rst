@@ -6,6 +6,25 @@
 Frequently Asked Questions
 ==========================
 
+How to Generate a Boolean Value?
+================================
+
+Set the attribute **value** to **true** or **false**.
+
+.. code::
+
+   <data id="barChartOptions">
+      <item key="animation" value="false" />
+      <item key="responsive" value="false" />
+      <item key="title">
+         <item key="display" value="true" />
+         <item key="text" value="marker#title" />
+      </item>
+      <item key="tooltips">
+          <item key="backgroundColor">rgba(0,0,0,0.7)</item>
+      </item>                        
+   </data>	
+
 How to Set the y-Axis Properties?
 =================================
 
@@ -142,26 +161,7 @@ When the javascript function associated with the callback is more complex,
 you can also put it in a file and call that file in the callback 
 as shown in the floowing configuration.
 
-.. figure:: ../Images/FAQ/tooltipLabelCallbackByFileName.png
-
-How to Generate a Boolean Value?
-================================
-
-Set the attribute **value** to **true** or **false**.
-
-.. code::
-
-   <data id="barChartOptions">
-      <item key="animation" value="false" />
-      <item key="responsive" value="false" />
-      <item key="title">
-         <item key="display" value="true" />
-         <item key="text" value="marker#title" />
-      </item>
-      <item key="tooltips">
-          <item key="backgroundColor">rgba(0,0,0,0.7)</item>
-      </item>                        
-   </data>		
+.. figure:: ../Images/FAQ/tooltipLabelCallbackByFileName.png	
 
 How to Display all Tooltips?
 ============================
