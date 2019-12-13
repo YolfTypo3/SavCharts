@@ -144,6 +144,25 @@ as shown in the floowing configuration.
 
 .. figure:: ../Images/FAQ/tooltipLabelCallbackByFileName.png
 
+How to Generate a Boolean Value?
+================================
+
+Set the attribute **value** to **true** or **false**.
+
+.. code::
+
+   <data id="barChartOptions">
+      <item key="animation" value="false" />
+      <item key="responsive" value="false" />
+      <item key="title">
+         <item key="display" value="true" />
+         <item key="text" value="marker#title" />
+      </item>
+      <item key="tooltips">
+          <item key="backgroundColor">rgba(0,0,0,0.7)</item>
+      </item>                        
+   </data>		
+
 How to Display all Tooltips?
 ============================
 

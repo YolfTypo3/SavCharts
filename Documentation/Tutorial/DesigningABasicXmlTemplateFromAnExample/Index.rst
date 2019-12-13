@@ -256,6 +256,6 @@ set a linear interpolation between points.
 
 .. tip::
 
-   Use a void item to set an option to false.
+   To generate a boolean value, set the attribute **value** to **true** or **false**.
 
   
