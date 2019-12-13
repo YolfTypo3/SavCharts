@@ -13,7 +13,6 @@ namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\XmlParser\XmlParser;
 
@@ -24,6 +23,7 @@ use YolfTypo3\SavCharts\XmlParser\XmlParser;
  */
 class DataXmlTag extends AbstractXmlTag
 {
+
     /**
      * Default method
      *
@@ -55,23 +55,20 @@ class DataXmlTag extends AbstractXmlTag
         // Gets the attribute
         $values = (string) $element->attributes()->values;
         if ($values == '') {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'values',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'values',
+                $elementName
+            ]);
         }
 
         // Checks if the values are a reference
-        if ( XmlParser::isReference($values)) {
+        if (XmlParser::isReference($values)) {
             $this->xmlTagValue = XmlParser::getValueFromReference($values);
         } else {
             $values = XmlParser::replaceSpecialChars($values);
             $this->xmlTagValue = GeneralUtility::trimExplode(',', $values);
-            foreach($this->xmlTagValue as $key => $value) {
-                if(is_numeric($value)) {
+            foreach ($this->xmlTagValue as $key => $value) {
+                if (is_numeric($value)) {
                     $this->xmlTagValue[$key] = $value + 0;
                 }
             }
@@ -94,27 +91,24 @@ class DataXmlTag extends AbstractXmlTag
         // Gets the key
         $key = (string) $element->attributes()->key;
         if ($key == '') {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'key',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'key',
+                $elementName
+            ]);
         }
-        if ( XmlParser::isReference($key) !== false) {
+        if (XmlParser::isReference($key) !== false) {
             $key = XmlParser::getValueFromReference($key);
         }
 
         // Checks if there is a values attribute.
         // It is assumed that it is a comma-separated list
         $commaSeparatedValue = (string) $element->attributes()->values;
-        if (!empty($commaSeparatedValue)) {
+        if (! empty($commaSeparatedValue)) {
             $commaSeparatedValue = XmlParser::replaceSpecialChars($commaSeparatedValue);
             $values = GeneralUtility::trimExplode(',', $commaSeparatedValue);
             $this->xmlTagValue[$key] = [];
-            foreach($values as $valueKey => $value) {
-                if(is_numeric($value)) {
+            foreach ($values as $valueKey => $value) {
+                if (is_numeric($value)) {
                     $this->xmlTagValue[$key][$valueKey] = $value + 0;
                 }
             }
@@ -132,10 +126,16 @@ class DataXmlTag extends AbstractXmlTag
                 $this->xmlTagValue[$key] = $this->xmlParser->processSubItemElement($element);
             }
         } else {
-            if ( XmlParser::isReference($value) !== false) {
+            if (XmlParser::isReference($value) !== false) {
                 $value = XmlParser::getValueFromReference($value);
             }
-            $this->xmlTagValue[$key] = $value;
+            if ($value === 'true') {
+                $this->xmlTagValue[$key] = true;
+            } elseif ($value === 'false') {
+                $this->xmlTagValue[$key] = false;
+            } else {
+                $this->xmlTagValue[$key] = $value;
+            }
         }
     }
 
@@ -150,14 +150,11 @@ class DataXmlTag extends AbstractXmlTag
     public function setDataFromQuery(\SimpleXMLElement $element)
     {
         // Checks if the queries are allowed
-        $settings =  XmlParser::getController()->getSettings();
+        $settings = XmlParser::getController()->getSettings();
         if (empty($settings['flexform']['allowQueries'])) {
-            return XmlParser::getController()->addError(
-                'error.queriesMustBeAllowed',
-                [
-                    'SetDataFromQuery'
-                ]
-            );
+            return XmlParser::getController()->addError('error.queriesMustBeAllowed', [
+                'SetDataFromQuery'
+            ]);
         }
 
         // Gets the element name
@@ -166,13 +163,10 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if there is a query id
         $query = (string) $element->attributes()->query;
         if (empty($query)) {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'query',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'query',
+                $elementName
+            ]);
         }
         if (XmlParser::isReference($query) !== false) {
             $query = XmlParser::getValueFromReference($query);
@@ -180,32 +174,26 @@ class DataXmlTag extends AbstractXmlTag
 
         // Sets query reference
         $queryReference = 'query#' . $query;
-        if (!is_scalar($query) || XmlParser::isReference($queryReference) === false) {
-            return  XmlParser::getController()->addError(
-                'error.incorrectReferenceValue',
-                [
-                    'query',
-                    $query
-                ]
-            );
+        if (! is_scalar($query) || XmlParser::isReference($queryReference) === false) {
+            return XmlParser::getController()->addError('error.incorrectReferenceValue', [
+                'query',
+                $query
+            ]);
         }
 
         // Checks if there is a field attribute
         $field = (string) $element->attributes()->field;
         if (empty($field)) {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'field',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'field',
+                $elementName
+            ]);
         }
 
         // Checks if there is a groupby attribute
-        $groupby =  (string) $element->attributes()->groupby;
-        if (!empty($groupby)) {
-            if ( XmlParser::isReference($groupby) !== false) {
+        $groupby = (string) $element->attributes()->groupby;
+        if (! empty($groupby)) {
+            if (XmlParser::isReference($groupby) !== false) {
                 $groupby = count(XmlParser::getValueFromReference($groupby));
             }
         }
@@ -219,14 +207,13 @@ class DataXmlTag extends AbstractXmlTag
                 $value = $value + 0;
             }
             if ($groupby != 0) {
-                $this->xmlTagValue[$counter/$groupby][$counter%$groupby] = $value;
-                $counter++;
+                $this->xmlTagValue[$counter / $groupby][$counter % $groupby] = $value;
+                $counter ++;
             } else {
                 $this->xmlTagValue[$key] = $value;
             }
         }
     }
-
 
     /**
      * Sets the data from a query row
@@ -238,14 +225,11 @@ class DataXmlTag extends AbstractXmlTag
     public function setDataFromQueryRow(\SimpleXMLElement $element)
     {
         // Checks if the queries are allowed
-        $settings =  XmlParser::getController()->getSettings();
+        $settings = XmlParser::getController()->getSettings();
         if (empty($settings['flexform']['allowQueries'])) {
-            return XmlParser::getController()->addError(
-                'error.queriesMustBeAllowed',
-                [
-                    'SetDataFromQuery'
-                ]
-            );
+            return XmlParser::getController()->addError('error.queriesMustBeAllowed', [
+                'SetDataFromQuery'
+            ]);
         }
 
         // Gets the element name
@@ -254,13 +238,10 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if there is a query id
         $query = (string) $element->attributes()->query;
         if (empty($query)) {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'query',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'query',
+                $elementName
+            ]);
         }
         if (XmlParser::isReference($query) !== false) {
             $query = XmlParser::getValueFromReference($query);
@@ -268,39 +249,33 @@ class DataXmlTag extends AbstractXmlTag
 
         // Sets query reference
         $queryReference = 'query#' . $query;
-        if (!is_scalar($query) || XmlParser::isReference($queryReference) === false) {
-            return  XmlParser::getController()->addError(
-                'error.incorrectReferenceValue',
-                [
-                    'query',
-                    $query
-                ]
-            );
+        if (! is_scalar($query) || XmlParser::isReference($queryReference) === false) {
+            return XmlParser::getController()->addError('error.incorrectReferenceValue', [
+                'query',
+                $query
+            ]);
         }
 
         // Checks if there is a fields attribute
         $fields = (string) $element->attributes()->fields;
         if (empty($fields)) {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'fields',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'fields',
+                $elementName
+            ]);
         }
 
         // Gets the query result
         $fieldsArray = explode(',', $fields);
         $counter = 0;
         $xmlTagValue = XmlParser::getValueFromReference($queryReference);
-        foreach($fieldsArray as $field) {
+        foreach ($fieldsArray as $field) {
             if (isset($xmlTagValue[0][trim($field)])) {
                 $value = $xmlTagValue[0][trim($field)];
                 if (is_numeric($value)) {
                     $value = $value + 0;
                 }
-                $this->xmlTagValue[$counter++] = $value;
+                $this->xmlTagValue[$counter ++] = $value;
             }
         }
     }
@@ -324,8 +299,8 @@ class DataXmlTag extends AbstractXmlTag
         unset($this->xmlTagValue);
         foreach ($xmlTagValue as $key => $values) {
             foreach ($values as $index => $value) {
-                if (!empty($mainKey)) {
-                    if(isset($xmlTagValue[$mainKey][$index])) {
+                if (! empty($mainKey)) {
+                    if (isset($xmlTagValue[$mainKey][$index])) {
                         $this->xmlTagValue[$index][$key] = $value;
                     } else {
                         continue;
@@ -357,9 +332,9 @@ class DataXmlTag extends AbstractXmlTag
 
         // Computes the sum
         $sum = [];
-        foreach($this->xmlTagValue as $dataKey => $data) {
+        foreach ($this->xmlTagValue as $dataKey => $data) {
             if (is_array($data)) {
-                foreach($data as $key => $value) {
+                foreach ($data as $key => $value) {
                     $sum[$dataKey] += $value;
                 }
             } else {
@@ -367,9 +342,9 @@ class DataXmlTag extends AbstractXmlTag
             }
         }
 
-        foreach($this->xmlTagValue as $dataKey => $data) {
+        foreach ($this->xmlTagValue as $dataKey => $data) {
             if (is_array($data)) {
-                foreach($data as $key => $value) {
+                foreach ($data as $key => $value) {
                     $this->xmlTagValue[$dataKey][$key] = round(100 * $this->xmlTagValue[$dataKey][$key] / $sum[$dataKey], $precision);
                 }
             } else {
@@ -393,23 +368,20 @@ class DataXmlTag extends AbstractXmlTag
         // Gets the key
         $key = (string) $element->attributes()->key;
         if ($key == '') {
-            return  XmlParser::getController()->addError(
-                'error.missingAttribute',
-                [
-                    'key',
-                    $elementName
-                ]
-            );
+            return XmlParser::getController()->addError('error.missingAttribute', [
+                'key',
+                $elementName
+            ]);
         }
 
         // Creates a DOM document to get the comment
-        $document = new \DOMDocument;
+        $document = new \DOMDocument();
         $document->loadXML($element->asXML());
         $xpath = new \DOMXPath($document);
         $text = $xpath->query('/callback/comment()')->item(0)->textContent;
 
         if (empty($text)) {
-            $text = '###' .  trim((string) $element) . '###';
+            $text = '###' . trim((string) $element) . '###';
         }
 
         $this->xmlTagValue[$key] = '<!--' . $text . '-->';

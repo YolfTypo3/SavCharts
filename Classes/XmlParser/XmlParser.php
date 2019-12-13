@@ -263,7 +263,7 @@ class XmlParser
      */
     public static function getReferenceObject($reference)
     {
-        // Get the tag and the id
+        // Gets the tag and the id
         $matches = self::isReference($reference);
         if ($matches !== false) {
             $xmlTag = $matches[1];
@@ -413,7 +413,7 @@ class XmlParser
         // Checks if an error is detected
         if ($this->xml === false) {
             $errors = libxml_get_errors();
-            // Display the first error
+            // Displays the first error
             self::getController()->addError('error.xmlSyntaxError', [
                 $errors[0]->message,
                 $errors[0]->line,
@@ -548,7 +548,11 @@ class XmlParser
                     if (self::isReference($value) !== false) {
                         $value = self::getValueFromReference($value);
                     }
-                    if (is_numeric($value)) {
+                    if ($value === 'true') {
+                        $value = true;
+                    } elseif ($value === 'false') {
+                        $value = false;
+                    } elseif (is_numeric($value)) {
                         $value = $value + 0;
                     }
                 } elseif (isset($attributes['values'])) {
@@ -575,7 +579,12 @@ class XmlParser
                     // Calls the method if it exists
                     $xmlTagObject->$childName($child);
                     $value = $xmlTagObject->getXmlTagValue();
-                    return $value;
+                    // return $value;
+                    if ($childName === 'callback') {
+                        $subItem[key($value)] = current($value);
+                    } else {
+                        return $value;
+                    }
                 }
             }
         }
