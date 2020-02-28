@@ -1,5 +1,12 @@
 <?php
 
+if (version_compare(TYPO3_version, '10.0', '<')) {
+    $interface = [
+    	'showRecordFieldList' => 'hidden,title,database_id,select_clause,from_clause,where_clause,groupby_clause,orderby_clause,limit_clause'
+    ];
+} else {
+    $interface = [];
+}
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query',
@@ -14,9 +21,7 @@ return [
         ],
         'iconfile' => 'EXT:sav_charts/Resources/Public/Icons/icon_tx_savcharts_domain_model_query.gif',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden,title,database_id,select_clause,from_clause,where_clause,groupby_clause,orderby_clause,limit_clause'
-    ],
+    'interface' => $interface,
     'columns' => [
         'hidden' => [
             'exclude' => 1,
