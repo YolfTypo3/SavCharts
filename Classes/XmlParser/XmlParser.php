@@ -196,7 +196,7 @@ class XmlParser
      *            tag name
      * @param mixed $id
      *            id
-     * @return array
+     * @return array|null
      */
     public static function getXmlTagResult(string $name, $id)
     {
@@ -328,7 +328,7 @@ class XmlParser
      *
      * @param \SimpleXMLElement $element
      *
-     * @return string
+     * @return boolean
      */
     public static function getOverloadAttribute(\SimpleXMLElement $element)
     {
@@ -341,7 +341,7 @@ class XmlParser
      *
      * @param string $xmlTag
      *
-     * @return string or false
+     * @return string|false
      */
     protected static function getClassName(string $xmlTag)
     {
@@ -778,7 +778,7 @@ class XmlParser
      * @param array $markers
      *            The markers
      *
-     * @return array
+     * @return array|false
      */
     public function processQuery(string $queryManagerName, string $uid, array $markers): array
     {
@@ -833,7 +833,7 @@ class XmlParser
      *
      * @param string $reference
      *
-     * @return boolean or array
+     * @return array|false
      */
     public static function isReference(string $reference)
     {

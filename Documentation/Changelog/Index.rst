@@ -11,6 +11,10 @@ Changelog
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
+10.4.0   - Version of charts.js changed to 2.9.3.
+		 - Compatibility changed to TYPO3 10.4.x.
+         - True or false values and use of functions outside callbacks added (issue #1).	
+
 9.5.0    - Version of charts.js changed to 2.9.2.
          - Compatibility changed to TYPO3 9.5.x.
          - Documentation updated to docker.
