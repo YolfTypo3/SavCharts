@@ -2,9 +2,9 @@
 
 .. _start:
 
-===========
+==========
 SAV Charts
-===========
+==========
 
 :Extension key:
    sav_charts

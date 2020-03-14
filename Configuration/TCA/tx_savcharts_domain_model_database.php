@@ -1,6 +1,8 @@
 <?php
 
-if (version_compare(TYPO3_version, '10.0', '<')) {
+defined('TYPO3_MODE') or die();
+
+if (version_compare(\YolfTypo3\SavCharts\Controller\DefaultController::getTypo3Version(), '10.0', '<')) {
     $interface = [
     	'showRecordFieldList' => 'hidden,title,driver,tables,host,port,socket,name,username,userpassword,persistent'
     ];

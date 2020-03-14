@@ -13,6 +13,7 @@ namespace YolfTypo3\SavCharts\XmlParser;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\Compatibility\EnvironmentCompatibility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
@@ -718,8 +719,8 @@ class XmlParser
                     // Adds the csv file if it exists
                     $csvFileName = '';
                     if (isset($xmlTagValue['csv'])) {
-                        $csvFileName = 'typo3temp/sav_charts/img_' . $chartId . '.csv';
-                        $fileHandle = fopen(EnvironmentCompatibility::getSitePath() . $csvFileName, 'w');
+                        $csvFileName = '/typo3temp/sav_charts/img_' . $chartId . '.csv';
+                        $fileHandle = fopen(Environment::getPublicPath() . $csvFileName, 'w');
                         fwrite($fileHandle, $xmlTagValue['csv']);
                         fclose($fileHandle);
                     }

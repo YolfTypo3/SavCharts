@@ -13,7 +13,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['savcharts_de
 
 // Registers the Plugin to be listed in the Backend.
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'sav_charts',
+    'SavCharts',
 	'Default',
 	'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1'
 );
