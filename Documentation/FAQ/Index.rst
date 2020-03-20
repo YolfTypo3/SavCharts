@@ -61,7 +61,7 @@ Save, clear the cache and go in the frontend.
          }
       }
     
-   The translation is simple :
+   The translation is simple:
     
    - Replace options by a **<data id="..."> ... </data>** where the id is the 
      identifier for the chart options (it is defined in the template).
@@ -136,7 +136,7 @@ callback for which a tag <callback> must be used with the callback name as the k
     
    The javascript function must be in a XML comment.   
     
-With these rules, the above code is translated as follows : 
+With these rules, the above code is translated as follows: 
 
 .. code::
 
@@ -159,7 +159,7 @@ Javascript Function in a File
 
 When the javascript function associated with the callback is more complex, 
 you can also put it in a file and call that file in the callback 
-as shown in the floowing configuration.
+as shown in the following configuration.
 
 .. figure:: ../Images/FAQ/tooltipLabelCallbackByFileName.png	
 
