@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2020-04-06T06:17:52Z" product-name="sav_charts">
+    <file source-language="en" datatype="plaintext" original="messages" date="2020-12-10T08:31:18Z" product-name="sav_charts">
         <header/>
         <body>
             <trans-unit id="tx_savcharts_domain_model_database" xml:space="preserve">
