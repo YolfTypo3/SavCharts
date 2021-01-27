@@ -10,7 +10,7 @@ mod.wizards {
                     description = Extension which displays charts using the charts.js library
                     tt_content_defValues {
                         CType = list
-                        list_type = sav_charts_default
+                        list_type = savcharts_default
                     }
                 }
             }
