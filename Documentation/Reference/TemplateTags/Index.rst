@@ -32,16 +32,16 @@ template
     Loads the XML template file given inside the XML tag.
     The file name is relative to the site path.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier.  
+    - id (required): the identifier.  
         
-    It is equivalent to\:
+    It is equivalent to:
 
     .. code::
 
     	<template id="myTemplateId">
-    		<loadTemplate fileName="yourFileName.xml"/>
+    	   <loadTemplate fileName="yourFileName.xml"/>
     	</template>
 
      
@@ -61,9 +61,9 @@ loadTemplate
   Description
     Loads the XML template file given in the fileName attribute.
     
-    Attributes\:
+    Attributes:
     
-    - fileName (required)\: the file name is relative to the site path.      
+    - fileName (required): the file name is relative to the site path.      
 
 
 

@@ -53,6 +53,7 @@
             <data id="marker#setId">
                 <item key="label" value="marker#marker#labelSetId" />
                 <item key="backgroundColor" value="data#lowIntensityColors:for#initSets:key" />
+                <item key="borderColor" value="data#fullIntensityColors:for#initSets:key" />                
                 <item key="pointColor" value="data#middleIntensityColors:for#initSets:key" />
                 <item key="pointBackgroundColor">#fff</item>
                 <item key="pointHoverBackgroundColor" value="data#fullIntensityColors:for#initSets:key" />
@@ -72,13 +73,15 @@
         <data id="lineChartOptions">
             <item key="animation" value="false" />
             <item key="responsive" value="false" />            
-            <item key="title">
-                <item key="display" value="true" />
-                <item key="text" value="marker#title" />
+            <item key="plugins">
+            	<item key="title">
+                	<item key="display" value="true" />
+                	<item key="text" value="marker#title" />
+            	</item>
+            	<item key="tooltip">
+                	<item key="backgroundColor">rgba(0,0,0,0.7)</item>
+            	</item>
             </item>
-            <item key="tooltips">
-                <item key="backgroundColor">rgba(0,0,0,0.7)</item>
-            </item> 
         </data>
 
         <!-- Prepares data for exportation in CSV if requested -->       

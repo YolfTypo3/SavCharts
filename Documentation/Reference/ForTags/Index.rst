@@ -28,12 +28,12 @@ for
     Object
      
   Description
-    Repeats the sequence inside the tag for each element provided by means of the "each"
+    Repeats the sequence inside the tag for each element provided by means of the ``each``
     attribute.
     
-    Attributes\:
+    Attributes:
     
-    - each (required)\: the element for the repetition.  
+    - each (required): the element for the repetition.  
    
 
 

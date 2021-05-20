@@ -11,9 +11,14 @@ Changelog
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
-10.4.0   - Compatibility changed to TYPO3 10.4.0.
+11.2.0   - Compatibility changed to TYPO3 11.2.x.
+         - Version of charts.js changed to 3.2.1.
+         - Scatter graph added with example.
+         - Combination graph example added.
+         
+10.4.0   - Compatibility changed to TYPO3 10.4.x.
 
-10.3.0   - Compatibility changed to TYPO3 10.3.0.
+10.3.0   - Compatibility changed to TYPO3 10.3.x.
          - Version of charts.js changed to 2.9.3.
          - True or false values and use of functions outside callbacks added (issue #1).	
 

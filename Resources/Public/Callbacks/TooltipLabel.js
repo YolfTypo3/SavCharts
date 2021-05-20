@@ -1,3 +1,3 @@
-function(tooltipItem, data) {
-	return data.labels[tooltipItem.index] + ' - ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + ' €';
+function(context) {
+	return context.label + ' - ' + context.formattedValue + ' €';
 } 

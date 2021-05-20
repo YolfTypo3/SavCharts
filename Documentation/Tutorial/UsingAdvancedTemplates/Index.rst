@@ -9,13 +9,13 @@ Using Advanced templates
 More complex templates are provided with SAV Charts. They can display 
 upto to 9 items in the same charts. 
 
-Colors are defined in a specific template **DefaultColors.xml** 
+Colors are defined in a specific template ``DefaultColors.xml`` 
 which were chosen to provide constrast between items.
 
 Let us illustrate the use of advanced templates with, for example, 
-the template **LineChartAdvanced.xml**.
+the template ``LineChartAdvanced.xml``.
 
-In the template section enter the following code, save and go in the frontend.
+In the template section enter the following code, save and go to the frontend.
 
 .. code::
 
@@ -28,7 +28,7 @@ In the template section enter the following code, save and go in the frontend.
 The chart has 9 superposed curves with the same data, predefined 
 colors, predefined labels and a predefined title.
 
-In the data section enter the following code, save and go in the frontend.  
+In the data section enter the following code, save and go to the frontend.  
 
 .. code::
 
@@ -51,7 +51,7 @@ Modify the data section as follows:
       1, 2, 3, 4, 5, 6, 7
    </data>
     
-In the marker section, enter the following code, save and go in the frontend.
+In the marker section, enter the following code, save and go to the frontend.
 
 .. code::
 

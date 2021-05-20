@@ -8,7 +8,7 @@ Administration
 
 .. important::
 
-   The flag **Allow queries (Admin)** must be set by an Admin user in the content 
+   The flag ``Allow queries (Admin)`` must be set by an Admin user in the content 
    flexform to execute queries.
     
 .. warning:: 
@@ -64,7 +64,7 @@ Marker Tags From TypoScript
 ===========================
 
 Marker tags can be created from TypoScript and used in charts. In the following example
-the marker **MyMarker** takes the value **MyValue**.
+the marker ``MyMarker`` takes the value ``MyValue``.
 
 .. code::
 
@@ -75,9 +75,9 @@ Marker Replacement in Queries
 =============================   
    
 Marker replacement can also be performed in queries. The following 
-example shows how to define the marker **MyMarker** associated 
-with the query whose uid is equal to 1. The marker value **MyValue** 
-will replace any marker **###MyMarker###** in the query clauses.
+example shows how to define the marker ``MyMarker`` associated 
+with the query whose uid is equal to 1. The marker value ``MyValue`` 
+will replace any marker ``###MyMarker###`` in the query clauses.
 
 .. code::
 

@@ -2,7 +2,8 @@
 
 defined('TYPO3_MODE') or die();
 
-if (version_compare(\YolfTypo3\SavCharts\Controller\DefaultController::getTypo3Version(), '10.0', '<')) {
+$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+if (version_compare($typo3Version->getVersion(), '10.0', '<')) {
     $interface = [
     	'showRecordFieldList' => 'hidden,title,driver,tables,host,port,socket,name,username,userpassword,persistent'
     ];
@@ -27,7 +28,7 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label'  => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'label'  => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf.xlf:LGL.hidden',
             'config' => [
                 'type'  => 'check',
                 'default' => 0,

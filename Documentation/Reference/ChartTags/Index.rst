@@ -22,6 +22,7 @@ Tag                                    Data type        Description
 :ref:`chart.pieChart`                  Object           Creates a pie chart object.
 :ref:`chart.polarAreaChart`            Object           Creates a polar area chart object.
 :ref:`chart.radarChart`                Object           Creates a radar chart object.
+:ref:`chart.scatterChart`              Object           Creates a scatter chart object.
 :ref:`chart.stackedBarChart`           Object           Creates a stacked bar chart object.
 ====================================== ================ =================================================
 
@@ -58,11 +59,11 @@ addItem
   Description
     Method associated with the root tag <charts> which adds an item in an array.
     
-    Attributes\:
+    Attributes:
     
-    - reference (required)\: the object reference.    
-    - key (required)\: the key of the item in the array.              
-    - value(required)\: the value associated with the item.        
+    - reference (required): the object reference.    
+    - key (required): the key of the item in the array.              
+    - value(required): the value associated with the item.        
      
      
 .. _chart.exportCsv:
@@ -81,13 +82,13 @@ exportCsv
   Description
     Method associated with the root tag <charts> which makes it possible to export data in the CSV format.
     
-    Attributes\:
+    Attributes:
     
-    - reference (required)\: the object reference.    
-    - data (required)\: the reference to data.              
-    - rowHeader\: if set, the reference to the row header.  
-    - columnHeader\: if set, the reference to the column header.    
-    - encoding\: if set, the encoding is used to convert the output. By default, the CSV output is converted to ISO-8859-1.      
+    - reference (required): the object reference.    
+    - data (required): the reference to data.              
+    - rowHeader: if set, the reference to the row header.  
+    - columnHeader: if set, the reference to the column header.    
+    - encoding: if set, the encoding is used to convert the output. By default, the CSV output is converted to ISO-8859-1.      
      
      
 .. _chart.setId:
@@ -106,10 +107,10 @@ setId
   Description
     Method associated with the root tag <charts> which makes it possible to change the id of the object given in the reference attribute.
     
-    Attributes\:
+    Attributes:
     
-    - reference (required)\: the object reference.    
-    - newId (required)\: the new id.              
+    - reference (required): the object reference.    
+    - newId (required): the new id.              
                      
 
 .. _chart.barChart:
@@ -128,13 +129,13 @@ barChart
   Description
     Creates a bar chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
 .. _chart.bubbleChart:
@@ -153,13 +154,13 @@ bubbleChart
   Description
     Creates a buble chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
       
 .. _chart.doughnutChart:
@@ -178,13 +179,13 @@ doughnutChart
   Description
     Creates a doughnut chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
 .. _chart.horizontalBarChart:
@@ -204,13 +205,13 @@ horizontalBarChart
   Description
     Creates an horizontal bar chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
 
@@ -231,20 +232,20 @@ horizontalStackedBarChart
   Description
     Creates an horizontal stacked bar chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
  
  
       
 .. _chart.lineChart:
 
 lineChart
-^^^^^^^^^
+=========
 
 .. container:: table-row
 
@@ -257,13 +258,13 @@ lineChart
   Description
     Creates a doughnut chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
       
@@ -283,13 +284,13 @@ pieChart
   Description
     Creates a pie chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
       
@@ -309,13 +310,13 @@ polarAreaChart
   Description
     Creates a polar Area chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
       
@@ -335,13 +336,39 @@ radarChart
   Description
     Creates a radar chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
+
+
+
+.. _chart.scatterChart:
+
+scatterChart
+============
+
+.. container:: table-row
+
+  Property
+    <scatterChart id="myScatterChartId" data="data#myScatterChartData">...</radarChart>
+    
+  Data type
+    Object
+    
+  Description
+    Creates a scatter chart object.
+    
+    Attributes:
+    
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
 
 
       
@@ -361,13 +388,13 @@ stackedBarChart
   Description
     Creates a stacked bar chart object.
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier. 
-    - data (required)\: a reference to the data used for the chart (in general a reference to a data object).
-    - options\: a reference to the options (in general a reference to a data object).  
-    - width\: the canvas width. If this attribute is not provided, the default width is 400.
-    - height\: the canvas height. If this attribute is not provided, the default height is 300.
+    - id (required): the identifier. 
+    - data (required): a reference to the data used for the chart (in general a reference to a data object).
+    - options: a reference to the options (in general a reference to a data object).  
+    - width: the canvas width. If this attribute is not provided, the default width is 400.
+    - height: the canvas height. If this attribute is not provided, the default height is 300.
     
     
        

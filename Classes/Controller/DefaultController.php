@@ -13,6 +13,7 @@ namespace YolfTypo3\SavCharts\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
@@ -127,25 +128,9 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Sets the controller context
-     *
-     * @return void
-     */
-    public function setControllerContext()
-    {
-        $requestBuilder = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder::class);
-        $this->request = $requestBuilder->build();
-        $this->response = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Response::class);
-        $this->uriBuilder = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class);
-        $this->controllerContext = $this->buildControllerContext();
-        $flashMessageService = $this->objectManager->get(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
-        $this->controllerContext->injectFlashMessageService($flashMessageService);
-    }
-
-    /**
      * show action
      *
-     * @return void
+     * @return void|ResponseInterface
      */
     public function showAction()
     {
@@ -211,6 +196,11 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         // Adds the canvases to the view
         $this->view->assign('canvases', $canvases);
+
+        // For TYPO3 V11: action mut return an instance of Psr\Http\Message\ResponseInterface
+        if (method_exists($this, 'htmlResponse')) {
+            return $this->htmlResponse($this->view->render());
+        }
     }
 
     /**
@@ -314,21 +304,24 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     }
 
     /**
-     * Gets the TYPO3 version
+     * Sets the controller context.
+     * This method is called by sav_library_plus when graph items
+     * are used.
      *
-     * @todo Will be removed in TYPO3 11
-     *
-     * @return string
+     * @return void
      */
-    public static function getTypo3Version()
+    public function setControllerContext()
     {
-        if (class_exists(\TYPO3\CMS\Core\Information\Typo3Version::class)) {
-            $typo3Version = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class)->getVersion();
-        } else {
-            // @extensionScannerIgnoreLine
-            $typo3Version = TYPO3_version;
+        $requestBuilder = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder::class);
+        $this->request = $requestBuilder->build();
+        $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+        if (version_compare($typo3Version->getVersion(), '11.0', '<')) {
+            $this->response = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Response::class);
         }
-        return $typo3Version;
+        $this->uriBuilder = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class);
+        $this->controllerContext = $this->buildControllerContext();
+        $flashMessageService = $this->objectManager->get(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
+        $this->controllerContext->injectFlashMessageService($flashMessageService);
     }
 }
 ?>

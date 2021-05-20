@@ -30,9 +30,9 @@ plugin
   Description
     Loads the javascript file (see the FAQ section).
     
-    Attributes\:
+    Attributes:
     
-    - id (required)\: the identifier.  
+    - id (required): the identifier.  
 
 
        

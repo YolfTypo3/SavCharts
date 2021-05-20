@@ -38,12 +38,8 @@ class XmlParser
             'type' => 'bar',
             'options' => [
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'beginAtZero' => 1
-                            ]
-                        ]
+                    'y' => [
+                        'beginAtZero' => 1
                     ]
                 ]
             ]
@@ -57,35 +53,27 @@ class XmlParser
             'options' => []
         ],
         'horizontalBarChart' => [
-            'type' => 'horizontalBar',
+            'type' => 'bar',
             'options' => [
+                'indexAxis' => 'y',
                 'scales' => [
-                    'xAxes' => [
-                        [
-                            'ticks' => [
-                                'beginAtZero' => 1
-                            ]
-                        ]
+                    'x' => [
+                        'beginAtZero' => 1
                     ]
                 ]
             ]
         ],
         'horizontalStackedBarChart' => [
-            'type' => 'horizontalBar',
+            'type' => 'bar',
             'options' => [
+                'indexAxis' => 'y',
                 'scales' => [
-                    'xAxes' => [
-                        [
-                            'stacked' => true
-                        ]
+                    'x' => [
+                        'stacked' => true
                     ],
-                    'yAxes' => [
-                        [
-                            'stacked' => true,
-                            'ticks' => [
-                                'beginAtZero' => 1
-                            ]
-                        ]
+                    'y' => [
+                        'stacked' => true,
+                        'beginAtZero' => 1
                     ]
                 ]
             ]
@@ -96,24 +84,14 @@ class XmlParser
         ],
         'polarAreaChart' => [
             'type' => 'polarArea',
-            'options' => [
-                'scale' => [
-                    'ticks' => [
-                        'beginAtZero' => 1
-                    ]
-                ]
-            ]
+            'options' => []
         ],
         'lineChart' => [
             'type' => 'line',
             'options' => [
                 'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'beginAtZero' => 1
-                            ]
-                        ]
+                    'y' => [
+                        'beginAtZero' => 1
                     ]
                 ]
             ]
@@ -122,22 +100,20 @@ class XmlParser
             'type' => 'bar',
             'options' => [
                 'scales' => [
-                    'xAxes' => [
-                        [
-                            'stacked' => true
-                        ]
+                    'x' => [
+                        'stacked' => true
                     ],
-                    'yAxes' => [
-                        [
-                            'stacked' => true,
-                            'ticks' => [
-                                'beginAtZero' => 1
-                            ]
-                        ]
+                    'y' => [
+                         'stacked' => true,
+                          'beginAtZero' => 1
                     ]
                 ]
             ]
-        ]
+        ],
+        'scatterChart' => [
+            'type' => 'scatter',
+            'options' => []
+        ],
     ];
 
     /**
@@ -314,6 +290,7 @@ class XmlParser
      */
     public static function getIdAttribute(\SimpleXMLElement $element)
     {
+        // @extensionScannerIgnoreLine
         $id = (string) $element->attributes()->id;
         if ($id == '') {
             $id = 0;
@@ -644,7 +621,7 @@ class XmlParser
         $chartCounter = 0;
 
         // Processes the plugins
-        $javaScriptFooterInlineCode[] = 'Chart.plugins.register([';
+        $javaScriptFooterInlineCode[] = 'Chart.register(';
         if (is_array(self::$xmlTagResults['plugin'])) {
             foreach (self::$xmlTagResults['plugin'] as $xmlTagResultKey => $xmlTagResult) {
                 // Gets the xml tag value
@@ -657,7 +634,7 @@ class XmlParser
                 $javaScriptFooterInlineCode[] = file_get_contents($pluginFileName) . ',';
             }
         }
-        $javaScriptFooterInlineCode[] = ']);';
+        $javaScriptFooterInlineCode[] = ');';
 
         // Processes the charts
         foreach (self::$xmlTagResults as $xmlTagKey => $xmlTag) {
@@ -678,13 +655,17 @@ class XmlParser
                     if (empty($xmlTagValue['options'])) {
                         $options = self::$allowedChartTags[$xmlTagKey]['options'];
                     } else {
-                        $options = array_merge(self::$allowedChartTags[$xmlTagKey]['options'], self::getValueFromReference($xmlTagValue['options']));
+                        $valueFromReference = self::getValueFromReference($xmlTagValue['options']);
+                        if ($valueFromReference === null || (isset($valueFromReference[0]) && empty($valueFromReference[0]))) {
+                            $valueFromReference = [];
+                        }
+                        $options = array_merge_recursive(self::$allowedChartTags[$xmlTagKey]['options'], $valueFromReference);
                     }
+
                     if (empty($options)) {
                         $options = '{}';
                     } else {
                         $options = json_encode($options, JSON_NUMERIC_CHECK);
-
                         // Processes the callbacks if any
                         $matches = [];
                         if (preg_match_all('/"<!--(###)?(.*?)(###)?-->"/', $options, $matches)) {

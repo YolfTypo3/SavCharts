@@ -9,12 +9,12 @@ Designing XML Templates From Examples
 Introduction
 ============
 
-The `charts.js documentation <http://www.chartjs.org/docs/>`_ provides 
+The `charts.js documentation <https://www.chartjs.org/docs/>`_ provides 
 examples for the different charts. 
 
 The SAV Charts extension comes with templates for all chart types. 
 These templates are in the directory
-**Resources/Private/Templates/ChartExamples** of the extension.
+``Resources/Private/Templates/ChartExamples`` of the extension.
 
 To display a template, simply create a SAV Charts plugin content element in a page. 
 
@@ -36,7 +36,7 @@ Writing Templates
 =================
 
 The templates provided with the extension were adpated from the 
-examples given in the `charts.js documentation <http://www.chartjs.org/docs/>`_.
+examples given in the `charts.js documentation <https://www.chartjs.org/docs/>`_.
 Let us illustrate the principle for the line chart.
 
 The javascript code to display the line graph is the following:
@@ -70,13 +70,13 @@ The javascript code to display the line graph is the following:
    };
 
 The template is built by transforming this javascript code into a 
-XML structure using the **<data>** tag. By doing so, thanks to the 
+XML structure using the ``<data>`` tag. By doing so, thanks to the 
 data tag id, references can be used.
 References provide an easy means to split the data and therefore 
 to make it possible to have them overloaded in the flexform data section or with queries.
 
 The following code is the translation in XML of the previous 
-javascript code where **<data>** tags whose id are **labels**, **dataSet1** and **dataSet2**
+javascript code where ``<data>`` tags whose id are ``labels``, ``dataSet1`` and ``dataSet2``
 can be easily overloaded as explained in the next section.
 
 .. code::
@@ -136,9 +136,9 @@ can be easily overloaded as explained in the next section.
 
 .. tip::
     
-   **<data>** were inserted inside the **<lineChart>** tag just by personal choice. 
+   ``<data>`` were inserted inside the ``<lineChart>`` tag just by personal choice. 
    They could have been provided before 
-   the **<lineChart>** tag. In that case, this tag would have no content 
+   the ``<lineChart>`` tag. In that case, this tag would have no content 
    and would simply be written:
     
    .. code::
@@ -159,18 +159,18 @@ Go in the frontend and you should see the following figure.
 
 The principle in SAV Charts is to consider that for a given tag 
 with a given id the first definition is the first one to use. Therefore, in the
-previous example, since <data> tag for id **dataSet0** and **dataSet1** 
+previous example, since <data> tag for id ``dataSet0`` and ``dataSet1`` 
 are defined in the data section, which is 
 before the template section, they will not be replaced by the 
-same **<data>** tags in the template. One may consider 
-that the **<data>** tags in the data section overloads the same tags in the template. 
+same ``<data>`` tags in the template. One may consider 
+that the ``<data>`` tags in the data section overloads the same tags in the template. 
 
 It provides a quite simple way of working with generic templates and 
 adapting their behavior with your real data.
-For example, using the same template **LineChart.xml**, you may want 
+For example, using the same template ``LineChart.xml``, you may want 
 to display only one curve.
-It can simply be done by defining the **<data>** tag whose id is 
-**dataSets** in the data section as shown below.
+It can simply be done by defining the ``<data>`` tag whose id is 
+``dataSets`` in the data section as shown below.
 
 .. code::
 
@@ -189,7 +189,7 @@ Enter the previous code in the flexform data section, save and go to the fronten
 
    In very specific cases you may explicitly allow to overload a given tag 
    by setting the attribute overload to 1. See  
-   **Resources/Private/Templates/ChartExamples/LineChartAdvanced.xml** in which this 
+   ``Resources/Private/Templates/ChartExamples/LineChartAdvanced.xml`` in which this 
    feature is used to build a flexible template.
 
 Overloading Markers
@@ -198,9 +198,9 @@ Overloading Markers
 Markers are tags which can be used to create strings. In the line chart 
 template two markers are used to define labels
 which are displayed in the legend. The markers can be overloaded in the 
-**Markers** section of the flexform. Assuming that you have
+``Markers`` section of the flexform. Assuming that you have
 the previous code to display only one line chart, input the following code in 
-the **Markers** sections, save and go to the frontend.
+the ``Markers`` sections, save and go to the frontend.
 
 .. code::
 
@@ -212,8 +212,8 @@ Options
 =======
 
 Options are defined in the charts.js documentation. They can be set by 
-overloading the **<data>** tag associated with the options
-attribute of the chart. For example, in the **LineChart.xml** template, 
+overloading the ``<data>`` tag associated with the options
+attribute of the chart. For example, in the ``LineChart.xml`` template, 
 the chart is defined as follows: 
 
 .. code::
@@ -222,14 +222,14 @@ the chart is defined as follows:
       ....
    </lineChart>  
 
-The **options** attribute is a reference to the **<data>** tag whose id is **lineChartOptions**.
+The ``options`` attribute is a reference to the ``<data>`` tag whose id is ``lineChartOptions``.
 
-Overloading this tag in the **Data** section of the flexform will set options.
+Overloading this tag in the ``Data`` section of the flexform will set options.
 
 Let us assume that the data section is still configure for a single chart, 
 with a modifed label.
 
-Add the following code in the **Data** section of the flexform. It will cancel the animation, 
+Add the following code in the ``Data`` section of the flexform. It will cancel the animation, 
 set a linear interpolation between points.
 
 .. code::
@@ -246,16 +246,16 @@ set a linear interpolation between points.
 .. note::
 
    A linear interpolation is obtained by setting tension to 0 in 
-   **Chart.defaults.global.elements.line** 
-   (see `charts.js documentation <http://www.chartjs.org/docs/>`_). 
-   Since the global option are in the **<data>** 
-   whose id is **lineChartOptions**, nested items whose 
-   keys are **elements** and **line** provide acces to **Chart.defaults.global.elements.line**.
+   ``Chart.defaults.global.elements.line`` 
+   (see `charts.js documentation <https://www.chartjs.org/docs/>`_). 
+   Since the global option are in the ``<data>`` 
+   whose id is ``lineChartOptions``, nested items whose 
+   keys are ``elements`` and ``line`` provide acces to ``Chart.defaults.global.elements.line``.
 
 .. figure:: ../../Images/Tutorial/SingleLineBarWithOptionsInFrontend.png   
 
 .. tip::
 
-   To generate a boolean value, set the attribute **value** to **true** or **false**.
+   To generate a boolean value, set the attribute ``value`` to ``true`` or ``false``.
 
   

@@ -2,7 +2,8 @@
 defined('TYPO3_MODE') or die();
 
 // Configures the Dispatcher
-if (version_compare(\YolfTypo3\SavCharts\Controller\DefaultController::getTypo3Version(), '10.0', '<')) {
+$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+if (version_compare($typo3Version->getVersion(), '10.0', '<')) {
     // @extensionScannerIgnoreLine
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'YolfTypo3.sav_charts',

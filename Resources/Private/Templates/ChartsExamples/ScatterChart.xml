@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts>		
+	<scatterChart id="1" data="data#scatterChartData" options="data#scatterChartOptions" >
+
+        <marker id="labelSet0">My First dataset</marker>
+        <marker id="labelSet1">My Second dataset</marker>   
+	
+	
+		<data id="dataSet0x">
+			65, 59, 90, 81, 56
+		</data>
+		<data id="dataSet0y">
+			10, 15, 9, 25, 19
+		</data>		
+		<data id="dataSet1x">
+			28, 48, 40, 19, 96, 27, 100
+		</data>	
+		<data id="dataSet1y">
+			2, 4, 10, 9, 16, 7, 23
+		</data>			
+			
+        <for id="initData0" each="data#dataSet0x">          
+            <data id="dataSet0" overload="1">
+            	<item key="for#initData0:key">
+                	<item key="x" value="data#dataSet0x:for#initData0:key" />
+                	<item key="y" value="data#dataSet0y:for#initData0:key" />
+            	</item>
+            </data>
+        </for>  
+        
+        <for id="initData1" each="data#dataSet1x">          
+            <data id="dataSet1" overload="1">
+            	<item key="for#initData1:key">
+                	<item key="x" value="data#dataSet1x:for#initData1:key" />
+                	<item key="y" value="data#dataSet1y:for#initData1:key" />
+            	</item>
+            </data>
+        </for>  
+			
+		<data id="set0">
+            <item key="label" value="marker#labelSet0" />
+            <item key="backgroundColor">rgba(255,0,0,0.2)</item>
+            <item key="borderColor">rgba(255,0,0,1)</item>
+            <item key="data" value="data#dataSet0" />
+		</data>	
+	
+		<data id="set1">
+            <item key="label" value="marker#labelSet1" />
+            <item key="backgroundColor">rgba(0,0,255,0.2)</item>
+            <item key="borderColor">rgba(0,0,255,1)</item>
+            <item key="data" value="data#dataSet1" />
+		</data>		
+	
+		<data id="dataSets">
+			<item key="0" value="data#set0" />
+			<item key="1" value="data#set1" />
+		</data>		
+	
+		<data id="scatterChartData">			
+			<item key="datasets" value="data#dataSets" />		
+		</data>	
+		
+        <data id="scatterChartOptions">   
+        </data>
+        
+	</scatterChart>
+</charts>
