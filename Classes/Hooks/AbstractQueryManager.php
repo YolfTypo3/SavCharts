@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\Hooks;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,6 +12,9 @@ namespace YolfTypo3\SavCharts\Hooks;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\Hooks;
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\TypoScript\TypoScriptService;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -122,5 +124,3 @@ abstract class AbstractQueryManager implements QueryManagerInterface
         return [];
     }
 }
-
-?>

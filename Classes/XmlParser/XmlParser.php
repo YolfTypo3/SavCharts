@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\XmlParser;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,9 +12,11 @@ namespace YolfTypo3\SavCharts\XmlParser;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\XmlParser;
+
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use YolfTypo3\SavCharts\Compatibility\EnvironmentCompatibility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
 
 /**
@@ -627,9 +628,10 @@ class XmlParser
                 // Gets the xml tag value
                 $pluginFileName = $xmlTagResult->getXmlTagValue();
                 if (! file_exists($pluginFileName)) {
-                    return self::getController()->addError('error.unknownFile', [
+                    self::getController()->addError('error.unknownFile', [
                         $pluginFileName
                     ]);
+                    return $result;
                 }
                 $javaScriptFooterInlineCode[] = file_get_contents($pluginFileName) . ',';
             }
@@ -674,9 +676,10 @@ class XmlParser
                                     // The call back is provided by its file name
                                     $callbackFileName = str_replace('\/', '/', $matches[2][$matchKey]);
                                     if (! file_exists($callbackFileName)) {
-                                        return self::getController()->addError('error.unknownFile', [
+                                        self::getController()->addError('error.unknownFile', [
                                             $callbackFileName
                                         ]);
+                                        return $result;
                                     }
                                     $options = str_replace($match, file_get_contents($callbackFileName), $options);
                                 } else {
@@ -928,5 +931,3 @@ class XmlParser
         return $data;
     }
 }
-
-?>

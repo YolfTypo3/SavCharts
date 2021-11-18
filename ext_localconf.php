@@ -37,5 +37,3 @@ $iconRegistry->registerIcon('ext-savcharts-wizard', \TYPO3\CMS\Core\Imaging\Icon
 
 // Adds a hook for the query manager
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sav_charts']['queryManagerClass']['savcharts'] = \YolfTypo3\SavCharts\Hooks\SavChartsQueryManager::class;
-
-?>

@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\Hooks;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,6 +12,8 @@ namespace YolfTypo3\SavCharts\Hooks;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\Hooks;
 
 /**
  * Interface query managers
@@ -47,5 +48,3 @@ interface QueryManagerInterface
     public function injectMarkers(array $markers);
 
 }
-
-?>

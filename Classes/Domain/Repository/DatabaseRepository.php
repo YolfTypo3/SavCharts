@@ -1,7 +1,5 @@
 <?php
 
-namespace YolfTypo3\SavCharts\Domain\Repository;
-
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -15,6 +13,8 @@ namespace YolfTypo3\SavCharts\Domain\Repository;
  * The TYPO3 project - inspiring people to share
  */
 
+namespace YolfTypo3\SavCharts\Domain\Repository;
+
 /**
  * Repository for the Database model in the extension SavCharts
  *
@@ -23,5 +23,3 @@ class DatabaseRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
 }
-?>
-

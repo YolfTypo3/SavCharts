@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\Hooks;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,6 +12,9 @@ namespace YolfTypo3\SavCharts\Hooks;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\Hooks;
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
@@ -34,7 +36,7 @@ class SavChartsQueryManager extends AbstractQueryManager
      *
      * @param int $queryId
      *            The query id
-     *            
+     *
      * @return array The rows
      */
     public function executeQuery(int $queryId): array
@@ -45,11 +47,11 @@ class SavChartsQueryManager extends AbstractQueryManager
         }
 
         // Builds the query
-        $query = 'SELECT ' . $this->query['selectClause'] . 
-            ' FROM ' . $this->query['fromClause'] . 
-            ($this->query['whereClause'] ? ' WHERE ' . $this->query['whereClause'] : '') . 
-            ($this->query['groupbyClause'] ? ' GROUP BY ' . $this->query['groupbyClause'] : '') . 
-            ($this->query['orderbyClause'] ? ' ORDER BY ' . $this->query['orderbyClause'] : '') . 
+        $query = 'SELECT ' . $this->query['selectClause'] .
+            ' FROM ' . $this->query['fromClause'] .
+            ($this->query['whereClause'] ? ' WHERE ' . $this->query['whereClause'] : '') .
+            ($this->query['groupbyClause'] ? ' GROUP BY ' . $this->query['groupbyClause'] : '') .
+            ($this->query['orderbyClause'] ? ' ORDER BY ' . $this->query['orderbyClause'] : '') .
             ($this->query['limitClause'] ? ' LIMIT ' . $this->query['limitClause'] : '');
 
         $rows = $this->databaseConnection->query($query)->fetchAll();
@@ -67,7 +69,7 @@ class SavChartsQueryManager extends AbstractQueryManager
      *
      * @param int $queryId
      *            The query id
-     *            
+     *
      * @return bool
      */
     protected function initialize(int $queryId): bool
@@ -146,4 +148,3 @@ class SavChartsQueryManager extends AbstractQueryManager
         return $this->databaseConnection->isConnected();
     }
 }
-?>

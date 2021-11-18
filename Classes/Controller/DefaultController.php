@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\Controller;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,6 +12,9 @@ namespace YolfTypo3\SavCharts\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\Controller;
+
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -197,7 +199,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         // Adds the canvases to the view
         $this->view->assign('canvases', $canvases);
 
-        // For TYPO3 V11: action mut return an instance of Psr\Http\Message\ResponseInterface
+        // For TYPO3 V11: action must return an instance of Psr\Http\Message\ResponseInterface
         if (method_exists($this, 'htmlResponse')) {
             return $this->htmlResponse($this->view->render());
         }
@@ -305,24 +307,31 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
     /**
      * Sets the controller context.
+     *
      * This method is called by sav_library_plus when graph items
-     * are used.
+     * are used (for TYPO3 versions below V11 only).
+     *
+     * @todo Will be removed with TYPO3 V13.
      *
      * @return void
      */
     public function setControllerContext()
     {
-        $requestBuilder = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder::class);
-        $this->request = $requestBuilder->build();
         $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
         if (version_compare($typo3Version->getVersion(), '11.0', '<')) {
-            $this->response = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Response::class);
+            $requestBuilder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder::class);
+
+            $requestBuilder->injectConfigurationManager($this->configurationManager);
+            $requestBuilder->injectObjectManager($this->objectManager);
+            $requestBuilder->injectExtensionService($this->objectManager->get(\TYPO3\CMS\Extbase\Service\ExtensionService::class));
+            $requestBuilder->injectEnvironmentService($this->objectManager->get(\TYPO3\CMS\Extbase\Service\EnvironmentService::class));
+            $this->response = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Mvc\Web\Response::class);
+            $this->request = $requestBuilder->build();
+
+            $this->uriBuilder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class);
+            $this->controllerContext = $this->buildControllerContext();
+            $flashMessageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
+            $this->controllerContext->injectFlashMessageService($flashMessageService);
         }
-        $this->uriBuilder = $this->objectManager->get(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class);
-        $this->controllerContext = $this->buildControllerContext();
-        $flashMessageService = $this->objectManager->get(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
-        $this->controllerContext->injectFlashMessageService($flashMessageService);
     }
 }
-?>
-

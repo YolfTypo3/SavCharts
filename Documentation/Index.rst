@@ -2,9 +2,9 @@
 
 .. _start:
 
-==========
+========== 
 SAV Charts
-==========
+========== 
 
 :Extension key:
    sav_charts
@@ -22,10 +22,10 @@ SAV Charts
    sav_charts    
 
 :Copyright:
-   2019
+   2021
 
 :Author:
-    Laurent Foulloy
+   Laurent Foulloy
 
 :Email:
    yolf.typo3@orange.fr
@@ -50,10 +50,4 @@ Table of Contents
    :glob:
   
    Introduction/Index
-   UsersManual/Index
-   Administration/Index
-   Reference/Index
-   Tutorial/Index
-   FAQ/Index
    Changelog/Index
-

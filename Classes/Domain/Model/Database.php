@@ -309,5 +309,3 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
 }
-?>
-

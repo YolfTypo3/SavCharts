@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\XmlParser\ChartXmlTag;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -14,6 +13,8 @@ namespace YolfTypo3\SavCharts\XmlParser\ChartXmlTag;
  * The TYPO3 project - inspiring people to share!
  */
 
+namespace YolfTypo3\SavCharts\XmlParser\ChartXmlTag;
+
 /**
  * Class for DoughnutChart
  *
@@ -23,5 +24,3 @@ class DoughnutChartXmlTag extends AbstractChartXmlTag
 {
 
 }
-
-?>

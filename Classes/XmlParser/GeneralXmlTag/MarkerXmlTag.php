@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,6 +12,8 @@ namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
 
 use YolfTypo3\SavCharts\XmlParser\XmlParser;
 
@@ -96,4 +97,3 @@ class MarkerXmlTag extends AbstractXmlTag
         $this->xmlTagValue = $markers;
     }
 }
-?>

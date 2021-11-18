@@ -1,5 +1,4 @@
 <?php
-namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -13,6 +12,9 @@ namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\XmlParser\XmlParser;
 
@@ -390,4 +392,3 @@ class DataXmlTag extends AbstractXmlTag
         $this->xmlTagValue[$key] = '<!--' . $text . '-->';
     }
 }
-?>
