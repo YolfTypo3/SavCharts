@@ -50,4 +50,9 @@ Table of Contents
    :glob:
   
    Introduction/Index
+   UsersManual/Index
+   Administration/Index
+   Reference/Index
+   Tutorial/Index
+   FAQ/Index
    Changelog/Index
