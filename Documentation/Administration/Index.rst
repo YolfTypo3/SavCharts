@@ -84,3 +84,4 @@ will replace any marker ``###MyMarker###`` in the query clauses.
    plugin.tx_savcharts.settings.customQuery = COA
    plugin.tx_savcharts.settings.customQuery.1.MyMarker = TEXT
    plugin.tx_savcharts.settings.customQuery.1.MyMarker.value = MyValue    
+   

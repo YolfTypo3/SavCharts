@@ -49,19 +49,3 @@ Table of Contents
    QueryTags/Index
    TemplateTags/Index
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -9,7 +9,3 @@ Users Manual
 #. Download the extension and install it.
 
 #. Read the tutorial section.
-
-
-
-  

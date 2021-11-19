@@ -239,4 +239,5 @@ The ``type`` attribute of the second dataset is set to ``line`` and the ``fill``
    </data>
 		
 The value for the ``type`` attribute of each chart is given in 
-the `charts.js documentation <https://www.chartjs.org/docs/>`_.		  
+the `charts.js documentation <https://www.chartjs.org/docs/>`_.		
+  
