@@ -3,7 +3,7 @@
 .. _usingAdvancedTemplates:
 
 ========================
-Using Advanced templates
+Using Advanced Templates
 ========================
 
 More complex templates are provided with SAV Charts. They can display 
