@@ -1,11 +1,11 @@
 <?php
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
 if (version_compare($typo3Version->getVersion(), '10.0', '<')) {
     $interface = [
-    	'showRecordFieldList' => 'hidden,title,database_id,select_clause,from_clause,where_clause,groupby_clause,orderby_clause,limit_clause'
+    	'showRecordFieldList' => ''
     ];
 } else {
     $interface = [];
@@ -28,7 +28,7 @@ return [
     'columns' => [
         'hidden' => [
             'exclude' => 1,
-            'label'  => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf.xlf:LGL.hidden',
+            'label'  => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type'  => 'check',
                 'default' => 0,

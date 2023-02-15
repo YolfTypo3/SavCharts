@@ -22,7 +22,7 @@ SAV Charts
    sav_charts    
 
 :Copyright:
-   2021
+   2023
 
 :Author:
    Laurent Foulloy
@@ -55,4 +55,7 @@ Table of Contents
    Reference/Index
    Tutorial/Index
    FAQ/Index
+   
+   EntityRelationshipDiagram/Index
+      
    Changelog/Index
