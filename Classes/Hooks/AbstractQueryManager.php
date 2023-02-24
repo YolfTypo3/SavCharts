@@ -90,7 +90,7 @@ abstract class AbstractQueryManager implements QueryManagerInterface
         // Gets the typoScript custom query
         $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
         $typoScriptConfiguration = $typoScriptService->convertPlainArrayToTypoScriptArray($this->controller->getSettings());
-        $isCustomQuery = is_array($typoScriptConfiguration) && is_array($typoScriptConfiguration['customQuery.']) && is_array($typoScriptConfiguration['customQuery.'][$queryId . '.']);
+        $isCustomQuery = is_array($typoScriptConfiguration['customQuery.'][$queryId . '.'] ?? null);
         if ($isCustomQuery) {
             $customQueryMarkers = $typoScriptConfiguration['customQuery.'][$queryId . '.'];
             $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);

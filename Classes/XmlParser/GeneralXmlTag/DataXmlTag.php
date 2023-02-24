@@ -383,7 +383,7 @@ class DataXmlTag extends AbstractXmlTag
         $document = new \DOMDocument();
         $document->loadXML($element->asXML());
         $xpath = new \DOMXPath($document);
-        $text = $xpath->query('/callback/comment()')->item(0)->textContent;
+        $text = $xpath->query('/callback/comment()')->item(0)->textContent ?? null;
 
         if (empty($text)) {
             $text = '###' . trim((string) $element) . '###';

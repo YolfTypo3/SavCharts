@@ -98,7 +98,7 @@ class SavChartsQueryManager extends AbstractQueryManager
         // in case of subqueries. It means that all tables in the query have to belong to the same connection.
         $match = [];
         if (preg_match('/^(?is:(\w+)|.*?FROM\s+(\w+))/', $this->query['fromClause'], $match) > 0) {
-            $tableForConnection = ($match[2] ? $match[2] : $match[1]);
+            $tableForConnection = $match[2] ?? $match[1];
         } else {
             $this->controller->addError('error.tableNotFound', [
                 $this->query['fromClause']

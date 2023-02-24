@@ -623,7 +623,7 @@ class XmlParser
 
         // Processes the plugins
         $javaScriptFooterInlineCode[] = 'Chart.register(';
-        if (is_array(self::$xmlTagResults['plugin'])) {
+        if (is_array(self::$xmlTagResults['plugin'] ?? null)) {
             foreach (self::$xmlTagResults['plugin'] as $xmlTagResultKey => $xmlTagResult) {
                 // Gets the xml tag value
                 $pluginFileName = $xmlTagResult->getXmlTagValue();
@@ -844,7 +844,7 @@ class XmlParser
 
         if ($matches !== false) {
 
-            if ($matches['idTagName'] && $matches['idId']) {
+            if (isset($matches['idTagName']) && $matches['idTagName'] && isset($matches['idId']) && $matches['idId']) {
                 $tagName = $matches['idTagName'];
                 $id = $matches['idId'];
                 $xmlTagResult = XmlParser::getXmlTagResult($tagName, $id);
@@ -888,8 +888,9 @@ class XmlParser
                     ]);
                 }
                 $xmlForTagValue = $xmlForTagResult->getXmlTagValue();
+
                 $index = $xmlForTagValue[$matches['indexForIdIndexWord']];
-                return $xmlTagValue[$index];
+                return $xmlTagValue[$index] ?? null;
             } elseif (isset($matches['indexWord']) && $tagName == 'for') {
                 // The reference is the curent key or value of a for xml tag.
                 $xmlForTagResult = XmlParser::getXmlTagResult('for', $matches['id']);

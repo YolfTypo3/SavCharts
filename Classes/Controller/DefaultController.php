@@ -81,8 +81,8 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $frontendConfigurationManager = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
         $typoScriptSetup = $frontendConfigurationManager->getTypoScriptSetup();
         $pluginSetupName = 'tx_' . strtolower($this->request->getControllerExtensionName()) . '.';
-        if (! @is_array($typoScriptSetup['plugin.'][$pluginSetupName]['view.'])) {
-            die('Fatal error: You have to include the static template of the extension ' . $extensionKey . '.');
+        if (! is_array($typoScriptSetup['plugin.'][$pluginSetupName]['view.'] ?? null)) {
+            throw new \RuntimeException('You have to include the static template of the extension ' . $extensionKey . '.');
         }
     }
 
@@ -151,7 +151,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         // Sets markers defined by typoscript
         $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
         $typoScriptConfiguration = $typoScriptService->convertPlainArrayToTypoScriptArray($this->getSettings());
-        if (is_array($typoScriptConfiguration) && is_array($typoScriptConfiguration['marker.'])) {
+        if (is_array($typoScriptConfiguration['marker.'] ?? null)) {
             $typoScriptMarkers = $typoScriptConfiguration['marker.'];
             foreach ($typoScriptMarkers as $typoScriptMarkerKey => $typoScriptMarker) {
                 if (strpos($typoScriptMarkerKey, '.') === false) {
