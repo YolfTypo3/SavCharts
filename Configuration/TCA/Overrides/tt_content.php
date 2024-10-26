@@ -19,4 +19,3 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['savcharts_de
 );
 
 // Adds addToInsertRecords() if any
-

@@ -3,6 +3,7 @@
 	<name>SAV Charts</name>
 	<comment></comment>
 	<projects>
+		<project>Polytech_11_x</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

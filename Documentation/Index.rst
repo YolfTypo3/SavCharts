@@ -2,9 +2,9 @@
 
 .. _start:
 
-========== 
+==========
 SAV Charts
-========== 
+==========
 
 :Extension key:
    sav_charts
@@ -16,13 +16,13 @@ SAV Charts
    en
 
 :Description:
-   Extension which displays charts using the charts.js library
+   Extension which displays charts using the chart.js library
 
 :Keywords:
-   sav_charts    
+   sav_charts
 
 :Copyright:
-   2023
+   2024
 
 :Author:
    Laurent Foulloy
@@ -43,19 +43,24 @@ a GNU/GPL CMS/Framework available from `www.typo3.org <https://www.typo3.org/>`_
 
 Table of Contents
 =================
-
 .. toctree::
    :maxdepth: 5
    :titlesonly:
    :glob:
-  
+
    Introduction/Index
    UsersManual/Index
    Administration/Index
    Reference/Index
    Tutorial/Index
    FAQ/Index
-   
    EntityRelationshipDiagram/Index
-      
    Changelog/Index
+
+.. Meta Menu
+
+.. toctree::
+   :hidden:
+
+   Sitemap
+   genindex    

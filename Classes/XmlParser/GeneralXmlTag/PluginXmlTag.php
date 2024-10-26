@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -30,7 +32,7 @@ class PluginXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function defaultMethod(\SimpleXMLElement $element)
+    public function defaultMethod(\SimpleXMLElement $element): void
     {
         $fileName = trim((string) $element);
         $this->xmlTagValue = $fileName;

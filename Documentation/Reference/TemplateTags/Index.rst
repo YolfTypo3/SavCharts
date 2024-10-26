@@ -2,17 +2,15 @@
 
 .. _templateTags:
 
-
 =============
 Template Tags
 =============
 
-================================= ================ =================================================
-Tag                               Data type        Description                 
-================================= ================ =================================================
-:ref:`template.template`          Object           Creates a template object.
-:ref:`template.loadTemplate`      Default method   Loads the template file name.
-================================= ================ =================================================
+.. only:: html
+
+   .. contents::
+      :depth: 1
+      :local:  
 
 
 .. _template.template:
@@ -20,21 +18,18 @@ Tag                               Data type        Description
 template
 ========
 
-.. container:: table-row
+.. confval:: template
 
-  Property
-    <template id="myTemplateId">yourFileName.xml</template>
+    ::
     
-  Data type
-    Object
-     
-  Description
-    Loads the XML template file given inside the XML tag.
-    The file name is relative to the site path.
+        <template id="myTemplateId">yourFileName.xml</template>
     
-    Attributes:
-    
-    - id (required): the identifier.  
+    :Type: Object
+    :Description:
+        Loads the XML template file given inside the XML tag.
+        The file name is relative to the site path.
+    :Attributes:
+        - id (required): the identifier.  
         
     It is equivalent to:
 
@@ -50,21 +45,14 @@ template
 loadTemplate
 ============
 
-.. container:: table-row
+.. confval:: loadTemplate
 
-  Property
-    <loadTemplate fileName="yourFileName.xml"/>
-
-  Data type
-    Default method
-
-  Description
-    Loads the XML template file given in the fileName attribute.
+    ::
     
-    Attributes:
-    
-    - fileName (required): the file name is relative to the site path.      
+        <loadTemplate fileName="yourFileName.xml"/>
 
-
-
-
+    :Type: Default method
+    :Description:
+        Loads the XML template file given in the fileName attribute.
+    :Attributes:
+        - fileName (required): the file name is relative to the site path.      

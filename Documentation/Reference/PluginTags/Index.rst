@@ -7,11 +7,11 @@
 Plugin Tags
 ===========
 
-================================= ================ =================================================
-Tag                               Data type        Description                 
-================================= ================ =================================================
-:ref:`plugin.plugin`              Object           Creates a plugin object.
-================================= ================ =================================================
+.. only:: html
+
+   .. contents::
+      :depth: 1
+      :local:  
 
 
 .. _plugin.plugin:
@@ -19,24 +19,14 @@ Tag                               Data type        Description
 plugin
 ======
 
-.. container:: table-row
+.. confval:: plugin
 
-  Property
-    <plugin id="myPluginId">yourFileName.js</plugin>
+    ::
     
-  Data type
-    Object
-     
-  Description
-    Loads the javascript file (see the FAQ section).
+        <plugin id="myPluginId">yourFileName.js</plugin>
     
-    Attributes:
-    
-    - id (required): the identifier.  
-
-
-       
-
-
-
-
+    :Type: Object
+    :Description:
+        Loads the javascript file (see the FAQ section).
+    :Attributes:
+        - id (required): the identifier.  

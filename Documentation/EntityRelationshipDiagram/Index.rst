@@ -7,79 +7,76 @@ Entity Relationship Diagram
 ===========================
 
 ..  graphviz::
-        
 
         digraph sav_charts {
-        	fontname="Helvetica,Arial,sans-serif"
-        	node [fontname="Helvetica,Arial,sans-serif"]
-        	edge [fontname="Helvetica,Arial,sans-serif"]
-        	graph [
-        		rankdir = "LR"
-        	];
-        	node [
-        		fontsize = "16"
-        	];
-        	edge [
-        	];
-        	"tx_savcharts_domain_model_database" [
-        		label =
-        			<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
-        				<TR><TD PORT="table"><FONT POINT-SIZE="18"><B>tx_savcharts_domain_model_database</B></FONT></TD></TR>
-        			    <TR><TD BGCOLOR="orange" PORT="uid">uid</TD></TR>
-        				<TR><TD PORT="pid">pid</TD></TR>
-        				<TR><TD PORT="tstamp">tstamp</TD></TR>
-        				<TR><TD PORT="crdate">crdate</TD></TR>
-        				<TR><TD PORT="cruser_id">cruser_id</TD></TR>
-        				<TR><TD PORT="sorting">sorting</TD></TR>
-        				<TR><TD PORT="deleted">deleted</TD></TR>
-        				<TR><TD PORT="hidden">hidden</TD></TR>
-        				<TR><TD PORT="title">title</TD></TR>
-        				<TR><TD PORT="driver">driver</TD></TR>
-        				<TR><TD PORT="tables">tables</TD></TR>
-        				<TR><TD PORT="host">host</TD></TR>
-        				<TR><TD PORT="port">port</TD></TR>
-        				<TR><TD PORT="socket">socket</TD></TR>
-        				<TR><TD PORT="name">name</TD></TR>
-        				<TR><TD PORT="username">username</TD></TR>
-        				<TR><TD PORT="userpassword">userpassword</TD></TR>
-        				<TR><TD PORT="persistent">persistent</TD></TR>
-        			</TABLE>>
-        		shape = "none"
-        	];
-        	"tx_savcharts_domain_model_query" [
-        		label =
-        			<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
-        				<TR><TD PORT="table"><FONT POINT-SIZE="18"><B>tx_savcharts_domain_model_query</B></FONT></TD></TR>
-        			    <TR><TD BGCOLOR="orange" PORT="uid">uid</TD></TR>
-        				<TR><TD PORT="pid">pid</TD></TR>
-        				<TR><TD PORT="tstamp">tstamp</TD></TR>
-        				<TR><TD PORT="crdate">crdate</TD></TR>
-        				<TR><TD PORT="cruser_id">cruser_id</TD></TR>
-        				<TR><TD PORT="sorting">sorting</TD></TR>
-        				<TR><TD PORT="deleted">deleted</TD></TR>
-        				<TR><TD PORT="hidden">hidden</TD></TR>
-        				<TR><TD PORT="title">title</TD></TR>
-        				<TR><TD PORT="database_id">database_id</TD></TR>
-        				<TR><TD PORT="select_clause">select_clause</TD></TR>
-        				<TR><TD PORT="from_clause">from_clause</TD></TR>
-        				<TR><TD PORT="where_clause">where_clause</TD></TR>
-        				<TR><TD PORT="groupby_clause">groupby_clause</TD></TR>
-        				<TR><TD PORT="orderby_clause">orderby_clause</TD></TR>
-        				<TR><TD PORT="limit_clause">limit_clause</TD></TR>
-        			</TABLE>>
-        		shape = "none"
-        	];
+            fontname="Helvetica,Arial,sans-serif"
+            node [fontname="Helvetica,Arial,sans-serif"]
+            edge [fontname="Helvetica,Arial,sans-serif"]
+            graph [
+                rankdir = "LR"
+            ];
+            node [
+                fontsize = "16"
+            ];
+            edge [
+            ];
+            "tx_savcharts_domain_model_database" [
+                label =
+                    <<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="table"><FONT POINT-SIZE="18"><B>tx_savcharts_domain_model_database</B></FONT></TD></TR>
+                        <TR><TD BGCOLOR="orange" PORT="uid">uid</TD></TR>
+                        <TR><TD PORT="pid">pid</TD></TR>
+                        <TR><TD PORT="tstamp">tstamp</TD></TR>
+                        <TR><TD PORT="crdate">crdate</TD></TR>
+                        <TR><TD PORT="cruser_id">cruser_id</TD></TR>
+                        <TR><TD PORT="sorting">sorting</TD></TR>
+                        <TR><TD PORT="deleted">deleted</TD></TR>
+                        <TR><TD PORT="hidden">hidden</TD></TR>
+                        <TR><TD PORT="title">title</TD></TR>
+                        <TR><TD PORT="driver">driver</TD></TR>
+                        <TR><TD PORT="tables">tables</TD></TR>
+                        <TR><TD PORT="host">host</TD></TR>
+                        <TR><TD PORT="port">port</TD></TR>
+                        <TR><TD PORT="socket">socket</TD></TR>
+                        <TR><TD PORT="name">name</TD></TR>
+                        <TR><TD PORT="username">username</TD></TR>
+                        <TR><TD PORT="userpassword">userpassword</TD></TR>
+                        <TR><TD PORT="persistent">persistent</TD></TR>
+                    </TABLE>>
+                shape = "none"
+            ];
+            "tx_savcharts_domain_model_query" [
+                label =
+                    <<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+                        <TR><TD PORT="table"><FONT POINT-SIZE="18"><B>tx_savcharts_domain_model_query</B></FONT></TD></TR>
+                        <TR><TD BGCOLOR="orange" PORT="uid">uid</TD></TR>
+                        <TR><TD PORT="pid">pid</TD></TR>
+                        <TR><TD PORT="tstamp">tstamp</TD></TR>
+                        <TR><TD PORT="crdate">crdate</TD></TR>
+                        <TR><TD PORT="cruser_id">cruser_id</TD></TR>
+                        <TR><TD PORT="sorting">sorting</TD></TR>
+                        <TR><TD PORT="deleted">deleted</TD></TR>
+                        <TR><TD PORT="hidden">hidden</TD></TR>
+                        <TR><TD PORT="title">title</TD></TR>
+                        <TR><TD PORT="database_id">database_id</TD></TR>
+                        <TR><TD PORT="select_clause">select_clause</TD></TR>
+                        <TR><TD PORT="from_clause">from_clause</TD></TR>
+                        <TR><TD PORT="where_clause">where_clause</TD></TR>
+                        <TR><TD PORT="groupby_clause">groupby_clause</TD></TR>
+                        <TR><TD PORT="orderby_clause">orderby_clause</TD></TR>
+                        <TR><TD PORT="limit_clause">limit_clause</TD></TR>
+                    </TABLE>>
+                shape = "none"
+            ];
             tx_savcharts_domain_model_database:uid -> tx_savcharts_domain_model_query:database_id [dir="both", arrowhead="crowodot", arrowtail="noneteeodot", color="darkblue"];
         }
-        
-        
 
-The Entity Relationship Diagram is generated by the `SAV Library Kickstarter 
+The Entity Relationship Diagram is generated by the `SAV Library Kickstarter
 <https://extensions.typo3.org/extension/sav_library_kickstarter>`_ in `Graphviz <https://graphviz.org/>`_ DOT language.
 
-- New tables with their fields are represented with a Black border. 
-- Existing tables are represented with a Dark green border. Only existing fields 
-  ``uid`` and ``pid`` are shown. If new fields are created, they are shown 
+- New tables with their fields are represented with a Black border.
+- Existing tables are represented with a Dark green border. Only existing fields
+  ``uid`` and ``pid`` are shown. If new fields are created, they are shown
   in Light blue.
 - 1-n relations are in Dark blue.
-- n-n relationships are in Dark red with the name of the associated ``mm table``.  
+- n-n relationships are in Dark red with the name of the associated ``mm table``. 

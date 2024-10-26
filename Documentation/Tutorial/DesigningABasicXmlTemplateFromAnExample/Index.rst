@@ -9,7 +9,7 @@ Designing XML Templates From Examples
 Introduction
 ============
 
-The `charts.js documentation <https://www.chartjs.org/docs/>`_ provides 
+The `chart.js documentation <https://www.chartjs.org/docs/>`_ provides 
 examples for the different charts. 
 
 The SAV Charts extension comes with templates for all chart types. 
@@ -26,6 +26,16 @@ Then click on the plugin tab.
 
 Fill the template field of the flexform and save.
 
+.. important::
+
+	Use the EXT: prefix to reference the template file from the extension. 
+	
+	.. code::
+	
+	   <template id="1">
+	      EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChart.xml
+	   </template>  
+
 .. figure:: ../../Images/Tutorial/NewSavChartsFlexformPluginFillTemplate.png
 
 Go to the frontend and you should see the following image.
@@ -36,7 +46,7 @@ Writing Templates
 =================
 
 The templates provided with the extension were adpated from the 
-examples given in the `charts.js documentation <https://www.chartjs.org/docs/>`_.
+examples given in the `chart.js documentation <https://www.chartjs.org/docs/>`_.
 Let us illustrate the principle for the line chart.
 
 The javascript code to display the line graph is the following:
@@ -211,7 +221,7 @@ the ``Markers`` sections, save and go to the frontend.
 Options
 =======
 
-Options are defined in the charts.js documentation. They can be set by 
+Options are defined in the chart.js documentation. They can be set by 
 overloading the ``<data>`` tag associated with the options
 attribute of the chart. For example, in the ``LineChart.xml`` template, 
 the chart is defined as follows: 
@@ -247,7 +257,7 @@ set a linear interpolation between points.
 
    A linear interpolation is obtained by setting tension to 0 in 
    ``Chart.defaults.global.elements.line`` 
-   (see `charts.js documentation <https://www.chartjs.org/docs/>`_). 
+   (see `chart.js documentation <https://www.chartjs.org/docs/>`_). 
    Since the global option are in the ``<data>`` 
    whose id is ``lineChartOptions``, nested items whose 
    keys are ``elements`` and ``line`` provide acces to ``Chart.defaults.global.elements.line``.

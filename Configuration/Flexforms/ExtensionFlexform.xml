@@ -5,13 +5,10 @@
   <sheets>
     <sDEF>
       <ROOT>
-        <TCEforms>
           <sheetTitle>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.sheetTitle.sDEF</sheetTitle>
-        </TCEforms>
         <type>array</type>
         <el>
          <settings.flexform.allowQueries>
-            <TCEforms>
               <exclude>1</exclude>
               <displayCond>HIDE_FOR_NON_ADMINS</displayCond>
               <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.allowQueries</label>
@@ -19,10 +16,8 @@
                 <type>check</type>
                 <default>0</default>
               </config>
-            </TCEforms>
           </settings.flexform.allowQueries>      
           <settings.flexform.xmlMarkersConfig>
-            <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlMarkersConfig</label>
               <config>
@@ -30,10 +25,8 @@
                 <cols>48</cols>
                 <rows>5</rows>
                </config>
-            </TCEforms>
           </settings.flexform.xmlMarkersConfig>         
           <settings.flexform.xmlQueriesConfig>
-            <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlQueriesConfig</label>
               <config>
@@ -45,10 +38,8 @@
 &lt;/query&gt;
                 </default>
               </config>
-            </TCEforms>
           </settings.flexform.xmlQueriesConfig>          
           <settings.flexform.xmlDataConfig>
-            <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlDataConfig</label>
               <config>
@@ -56,10 +47,8 @@
                 <cols>48</cols>
                 <rows>5</rows>
                </config>
-            </TCEforms>
           </settings.flexform.xmlDataConfig>
           <settings.flexform.xmlTemplatesConfig>
-            <TCEforms>
               <exclude>1</exclude>
               <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlTemplatesConfig</label>
               <config>
@@ -71,7 +60,6 @@
 &lt;/template&gt;
                 </default>
                </config>
-            </TCEforms>
           </settings.flexform.xmlTemplatesConfig>         
        </el>
       </ROOT>

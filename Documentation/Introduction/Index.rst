@@ -10,7 +10,7 @@ What Does it Do?
 ================
 
 This extension makes it possible to develop templates in XML to display charts using the 
-`Charts.js library <https://www.chartjs.org/>`_. 
+`Chart.js library <https://www.chartjs.org/>`_. 
 
 Markers can be introduced in templates. Data can also be changed
 through XML either manually or using query managers.

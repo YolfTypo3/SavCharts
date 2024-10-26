@@ -1,6 +1,6 @@
 <?php
 
-namespace YolfTypo3\SavCharts\Domain\Model;
+declare(strict_types=1);
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -15,6 +15,8 @@ namespace YolfTypo3\SavCharts\Domain\Model;
  * The TYPO3 project - inspiring people to share
  */
 
+namespace YolfTypo3\SavCharts\Domain\Model;
+
 /**
  * Query model for the extension SavCharts
  *
@@ -22,58 +24,71 @@ namespace YolfTypo3\SavCharts\Domain\Model;
 class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * The title variable.
+     * @var \YolfTypo3\SavCharts\Domain\Repository\QueryRepository
+     */
+    protected $repository = null;
+
+    /**
+     * The <title> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $title;
 
     /**
-     * The databaseId variable.
+     * The <databaseId> variable.
      *
      * @var \YolfTypo3\SavCharts\Domain\Model\Database
+     *
      */
     protected $databaseId;
 
     /**
-     * The selectClause variable.
+     * The <selectClause> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $selectClause;
 
     /**
-     * The fromClause variable.
+     * The <fromClause> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $fromClause;
 
     /**
-     * The whereClause variable.
+     * The <whereClause> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $whereClause;
 
     /**
-     * The groupbyClause variable.
+     * The <groupbyClause> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $groupbyClause;
 
     /**
-     * The orderbyClause variable.
+     * The <orderbyClause> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $orderbyClause;
 
     /**
-     * The limitClause variable.
+     * The <limitClause> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $limitClause;
 
@@ -84,8 +99,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
     }
 
+
     /**
-     * Getter for title.
+     * Getter for property <title>.
      *
      * @return string
      */
@@ -95,7 +111,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for title.
+     * Setter for property <title>.
      *
      * @param string $title
      * @return void
@@ -105,8 +121,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->title = $title;
     }
 
+
     /**
-     * Getter for databaseId.
+     * Getter for property <databaseId>.
      *
      * @return \YolfTypo3\SavCharts\Domain\Model\Database
      */
@@ -116,9 +133,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for databaseId.
+     * Setter for property <databaseId>.
      *
-     * @param \YolfTypo3\SavCharts\Domain\Model\Database     $databaseId
+     * @param \YolfTypo3\SavCharts\Domain\Model\Database $databaseId
      * @return void
      */
     public function setDatabaseId($databaseId)
@@ -126,8 +143,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->databaseId = $databaseId;
     }
 
+
     /**
-     * Getter for selectClause.
+     * Getter for property <selectClause>.
      *
      * @return string
      */
@@ -137,7 +155,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for selectClause.
+     * Setter for property <selectClause>.
      *
      * @param string $selectClause
      * @return void
@@ -147,8 +165,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->selectClause = $selectClause;
     }
 
+
     /**
-     * Getter for fromClause.
+     * Getter for property <fromClause>.
      *
      * @return string
      */
@@ -158,7 +177,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for fromClause.
+     * Setter for property <fromClause>.
      *
      * @param string $fromClause
      * @return void
@@ -168,31 +187,31 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->fromClause = $fromClause;
     }
 
+
     /**
-     * Getter for whereClause.
+     * Getter for property <whereClause>.
      *
      * @return string
      */
     public function getWhereClause()
     {
-        // @extensionScannerIgnoreLine
         return $this->whereClause;
     }
 
     /**
-     * Setter for whereClause.
+     * Setter for property <whereClause>.
      *
      * @param string $whereClause
      * @return void
      */
     public function setWhereClause($whereClause)
     {
-        // @extensionScannerIgnoreLine
         $this->whereClause = $whereClause;
     }
 
+
     /**
-     * Getter for groupbyClause.
+     * Getter for property <groupbyClause>.
      *
      * @return string
      */
@@ -202,7 +221,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for groupbyClause.
+     * Setter for property <groupbyClause>.
      *
      * @param string $groupbyClause
      * @return void
@@ -212,8 +231,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->groupbyClause = $groupbyClause;
     }
 
+
     /**
-     * Getter for orderbyClause.
+     * Getter for property <orderbyClause>.
      *
      * @return string
      */
@@ -223,7 +243,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for orderbyClause.
+     * Setter for property <orderbyClause>.
      *
      * @param string $orderbyClause
      * @return void
@@ -233,8 +253,9 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->orderbyClause = $orderbyClause;
     }
 
+
     /**
-     * Getter for limitClause.
+     * Getter for property <limitClause>.
      *
      * @return string
      */
@@ -244,7 +265,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for limitClause.
+     * Setter for property <limitClause>.
      *
      * @param string $limitClause
      * @return void

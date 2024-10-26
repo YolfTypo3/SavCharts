@@ -7,11 +7,11 @@
 For Tags
 ========
 
-================================= ================ =================================================
-Tag                               Data type        Description                 
-================================= ================ =================================================
-:ref:`for.for`                    Object           Creates a for object.
-================================= ================ =================================================
+.. only:: html
+
+   .. contents::
+      :depth: 1
+      :local: 
 
 
 .. _for.for:
@@ -19,23 +19,16 @@ Tag                               Data type        Description
 for
 ===
 
-.. container:: table-row
+.. confval:: for
 
-  Property
-    <for each="data#myData">...</for>
+    ::
     
-  Data type
-    Object
-     
-  Description
-    Repeats the sequence inside the tag for each element provided by means of the ``each``
-    attribute.
+        <for each="data#myData">...</for>
     
-    Attributes:
-    
-    - each (required): the element for the repetition.  
+    :Type: Object
+    :Description:
+        Repeats the sequence inside the tag for each element provided by means of the ``each``
+        attribute.
+    :Attributes: 
+        - each (required): the element for the repetition.  
    
-
-
-
-

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -18,11 +20,12 @@ namespace YolfTypo3\SavCharts\Controller;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\PathUtility;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\TypoScript\TypoScriptService;
 use TYPO3\CMS\Extbase\Configuration\FrontendConfigurationManager;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use YolfTypo3\SavCharts\Domain\Repository\QueryRepository;
@@ -31,7 +34,7 @@ use YolfTypo3\SavCharts\XmlParser\XmlParser;
 /**
  * Default Controller
  */
-class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+final class DefaultController extends ActionController
 {
 
     /**
@@ -39,14 +42,14 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @var string
      */
-    protected static $cssPath = 'Resources/Public/Css/SavCharts.css';
+    protected static string $cssPath = 'Resources/Public/Css/SavCharts.css';
 
     /**
      * js root path
      *
      * @var string
      */
-    protected static $javaScriptRootPath = 'Resources/Public/JavaScript';
+    protected static string $javaScriptRootPath = 'Resources/Public/JavaScript';
 
     /**
      * Query repository
@@ -54,16 +57,40 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @var QueryRepository
      *
      */
-    protected $queryRepository;
+    protected QueryRepository $queryRepository;
 
+    /**
+     * @var FrontendConfigurationManager
+     */
+    protected $frontendConfigurationManager;
+    
     /**
      * Injects the query repository.
      *
      * @param QueryRepository $queryRepository
+     *
+     * @return void
      */
-    public function injectQueryRepository(QueryRepository $queryRepository)
+    public function injectQueryRepository(QueryRepository $queryRepository): void
     {
         $this->queryRepository = $queryRepository;
+    }
+    
+    public function injectFrontendConfigurationManager(FrontendConfigurationManager $frontendConfigurationManager)
+    {
+        $this->frontendConfigurationManager = $frontendConfigurationManager;
+    }
+    
+    /**
+     * Injects the request (can be used when sav_jpgraph is called from another extension).
+     *
+     * @param RequestInterface $request
+     *
+     * @return void
+     */
+    public function setRequest(RequestInterface $request): void
+    {
+        $this->request = $request;
     }
 
     /**
@@ -71,15 +98,13 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return void
      */
-    protected function initializeAction()
+    protected function initializeAction(): void
     {
         // Gets the extension key
         $extensionKey = $this->request->getControllerExtensionKey();
 
         // Checks if the static extension template is included
-        /** @var FrontendConfigurationManager $frontendConfigurationManager */
-        $frontendConfigurationManager = GeneralUtility::makeInstance(FrontendConfigurationManager::class);
-        $typoScriptSetup = $frontendConfigurationManager->getTypoScriptSetup();
+        $typoScriptSetup = $this->frontendConfigurationManager->getTypoScriptSetup($this->request);
         $pluginSetupName = 'tx_' . strtolower($this->request->getControllerExtensionName()) . '.';
         if (! is_array($typoScriptSetup['plugin.'][$pluginSetupName]['view.'] ?? null)) {
             throw new \RuntimeException('You have to include the static template of the extension ' . $extensionKey . '.');
@@ -91,7 +116,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return array
      */
-    public function getSettings()
+    public function getSettings(): array
     {
         return $this->settings;
     }
@@ -101,7 +126,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return QueryRepository
      */
-    public function getQueryRepository()
+    public function getQueryRepository(): QueryRepository
     {
         return $this->queryRepository;
     }
@@ -111,10 +136,9 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return ContentObjectRenderer
      */
-    public function getContentObjectRenderer()
+    public function getContentObjectRenderer(): ContentObjectRenderer
     {
-        // @extensionScannerIgnoreLine
-        $contentObject = $this->configurationManager->getContentObject();
+        $contentObject = $this->request->getAttribute('currentContentObject');
 
         return $contentObject;
     }
@@ -124,7 +148,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return string
      */
-    public function getExtensionKey()
+    public function getExtensionKey(): string
     {
         return $this->request->getControllerExtensionKey();
     }
@@ -132,9 +156,9 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     /**
      * show action
      *
-     * @return void|ResponseInterface
+     * @return ResponseInterface
      */
-    public function showAction()
+    public function showAction(): ResponseInterface
     {
         // Gets the extension key
         $extensionKey = $this->getExtensionKey();
@@ -187,33 +211,28 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         // Adds the latest javascript file
         $javaScriptRootDirectory = ExtensionManagementUtility::extPath($extensionKey) . self::$javaScriptRootPath;
         $javaScriptFiles = scandir($javaScriptRootDirectory, SCANDIR_SORT_DESCENDING);
-        $extensionWebPath = self::getExtensionWebPath($extensionKey);
-        $javaScriptFooterFile = $extensionWebPath . self::$javaScriptRootPath . '/' . $javaScriptFiles[0];
+        $javaScriptFooterFile = 'EXT:' . $extensionKey . '/' . self::$javaScriptRootPath . '/' . $javaScriptFiles[0];
         $this->addJavaScriptFooterFile($javaScriptFooterFile);
 
         // Adds the css file
-        $extensionWebPath = self::getExtensionWebPath($extensionKey);
-        $cssFile = $extensionWebPath . self::$cssPath;
+        $cssFile = 'EXT:' . $extensionKey . '/' . self::$cssPath;
         $this->addCascadingStyleSheet($cssFile);
 
         // Adds the canvases to the view
         $this->view->assign('canvases', $canvases);
 
-        // For TYPO3 V11: action must return an instance of Psr\Http\Message\ResponseInterface
-        if (method_exists($this, 'htmlResponse')) {
-            return $this->htmlResponse($this->view->render());
-        }
+        return $this->htmlResponse($this->view->render());
     }
 
     /**
      * Formats a configuration
      *
      * @param string $key
-     * @param mixed $value
+     * @param string $value
      *
      * @return string
      */
-    protected function formatConfiguration($key, $value)
+    protected function formatConfiguration(string $key, string $value): string
     {
         if (is_string($value)) {
             $value = '\'' . $value . '\'';
@@ -228,7 +247,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return void
      */
-    protected function addJavaScriptFooterFile(string $javaScriptFileName)
+    protected function addJavaScriptFooterFile(string $javaScriptFileName): void
     {
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $pageRenderer->addJsFooterFile($javaScriptFileName);
@@ -242,7 +261,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return void
      */
-    protected function addJavaScriptFooterInlineCode(string $key, string $javaScriptInlineCode)
+    protected function addJavaScriptFooterInlineCode(string $key, string $javaScriptInlineCode): void
     {
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $pageRenderer->addJsFooterInlineCode($key, $javaScriptInlineCode);
@@ -255,7 +274,7 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      *
      * @return void
      */
-    protected function addCascadingStyleSheet(string $cascadingStyleSheet)
+    protected function addCascadingStyleSheet(string $cascadingStyleSheet): void
     {
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         $pageRenderer->addCssFile($cascadingStyleSheet);
@@ -283,55 +302,8 @@ class DefaultController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $message = $key;
         }
 
-        $this->addFlashMessage($message, $key, FlashMessage::ERROR);
+        $this->addFlashMessage($message, $key, ContextualFeedbackSeverity::ERROR);
         return false;
     }
 
-    /**
-     * Gets the relative web path of a given extension.
-     *
-     * @param string $extension
-     *            The extension
-     *
-     * @return string The relative web path
-     */
-    protected static function getExtensionWebPath(string $extension): string
-    {
-        $extensionWebPath = PathUtility::getAbsoluteWebPath(ExtensionManagementUtility::extPath($extension));
-        if ($extensionWebPath[0] === '/') {
-            // Makes the path relative
-            $extensionWebPath = substr($extensionWebPath, 1);
-        }
-        return $extensionWebPath;
-    }
-
-    /**
-     * Sets the controller context.
-     *
-     * This method is called by sav_library_plus when graph items
-     * are used (for TYPO3 versions below V11 only).
-     *
-     * @todo Will be removed with TYPO3 V13.
-     *
-     * @return void
-     */
-    public function setControllerContext()
-    {
-        $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
-        if (version_compare($typo3Version->getVersion(), '11.0', '<')) {
-            $requestBuilder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Mvc\Web\RequestBuilder::class);
-
-            $requestBuilder->injectConfigurationManager($this->configurationManager);
-            $requestBuilder->injectObjectManager($this->objectManager);
-            $requestBuilder->injectExtensionService($this->objectManager->get(\TYPO3\CMS\Extbase\Service\ExtensionService::class));
-            $requestBuilder->injectEnvironmentService($this->objectManager->get(\TYPO3\CMS\Extbase\Service\EnvironmentService::class));
-            $this->response = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Mvc\Web\Response::class);
-            $this->request = $requestBuilder->build();
-
-            $this->uriBuilder = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class);
-            $this->controllerContext = $this->buildControllerContext();
-            $flashMessageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
-            $this->controllerContext->injectFlashMessageService($flashMessageService);
-        }
-    }
 }

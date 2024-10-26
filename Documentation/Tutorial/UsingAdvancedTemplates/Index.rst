@@ -20,7 +20,7 @@ In the template section enter the following code, save and go to the frontend.
 .. code::
 
    <template id="1">
-      typo3conf/ext/sav_charts/Resources/Private/Templates/ChartsExamples/LineChartAdvanced.xml
+      EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChartAdvanced.xml
    </template>  
     
 .. figure:: ../../Images/Tutorial/LineChartAdvancedInFrontend.png  

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -33,7 +35,7 @@ class ForXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function defaultMethod(\SimpleXMLElement $element)
+    public function defaultMethod(\SimpleXMLElement $element): void
     {
         // Gets the element name
         $elementName = (string) $element->getName();
@@ -41,10 +43,11 @@ class ForXmlTag extends AbstractXmlTag
         // Gets the each attribute
         $each = (string) $element->attributes()->each;
         if ($each == '') {
-            return XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::getController()->addError('error.missingAttribute', [
                 'each',
                 $elementName
             ]);
+            return;
         }
 
         // Checks if the each attribute is a reference

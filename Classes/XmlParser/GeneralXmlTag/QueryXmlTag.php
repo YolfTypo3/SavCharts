@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -33,7 +35,7 @@ class QueryXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function setQueryManager(\SimpleXMLElement $element)
+    public function setQueryManager(\SimpleXMLElement $element): void
     {
         // Gets the element name
         $elementName = (string) $element->getName();
@@ -65,10 +67,11 @@ class QueryXmlTag extends AbstractXmlTag
 
         // Checks if the attribute name exists
         if ($name === null) {
-            return XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::getController()->addError('error.missingAttribute', [
                 'name',
                 $elementName
             ]);
+            return;
         }
         if (XmlParser::isReference($name) !== false) {
             $name = XmlParser::getValueFromReference($name);
@@ -76,10 +79,11 @@ class QueryXmlTag extends AbstractXmlTag
 
         // Checks if the attribute uid exists
         if ($uid === null) {
-            return XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::getController()->addError('error.missingAttribute', [
                 'uid',
                 $elementName
             ]);
+            return;
         }
         if (XmlParser::isReference($uid) !== false) {
             $uid = XmlParser::getValueFromReference($uid);

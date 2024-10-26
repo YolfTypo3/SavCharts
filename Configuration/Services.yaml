@@ -7,3 +7,5 @@ services:
   YolfTypo3\SavCharts\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'
+
+   

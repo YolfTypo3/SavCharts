@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -31,7 +33,7 @@ class MarkerXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function defaultMethod(\SimpleXMLElement $element)
+    public function defaultMethod(\SimpleXMLElement $element): void
     {
         $value = (string) $element;
         $child = $element->addChild('setMarker');
@@ -49,7 +51,7 @@ class MarkerXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function setMarker(\SimpleXMLElement $element)
+    public function setMarker(\SimpleXMLElement $element): void
     {
         // Gets the element name
         $elementName = (string) $element->getName();
@@ -57,13 +59,14 @@ class MarkerXmlTag extends AbstractXmlTag
         // Gets the attribute
         $attributes = $element->attributes();
         if (! isset($attributes['value'])) {
-            return  XmlParser::getController()->addError(
+            XmlParser::getController()->addError(
                 'error.missingAttribute',
                 [
                     'value',
                     $elementName
                 ]
             );
+            return;
         } else {
             $value = (string) $element->attributes()->value;
         }
@@ -81,7 +84,7 @@ class MarkerXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function setMarkerByPieces(\SimpleXMLElement $element)
+    public function setMarkerByPieces(\SimpleXMLElement $element): void
     {
         // Builds the marker string from the parameters
         $markers = '';

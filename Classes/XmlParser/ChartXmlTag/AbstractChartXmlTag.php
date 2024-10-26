@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -32,7 +34,7 @@ abstract class AbstractChartXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function defaultMethod(\SimpleXMLElement $element)
+    public function defaultMethod(\SimpleXMLElement $element): void
     {
         $this->postProcessingMethod();
     }
@@ -44,7 +46,7 @@ abstract class AbstractChartXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function postProcessingMethod(\SimpleXMLElement $element)
+    public function postProcessingMethod(\SimpleXMLElement $element): void
     {
         // Gets the element name
         $elementName = (string) $element->getName();
@@ -76,13 +78,14 @@ abstract class AbstractChartXmlTag extends AbstractXmlTag
         // Gets the data
         $data = (string) $element->attributes()->data;
         if (empty($data)) {
-            return XmlParser::getController()->addError(
+            XmlParser::getController()->addError(
                 'error.missingAttribute',
                 [
                     'data',
                     $elementName
                 ]
             );
+            return;
         }
         $this->xmlTagValue['data'] = $data;
 

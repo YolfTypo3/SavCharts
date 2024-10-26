@@ -1,0 +1,17 @@
+mod.wizards {
+    newContentElement.wizardItems {
+        plugins {
+            elements {
+                sav_charts {
+                    iconIdentifier = ext-savcharts-wizard
+                    title = SAV Charts
+                    description = Extension which displays charts using the chart.js library
+                    tt_content_defValues {
+                        CType = list
+                        list_type = savcharts_default
+                    }
+                }
+            }
+        }
+    }
+}

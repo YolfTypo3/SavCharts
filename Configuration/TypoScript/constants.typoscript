@@ -1,0 +1,14 @@
+plugin.tx_savcharts {
+    view {
+        # cat=plugin.tx_savcharts/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:sav_charts/Resources/Private/Templates/
+        # cat=plugin.tx_savcharts/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:sav_charts/Resources/Private/Partials/
+        # cat=plugin.tx_savcharts/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:sav_charts/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_savcharts//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -29,32 +31,32 @@ abstract class AbstractQueryManager implements QueryManagerInterface
     /**
      * Controller
      *
-     * @var \YolfTypo3\SavCharts\Controller\DefaultController
+     * @var DefaultController
      */
-    protected $controller;
+    protected DefaultController $controller;
 
     /**
      * Markers
      *
      * @var array
      */
-    protected $markers = [];
+    protected array $markers = [];
 
     /**
      * Query
      *
      * @var array
      */
-    protected $query = [];
+    protected array $query = [];
 
     /**
      * Injects the controller
      *
-     * @param \YolfTypo3\SavCharts\Controller\DefaultController $controller
+     * @param DefaultController $controller
      *
      * @return void
      */
-    public function injectController(DefaultController $controller)
+    public function injectController(DefaultController $controller): void
     {
         $this->controller = $controller;
     }
@@ -67,7 +69,7 @@ abstract class AbstractQueryManager implements QueryManagerInterface
      *
      * @return void
      */
-    public function injectMarkers(array $markers)
+    public function injectMarkers(array $markers): void
     {
         if (! empty($markers)) {
             $this->markers = $markers;
@@ -82,7 +84,7 @@ abstract class AbstractQueryManager implements QueryManagerInterface
      *
      * @return void
      */
-    public function replaceMarkersInQuery(int $queryId)
+    public function replaceMarkersInQuery(int $queryId): void
     {
         // Creates the markers
         $markers = $this->markers;

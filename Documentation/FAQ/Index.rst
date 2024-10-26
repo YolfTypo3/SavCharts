@@ -9,9 +9,10 @@ Frequently Asked Questions
 
 .. warning::
 
-	SAV Charts is now using  Chart.js 3.x. Several breaking changes were made in 
-	Chart.js 3.0 (see `3.x Migration Guide <https://www.chartjs.org/docs/latest/getting-started/v3-migration.html>`_).
-	Main changes concern ``Axis`` and ``Tooltip``. All templates in ``Resources/Private/Templates/ChartsExamples`` 
+	SAV Charts is now using  Chart.js 4.x. Several breaking changes were made in 
+	Chart.js 3.0 and Chart.js 4.0 (see `3.x Migration Guide <https://www.chartjs.org/docs/latest/migration/v3-migration.html>`_
+	and `4.x Migration Guide <https://www.chartjs.org/docs/latest/migration/v4-migration.html>`_).
+	All templates in ``Resources/Private/Templates/ChartsExamples`` 
 	were modified to take these changes into consideration.
 	
 	If you are upgrading Sav Charts, you may have to modify your templates.  
@@ -127,7 +128,7 @@ are in €. Let us also assume that we want to change the tiptool content
 in order to have ``label - value €`` instead of the defaut format ``label:value``.
 
 Chart.js library allows to modify several behaviors by means of callbacks. 
-Please consult the `charts.js documentation <https://www.chartjs.org/docs/>`_ for details.
+Please consult the `chart.js documentation <https://www.chartjs.org/docs/>`_ for details.
 
 The tooltip label can been changed by means of the label callback in ``tooltip`` options.
 
@@ -222,7 +223,7 @@ section, enter the following code, save and go to the frontend.
 .. code::
 
    <template id="1">
-      typo3conf/ext/sav_charts/Resources/Private/Templates/ChartsExamples/ComboChart.xml
+      EXT:sav_charts/Resources/Private/Templates/ChartsExamples/ComboChart.xml
    </template>     
 
 .. figure:: ../Images/ScreenShots/comboChart.png
@@ -239,5 +240,5 @@ The ``type`` attribute of the second dataset is set to ``line`` and the ``fill``
    </data>
 		
 The value for the ``type`` attribute of each chart is given in 
-the `charts.js documentation <https://www.chartjs.org/docs/>`_.		
+the `chart.js documentation <https://www.chartjs.org/docs/>`_.		
   

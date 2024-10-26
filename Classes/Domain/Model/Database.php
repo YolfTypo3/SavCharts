@@ -1,6 +1,6 @@
 <?php
 
-namespace YolfTypo3\SavCharts\Domain\Model;
+declare(strict_types=1);
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -15,6 +15,8 @@ namespace YolfTypo3\SavCharts\Domain\Model;
  * The TYPO3 project - inspiring people to share
  */
 
+namespace YolfTypo3\SavCharts\Domain\Model;
+
 /**
  * Database model for the extension SavCharts
  *
@@ -22,72 +24,87 @@ namespace YolfTypo3\SavCharts\Domain\Model;
 class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * The title variable.
+     * @var \YolfTypo3\SavCharts\Domain\Repository\DatabaseRepository
+     */
+    protected $repository = null;
+
+    /**
+     * The <title> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $title;
 
     /**
-     * The driver variable.
+     * The <driver> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $driver;
 
     /**
-     * The tables variable.
+     * The <tables> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Text")
      */
     protected $tables;
 
     /**
-     * The host variable.
+     * The <host> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $host;
 
     /**
-     * The port variable.
+     * The <port> variable.
      *
-     * @var integer
+     * @var int
+     * @TYPO3\CMS\Extbase\Annotation\Validate("Integer")
      */
     protected $port;
 
     /**
-     * The socket variable.
+     * The <socket> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $socket;
 
     /**
-     * The name variable.
+     * The <name> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $name;
 
     /**
-     * The username variable.
+     * The <username> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $username;
 
     /**
-     * The userpassword variable.
+     * The <userpassword> variable.
      *
      * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("String")
      */
     protected $userpassword;
 
     /**
-     * The persistent variable.
+     * The <persistent> variable.
      *
-     * @var boolean
+     * @var bool
+     *
      */
     protected $persistent;
 
@@ -98,8 +115,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
     }
 
+
     /**
-     * Getter for title.
+     * Getter for property <title>.
      *
      * @return string
      */
@@ -109,7 +127,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for title.
+     * Setter for property <title>.
      *
      * @param string $title
      * @return void
@@ -119,8 +137,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->title = $title;
     }
 
+
     /**
-     * Getter for driver.
+     * Getter for property <driver>.
      *
      * @return string
      */
@@ -130,7 +149,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for driver.
+     * Setter for property <driver>.
      *
      * @param string $driver
      * @return void
@@ -140,8 +159,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->driver = $driver;
     }
 
+
     /**
-     * Getter for tables.
+     * Getter for property <tables>.
      *
      * @return string
      */
@@ -151,7 +171,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for tables.
+     * Setter for property <tables>.
      *
      * @param string $tables
      * @return void
@@ -161,8 +181,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->tables = $tables;
     }
 
+
     /**
-     * Getter for host.
+     * Getter for property <host>.
      *
      * @return string
      */
@@ -172,7 +193,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for host.
+     * Setter for property <host>.
      *
      * @param string $host
      * @return void
@@ -182,10 +203,11 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->host = $host;
     }
 
+
     /**
-     * Getter for port.
+     * Getter for property <port>.
      *
-     * @return integer
+     * @return int
      */
     public function getPort()
     {
@@ -193,9 +215,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for port.
+     * Setter for property <port>.
      *
-     * @param integer $port
+     * @param int $port
      * @return void
      */
     public function setPort($port)
@@ -203,8 +225,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->port = $port;
     }
 
+
     /**
-     * Getter for socket.
+     * Getter for property <socket>.
      *
      * @return string
      */
@@ -214,7 +237,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for socket.
+     * Setter for property <socket>.
      *
      * @param string $socket
      * @return void
@@ -224,8 +247,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->socket = $socket;
     }
 
+
     /**
-     * Getter for name.
+     * Getter for property <name>.
      *
      * @return string
      */
@@ -235,7 +259,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for name.
+     * Setter for property <name>.
      *
      * @param string $name
      * @return void
@@ -245,8 +269,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->name = $name;
     }
 
+
     /**
-     * Getter for username.
+     * Getter for property <username>.
      *
      * @return string
      */
@@ -256,7 +281,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for username.
+     * Setter for property <username>.
      *
      * @param string $username
      * @return void
@@ -266,8 +291,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->username = $username;
     }
 
+
     /**
-     * Getter for userpassword.
+     * Getter for property <userpassword>.
      *
      * @return string
      */
@@ -277,7 +303,7 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for userpassword.
+     * Setter for property <userpassword>.
      *
      * @param string $userpassword
      * @return void
@@ -287,10 +313,11 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->userpassword = $userpassword;
     }
 
+
     /**
-     * Getter for persistent.
+     * Getter for property <persistent>.
      *
-     * @return boolean
+     * @return bool
      */
     public function getPersistent()
     {
@@ -298,9 +325,9 @@ class Database extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Setter for persistent.
+     * Setter for property <persistent>.
      *
-     * @param boolean $persistent
+     * @param bool $persistent
      * @return void
      */
     public function setPersistent($persistent)

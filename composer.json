@@ -1,6 +1,6 @@
 {
     "name": "yolftypo3/sav-charts",
-    "description": "Extension which displays charts using the charts.js library",
+    "description": "Extension which displays charts using the chart.js library",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0+",
     "authors": [
@@ -14,9 +14,9 @@
         "typo3/cms": {
             "extension-key": "sav_charts"
         }
-    },    
+    },
     "require": {
-        "typo3/cms-core": "^9.5.28||^10.4.18||^11.5"
+        "typo3/cms-core": "^12.4|^13.4"
     },
     "autoload": {
         "psr-4": {

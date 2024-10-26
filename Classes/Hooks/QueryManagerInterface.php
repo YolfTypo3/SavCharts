@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -15,6 +17,8 @@
 
 namespace YolfTypo3\SavCharts\Hooks;
 
+use YolfTypo3\SavCharts\Controller\DefaultController;
+
 /**
  * Interface query managers
  */
@@ -23,16 +27,18 @@ interface QueryManagerInterface
     /**
      * Injects the controller
      *
-     * @param \YolfTypo3\SavCharts\Controller\DefaultController $controller
+     * @param DefaultController $controller
+     * 
      * @return void
      */
-    public function injectController(\YolfTypo3\SavCharts\Controller\DefaultController $controller);
+    public function injectController(DefaultController $controller);
 
     /**
      * Executes the query
      *
      * @param int $queryId
      *            The query id
+     *            
      * @return array The rows
      */
     public function executeQuery(int $queryId) :  array;

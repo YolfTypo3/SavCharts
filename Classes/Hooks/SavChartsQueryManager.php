@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -16,20 +18,21 @@
 namespace YolfTypo3\SavCharts\Hooks;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * Hook for the query manager "savcharts"
  */
-class SavChartsQueryManager extends AbstractQueryManager
+final class SavChartsQueryManager extends AbstractQueryManager
 {
-
+  
     /**
      * Database connection
      *
-     * @var \TYPO3\CMS\Core\Database\Connection
+     * @var Connection
      */
-    protected $databaseConnection = null;
+    protected ?Connection $databaseConnection = null;
 
     /**
      * Executes the query
@@ -54,7 +57,7 @@ class SavChartsQueryManager extends AbstractQueryManager
             ($this->query['orderbyClause'] ? ' ORDER BY ' . $this->query['orderbyClause'] : '') .
             ($this->query['limitClause'] ? ' LIMIT ' . $this->query['limitClause'] : '');
 
-        $rows = $this->databaseConnection->query($query)->fetchAll();
+        $rows = $this->databaseConnection->executeQuery($query)->fetchAllAssociative();
 
         if ($rows === null) {
             $this->controller->addError('error.queryReturnedNull', [
@@ -139,7 +142,6 @@ class SavChartsQueryManager extends AbstractQueryManager
         }
 
         $this->databaseConnection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($tableForConnection);
-        $this->databaseConnection->connect();
         if (! $this->databaseConnection->isConnected()) {
             $this->controller->addError('error.databaseConnectionFailed', [
                 $name

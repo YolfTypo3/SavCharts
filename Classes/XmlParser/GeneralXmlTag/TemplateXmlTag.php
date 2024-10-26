@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -15,6 +17,7 @@
 
 namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\XmlParser\XmlParser;
 
 /**
@@ -31,7 +34,7 @@ class TemplateXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function defaultMethod(\SimpleXMLElement $element)
+    public function defaultMethod(\SimpleXMLElement $element): void
     {
         $fileName = trim((string) $element);
         $child = $element->addChild('loadTemplate');
@@ -46,7 +49,7 @@ class TemplateXmlTag extends AbstractXmlTag
      *
      * @return void
      */
-    public function loadTemplate(\SimpleXMLElement $element)
+    public function loadTemplate(\SimpleXMLElement $element): void
     {
         // Gets the element name
         $elementName = (string) $element->getName();
@@ -54,20 +57,23 @@ class TemplateXmlTag extends AbstractXmlTag
         // Gets the attribute
         $fileName = (string) $element->attributes()->fileName;
         if ($fileName == '') {
-            return  XmlParser::getController()->addError(
+            XmlParser::getController()->addError(
                 'error.missingAttribute',
                 [
                     'fileName',
                     $elementName
                 ]
             );
+            return;
         }
+
         if (XmlParser::isReference($fileName) !== false) {
             $fileName = XmlParser::getValueFromReference($fileName);
         }
 
         // loads and processes the file
-        $this->xmlParser->loadXmlFile($fileName);
+        $absFileName = GeneralUtility::getFileAbsFileName($fileName);
+        $this->xmlParser->loadXmlFile($absFileName);
         $this->xmlParser->parseXml();
     }
 }

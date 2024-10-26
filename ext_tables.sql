@@ -1,4 +1,3 @@
-
 #
 # Table structure for table 'tx_savcharts_domain_model_database'
 #
@@ -50,5 +49,3 @@ CREATE TABLE tx_savcharts_domain_model_query (
     PRIMARY KEY (uid),
     KEY parent (pid)
 );
-
-

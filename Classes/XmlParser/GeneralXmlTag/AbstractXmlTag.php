@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -26,30 +28,30 @@ abstract class AbstractXmlTag
     /**
      * Xml Parser
      *
-     * @var \YolfTypo3\SavCharts\XmlParser\XmlParser
+     * @var XmlParser
      */
-    protected $xmlParser;
+    protected XmlParser $xmlParser;
 
     /**
      * The value associated with the tag
      *
      * @var mixed
      */
-    protected $xmlTagValue = null;
+    protected mixed $xmlTagValue = null;
 
     /**
      * The tag id
      *
-     * @var string
+     * @var mixed
      */
-    protected $xmlTagId = '0';
+    protected mixed $xmlTagId = '0';
 
     /**
      * The overload flag
      *
      * @var bool
      */
-    protected $overload = false;
+    protected bool $overload = false;
 
     /**
      * Construtor
@@ -68,7 +70,7 @@ abstract class AbstractXmlTag
      *
      * @return void
      */
-    public function defaultMethod(\SimpleXMLElement $element)
+    public function defaultMethod(\SimpleXMLElement $element): void
     {
 
     }
@@ -78,7 +80,7 @@ abstract class AbstractXmlTag
      *
      * @return mixed
      */
-    public function getXmlTagValue()
+    public function getXmlTagValue(): mixed
     {
         return $this->xmlTagValue;
     }
@@ -87,9 +89,10 @@ abstract class AbstractXmlTag
      * Sets the xml tag value
      *
      * @param mixed $xmlTagValue
+     * 
      * @return void
      */
-    public function setXmlTagValue($xmlTagValue)
+    public function setXmlTagValue(mixed $xmlTagValue): void
     {
         $this->xmlTagValue = $xmlTagValue;
     }
@@ -97,10 +100,11 @@ abstract class AbstractXmlTag
     /**
      * Sets the xml tag id
      *
-     * @param string $xmlTagId
+     * @param mixed $xmlTagId
+     * 
      * @return void
      */
-    public function setXmlTagId($xmlTagId)
+    public function setXmlTagId(mixed $xmlTagId): void
     {
         $this->xmlTagId = $xmlTagId;
     }
@@ -108,7 +112,7 @@ abstract class AbstractXmlTag
     /**
      * Gets the overload flag
      *
-     * @return boolean
+     * @return bool
      */
     public function getOverload() : bool
     {
@@ -119,9 +123,10 @@ abstract class AbstractXmlTag
      *  Sets the overloadIsAllowed flag
      *
      * @param bool $overload
+     * 
      * @return void
      */
-    public function setOverload(bool $overload)
+    public function setOverload(bool $overload): void
     {
         $this->overload = $overload;
     }

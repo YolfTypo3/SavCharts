@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -18,6 +20,8 @@ namespace YolfTypo3\SavCharts\XmlParser;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
+use YolfTypo3\SavCharts\XmlParser\GeneralXmlTag\AbstractXmlTag;
+use YolfTypo3\SavCharts\XmlParser\ChartXmlTag\AbstractChartXmlTag;
 
 /**
  * Class xmlGraph
@@ -30,7 +34,7 @@ class XmlParser
      *
      * @var array
      */
-    protected static $allowedChartTags = [
+    protected static array $allowedChartTags = [
         'pieChart' => [
             'type' => 'pie',
             'options' => []
@@ -122,37 +126,37 @@ class XmlParser
      *
      * @var \SimpleXMLElement
      */
-    protected $xml = null;
+    protected ?\SimpleXMLElement $xml = null;
 
     /**
      * The controller
      *
-     * @var \YolfTypo3\SavCharts\Controller\DefaultController
+     * @var DefaultController
      */
-    protected static $controller = null;
+    protected static ?DefaultController $controller = null;
 
     /**
      * True is the xml was correctly loaded
      *
-     * @var boolean
+     * @var bool
      */
-    protected $isLoaded;
+    protected bool $isLoaded;
 
     /**
      * The xml tag results
      *
      * @var array
      */
-    protected static $xmlTagResults = [];
+    protected static array $xmlTagResults = [];
 
     /**
      * Injects the controller
      *
-     * @param \YolfTypo3\SavCharts\Controller\DefaultController $controller
+     * @param DefaultController $controller
      *
      * @return void
      */
-    public function injectController(DefaultController $controller)
+    public function injectController(DefaultController $controller): void
     {
         self::$controller = $controller;
     }
@@ -160,7 +164,7 @@ class XmlParser
     /**
      * Gets the controller
      *
-     * @return \YolfTypo3\SavCharts\Controller\DefaultController $controller
+     * @return DefaultController $controller
      */
     public static function getController(): DefaultController
     {
@@ -176,12 +180,9 @@ class XmlParser
      *            id
      * @return array|null
      */
-    public static function getXmlTagResult(string $name, $id)
+    public static function getXmlTagResult(string $name, mixed $id): ?AbstractXmlTag
     {
-        if (isset(self::$xmlTagResults[$name]) && isset(self::$xmlTagResults[$name][$id])) {
-            return self::$xmlTagResults[$name][$id];
-        }
-        return null;
+        return self::$xmlTagResults[$name][$id] ?? null;
     }
 
     /**
@@ -189,13 +190,13 @@ class XmlParser
      *
      * @param string $name
      *            tag name
-     * @param string $id
+     * @param mixed $id
      *            id
      * @param mixed $value
      *
      * @return void
      */
-    public static function setXmlTagResult(string $name, $id, $value)
+    public static function setXmlTagResult(string $name, mixed $id, mixed $value): void
     {
         if ($id === null) {
             self::$xmlTagResults[$name][] = $value;
@@ -209,12 +210,12 @@ class XmlParser
      *
      * @param string $name
      *            tag name
-     * @param string $id
+     * @param mixed $id
      *            id
      *
      * @return void
      */
-    public static function clearXmlTagResult(string $name, $id)
+    public static function clearXmlTagResult(string $name, mixed $id): void
     {
         if (isset(self::$xmlTagResults[$name][$id])) {
             unset(self::$xmlTagResults[$name][$id]);
@@ -227,7 +228,7 @@ class XmlParser
      *
      * @return void
      */
-    public function clearXmlTagResults()
+    public function clearXmlTagResults(): void
     {
         self::$xmlTagResults = [];
     }
@@ -237,9 +238,9 @@ class XmlParser
      *
      * @param mixed $reference
      *
-     * @return void
+     * @return mixed
      */
-    public static function getReferenceObject($reference)
+    public static function getReferenceObject(mixed $reference): mixed
     {
         // Gets the tag and the id
         $matches = self::isReference($reference);
@@ -267,9 +268,9 @@ class XmlParser
      *
      * @param string $xmlTag
      *
-     * @return \YolfTypo3\SavCharts\XmlParser\GeneralXmlTag\AbstractXmlTag
+     * @return AbstractXmlTag|bool
      */
-    public static function getXmlTagObject(string $xmlTag)
+    public static function getXmlTagObject(string $xmlTag): AbstractXmlTag|bool
     {
         $className = self::getClassName($xmlTag);
         if ($className === false) {
@@ -287,9 +288,9 @@ class XmlParser
      *
      * @param \SimpleXMLElement $element
      *
-     * @return string
+     * @return mixed
      */
-    public static function getIdAttribute(\SimpleXMLElement $element)
+    public static function getIdAttribute(\SimpleXMLElement $element): mixed
     {
         // @extensionScannerIgnoreLine
         $id = (string) $element->attributes()->id;
@@ -307,9 +308,9 @@ class XmlParser
      *
      * @param \SimpleXMLElement $element
      *
-     * @return boolean
+     * @return bool
      */
-    public static function getOverloadAttribute(\SimpleXMLElement $element)
+    public static function getOverloadAttribute(\SimpleXMLElement $element): bool
     {
         $overload = (string) $element->attributes()->overload;
         return ! empty($overload);
@@ -322,7 +323,7 @@ class XmlParser
      *
      * @return string|false
      */
-    protected static function getClassName(string $xmlTag)
+    protected static function getClassName(string $xmlTag): string|false
     {
         $className = 'YolfTypo3\\SavCharts\\XmlParser\\GeneralXmlTag\\' . ucfirst($xmlTag) . 'XmlTag';
         if (! class_exists($className)) {
@@ -344,7 +345,7 @@ class XmlParser
      *
      * @return void
      */
-    public function loadXmlFile(string $fileName)
+    public function loadXmlFile(string $fileName): void
     {
         $this->isLoaded = false;
 
@@ -376,7 +377,7 @@ class XmlParser
      *
      * @return void
      */
-    public function loadXmlString(string $xmlString)
+    public function loadXmlString(string $xmlString): void
     {
         $this->isLoaded = false;
 
@@ -408,7 +409,7 @@ class XmlParser
      *
      * @return void
      */
-    public function parseXml()
+    public function parseXml(): void
     {
         // Checks if xml is correclty loaded
         if (! $this->isLoaded) {
@@ -426,7 +427,7 @@ class XmlParser
      *
      * @return void
      */
-    public function processXmlElement(\SimpleXMLElement $element)
+    public function processXmlElement(\SimpleXMLElement $element): void
     {
         $xmlTag = (string) $element->getName();
         $xmlTagObject = self::getXmlTagObject($xmlTag);
@@ -461,9 +462,10 @@ class XmlParser
                     // Calls the method if it exists
                     $xmlTagObject->$childName($child);
                 } else {
-                    return self::getController()->addError('error.unknownXmlTag', [
+                    self::getController()->addError('error.unknownXmlTag', [
                         $childName
                     ]);
+                    return;
                 }
             }
         }
@@ -498,9 +500,9 @@ class XmlParser
      *
      * @param \SimpleXMLElement $element
      *
-     * @return void
+     * @return mixed
      */
-    public function processSubItemElement(\SimpleXMLElement $element)
+    public function processSubItemElement(\SimpleXMLElement $element): mixed
     {
         // Processes the children
         $subItem = [];
@@ -511,10 +513,11 @@ class XmlParser
                 // Gets the key
                 $key = (string) $child->attributes()->key;
                 if ($key == '') {
-                    return self::getController()->addError('error.missingAttribute', [
+                    self::getController()->addError('error.missingAttribute', [
                         'key',
                         'item'
                     ]);
+                    return false;
                 }
                 if (self::isReference($key) !== false) {
                     $key = self::getValueFromReference($key);
@@ -570,7 +573,6 @@ class XmlParser
                 }
             }
         }
-
         return $subItem;
     }
 
@@ -581,7 +583,7 @@ class XmlParser
      *
      * @return mixed
      */
-    protected function processConstant(string $value)
+    protected function processConstant(string $value): mixed
     {
         return (defined($value) ? constant($value) : $value);
     }
@@ -589,9 +591,9 @@ class XmlParser
     /**
      * Post processing
      *
-     * @return array
+     * @return mixed
      */
-    public function postProcessing(): array
+    public function postProcessing(): mixed
     {
         // Creates the directory for the csv file
         if (! is_dir('typo3temp/sav_charts')) {
@@ -675,13 +677,14 @@ class XmlParser
                                 if (! empty($matches[1][$matchKey])) {
                                     // The call back is provided by its file name
                                     $callbackFileName = str_replace('\/', '/', $matches[2][$matchKey]);
-                                    if (! file_exists($callbackFileName)) {
+                                    $abscallbackFileName = GeneralUtility::getFileAbsFileName($callbackFileName);
+                                    if (! file_exists($abscallbackFileName)) {
                                         self::getController()->addError('error.unknownFile', [
-                                            $callbackFileName
+                                            $abscallbackFileName
                                         ]);
                                         return $result;
                                     }
-                                    $options = str_replace($match, file_get_contents($callbackFileName), $options);
+                                    $options = str_replace($match, file_get_contents($abscallbackFileName), $options);
                                 } else {
                                     $callback = str_replace([
                                         '\n',
@@ -699,7 +702,7 @@ class XmlParser
                     // Creates the javascript
                     $javaScriptFooterInlineCode[] = 'var canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
                     $javaScriptFooterInlineCode[] = 'var chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . self::$allowedChartTags[$xmlTagKey]['type'] . '\', data:' . $data . ', options:' . $options . '});';
-
+                    
                     // Adds the csv file if it exists
                     $csvFileName = '';
                     if (isset($xmlTagValue['csv'])) {
@@ -728,12 +731,13 @@ class XmlParser
      * Resolves the value passed by reference
      *
      * @param mixed $xmlTagValue
+     * 
      * @return mixed
      */
-    public static function ResolveValueByReference($xmlTagValue)
+    public static function ResolveValueByReference(mixed $xmlTagValue): mixed
     {
         if (is_array($xmlTagValue)) {
-            array_walk_recursive($xmlTagValue, 'self::resolveXmlTagValue');
+            array_walk_recursive($xmlTagValue, self::class . '::resolveXmlTagValue');
         } else {
             self::resolveXmlTagValue($xmlTagValue);
         }
@@ -744,11 +748,12 @@ class XmlParser
      * Resolves xml tag value when the value is an object
      *
      * @param mixed $value
+     * 
      * @return void
      */
-    protected static function resolveXmlTagValue(&$value)
+    protected static function resolveXmlTagValue(mixed &$value): void
     {
-        if ($value instanceof \YolfTypo3\SavCharts\XmlParser\GeneralXmlTag\AbstractXmlTag) {
+        if ($value instanceof AbstractXmlTag) {
             $value = $value->getXmlTagValue();
         }
     }
@@ -765,7 +770,7 @@ class XmlParser
      *
      * @return array|false
      */
-    public function processQuery(string $queryManagerName, string $uid, array $markers): array
+    public function processQuery(string $queryManagerName, string $uid, array $markers): array|false
     {
         // Gets the class from the hook
         $hookFound = false;
@@ -780,17 +785,16 @@ class XmlParser
         }
 
         if ($hookFound === false) {
-            self::getController()->addError('error.queryManagerMissing', [
+            return self::getController()->addError('error.queryManagerMissing', [
                 $queryManagerName
             ]);
-            return false;
         }
 
         // Injects the markers
         $hookObject->injectMarkers($markers);
 
         // Executes the query
-        $rows = $hookObject->executeQuery($uid);
+        $rows = $hookObject->executeQuery(intval($uid));
 
         return $rows;
     }
@@ -816,14 +820,14 @@ class XmlParser
     /**
      * Checks if a string is a reference
      *
-     * @param string $reference
+     * @param mixed $reference
      *
      * @return array|false
      */
-    public static function isReference(string $reference)
+    public static function isReference(mixed $reference): array|false
     {
         $matches = [];
-        if (preg_match('/^(?P<tagName>\w+)#(?P<id>\w+|(?P<idTagName>\w+)#(?P<idId>\w+))(?::(?:(?P<indexNumber>\d+)|(?P<indexWord>value|key)|(?P<indexFor>for)#(?P<indexForId>\w+):(?P<indexForIdIndexWord>key|value))(?:-(?P<endIndexNumber>\d+))?)?$/', $reference, $matches)) {
+        if (preg_match('/^(?P<tagName>\w+)#(?P<id>\w+|(?P<idTagName>\w+)#(?P<idId>\w+))(?::(?:(?P<indexNumber>\d+)|(?P<indexWord>value|key)|(?P<indexFor>for)#(?P<indexForId>\w+):(?P<indexForIdIndexWord>key|value))(?:-(?P<endIndexNumber>\d+))?)?$/', strval($reference), $matches)) {
             return $matches;
         } else {
             return false;
@@ -833,11 +837,11 @@ class XmlParser
     /**
      * Processes a reference
      *
-     * @param string $reference
+     * @param mixed $reference
      *
      * @return mixed (return the reference or false)
      */
-    public static function getValueFromReference(string $reference)
+    public static function getValueFromReference(mixed $reference): mixed
     {
         // Get the tag and the id
         $matches = self::isReference($reference);

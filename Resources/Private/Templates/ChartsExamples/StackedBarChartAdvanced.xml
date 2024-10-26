@@ -18,7 +18,7 @@
                 
         <!-- Loads the color template --> 
         <template id="color">
-            <loadTemplate fileName="typo3conf/ext/sav_charts/Resources/Private/Templates/ChartsExamples/DefaultColors.xml"/>
+            <loadTemplate fileName="EXT:sav_charts/Resources/Private/Templates/ChartsExamples/DefaultColors.xml"/>
         </template>
        
         <!-- Defines the data -->

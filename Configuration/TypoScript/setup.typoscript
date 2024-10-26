@@ -1,0 +1,10 @@
+plugin.tx_savcharts {
+    view {
+        templateRootPaths.10 = {$plugin.tx_savcharts.view.templateRootPath}
+        partialRootPaths.10 = {$plugin.tx_savcharts.view.partialRootPath}
+        layoutRootPaths.10 = {$plugin.tx_savcharts.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_savcharts.persistence.storagePid}
+    }
+}
