@@ -26,6 +26,7 @@ use TYPO3\CMS\Core\TypoScript\TypoScriptService;
 use TYPO3\CMS\Extbase\Configuration\FrontendConfigurationManager;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
+
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use YolfTypo3\SavCharts\Domain\Repository\QueryRepository;
@@ -264,7 +265,7 @@ final class DefaultController extends ActionController
     protected function addJavaScriptFooterInlineCode(string $key, string $javaScriptInlineCode): void
     {
         $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-        $pageRenderer->addJsFooterInlineCode($key, $javaScriptInlineCode);
+        $pageRenderer->addJsFooterInlineCode($key, $javaScriptInlineCode, true, false, true);
     }
 
     /**
