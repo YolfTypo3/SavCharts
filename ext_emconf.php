@@ -22,8 +22,7 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '14.3.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '13.4.0-14.3.99',
-            'sav_library_basic' => ''
+            'typo3' => '13.4.0-14.3.99'
         ],
         'conflicts' => [],
         'suggests' => [],
