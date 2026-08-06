@@ -17,13 +17,13 @@ The allowed syntaxes are:
   
       <item key="label" value="marker#labelSet1" />
               
-- tag#id:integer1. The tag whose id is ``id`` must be an array.The attribute value will be replaced by the item at the position given by ``integer1``.
-- tag#id:integer1-integer2. The tag whose id is ``id`` must be an array.The attribute value will be replaced by the sub-array starting at ``integer1`` and ending at ``integer2``.
+- tag#id:integer1. The tag whose id is ``id`` must be an array. The attribute value will be replaced by the item at the position given by ``integer1``.
+- tag#id:integer1-integer2. The tag whose id is ``id`` must be an array. The attribute value will be replaced by the sub-array starting at ``integer1`` and ending at ``integer2``.
 - for#id:value. The tag is replaced by the curent value of the attribute ``each`` in the <for> tag.
 - for#id:key. The tag is replaced by the curent key of the attribute ``each`` in the <for> tag.
-- tag#id:for#idFor:key. The tag whose id is ``id`` must be an array.The attribute value will be replaced by the item at the position given by key 
+- tag#id:for#idFor:key. The tag whose id is ``id`` must be an array. The attribute value will be replaced by the item at the position given by key 
   of the current ``each`` attribute of the <for> tag whose id is ``IdFor``. 
-- tag#id:for#idFor:value. The tag whose id is ``id`` must be an array.The attribute value will be replaced by the item at the position given by value 
+- tag#id:for#idFor:value. The tag whose id is ``id`` must be an array. The attribute value will be replaced by the item at the position given by value 
   of the current ``each`` attribute of the <for> tag whose id is ``IdFor``. 
   
   .. tip::

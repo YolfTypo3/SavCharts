@@ -9,11 +9,6 @@ Plugin Tags
 
 .. only:: html
 
-   .. contents::
-      :depth: 1
-      :local:  
-
-
 .. _plugin.plugin:
 
 plugin

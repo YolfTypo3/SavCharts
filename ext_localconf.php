@@ -13,17 +13,8 @@ defined('TYPO3') or die();
             \YolfTypo3\SavCharts\Controller\DefaultController::class => 'show',
         ],
         // Non-cachable controller actions
-        []
-    );
-
-    // Registers the icon
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Imaging\IconRegistry::class
-    );
-    $iconRegistry->registerIcon(
-        'ext-savcharts-wizard',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        ['source' => 'EXT:sav_charts/Resources/Public/Icons/ExtensionWizard.svg']
+        [],
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
     );
 
     // Adds a hook for the query manager

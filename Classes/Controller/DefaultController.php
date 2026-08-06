@@ -103,11 +103,11 @@ final class DefaultController extends ActionController
         // Gets the extension key
         $extensionKey = $this->request->getControllerExtensionKey();
 
-        // Checks if the static extension template is included
-        $typoScriptSetup = $this->frontendConfigurationManager->getTypoScriptSetup($this->request);
-        $pluginSetupName = 'tx_' . strtolower($this->request->getControllerExtensionName()) . '.';
-        if (! is_array($typoScriptSetup['plugin.'][$pluginSetupName]['view.'] ?? null)) {
-            throw new \RuntimeException('You have to include the static template of the extension ' . $extensionKey . '.');
+        // Checks if the extension is included in the site configuration
+        $lowerCamelExtensionKey = GeneralUtility::underscoredToLowerCamelCase($extensionKey);
+        $siteSettings = $this->request->getAttribute('site')->getSettings();
+        if (! $siteSettings->has($lowerCamelExtensionKey)) {
+            throw new \RuntimeException('You have to include the extension ' . $extensionKey . ' in the site setup.');
         }
     }
 
@@ -290,7 +290,7 @@ final class DefaultController extends ActionController
      *
      * @return bool Returns always false so that it can be used in return statements
      */
-    public function addError(string $key, array $arguments = null): bool
+    public function addError(string $key, ?array $arguments = null): bool
     {
         // Gets the extension key
         $extensionKey = $this->getExtensionKey();

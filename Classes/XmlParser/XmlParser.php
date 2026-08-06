@@ -530,6 +530,7 @@ class XmlParser
                     if (self::isReference($value) !== false) {
                         $value = self::getValueFromReference($value);
                     }
+                    // @extensionScannerIgnoreLine
                     $type = (string) $child->attributes()->type;
                     if ($type === 'function') {
                         $value = '<!--' . $value . '-->';
@@ -604,6 +605,7 @@ class XmlParser
         if (self::$controller === null) {
             $contentObjectUid = '###contentObjectUid###';
         } else {
+            // @extensionScannerIgnoreLine
             $contentObjectUid = self::$controller->getContentObjectRenderer()->data['uid'];
         }
 

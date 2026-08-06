@@ -9,11 +9,6 @@ For Tags
 
 .. only:: html
 
-   .. contents::
-      :depth: 1
-      :local: 
-
-
 .. _for.for:
 
 for

@@ -8,10 +8,6 @@ Data Tags
 
 .. only:: html
 
-   .. contents::
-      :depth: 1
-      :local: 
-
 .. _data.data:
 
 data
@@ -30,9 +26,9 @@ data
     :Attributes:
         - id (required): the identifier.
     
-        It is equivalent to:
+    It is equivalent to:
     
-        .. code::
+    .. code::
     
         	<data id="myDataId">
         		<setData values="5,6,7"/>

@@ -1,0 +1,21 @@
+@import 'EXT:sav_charts/Configuration/TypoScript/setup.typoscript'
+
+plugin.tx_savcharts {
+  view {
+    templateRootPaths {
+      1 = {$savCharts.templateRootPath}
+    }
+
+    partialRootPaths {
+      1 = {$savCharts.partialRootPath}
+    }
+
+    layoutRootPaths {
+      1 = {$savCharts.layoutRootPath}
+    }
+  }
+
+  persistence {
+    storagePid = {$savCharts.storagePid}
+  }
+}

@@ -76,6 +76,7 @@ abstract class AbstractChartXmlTag extends AbstractXmlTag
         $this->xmlTagValue['height'] = $height;
 
         // Gets the data
+        // @extensionScannerIgnoreLine
         $data = (string) $element->attributes()->data;
         if (empty($data)) {
             XmlParser::getController()->addError(

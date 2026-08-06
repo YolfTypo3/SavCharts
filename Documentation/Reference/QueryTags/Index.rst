@@ -8,11 +8,6 @@ Query Tags
 
 .. only:: html
 
-   .. contents::
-      :depth: 1
-      :local:  
-
-
 .. _query.query:
 
 query
@@ -59,6 +54,7 @@ setQueryManager
           In that case, the marker name will be ``myMarker`` and its value is the value of the marker
           whose id is ``myMarker``.
           
-          Markers can also be defined as a reference to a specific element in a data or marker array, for example ``myMarker#data#myData:0``.
-          In that case, the marker name will be ``myMarker`` and its value is obtained from the data with index ``0`` and whose id is ``myData`` .             
+          Markers can also be defined as a reference to a specific element in a data or marker array, 
+          for example ``myMarker#data#myData:0``. In that case, the marker name will be ``myMarker`` 
+          and its value is obtained from the data with index ``0`` and whose id is ``myData``.
 

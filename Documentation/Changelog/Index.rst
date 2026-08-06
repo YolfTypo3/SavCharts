@@ -6,11 +6,11 @@
 Changelog
 =========
 
-.. tabularcolumns:: |r|p{13.7cm}|
-
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
+14.3.0   - Compatibility changed to TYPO3 13.4.x and 14.3.x.
+
 13.4.0   - Compatibility changed to TYPO3 12.4.x and 13.4.x.
          - Version of chart.js changed to 4.4.5.
 

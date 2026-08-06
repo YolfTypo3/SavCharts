@@ -195,6 +195,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getWhereClause()
     {
+	    // @extensionScannerIgnoreLine
         return $this->whereClause;
     }
 
@@ -206,6 +207,7 @@ class Query extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function setWhereClause($whereClause)
     {
+	    // @extensionScannerIgnoreLine
         $this->whereClause = $whereClause;
     }
 

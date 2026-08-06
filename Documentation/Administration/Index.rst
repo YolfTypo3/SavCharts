@@ -24,43 +24,8 @@ Administration
 
    Admin users should be careful before granting the rights for backend users 
    to enter charts.
-
-TypoScript Constants and Setup
-==============================
-
-The extension comes with defaut TypoScript configurations for constants and setup.
-
-.. code::
     
-   plugin.tx_savcharts {
-      view {
-         # cat=plugin.tx_savcharts/file; type=string; label=Path to template root (FE)
-         templateRootPath = EXT:sav_charts/Resources/Private/Templates/
-         # cat=plugin.tx_savcharts/file; type=string; label=Path to template partials (FE)
-         partialRootPath = EXT:sav_charts/Resources/Private/Partials/
-         # cat=plugin.tx_savcharts/file; type=string; label=Path to template layouts (FE)
-         layoutRootPath = EXT:sav_charts/Resources/Private/Layouts/
-      }
-      persistence {
-         # cat=plugin.tx_savcharts//a; type=string; label=Default storage PID
-         storagePid =
-      }
-   }  
-    
-.. code::
-    
-   plugin.tx_savcharts {
-      view {
-         templateRootPath = {$plugin.tx_savcharts.view.templateRootPath}
-         partialRootPath = {$plugin.tx_savcharts.view.partialRootPath}
-         layoutRootPath = {$plugin.tx_savcharts.view.layoutRootPath}
-      }
-      persistence {
-         storagePid = {$plugin.tx_savcharts.persistence.storagePid}
-      }
-   }
-    
-Marker Tags From TypoScript 
+Marker Tags From TypoScript
 ===========================
 
 Marker tags can be created from TypoScript and used in charts. In the following example
@@ -72,7 +37,7 @@ the marker ``MyMarker`` takes the value ``MyValue``.
    plugin.tx_savcharts.settings.marker.myMarker.value = MyValue   
    
 Marker Replacement in Queries
-=============================   
+=============================
    
 Marker replacement can also be performed in queries. The following 
 example shows how to define the marker ``MyMarker`` associated 

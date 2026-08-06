@@ -180,6 +180,7 @@ class ChartsXmlTag extends AbstractXmlTag
         }
 
         // Checks if there is a data attribute
+        // @extensionScannerIgnoreLine
         $data = (string) $element->attributes()->data;
         if (empty($data)) {
             XmlParser::getController()->addError('error.missingAttribute', [

@@ -16,13 +16,13 @@ SAV Charts
    en
 
 :Description:
-   Extension which displays charts using the chart.js library
+   Extension which displays charts using the charts.js library
 
 :Keywords:
    sav_charts
 
 :Copyright:
-   2024
+   2026
 
 :Author:
    Laurent Foulloy

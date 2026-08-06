@@ -24,7 +24,7 @@
                 "YolfTypo3\\SavLibraryKickstarter\\Upgrade\\UpgradeToSavLibraryKickstarter_12_4_0": true
             },
             "libraryVersionMustbeUpgraded": false,
-            "wrongCompatibility": true,
+            "wrongCompatibility": false,
             "addTypoScriptConfiguration": "",
             "addPluginIcon": 0,
             "pluginName": "Default"
@@ -32,7 +32,7 @@
     },
     "emconf": {
         "1": {
-            "version": "11.5.0",
+            "version": "13.4.0",
             "title": "SAV Charts",
             "description": "Extension which displays charts using the charts.js library",
             "state": "stable",

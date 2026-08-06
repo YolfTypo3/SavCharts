@@ -8,11 +8,6 @@ Template Tags
 
 .. only:: html
 
-   .. contents::
-      :depth: 1
-      :local:  
-
-
 .. _template.template:
 
 template
@@ -29,8 +24,8 @@ template
         Loads the XML template file given inside the XML tag.
         The file name is relative to the site path.
     :Attributes:
-        - id (required): the identifier.  
-        
+        - id (required): the identifier.
+    
     It is equivalent to:
 
     .. code::

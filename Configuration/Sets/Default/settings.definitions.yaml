@@ -1,0 +1,39 @@
+categories:
+  SavCharts:
+    label: 'SavBasicExample0'
+  SavCharts.templates:
+    label: 'Templates'
+    parent: SavCharts
+  SavCharts.pages:
+    label: 'Pages'
+    parent: SavCharts
+
+settings:
+
+  savCharts.templateRootPath:
+    label: 'Templates'
+    category: SavBasicExample0.templates
+    description: 'Path to template root'
+    type: string
+    default: 'EXT:sav_charts/Resources/Private/Templates/'
+
+  savCharts.partialRootPath:
+    label: 'Partials'
+    category: SavCharts.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:sav_charts/Resources/Private/Partials/'
+
+  savCharts.layoutRootPath:
+    label: 'Layouts'
+    category: SavCharts.templates
+    description: 'Path to layout root'
+    type: string
+    default: 'EXT:sav_charts/Resources/Private/Layouts/'
+
+  savCharts.storagePid:
+    label: 'Default storage PID'
+    category: SavCharts.pages
+    description: 'Folder that stores all reccords'
+    type: int
+    default: 0
