@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <guides xmlns="https://www.phpdoc.org/guides" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.phpdoc.org/guides ../vendor/phpdocumentor/guides-cli/resources/schema/guides.xsd" links-are-relative="true">
   <extension class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension" project-home="https://github.com/YolfTypo3/SavCharts" project-issues="https://github.com/YolfTypo3/SavCharts/issues" edit-on-github-branch="master/sav_charts" edit-on-github="YolfTypo3/SavCharts" typo3-core-preferred="stable"/>
-  <project title="SAV Charts" release="14.3.0" copyright="since 1999 by the Laurent Foulloy"/>
+  <project title="SAV Charts" release="14.4.0" copyright="since 1999 by the Laurent Foulloy"/>
 </guides>
