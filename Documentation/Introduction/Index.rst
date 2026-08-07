@@ -12,7 +12,8 @@ What Does it Do?
 This extension displays charts using the 
 `Chart.js library <https://www.chartjs.org/>`_. 
 
-Markers can be introduced in templates. Data can also be changed
+Instead of using directly Javascript, Charts configuration are
+defined through XML tags. Markers can be introduced in templates. Data can also be changed
 through XML either manually or using query managers.
 
 The following charts type are available :
