@@ -32,7 +32,7 @@
     },
     "emconf": {
         "1": {
-            "version": "14.3.0",
+            "version": "14.4.0",
             "title": "SAV Charts",
             "description": "Extension which displays charts using the charts.js library",
             "state": "stable",
