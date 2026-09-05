@@ -17,24 +17,14 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\Hooks;
 
-use YolfTypo3\SavCharts\Controller\DefaultController;
-
 /**
  * Interface query managers
  */
 interface QueryManagerInterface
 {
-    /**
-     * Injects the controller
-     *
-     * @param DefaultController $controller
-     * 
-     * @return void
-     */
-    public function injectController(DefaultController $controller);
 
     /**
-     * Executes the query
+     * Executes the query.
      *
      * @param int $queryId
      *            The query id
@@ -44,7 +34,7 @@ interface QueryManagerInterface
     public function executeQuery(int $queryId) :  array;
 
     /**
-     * Injects the markers
+     * Injects the markers.
      *
      * @param array $markers
      *            The markers array

@@ -79,7 +79,7 @@ abstract class AbstractChartXmlTag extends AbstractXmlTag
         // @extensionScannerIgnoreLine
         $data = (string) $element->attributes()->data;
         if (empty($data)) {
-            XmlParser::getController()->addError(
+            XmlParser::addError(
                 'error.missingAttribute',
                 [
                     'data',

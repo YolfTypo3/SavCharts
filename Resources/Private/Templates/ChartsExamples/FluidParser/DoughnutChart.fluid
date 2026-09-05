@@ -1,0 +1,39 @@
+<c:charts>		
+	<c:doughnutChart id="1" data="data__doughnutChartData" options="data__doughnutChartOptions" >
+			
+		<c:data id="dataSet0">
+			300, 500, 100
+		</c:data>
+	
+		<c:data id="backgroundColor">
+			#F7464A, #46BFBD, #FDB45C
+		</c:data>	
+	
+		<c:data id="hoverBackgroundColor">
+			#FF5A5E, #5AD3D1, #FFC870
+		</c:data>	
+		
+		<c:data id="labels">
+			Red, Green, Yellow
+		</c:data>	
+	
+		<c:data id="set0">
+			<c:item key="data" value="{data__dataSet0}" />
+			<c:item key="backgroundColor" value="{data__backgroundColor}" />
+			<c:item key="hoverBackgroundColor" value="{data__hoverBackgroundColor}" />			
+		</c:data>	
+		
+        <c:data id="dataSets">
+            <c:item key="0" value="{data__set0}" />           
+        </c:data>    
+        
+        <c:data id="doughnutChartData">
+            <c:item key="labels" value="{data__labels}" />           
+            <c:item key="datasets" value="{data__dataSets}" />       
+        </c:data>     
+    
+        <c:data id="doughnutChartOptions">
+        </c:data>
+        		
+	</c:doughnutChart>
+</c:charts>

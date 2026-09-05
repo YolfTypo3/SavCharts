@@ -19,22 +19,16 @@ namespace YolfTypo3\SavCharts\Hooks;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\TypoScript\TypoScriptService;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use YolfTypo3\SavCharts\Controller\DefaultController;
 
 /**
  * Abstract query manager
  */
 abstract class AbstractQueryManager implements QueryManagerInterface
 {
-
-    /**
-     * Controller
-     *
-     * @var DefaultController
-     */
-    protected DefaultController $controller;
-
+    
     /**
      * Markers
      *
@@ -50,22 +44,9 @@ abstract class AbstractQueryManager implements QueryManagerInterface
     protected array $query = [];
 
     /**
-     * Injects the controller
-     *
-     * @param DefaultController $controller
-     *
-     * @return void
-     */
-    public function injectController(DefaultController $controller): void
-    {
-        $this->controller = $controller;
-    }
-
-    /**
-     * Injects the markers
+     * Injects the markers.
      *
      * @param array $markers
-     *            The markers array
      *
      * @return void
      */
@@ -73,51 +54,59 @@ abstract class AbstractQueryManager implements QueryManagerInterface
     {
         if (! empty($markers)) {
             $this->markers = $markers;
-        }
+        }        
     }
 
     /**
-     * Replaces markers in the query
+     * Replaces markers in the query.
      *
      * @param int $queryId
-     *            The query id
      *
      * @return void
      */
     public function replaceMarkersInQuery(int $queryId): void
     {
-        // Creates the markers
+        // Creates the markers.
         $markers = $this->markers;
 
-        // Gets the typoScript custom query
+        // Gets the settings
+        /** @var ConfigurationManagerInterface $configurationManager */
+        $configurationManager = GeneralUtility::makeInstance(ConfigurationManager::class);        
+        $settings = $configurationManager->getConfiguration(
+            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS
+        );
+      
+        // Gets the typoScript custom query.
+        /** @var TypoScriptService $typoScriptService **/
         $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
-        $typoScriptConfiguration = $typoScriptService->convertPlainArrayToTypoScriptArray($this->controller->getSettings());
-        $isCustomQuery = is_array($typoScriptConfiguration['customQuery.'][$queryId . '.'] ?? null);
+        $typoScriptConfiguration = $typoScriptService->convertPlainArrayToTypoScriptArray($settings['customQuery'] ?? []);
+        $isCustomQuery = is_array($typoScriptConfiguration[$queryId . '.'] ?? null);
         if ($isCustomQuery) {
-            $customQueryMarkers = $typoScriptConfiguration['customQuery.'][$queryId . '.'];
+            $customQueryMarkers = $typoScriptConfiguration[$queryId . '.'];
+
+            /** @var ContentObjectRenderer $contentObject */
             $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
             foreach ($customQueryMarkers as $customQueryMarkerKey => $customQueryMarker) {
                 if (strpos($customQueryMarkerKey, '.') === false) {
-                    $markers[$customQueryMarkerKey] = $contentObject->cObjGetSingle($customQueryMarker, $customQueryMarkers[$customQueryMarkerKey . '.']);
+                    $markers[$customQueryMarkerKey] = $contentObject->cObjGetSingle($customQueryMarker, $customQueryMarkers[$customQueryMarkerKey. '.'] ?? []);
                 }
             }
         }
 
-        // Creates the markers keys
+        // Creates the markers keys.
         $markersKeys = [];
-        foreach (array_keys($markers) as $key => $value) {
+        foreach (array_keys($markers) as $value) {
             $markersKeys[$value] = '###' . $value . '###';
         }
 
-        // Parses the query with the markers
+        // Parses the query with the markers.
         $this->query = str_replace($markersKeys, $markers, $this->query);
     }
 
     /**
-     * Executes the query
+     * Executes the query.
      *
      * @param int $queryId
-     *            The query id
      *
      * @return array The rows
      */

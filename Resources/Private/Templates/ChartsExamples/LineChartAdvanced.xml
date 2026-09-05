@@ -85,14 +85,14 @@
         </data>
 
         <!-- Prepares data for exportation in CSV if requested -->       
-        <for id="initDataExport" each="data#legend">       
+        <for id="initDataExport" each="data#label">       
             <data id="dataExport" overload="1">
                 <item key="for#initDataExport:key" value="data#data:for#initDataExport:key" />
             </data> 
         </for> 
               
         <data id="columnHeader">
-            <setData values="data#legend" />
+            <setData values="data#label" />
         </data> 
         		
 	</lineChart>

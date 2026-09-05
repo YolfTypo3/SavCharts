@@ -1,0 +1,77 @@
+<c:charts>		
+	<c:horizontalStackedBarChart id="1" data="data__horizontalStackedBarChartData" options="data__horizontalStackedBarChartOptions" width="marker__width" height="marker__height">
+	
+        <c:marker id="title">My Title</c:marker>
+        <c:marker id="width">600</c:marker>
+        <c:marker id="height">400</c:marker>
+
+        <!-- Defines sample labels for the x-axis -->       
+        <c:data id="labels">
+            January, February, March, April, May, June, July
+        </c:data>
+
+        <!-- Defines sample data for the template -->   
+        <c:data id="sampleData">
+            65, 59, 80, 81, 56, 55, 40
+        </c:data>
+                
+        <!-- Loads the color template --> 
+        <c:template id="color" fileName="EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/DefaultColors.fluid"/>
+       
+        <!-- Defines the data -->
+        <c:data id="data">
+        	<f:for each="{data__lowIntensityColors}" as="color" key="key">     
+                <c:item key="{key}" value="{data__sampleData}" />
+			</f:for>
+        </c:data>
+
+        <!-- Defines the labels for the set -->
+        <f:for each="{data__data}" as="value" key="key"> 
+            <c:marker id="labelSet{key}" value="labelSet {key}"/>       
+        </f:for> 
+                                      
+        <!-- Defines the sets -->
+        <c:data id="dataSets">
+	        <f:for each="{data__data}" as="value" key="key">
+	        		<c:item key="{key}">    
+	                <c:item key="label" value="{marker__labelSet{key}}" />
+	                <c:item key="backgroundColor" value="{data__middleIntensityColors.{key}}" />
+	                <c:item key="borderColor" value="{data__fullIntensityColors.{key}}" />
+	                <c:item key="borderWidth">1</c:item>                   
+	                <c:item key="hoverBackgroundColor" value="{data__veryHighIntensityColors.{key}}" />
+	                <c:item key="data" value="{data__data.{key}}" />        
+				</c:item>
+			</f:for> 
+		</c:data>  			
+	
+		<c:data id="horizontalStackedBarChartData">
+			<c:item key="labels" value="{data__labels}" />			
+			<c:item key="datasets" value="{data__dataSets}" />		
+		</c:data>	
+		
+        <c:data id="horizontalStackedBarChartOptions">
+            <c:item key="animation" value="false" />
+            <c:item key="responsive" value="false" /> 
+            <c:item key="plugins">           
+            	<c:item key="title">
+                	<c:item key="display" value="true" />
+                	<c:item key="text" value="{marker__title}" />
+            	</c:item>
+            	<c:item key="tooltip">
+                	<c:item key="backgroundColor">rgba(0,0,0,0.7)</c:item>
+            	</c:item>
+            </c:item>     
+        </c:data>
+        
+        <!-- Prepares data for exportation in CSV if requested -->       
+        <c:data id="dataExport">
+			<f:for each="{data__data}" as="value" key="key">       
+                <c:item key="{key}" value="{value}" />
+        		</f:for> 
+        </c:data>  
+             
+        <c:data id="columnHeader" values="{data__labels}" />
+        
+	</c:horizontalStackedBarChart>
+	
+</c:charts>

@@ -59,7 +59,7 @@ class MarkerXmlTag extends AbstractXmlTag
         // Gets the attribute
         $attributes = $element->attributes();
         if (! isset($attributes['value'])) {
-            XmlParser::getController()->addError(
+            XmlParser::addError(
                 'error.missingAttribute',
                 [
                     'value',

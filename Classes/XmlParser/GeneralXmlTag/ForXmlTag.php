@@ -43,7 +43,7 @@ class ForXmlTag extends AbstractXmlTag
         // Gets the each attribute
         $each = (string) $element->attributes()->each;
         if ($each == '') {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'each',
                 $elementName
             ]);

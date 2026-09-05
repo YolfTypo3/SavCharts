@@ -57,7 +57,7 @@ class TemplateXmlTag extends AbstractXmlTag
         // Gets the attribute
         $fileName = (string) $element->attributes()->fileName;
         if ($fileName == '') {
-            XmlParser::getController()->addError(
+            XmlParser::addError(
                 'error.missingAttribute',
                 [
                     'fileName',

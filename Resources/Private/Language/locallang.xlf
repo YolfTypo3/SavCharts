@@ -66,19 +66,49 @@
 			<trans-unit id="error.xmlSyntaxError" xml:space="preserve">
 				<source>Syntax error: %s. Check line %s in "%s".</source>
 			</trans-unit>			
-			<trans-unit id="pi_flexform.allowQueries" xml:space="preserve">
+			<trans-unit id="flexform.allowQueries" xml:space="preserve">
 				<source>Allow queries (Admin)</source>
-			</trans-unit>			
-			<trans-unit id="pi_flexform.xmlMarkersConfig" xml:space="preserve">
+			</trans-unit>
+			<trans-unit id="flexform.fluidDebug" xml:space="preserve">
+				<source>Debug</source>
+			</trans-unit>
+			<trans-unit id="flexform.fluidDebug.0" xml:space="preserve">
+				<source>Charts</source>
+			</trans-unit>	
+			<trans-unit id="flexform.fluidDebug.1" xml:space="preserve">
+				<source>Markers</source>	
+			</trans-unit>
+			<trans-unit id="flexform.fluidDebug.2" xml:space="preserve">
+				<source>Queries</source>
+			</trans-unit>	
+			<trans-unit id="flexform.fluidDebug.3" xml:space="preserve">
+				<source>Data</source>
+			</trans-unit>		
+			<trans-unit id="flexform.fluidDebug.4" xml:space="preserve">
+				<source>Items</source>
+			</trans-unit>	
+			<trans-unit id="flexform.fluidDebug.5" xml:space="preserve">
+				<source>Callbacks</source>
+			</trans-unit>													
+			<trans-unit id="flexform.parserType" xml:space="preserve">
+				<source>Parser Type</source>
+			</trans-unit>
+			<trans-unit id="flexform.parserType.0" xml:space="preserve">
+				<source>XML Parser</source>
+			</trans-unit>	
+			<trans-unit id="flexform.parserType.1" xml:space="preserve">
+				<source>Fluid Parser</source>
+			</trans-unit>															
+			<trans-unit id="flexform.xmlMarkersConfig" xml:space="preserve">
 				<source>Markers</source>
 			</trans-unit>
-			<trans-unit id="pi_flexform.xmlDataConfig" xml:space="preserve">
+			<trans-unit id="flexform.xmlDataConfig" xml:space="preserve">
 				<source>Data</source>
 			</trans-unit>
-			<trans-unit id="pi_flexform.xmlQueriesConfig" xml:space="preserve">
+			<trans-unit id="flexform.xmlQueriesConfig" xml:space="preserve">
 				<source>Queries</source>
 			</trans-unit>
-			<trans-unit id="pi_flexform.xmlTemplatesConfig" xml:space="preserve">
+			<trans-unit id="flexform.xmlTemplatesConfig" xml:space="preserve">
 				<source>Templates</source>
 			</trans-unit>
 			

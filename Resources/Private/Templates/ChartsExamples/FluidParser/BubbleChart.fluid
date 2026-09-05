@@ -1,0 +1,42 @@
+<c:charts>		
+	<c:bubbleChart id="1" data="data__bubbleChartData" options="data__bubbleChartOptions" >
+	
+        <c:marker id="label0">First Dataset</c:marker> 
+               
+		<c:data id="dataSet0">
+            <c:item key="0">
+                <c:item key="x" value="20"/> 
+                <c:item key="y" value="30"/>  
+                <c:item key="r" value="15"/>                                   
+            </c:item>
+            <c:item key="1">
+                <c:item key="x" value="40"/> 
+                <c:item key="y" value="10"/>  
+                <c:item key="r" value="10"/>                                   
+            </c:item>
+		</c:data>
+	
+		<c:marker id="backgroundColor0">#FF6384</c:marker>	
+	
+		<c:marker id="hoverBackgroundColor0">#FF6384</c:marker>	
+	
+		<c:data id="set0">
+            <c:item key="label" value="{marker__label0}" />
+			<c:item key="data" value="{data__dataSet0}" />
+			<c:item key="backgroundColor" value="{marker__backgroundColor0}" />
+			<c:item key="hoverBackgroundColor" value="{marker__hoverBackgroundColor0}" />			
+		</c:data>	
+
+        <c:data id="dataSets">
+            <c:item key="0" value="{data__set0}" />           
+        </c:data>    
+        
+        <c:data id="bubbleChartData">         
+            <c:item key="datasets" value="{data__dataSets}" />       
+        </c:data>     
+    
+        <c:data id="bubbleChartOptions">
+        </c:data>
+        		
+	</c:bubbleChart>
+</c:charts>

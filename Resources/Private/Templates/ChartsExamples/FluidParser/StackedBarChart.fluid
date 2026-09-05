@@ -1,0 +1,69 @@
+<c:charts>		
+	<c:stackedBarChart id="1" data="data__stackedBarChartData" options="data__stackedBarChartOptions" >
+	
+        <c:marker id="labelSet0">My First dataset</c:marker>
+        <c:marker id="labelSet1">My Second dataset</c:marker>   
+        <c:marker id="labelSet2">My Third dataset</c:marker>   
+        
+		<c:data id="labels">
+			January, February, March, April, May, June, July
+		</c:data>
+	
+		<c:data id="dataSet0">
+			65, 59, 80, 81, 56, 55, 4
+		</c:data>
+		
+		<c:data id="dataSet1">
+			28, 48, 40, 19, 86, 27, 9
+		</c:data>		
+		
+		<c:data id="dataSet2">
+			14, 60, 81, 27, 33, 45, 55
+		</c:data>				
+	
+		<c:data id="set0">
+            <c:item key="label" value="{marker__labelSet0}" />
+            <c:item key="backgroundColor">rgba(220,220,220,0.5)</c:item>
+            <c:item key="borderColor">rgba(220,220,220,0.8)</c:item>
+            <c:item key="borderWidth">1</c:item>                      
+            <c:item key="hoverBackgroundColor">rgba(220,220,220,0.9)</c:item>
+            <c:item key="hoverBorderColor">rgba(220,220,220,1)</c:item>
+            <c:item key="data" value="{data__dataSet0}" />
+		</c:data>	
+
+		<c:data id="set1">
+            <c:item key="label" value="{marker__labelSet1}" />
+            <c:item key="backgroundColor">rgba(151,187,205,0.5)</c:item>
+            <c:item key="borderColor">rgba(151,187,205,0.8)</c:item>
+            <c:item key="borderWidth">1</c:item>              
+            <c:item key="hoverBackgroundColor">rgba(151,187,205,0.9)</c:item>
+            <c:item key="hoverBorderColor">rgba(151,187,205,1)</c:item>
+            <c:item key="data" value="{data__dataSet1}" />
+		</c:data>		
+
+		<c:data id="set2">
+            <c:item key="label" value="marker__labelSet2" />
+            <c:item key="backgroundColor">rgba(240,73,73,0.5)</c:item>
+            <c:item key="borderColor">rgba(240,73,73,0.8)</c:item>
+            <c:item key="borderWidth">1</c:item>              
+            <c:item key="hoverBackgroundColor">rgba(240,73,73,0.9)</c:item>
+            <c:item key="hoverBorderColor">rgba(240,73,73,1)</c:item>
+            <c:item key="data" value="{data__dataSet2}" />
+		</c:data>		
+			
+		<c:data id="dataSets">
+			<c:item key="0" value="{data__set0}" />
+			<c:item key="1" value="{data__set1}" />
+			<c:item key="2" value="{data__set2}" />
+		</c:data>		
+	
+		<c:data id="stackedBarChartData">
+			<c:item key="labels" value="{data__labels}" />			
+			<c:item key="datasets" value="{data__dataSets}" />		
+		</c:data>	
+		
+        <c:data id="stackedBarChartOptions">
+        </c:data>
+        
+	</c:stackedBarChart>
+</c:charts>

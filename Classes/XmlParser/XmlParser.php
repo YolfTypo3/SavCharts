@@ -18,13 +18,17 @@ declare(strict_types=1);
 namespace YolfTypo3\SavCharts\XmlParser;
 
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+use TYPO3\CMS\Core\TypoScript\TypoScriptService;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
 use YolfTypo3\SavCharts\XmlParser\GeneralXmlTag\AbstractXmlTag;
-use YolfTypo3\SavCharts\XmlParser\ChartXmlTag\AbstractChartXmlTag;
 
 /**
- * Class xmlGraph
+ * Class xmlParser
  */
 class XmlParser
 {
@@ -149,6 +153,7 @@ class XmlParser
      */
     protected static array $xmlTagResults = [];
 
+       
     /**
      * Injects the controller
      *
@@ -160,7 +165,56 @@ class XmlParser
     {
         self::$controller = $controller;
     }
-
+    
+    /**
+     * Parses the plugin configuration.
+     *
+     * @return array
+     */
+    public function parse(): array
+    {        
+        // Gets the settings.
+        $settings = self::$controller->getSettings();
+        
+        // Loads the markers and processes them.
+        $this->loadXmlString($settings['flexform']['xmlMarkersConfig']);
+        $this->parseXml();
+        
+        // Sets markers defined by typoscript.
+        $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
+        $typoScriptConfiguration = $typoScriptService->convertPlainArrayToTypoScriptArray($settings);
+        if (is_array($typoScriptConfiguration['marker.'] ?? null)) {
+            $typoScriptMarkers = $typoScriptConfiguration['marker.'];
+            foreach ($typoScriptMarkers as $typoScriptMarkerKey => $typoScriptMarker) {
+                if (strpos($typoScriptMarkerKey, '.') === false) {
+                    $currentContentObject = self::$controller->getRequest()->getAttribute('currentContentObject');
+                    $typoScriptValue = $currentContentObject->cObjGetSingle($typoScriptMarker, $typoScriptMarkers[$typoScriptMarkerKey . '.']);
+                    $xmlTagObject = XmlParser::getXmlTagObject('marker');
+                    $xmlTagObject->setXmlTagId($typoScriptMarkerKey);
+                    $xmlTagObject->setXmlTagValue($typoScriptValue);
+                    XmlParser::setXmlTagResult('marker', $typoScriptMarkerKey, $xmlTagObject);
+                }
+            }
+        }
+        
+        // Loads the queries and processes them.
+        $this->loadXmlString($settings['flexform']['xmlQueriesConfig']);
+        $this->parseXml();
+        
+        // Loads the data and processes them.
+        $this->loadXmlString($settings['flexform']['xmlDataConfig']);
+        $this->parseXml();
+        
+        // Loads the templates and processes them.
+        $this->loadXmlString($settings['flexform']['xmlTemplatesConfig']);
+        $this->parseXml();
+        
+        // Post-processing to get the javascript.
+        $result = $this->postProcessing();
+        
+        return $result['canvases'];
+    }
+        
     /**
      * Gets the controller
      *
@@ -170,7 +224,7 @@ class XmlParser
     {
         return self::$controller;
     }
-
+    
     /**
      * Gets a xml tag result
      *
@@ -257,7 +311,7 @@ class XmlParser
             }
             return $xmlTagResult->getXmlTagValue();
         } else {
-            return self::getController()->addError('error.referenceNotWellFormed', [
+            return self::addError('error.referenceNotWellFormed', [
                 $reference
             ]);
         }
@@ -274,7 +328,7 @@ class XmlParser
     {
         $className = self::getClassName($xmlTag);
         if ($className === false) {
-            return self::getController()->addError('error.unknownClass', [
+            return self::addError('error.unknownClass', [
                 $xmlTag
             ]);
         }
@@ -359,7 +413,7 @@ class XmlParser
         if ($this->xml === false) {
             $errors = libxml_get_errors();
             // Displays the first error
-            self::getController()->addError('error.xmlSyntaxError', [
+            self::addError('error.xmlSyntaxError', [
                 $errors[0]->message,
                 $errors[0]->line,
                 $fileName
@@ -394,7 +448,7 @@ class XmlParser
         if ($this->xml === false) {
             $errors = libxml_get_errors();
             // Displays the first error
-            self::getController()->addError('error.xmlSyntaxError', [
+            self::addError('error.xmlSyntaxError', [
                 $errors[0]->message,
                 $errors[0]->line,
                 $xmlString
@@ -462,7 +516,7 @@ class XmlParser
                     // Calls the method if it exists
                     $xmlTagObject->$childName($child);
                 } else {
-                    self::getController()->addError('error.unknownXmlTag', [
+                    self::addError('error.unknownXmlTag', [
                         $childName
                     ]);
                     return;
@@ -513,7 +567,7 @@ class XmlParser
                 // Gets the key
                 $key = (string) $child->attributes()->key;
                 if ($key == '') {
-                    self::getController()->addError('error.missingAttribute', [
+                    self::addError('error.missingAttribute', [
                         'key',
                         'item'
                     ]);
@@ -565,7 +619,6 @@ class XmlParser
                     // Calls the method if it exists
                     $xmlTagObject->$childName($child);
                     $value = $xmlTagObject->getXmlTagValue();
-                    // return $value;
                     if ($childName === 'callback') {
                         $subItem[key($value)] = current($value);
                     } else {
@@ -605,8 +658,9 @@ class XmlParser
         if (self::$controller === null) {
             $contentObjectUid = '###contentObjectUid###';
         } else {
+            $currentContentObject = self::$controller->getRequest()->getAttribute('currentContentObject');
             // @extensionScannerIgnoreLine
-            $contentObjectUid = self::$controller->getContentObjectRenderer()->data['uid'];
+            $contentObjectUid = $currentContentObject->data['uid'];
         }
 
         // Resolves reference known by object (it occurs when a reference was
@@ -625,27 +679,9 @@ class XmlParser
         $result['canvases'] = [];
         $chartCounter = 0;
 
-        // Processes the plugins
-        $javaScriptFooterInlineCode[] = 'Chart.register(';
-        if (is_array(self::$xmlTagResults['plugin'] ?? null)) {
-            foreach (self::$xmlTagResults['plugin'] as $xmlTagResultKey => $xmlTagResult) {
-                // Gets the xml tag value
-                $pluginFileName = $xmlTagResult->getXmlTagValue();
-                if (! file_exists($pluginFileName)) {
-                    self::getController()->addError('error.unknownFile', [
-                        $pluginFileName
-                    ]);
-                    return $result;
-                }
-                $javaScriptFooterInlineCode[] = file_get_contents($pluginFileName) . ',';
-            }
-        }
-        $javaScriptFooterInlineCode[] = ');';
-
         // Processes the charts
         foreach (self::$xmlTagResults as $xmlTagKey => $xmlTag) {
             if (array_key_exists($xmlTagKey, self::$allowedChartTags)) {
-
                 foreach ($xmlTag as $xmlTagResultKey => $xmlTagResult) {
                     // Sets the chart id
                     $chartId = $contentObjectUid . '_' . $chartCounter;
@@ -681,7 +717,7 @@ class XmlParser
                                     $callbackFileName = str_replace('\/', '/', $matches[2][$matchKey]);
                                     $abscallbackFileName = GeneralUtility::getFileAbsFileName($callbackFileName);
                                     if (! file_exists($abscallbackFileName)) {
-                                        self::getController()->addError('error.unknownFile', [
+                                        self::addError('error.unknownFile', [
                                             $abscallbackFileName
                                         ]);
                                         return $result;
@@ -701,9 +737,33 @@ class XmlParser
                         }
                     }
 
+                    // Creates JavaScript for plugins
+                    $plugins = '[]';
+                    if (is_array(self::$xmlTagResults['plugin'] ?? null)) {
+                        $chartReference = $xmlTagKey .'#' . $xmlTagResultKey;
+                        $javaScriptFooterInlineCode[] = 'const plugin' . $chartId . ' = [';
+                        $lastKey = array_key_last(self::$xmlTagResults['plugin']);                       
+                        foreach (self::$xmlTagResults['plugin'] as $pluginXmlTagResultKey => $pluginXmlTagResult) {
+                            // Gets the xml tag value
+                            $pluginXmlTagValue = $pluginXmlTagResult->getXmlTagValue();
+                            $pluginChartId = key($pluginXmlTagValue);
+                            $pluginValue = current($pluginXmlTagValue);
+                            if ($pluginChartId == $chartReference) {
+                                $javaScriptFooterInlineCode[] = '{';
+                                $javaScriptFooterInlineCode[] = 'id: \'' . $pluginValue['key'] . '\',' ;
+                                $pluginFileName = $pluginValue['fileName'];
+                                $absFileName = GeneralUtility::getFileAbsFileName($pluginFileName);   
+                                $javaScriptFooterInlineCode[] = file_get_contents($absFileName);
+                                $javaScriptFooterInlineCode[] = $pluginXmlTagResultKey == $lastKey ? '}' : '},';
+                            }
+                        }
+                        $javaScriptFooterInlineCode[] = '];';
+                        $plugins = 'plugin' . $chartId . '';
+                    }
+                    
                     // Creates the javascript
-                    $javaScriptFooterInlineCode[] = 'var canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
-                    $javaScriptFooterInlineCode[] = 'var chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . self::$allowedChartTags[$xmlTagKey]['type'] . '\', data:' . $data . ', options:' . $options . '});';
+                    $javaScriptFooterInlineCode[] = 'const canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
+                    $javaScriptFooterInlineCode[] = 'const chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . self::$allowedChartTags[$xmlTagKey]['type'] . '\', plugins: ' . $plugins . ', data:' . $data . ', options:' . $options . '});';
                     
                     // Adds the csv file if it exists
                     $csvFileName = '';
@@ -726,6 +786,27 @@ class XmlParser
 
         $result['javaScriptFooterInlineCode'] = implode(chr(10), $javaScriptFooterInlineCode);
 
+        // Creates the page renderer
+        /** @var PageRenderer $pageRenderer */
+        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+        
+        // Add the canvas JavaScript.
+        $canvases = $result['canvases'];
+        foreach ($canvases as $canvas) {
+            $pageRenderer->addJsFooterInlineCode($canvas['chartId'], $result['javaScriptFooterInlineCode']);
+        }
+
+        // Add the latest Chart.js file.
+        $javaScriptRootDirectory = ExtensionManagementUtility::extPath('sav_charts') . DefaultController::$javaScriptRootPath;
+        $javaScriptFiles = scandir($javaScriptRootDirectory, SCANDIR_SORT_DESCENDING);
+        $javaScriptFooterFile = 'EXT:sav_charts/' . DefaultController::$javaScriptRootPath . '/' . $javaScriptFiles[0];
+
+        $pageRenderer->addJsFooterFile($javaScriptFooterFile);
+
+        // Add the css file.
+        $cssFile = 'EXT:sav_charts/' . DefaultController::$cssPath;
+        $pageRenderer->addCssFile($cssFile);
+          
         return $result;
     }
 
@@ -780,14 +861,13 @@ class XmlParser
             foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sav_charts']['queryManagerClass'] as $key => $classRef) {
                 if ($key == $queryManagerName) {
                     $hookObject = GeneralUtility::makeInstance($classRef);
-                    $hookObject->injectController(self::$controller);
                     $hookFound = true;
                 }
             }
         }
 
         if ($hookFound === false) {
-            return self::getController()->addError('error.queryManagerMissing', [
+            return self::addError('error.queryManagerMissing', [
                 $queryManagerName
             ]);
         }
@@ -888,7 +968,7 @@ class XmlParser
                 // The reference is indexed by a for xml tag key or value.
                 $xmlForTagResult = XmlParser::getXmlTagResult('for', $matches['indexForId']);
                 if ($xmlForTagResult === null) {
-                    return self::getController()->addError('error.incorrectReferenceValue', [
+                    return self::addError('error.incorrectReferenceValue', [
                         'for',
                         $matches['indexForId']
                     ]);
@@ -901,7 +981,7 @@ class XmlParser
                 // The reference is the curent key or value of a for xml tag.
                 $xmlForTagResult = XmlParser::getXmlTagResult('for', $matches['id']);
                 if ($xmlForTagResult === null) {
-                    return self::getController()->addError('error.incorrectReferenceValue', [
+                    return self::addError('error.incorrectReferenceValue', [
                         'for',
                         $matches['id']
                     ]);
@@ -916,7 +996,7 @@ class XmlParser
                 return $xmlTagValue;
             }
         } else {
-            return self::getController()->addError('error.referenceNotWellFormed', [
+            return self::addError('error.referenceNotWellFormed', [
                 $reference
             ]);
         }
@@ -936,5 +1016,33 @@ class XmlParser
         $data = str_replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;', $data);
 
         return $data;
+    }
+    
+    
+    /**
+     * Adds an error to the errors array.
+     *
+     * @param string $key
+     *            The message key
+     * @param array $arguments
+     *            The argument array
+     *
+     * @return bool Returns always false so that it can be used in return statements
+     */
+    public static function addError(string $key, ?array $arguments = null): bool
+    {
+        // Gets the extension key
+        $extensionKey = self::$controller->getRequest()->getControllerExtensionKey();
+        
+        // Sets the message
+        $message = LocalizationUtility::translate($key, $extensionKey, $arguments);
+        
+        if ($message === null) {
+            $message = $key;
+        }
+        
+        self::$controller->addFlashMessage($message, $key, ContextualFeedbackSeverity::ERROR);
+    
+        return false;
     }
 }

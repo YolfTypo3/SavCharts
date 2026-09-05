@@ -17,10 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\XmlParser\GeneralXmlTag;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use YolfTypo3\SavCharts\XmlParser\XmlParser;
+
 /**
  * Class template
  *
- * This class is used to define <template> </template> in xml code
+ * This class is used to define <plugin> </plugin> in xml code
  */
 class PluginXmlTag extends AbstractXmlTag
 {
@@ -34,7 +37,48 @@ class PluginXmlTag extends AbstractXmlTag
      */
     public function defaultMethod(\SimpleXMLElement $element): void
     {
-        $fileName = trim((string) $element);
-        $this->xmlTagValue = $fileName;
+        // Gets the element name
+        $elementName = (string) $element->getName();
+
+        // Gets the chart ID
+        $chartId = (string) $element->attributes()->chartId;
+        if ($chartId == '') {
+            XmlParser::addError('error.missingAttribute', [
+                'fileName',
+                $elementName
+            ]);
+            return;
+        }
+        
+        // Gets the key
+        $key = (string) $element->attributes()->key;
+        if ($key == '') {
+            XmlParser::addError('error.missingAttribute', [
+                'fileName',
+                $elementName
+            ]);
+            return;
+        }
+        
+        // Gets the file name
+        $fileName = (string) $element->attributes()->fileName;
+        if ($fileName == '') {
+            XmlParser::addError('error.missingAttribute', [
+                'fileName',
+                $elementName
+            ]);
+            return;
+        } else {
+            $absFileName = GeneralUtility::getFileAbsFileName($fileName);
+            if (! file_exists($absFileName)) {
+                XmlParser::addError('error.unknownFile', [
+                    $fileName
+                ]);
+                return;
+            }
+        }
+          
+        $this->xmlTagValue[$chartId] = ['key' => $key, 'fileName' => $fileName];
     }
+  
 }

@@ -59,7 +59,7 @@ class DataXmlTag extends AbstractXmlTag
         // Gets the attribute
         $values = (string) $element->attributes()->values;
         if ($values == '') {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'values',
                 $elementName
             ]);
@@ -96,7 +96,7 @@ class DataXmlTag extends AbstractXmlTag
         // Gets the key
         $key = (string) $element->attributes()->key;
         if ($key == '') {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'key',
                 $elementName
             ]);
@@ -162,7 +162,7 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if the queries are allowed
         $settings = XmlParser::getController()->getSettings();
         if (empty($settings['flexform']['allowQueries'])) {
-            XmlParser::getController()->addError('error.queriesMustBeAllowed', [
+            XmlParser::addError('error.queriesMustBeAllowed', [
                 'SetDataFromQuery'
             ]);
             return;
@@ -174,7 +174,7 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if there is a query id
         $query = (string) $element->attributes()->query;
         if (empty($query)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'query',
                 $elementName
             ]);
@@ -187,7 +187,7 @@ class DataXmlTag extends AbstractXmlTag
         // Sets query reference
         $queryReference = 'query#' . $query;
         if (! is_scalar($query) || XmlParser::isReference($queryReference) === false) {
-            XmlParser::getController()->addError('error.incorrectReferenceValue', [
+            XmlParser::addError('error.incorrectReferenceValue', [
                 'query',
                 $query
             ]);
@@ -197,7 +197,7 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if there is a field attribute
         $field = (string) $element->attributes()->field;
         if (empty($field)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'field',
                 $elementName
             ]);
@@ -243,7 +243,7 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if the queries are allowed
         $settings = XmlParser::getController()->getSettings();
         if (empty($settings['flexform']['allowQueries'])) {
-            XmlParser::getController()->addError('error.queriesMustBeAllowed', [
+            XmlParser::addError('error.queriesMustBeAllowed', [
                 'SetDataFromQuery'
             ]);
             return;
@@ -255,7 +255,7 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if there is a query id
         $query = (string) $element->attributes()->query;
         if (empty($query)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'query',
                 $elementName
             ]);
@@ -268,7 +268,7 @@ class DataXmlTag extends AbstractXmlTag
         // Sets query reference
         $queryReference = 'query#' . $query;
         if (! is_scalar($query) || XmlParser::isReference($queryReference) === false) {
-            XmlParser::getController()->addError('error.incorrectReferenceValue', [
+            XmlParser::addError('error.incorrectReferenceValue', [
                 'query',
                 $query
             ]);
@@ -278,7 +278,7 @@ class DataXmlTag extends AbstractXmlTag
         // Checks if there is a fields attribute
         $fields = (string) $element->attributes()->fields;
         if (empty($fields)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'fields',
                 $elementName
             ]);
@@ -396,7 +396,7 @@ class DataXmlTag extends AbstractXmlTag
         // Gets the key
         $key = (string) $element->attributes()->key;
         if ($key == '') {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'key',
                 $elementName
             ]);

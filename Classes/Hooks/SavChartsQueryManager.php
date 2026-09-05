@@ -20,7 +20,8 @@ namespace YolfTypo3\SavCharts\Hooks;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-
+use YolfTypo3\SavCharts\Domain\Repository\QueryRepository;
+   
 /**
  * Hook for the query manager "savcharts"
  */
@@ -34,6 +35,7 @@ final class SavChartsQueryManager extends AbstractQueryManager
      */
     protected ?Connection $databaseConnection = null;
 
+    
     /**
      * Executes the query
      *
@@ -44,12 +46,12 @@ final class SavChartsQueryManager extends AbstractQueryManager
      */
     public function executeQuery(int $queryId): array
     {
-        // Initializes the query
+        // Initializes the query.
         if (! $this->initialize($queryId)) {
             return [];
         }
 
-        // Builds the query
+        // Builds the query.
         $query = 'SELECT ' . $this->query['selectClause'] .
             ' FROM ' . $this->query['fromClause'] .
             ($this->query['whereClause'] ? ' WHERE ' . $this->query['whereClause'] : '') .
@@ -60,9 +62,11 @@ final class SavChartsQueryManager extends AbstractQueryManager
         $rows = $this->databaseConnection->executeQuery($query)->fetchAllAssociative();
 
         if ($rows === null) {
-            $this->controller->addError('error.queryReturnedNull', [
+            $message = sprintf(
+                'The query #%s returned NULL.',
                 $queryId
-            ]);
+                );
+            throw new \InvalidArgumentException($message);
         }
         return $rows;
     }
@@ -77,16 +81,18 @@ final class SavChartsQueryManager extends AbstractQueryManager
      */
     protected function initialize(int $queryId): bool
     {
-        // Gets the object
-        $object = $this->controller->getQueryRepository()->findByUid($queryId);
+        // Gets the object.
+        $queryRepository = GeneralUtility::makeInstance(QueryRepository::class);
+        $object = $queryRepository->findByUid($queryId);
         if ($object === null) {
-            $this->controller->addError('error.queryError', [
+            $message = sprintf(
+                'Query uid="%s" not found.',
                 $queryId
-            ]);
-            return false;
+                );
+            throw new \InvalidArgumentException($message);
         }
 
-        // Gets the query
+        // Gets the query.
         $this->query['selectClause'] = trim($object->getSelectClause());
         $this->query['fromClause'] = trim($object->getFromClause());
         $this->query['whereClause'] = trim($object->getWhereClause());
@@ -94,7 +100,7 @@ final class SavChartsQueryManager extends AbstractQueryManager
         $this->query['orderbyClause'] = trim($object->getOrderbyClause());
         $this->query['limitClause'] = trim($object->getLimitClause());
 
-        // Replaces the markers
+        // Replaces the markers.
         $this->replaceMarkersInQuery($queryId);
 
         // Finds one table for the connection: either the first table in the FROM clause or the first table after FROM
@@ -103,13 +109,14 @@ final class SavChartsQueryManager extends AbstractQueryManager
         if (preg_match('/^(?is:(\w+)|.*?FROM\s+(\w+))/', $this->query['fromClause'], $match) > 0) {
             $tableForConnection = $match[2] ?? $match[1];
         } else {
-            $this->controller->addError('error.tableNotFound', [
+            $message = sprintf(
+                'Table not found in "%s"',
                 $this->query['fromClause']
-            ]);
-            return false;
+                );
+            throw new \InvalidArgumentException($message);
         }
 
-        // Processes the database
+        // Processes the database.
         $databaseId = $object->getDatabaseId();
 
         if (! empty($databaseId)) {
@@ -122,7 +129,7 @@ final class SavChartsQueryManager extends AbstractQueryManager
             $username = $databaseId->getUsername();
             $userpassword = $databaseId->getUserpassword();
 
-            // Processes connection
+            // Processes connection.
             $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][$title] = [
                 'charset' => 'utf8',
                 'dbname' => $name,
@@ -134,7 +141,7 @@ final class SavChartsQueryManager extends AbstractQueryManager
                 'password' => $userpassword
             ];
 
-            // Creates the table handler for the database
+            // Creates the table handler for the database.
             $tables = explode(chr(10), str_replace(chr(13), '', $databaseId->getTables()));
             foreach ($tables as $table) {
                 $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping'][trim($table)] = $title;
@@ -143,9 +150,11 @@ final class SavChartsQueryManager extends AbstractQueryManager
 
         $this->databaseConnection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($tableForConnection);
         if (! $this->databaseConnection->isConnected()) {
-            $this->controller->addError('error.databaseConnectionFailed', [
+            $message = sprintf(
+                'Connection to the database "%s" failed.',
                 $name
-            ]);
+            );
+            throw new \InvalidArgumentException($message);
         }
         return $this->databaseConnection->isConnected();
     }

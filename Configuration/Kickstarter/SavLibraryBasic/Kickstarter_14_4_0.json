@@ -4,7 +4,7 @@
             "extensionKey": "sav_charts",
             "libraryVersion": "",
             "debug": 0,
-            "section": "documentation",
+            "section": "emconf",
             "itemKey": 1,
             "vendorName": "YolfTypo3",
             "pluginTitle": "SAV Charts",
@@ -34,7 +34,7 @@
         "1": {
             "version": "14.4.0",
             "title": "SAV Charts",
-            "description": "Extension which displays charts using the charts.js library",
+            "description": "Extension which displays charts using the Charts.js library",
             "state": "stable",
             "dependencies": "sav_library_basic",
             "author": "Laurent Foulloy",

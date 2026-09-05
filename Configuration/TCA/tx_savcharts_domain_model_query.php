@@ -29,7 +29,7 @@ return [
             ],
         ],
         'hidden' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type'  => 'check',
@@ -37,7 +37,7 @@ return [
             ]
         ],
         'title' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.title',
             'config' => [
                 'type' => 'input',
@@ -46,7 +46,7 @@ return [
             ],
         ],
         'database_id' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.database_id',
             'config' => [
                 'type' => 'select',
@@ -65,7 +65,7 @@ return [
             ],
         ],
         'select_clause' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.select_clause',
             'config' => [
                 'type' => 'text',
@@ -74,7 +74,7 @@ return [
             ],
         ],
         'from_clause' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.from_clause',
             'config' => [
                 'type' => 'text',
@@ -83,7 +83,7 @@ return [
             ],
         ],
         'where_clause' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.where_clause',
             'config' => [
                 'type' => 'text',
@@ -92,7 +92,7 @@ return [
             ],
         ],
         'groupby_clause' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.groupby_clause',
             'config' => [
                 'type' => 'text',
@@ -101,7 +101,7 @@ return [
             ],
         ],
         'orderby_clause' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.orderby_clause',
             'config' => [
                 'type' => 'text',
@@ -110,7 +110,7 @@ return [
             ],
         ],
         'limit_clause' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_query.limit_clause',
             'config' => [
                 'type' => 'text',

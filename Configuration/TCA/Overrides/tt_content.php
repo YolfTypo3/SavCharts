@@ -5,6 +5,7 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use YolfTypo3\SavCharts\Preview\PluginPreviewRenderer;
 
 defined('TYPO3') or die();
 
@@ -15,9 +16,9 @@ if ($typo3Version->getMajorVersion() == 13) {
 	    'SavCharts',
 		'Default',
 		'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-	    'ext-savcharts-wizard',
+		'ext-savcharts-wizard',
 		'plugins',
-		'Extension which displays charts using the chart.js library'
+		'Extension which displays charts using the Charts.js library'
 	);
 
 	// Activates the display of the FlexForm field
@@ -39,12 +40,13 @@ if ($typo3Version->getMajorVersion() == 13) {
 	    'SavCharts',
 		'Default',
 		'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
-	    'ext-savcharts-wizard',
+		'ext-savcharts-wizard',
 		'plugins',
-		'Extension which displays charts using the chart.js library',
-	    'FILE:EXT:sav_charts/Configuration/Flexforms/ExtensionFlexform.xml',
+		'Extension which displays charts using the Charts.js library',
+		'FILE:EXT:sav_charts/Configuration/Flexforms/ExtensionFlexform.xml'
 	);
 }
 
+// Adds a preview renderer to add information to the title
+$GLOBALS['TCA']['tt_content']['types']['savcharts_default']['previewRenderer'] = PluginPreviewRenderer::class;
 
-// Adds addToInsertRecords() if any

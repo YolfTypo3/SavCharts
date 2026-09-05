@@ -43,7 +43,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Checks if there is a reference
         $reference = (string) $element->attributes()->reference;
         if (empty($reference)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'reference',
                 $elementName
             ]);
@@ -53,7 +53,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Checks if there is a key
         $key = (string) $element->attributes()->key;
         if ($key == '') {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'key',
                 $elementName
             ]);
@@ -67,7 +67,7 @@ class ChartsXmlTag extends AbstractXmlTag
         $value = (string) $element->attributes()->value;
         if ($value == '') {
             if ((string) $element == '') {
-                XmlParser::getController()->addError('error.missingAttribute', [
+                XmlParser::addError('error.missingAttribute', [
                     'value',
                     $elementName
                 ]);
@@ -87,7 +87,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Performs the change in the xml tag results array
         $xmlTagResult = XmlParser::getXmlTagResult($xmlTag, $id);
         if ($xmlTagResult === null) {
-            XmlParser::getController()->addError('error.incorrectReferenceValue', [
+            XmlParser::addError('error.incorrectReferenceValue', [
                 $xmlTag,
                 $id
             ]);
@@ -119,7 +119,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Checks if there is a reference
         $reference = (string) $element->attributes()->reference;
         if (empty($reference)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'reference',
                 $elementName
             ]);
@@ -128,7 +128,7 @@ class ChartsXmlTag extends AbstractXmlTag
 
         $newId = (string) $element->attributes()->newId;
         if (empty($newId)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'newId',
                 $elementName
             ]);
@@ -146,7 +146,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Performs the change in the xml tag results array
         $xmlTagResult = XmlParser::getXmlTagResult($xmlTag, $id);
         if ($xmlTagResult === null) {
-            XmlParser::getController()->addError('error.incorrectReferenceValue', [
+            XmlParser::addError('error.incorrectReferenceValue', [
                 $xmlTag,
                 $id
             ]);
@@ -172,7 +172,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Checks if there is a reference attribute
         $reference = (string) $element->attributes()->reference;
         if (empty($reference)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'reference',
                 $elementName
             ]);
@@ -183,7 +183,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // @extensionScannerIgnoreLine
         $data = (string) $element->attributes()->data;
         if (empty($data)) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'data',
                 $elementName
             ]);
@@ -214,27 +214,27 @@ class ChartsXmlTag extends AbstractXmlTag
             $columnHeader = XmlParser::ResolveValueByReference($columnHeader);
         }
 
-        // Sets the row header
+        // Sets the column header
         $output = [];
-        if (! empty($columnHeader)) {
-            $rowHeader = array_merge([
+        if (! empty($rowHeader)) {
+            $columnHeader = array_merge([
                 ''
-            ], $rowHeader);
+            ], $columnHeader);
         }
 
-        if (! is_array($rowHeader)) {
-            XmlParser::getController()->addError('error.exportCsv', [
+        if (! is_array($columnHeader)) {
+            XmlParser::addError('error.exportCsv', [
                 'rowHeader'
             ]);
             return;
         }
-        $output[] = CsvUtility::csvValues($rowHeader, ';');
+        $output[] = CsvUtility::csvValues($columnHeader, ';');
 
         // Sets the rows
         if (! is_array($data[0] ?? null)) {
             // Table with one row
             if (! is_array($data)) {
-                XmlParser::getController()->addError('error.exportCsv', [
+                XmlParser::addError('error.exportCsv', [
                     'data'
                 ]);
                 return;
@@ -244,14 +244,14 @@ class ChartsXmlTag extends AbstractXmlTag
             // Table with several rows
             foreach ($data as $rowKey => $row) {
                 if (! is_array($row)) {
-                    XmlParser::getController()->addError('error.exportCsv', [
+                    XmlParser::addError('error.exportCsv', [
                         'data[' . $rowKey . ']'
                     ]);
                     return;
                 }
-                if (! empty($columnHeader)) {
+                if (! empty($rowHeader)) {
                     $value = array_merge([
-                        $columnHeader[$rowKey]
+                        $rowHeader[$rowKey]
                     ], $row);
                     $output[] = CsvUtility::csvValues($value, ';');
                 } else {
@@ -281,7 +281,7 @@ class ChartsXmlTag extends AbstractXmlTag
         // Performs the change in the xml tag results array
         $xmlTagResult = XmlParser::getXmlTagResult($xmlTag, $id);
         if ($xmlTagResult === null) {
-            XmlParser::getController()->addError('error.incorrectReferenceValue', [
+            XmlParser::addError('error.incorrectReferenceValue', [
                 $xmlTag,
                 $id
             ]);

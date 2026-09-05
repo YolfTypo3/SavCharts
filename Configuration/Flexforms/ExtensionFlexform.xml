@@ -5,65 +5,42 @@
   <sheets>
     <sDEF>
       <ROOT>
-          <sheetTitle>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.sheetTitle.sDEF</sheetTitle>
+        <sheetTitle>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.sheetTitle.sDEF</sheetTitle>
         <type>array</type>
         <el>
-         <settings.flexform.allowQueries>
-              <exclude>1</exclude>
-              <displayCond>HIDE_FOR_NON_ADMINS</displayCond>
-              <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.allowQueries</label>
-              <config>
-                <type>check</type>
-                <default>0</default>
-              </config>
-          </settings.flexform.allowQueries>      
-          <settings.flexform.xmlMarkersConfig>
-              <exclude>1</exclude>
-              <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlMarkersConfig</label>
-              <config>
-                <type>text</type>
-                <cols>48</cols>
-                <rows>5</rows>
-               </config>
-          </settings.flexform.xmlMarkersConfig>         
-          <settings.flexform.xmlQueriesConfig>
-              <exclude>1</exclude>
-              <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlQueriesConfig</label>
-              <config>
-                <type>text</type>
-                <cols>48</cols>
-                <rows>5</rows>
-                <default>&lt;query id="1"&gt;
-
-&lt;/query&gt;
-                </default>
-              </config>
-          </settings.flexform.xmlQueriesConfig>          
-          <settings.flexform.xmlDataConfig>
-              <exclude>1</exclude>
-              <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlDataConfig</label>
-              <config>
-                <type>text</type>
-                <cols>48</cols>
-                <rows>5</rows>
-               </config>
-          </settings.flexform.xmlDataConfig>
-          <settings.flexform.xmlTemplatesConfig>
-              <exclude>1</exclude>
-              <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:pi_flexform.xmlTemplatesConfig</label>
-              <config>
-                <type>text</type>
-                <cols>48</cols>
-                <rows>5</rows>
-                <default>&lt;template id="1"&gt;
-
-&lt;/template&gt;
-                </default>
-               </config>
-          </settings.flexform.xmlTemplatesConfig>         
-       </el>
+          <settings.flexform.parserType>
+            <exclude>1</exclude>
+            <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType</label>
+            <config>
+              <type>select</type>
+              <renderType>selectSingle</renderType>
+              <items>
+	            <numIndex index="0" type="array">
+                  <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.0</numIndex>
+                  <numIndex index="value">0</numIndex>
+				</numIndex>
+				<numIndex index="1" type="array">
+                  <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.1</numIndex>
+                  <numIndex index="value">1</numIndex>
+                </numIndex>
+              </items>
+              <default>0</default>
+              <size>1</size>
+            </config>
+          </settings.flexform.parserType>
+          <settings.flexform.allowQueries>
+            <exclude>1</exclude>
+            <displayCond>HIDE_FOR_NON_ADMINS</displayCond>
+            <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.allowQueries</label>
+            <config>
+              <type>check</type>
+              <default>0</default>
+            </config>
+          </settings.flexform.allowQueries>                       
+        </el>
       </ROOT>
     </sDEF>
+    <xmlParser>EXT:sav_charts/Configuration/Flexforms/XmlParserFlexform.xml</xmlParser>
+    <fluidParser>EXT:sav_charts/Configuration/Flexforms/FluidParserFlexform.xml</fluidParser>   
   </sheets>
 </T3DataStructure>
-

@@ -1,0 +1,65 @@
+<c:charts>		
+	<c:scatterChart id="1" data="data__scatterChartData" options="data__scatterChartOptions" >
+
+        <c:marker id="labelSet0">My First dataset</c:marker>
+        <c:marker id="labelSet1">My Second dataset</c:marker>   
+	
+		<c:data id="dataSet0x">
+			65, 59, 90, 81, 56
+		</c:data>
+		<c:data id="dataSet0y">
+			10, 15, 9, 25, 19
+		</c:data>		
+		<c:data id="dataSet1x">
+			28, 48, 40, 19, 96, 27, 100
+		</c:data>	
+		<c:data id="dataSet1y">
+			2, 4, 10, 9, 16, 7, 23
+		</c:data>			
+
+		<c:data id="dataSet0">
+			<f:for each="{data__dataSet0x}" as="value" key="key">
+            		<c:item key="{key}">
+	                	<c:item key="x" value="{data__dataSet0x.{key}}" />
+                		<c:item key="y" value="{data__dataSet0y.{key}}" />
+            		</c:item>
+        		</f:for>    	            
+        </c:data>
+
+		<c:data id="dataSet1">
+			<f:for each="{data__dataSet1x}" as="value" key="key">
+            		<c:item key="{key}">
+	                	<c:item key="x" value="{data__dataSet1x.{key}}" />
+                		<c:item key="y" value="{data__dataSet1y.{key}}" />
+            		</c:item>
+        		</f:for>    	            
+        </c:data>
+			
+		<c:data id="set0">
+            <c:item key="label" value="{marker__labelSet0}" />
+            <c:item key="backgroundColor">rgba(255,0,0,0.2)</c:item>
+            <c:item key="borderColor">rgba(255,0,0,1)</c:item>
+            <c:item key="data" value="{data__dataSet0}" />
+		</c:data>	
+	
+		<c:data id="set1">
+            <c:item key="label" value="{marker__labelSet1}" />
+            <c:item key="backgroundColor">rgba(0,0,255,0.2)</c:item>
+            <c:item key="borderColor">rgba(0,0,255,1)</c:item>
+            <c:item key="data" value="{data__dataSet1}" />
+		</c:data>		
+	
+		<c:data id="dataSets">
+			<c:item key="0" value="{data__set0}" />
+			<c:item key="1" value="{data__set1}" />
+		</c:data>		
+	
+		<c:data id="scatterChartData">			
+			<c:item key="datasets" value="{data__dataSets}" />		
+		</c:data>	
+		
+        <c:data id="scatterChartOptions">   
+        </c:data>
+        
+	</c:scatterChart>	
+</c:charts>

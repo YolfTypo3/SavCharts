@@ -29,7 +29,7 @@ return [
             ],
         ],
         'hidden' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type'  => 'check',
@@ -37,7 +37,7 @@ return [
             ]
         ],
         'title' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.title',
             'config' => [
                 'type' => 'input',
@@ -46,7 +46,7 @@ return [
             ],
         ],
         'driver' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.driver',
             'config' => [
                 'type' => 'input',
@@ -55,7 +55,7 @@ return [
             ],
         ],
         'tables' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.tables',
             'config' => [
                 'type' => 'text',
@@ -64,7 +64,7 @@ return [
             ],
         ],
         'host' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.host',
             'config' => [
                 'type' => 'input',
@@ -73,7 +73,7 @@ return [
             ],
         ],
         'port' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.port',
             'config' => [
                 'type'  => 'number',
@@ -86,7 +86,7 @@ return [
             ],
         ],
         'socket' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.socket',
             'config' => [
                 'type' => 'input',
@@ -95,7 +95,7 @@ return [
             ],
         ],
         'name' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.name',
             'config' => [
                 'type' => 'input',
@@ -104,7 +104,7 @@ return [
             ],
         ],
         'username' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.username',
             'config' => [
                 'type' => 'input',
@@ -113,7 +113,7 @@ return [
             ],
         ],
         'userpassword' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.userpassword',
             'config' => [
                 'type' => 'input',
@@ -122,7 +122,7 @@ return [
             ],
         ],
         'persistent' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label'  => 'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tx_savcharts_domain_model_database.persistent',
             'config' => [
                 'type' => 'check',

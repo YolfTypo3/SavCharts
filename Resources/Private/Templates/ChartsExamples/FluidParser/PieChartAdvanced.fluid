@@ -1,0 +1,51 @@
+<c:charts>		
+	<c:pieChart id="1" data="data#pieChartData" options="data#pieChartOptions" width="marker#width" height="marker#height">
+
+        <c:marker id="title">My Title</c:marker>
+        <c:marker id="width">600</c:marker>
+        <c:marker id="height">400</c:marker>
+        	
+        <c:data id="data">
+            300, 500, 100
+        </c:data>
+        
+        <!-- Loads the color template --> 
+        <c:template id="color">
+            <c:loadTemplate fileName="EXT:sav_charts/Resources/Private/Templates/ChartsExamples/DefaultColors.xml"/>
+        </c:template>      
+                
+        <c:data id="labels">
+            Red, Green, Yellow
+        </c:data> 
+    
+        <c:data id="set0">
+            <c:item key="data" value="data#data" />
+            <c:item key="backgroundColor" value="data#middleIntensityColors" />
+            <c:item key="hoverBackgroundColor" value="data#veryHighIntensityColors" />           
+        </c:data> 
+        
+        <c:data id="dataSets">
+            <c:item key="0" value="data#set0" />           
+        </c:data>    
+        
+        <c:data id="pieChartData">
+            <c:item key="labels" value="data#labels" />           
+            <c:item key="datasets" value="data#dataSets" />       
+        </c:data>     
+		
+        <c:data id="pieChartOptions">
+            <c:item key="animation" value="false" />
+            <c:item key="responsive" value="false" />
+            <c:item key="plugins">
+            	<c:item key="title">
+                	<c:item key="display" value="true" />
+                	<c:item key="text" value="marker#title" />
+            	</c:item>
+            	<c:item key="tooltip">
+                	<c:item key="backgroundColor">rgba(0,0,0,0.7)</c:item>
+            	</c:item>
+            </c:item>                     
+        </c:data>
+        
+	</c:pieChart>
+</c:charts>

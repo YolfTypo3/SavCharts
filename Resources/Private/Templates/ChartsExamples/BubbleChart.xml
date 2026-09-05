@@ -19,7 +19,7 @@
 	
 		<marker id="backgroundColor0">#FF6384</marker>	
 	
-		<data id="hoverBackgroundColor0">#FF6384</data>	
+		<marker id="hoverBackgroundColor0">#FF6384</marker>	
 	
 		<data id="set0">
             <item key="label" value="marker#label0" />
@@ -32,8 +32,7 @@
             <item key="0" value="data#set0" />           
         </data>    
         
-        <data id="bubbleChartData">
-            <item key="labels" value="data#labels" />           
+        <data id="bubbleChartData">       
             <item key="datasets" value="data#dataSets" />       
         </data>     
     

@@ -1,12 +1,13 @@
-.. include:: ../Includes.txt
+..  include:: ../Includes.txt
 
-.. _userManual:
+..  _userManual:
 
 ============
 Users Manual
 ============
 
-#. Download the extension and install it in the dependencies
-   of your site (the extension comes with default sites settings).
+#.  Download and install the extension in your site's 
+    dependencies. The extension comes with default site 
+    settings.
 
-#. Read the tutorial section.
+#.  Read the tutorial section.

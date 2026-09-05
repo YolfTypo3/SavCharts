@@ -1,0 +1,52 @@
+<T3DataStructure>
+  <ROOT>
+    <sheetTitle>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.0</sheetTitle>
+    <type>array</type>
+    <el>
+      <settings.flexform.xmlMarkersConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlMarkersConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+        </config>
+      </settings.flexform.xmlMarkersConfig>         
+      <settings.flexform.xmlQueriesConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlQueriesConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+          <default>&lt;query id="1"&gt;
+
+&lt;/query&gt;
+          </default>
+        </config>
+      </settings.flexform.xmlQueriesConfig>          
+      <settings.flexform.xmlDataConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlDataConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+        </config>
+      </settings.flexform.xmlDataConfig>
+      <settings.flexform.xmlTemplatesConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlTemplatesConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+          <default>&lt;template id="1"&gt;
+
+&lt;/template&gt;
+          </default>
+        </config>
+      </settings.flexform.xmlTemplatesConfig>                 
+    </el>
+  </ROOT>
+</T3DataStructure>

@@ -67,7 +67,7 @@ class QueryXmlTag extends AbstractXmlTag
 
         // Checks if the attribute name exists
         if ($name === null) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'name',
                 $elementName
             ]);
@@ -79,7 +79,7 @@ class QueryXmlTag extends AbstractXmlTag
 
         // Checks if the attribute uid exists
         if ($uid === null) {
-            XmlParser::getController()->addError('error.missingAttribute', [
+            XmlParser::addError('error.missingAttribute', [
                 'uid',
                 $elementName
             ]);

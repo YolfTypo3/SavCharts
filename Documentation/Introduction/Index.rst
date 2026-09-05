@@ -1,6 +1,6 @@
-.. include:: ../Includes.txt
+..  include:: ../Includes.txt
 
-.. _introduction:
+..  _introduction:
 
 ============
 Introduction
@@ -12,30 +12,44 @@ What Does it Do?
 This extension displays charts using the 
 `Chart.js library <https://www.chartjs.org/>`_. 
 
-Instead of using directly Javascript, Charts configuration are
-defined through XML tags. Markers can be introduced in templates. Data can also be changed
-through XML either manually or using query managers.
+SAV Charts was originally designed to build chart configurations through XML 
+tags instead of JavaScript. Markers can be introduced in templates. Data can also 
+be changed through XML either manually or using query managers.
 
+..  important::
+
+    Starting with version 14.5.0 of SAV Charts, a new parser based solely on 
+    Fluid and specific viewHelpers has been introduced. 
+    Thanks to Fluid syntax, it simplifies writing complex charts and using references.
+
+    While generating charts is faster with the XML parser, writing complex code is much
+    simpler with the Fluid parser.
+    
 The following charts type are available :
 
-- Bar charts
-- Bubble charts
-- Doughnut charts
-- Line charts
-- Pie charts
-- Polar area charts
-- Radar charts
-- Stacked bar charts
-- Horizontal bar charts
-- Scatter Line Charts
-- Charts can also be combined, e.g. a bar chart with a line chart
+-   Bar charts
+-   Bubble charts
+-   Doughnut charts
+-   Line charts
+-   Pie charts
+-   Polar area charts
+-   Radar charts
+-   Stacked bar charts
+-   Horizontal bar charts
+-   Scatter Line Charts
+-   Charts can also be combined (Combo charts), e.g. a
+    bar chart with a line chart
 
-.. tip::
+..  tip::
 
-   SAV Charts is provided with several basic templates and more advanced 
-   templates which simplify the implementation of charts with several sets of data.
+    SAV Charts is provided with several basic templates and more advanced 
+    templates which simplify the implementation of charts with several sets of data.
+    XML Templates are in the directory `Resources/Private/Templates/ChartsExamples`.
 
-   The following screenshots are obtained with the provided basic templates.
+    XML templates were also converted to Fluid templates and are available in
+    `Resources/Private/Templates/ChartsExamples/FluidParser`.
+
+    The following screenshots are obtained with the provided basic templates.
      
 Screenshots
 ===========
@@ -43,59 +57,59 @@ Screenshots
 Bar Chart
 ---------
 
-.. figure:: ../Images/ScreenShots/barChart.png
+..  figure:: ../Images/ScreenShots/barChart.png
 
 Bubble Chart
 ------------
 
-.. figure:: ../Images/ScreenShots/bubbleChart.png
+..  figure:: ../Images/ScreenShots/bubbleChart.png
 
 Doughnut Chart
 --------------
 
-.. figure:: ../Images/ScreenShots/doughnutChart.png
+..  figure:: ../Images/ScreenShots/doughnutChart.png
 
 Horizontal Bar Chart
 --------------------
 
-.. figure:: ../Images/ScreenShots/horizontalBarChart.png
+..  figure:: ../Images/ScreenShots/horizontalBarChart.png
 
 Horizontal Stacked Bar Chart
 ----------------------------
 
-.. figure:: ../Images/ScreenShots/horizontalStackedBarChart.png
+..  figure:: ../Images/ScreenShots/horizontalStackedBarChart.png
 
 Line Chart
 ----------
 
-.. figure:: ../Images/ScreenShots/lineChart.png
+..  figure:: ../Images/ScreenShots/lineChart.png
 
 Pie Chart
 ---------
 
-.. figure:: ../Images/ScreenShots/pieChart.png
+..  figure:: ../Images/ScreenShots/pieChart.png
 
 Polar Area Chart
 ----------------
 
-.. figure:: ../Images/ScreenShots/polarAreaChart.png
+..  figure:: ../Images/ScreenShots/polarAreaChart.png
 
 Radar Chart
 -----------
 
-.. figure:: ../Images/ScreenShots/radarChart.png
+..  figure:: ../Images/ScreenShots/radarChart.png
 
 Scatter Chart
 -------------
 
-.. figure:: ../Images/ScreenShots/scatterChart.png
+..  figure:: ../Images/ScreenShots/scatterChart.png
 
 Stacked Bar Chart
 -----------------
 
-.. figure:: ../Images/ScreenShots/stackedBarChart.png
+..  figure:: ../Images/ScreenShots/stackedBarChart.png
 
 Combination Chart
 -----------------
 
-.. figure:: ../Images/ScreenShots/comboChart.png
+..  figure:: ../Images/ScreenShots/comboChart.png

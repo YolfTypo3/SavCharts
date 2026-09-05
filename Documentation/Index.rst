@@ -16,7 +16,7 @@ SAV Charts
    en
 
 :Description:
-   Extension which displays charts using the charts.js library
+   Extension which displays charts using the Charts.js library
 
 :Keywords:
    sav_charts
@@ -63,4 +63,4 @@ Table of Contents
    :hidden:
 
    Sitemap
-   genindex    
+   

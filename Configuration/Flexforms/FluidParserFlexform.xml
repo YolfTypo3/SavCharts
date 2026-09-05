@@ -1,0 +1,81 @@
+<T3DataStructure>
+  <ROOT>
+    <sheetTitle>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.1</sheetTitle>
+    <type>array</type>
+    <el>
+      <settings.flexform.fluidMarkersConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlMarkersConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+        </config>
+      </settings.flexform.fluidMarkersConfig>         
+      <settings.flexform.fluidQueriesConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlQueriesConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+          <default>&lt;c:query id="1"&gt;
+
+&lt;/c:query&gt;
+          </default>
+        </config>
+      </settings.flexform.fluidQueriesConfig>          
+      <settings.flexform.fluidDataConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlDataConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+        </config>
+      </settings.flexform.fluidDataConfig>
+      <settings.flexform.fluidTemplatesConfig>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.xmlTemplatesConfig</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+          <default>&lt;c:template id="1"&gt;
+
+&lt;/c:template&gt;
+          </default>
+        </config>
+      </settings.flexform.fluidTemplatesConfig>   
+      <settings.flexform.fluidDebug>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug</label>
+        <config>
+		  <type>check</type>
+          <items>
+	        <numIndex index="0" type="array">
+              <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug.0</numIndex>
+		    </numIndex>
+	        <numIndex index="1" type="array">
+              <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug.1</numIndex>
+		    </numIndex>
+	        <numIndex index="2" type="array">
+              <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug.2</numIndex>
+		    </numIndex>
+	        <numIndex index="3" type="array">
+              <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug.3</numIndex>
+		    </numIndex>
+	        <numIndex index="4" type="array">
+              <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug.4</numIndex>
+		    </numIndex>
+	        <numIndex index="5" type="array">
+              <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.fluidDebug.5</numIndex>
+		    </numIndex>
+		  </items> 
+		  <cols>inline</cols>
+		  <default>0</default>     
+        </config>
+      </settings.flexform.fluidDebug>                       
+    </el>
+  </ROOT>
+</T3DataStructure>
