@@ -23,8 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
 
 /**
- * A view helper for charts.
- *
+ * A viewHelper for charts.
  *
  * @package SavLibraryKickstarter
  */
@@ -32,7 +31,7 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
 {
          
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
      * @return void
      */
@@ -44,9 +43,15 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
         $javaScriptFooterInlineCode = [];
         $variableProvider = $this->renderingContext->getVariableProvider();
         $charts = $variableProvider->get('charts__');
-        foreach ($charts as $chart) {
-            // Sets the chart id.
-            $chartId = bin2hex(random_bytes(8));
+
+        foreach ($charts as $chartKey => $chart) {
+            // Sets the chart id with the contentUID, if it exists, randomly otherwise.
+            if ($variableProvider->exists('contentUid')) {
+                $contentUid = $variableProvider->get('contentUid');
+                $chartId = $contentUid . '_' . $chartKey;
+            } else {    
+                $chartId = bin2hex(random_bytes(8));
+            }
         
             // Creates the JavaScript for data. 
             $data = $chart['data'];
@@ -64,22 +69,22 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
             // Creates the JavaScript for plugins.
             $plugins = '[]';
             if (!empty($chart['plugins']) && is_array($chart['plugins'])) {
-                $javaScriptFooterInlineCode[] = 'const plugin' . $chartId . ' = [';
+                $javaScriptFooterInlineCode[$chartId][] = 'const plugin' . $chartId . ' = [';
                 $lastKey = array_key_last($chart['plugins']);
                 foreach ($chart['plugins'] as $pluginKey => $plugin) {
-                    $javaScriptFooterInlineCode[] = '{';
-                    $javaScriptFooterInlineCode[] = 'id: \'' . $pluginKey . '\',' ;
+                    $javaScriptFooterInlineCode[$chartId][] = '{';
+                    $javaScriptFooterInlineCode[$chartId][] = 'id: \'' . $pluginKey . '\',' ;
                     $plugin = json_encode($plugin, JSON_NUMERIC_CHECK);
                     $plugin = preg_replace(['/\\\n/', '/\\\r/', '/\\\t/', '/{"scalar":"(.*?)"}/s'], [chr(10), '', '    ', '$1'], $plugin);
-                    $javaScriptFooterInlineCode[] = $plugin;
-                    $javaScriptFooterInlineCode[] = $pluginKey == $lastKey ? '}' : '},';
+                    $javaScriptFooterInlineCode[$chartId][] = $plugin;
+                    $javaScriptFooterInlineCode[$chartId][] = $pluginKey == $lastKey ? '}' : '},';
                 }
-                $javaScriptFooterInlineCode[] = '];';
+                $javaScriptFooterInlineCode[$chartId][] = '];';
                 $plugins = 'plugin' . $chartId . '';
             }
                        
-            $javaScriptFooterInlineCode[] = 'const canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
-            $javaScriptFooterInlineCode[] = 'const chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . $chart['type'] . '\', plugins: ' . $plugins . ', data:' . $data . ', options:' . $options . '});';      
+            $javaScriptFooterInlineCode[$chartId][] = 'const canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
+            $javaScriptFooterInlineCode[$chartId][] = 'const chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . $chart['type'] . '\', plugins: ' . $plugins . ', data:' . $data . ', options:' . $options . '});';      
             $canvases[] = [
                 'chartId' => $chartId,
                 'width' => $chart['width'],
@@ -92,7 +97,7 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
 
             // Adds the canvas JavaScript.
             foreach ($canvases as $canvas) {
-                $pageRenderer->addJsFooterInlineCode($canvas['chartId'], implode(chr(10), $javaScriptFooterInlineCode));
+                $pageRenderer->addJsFooterInlineCode($chartId, implode(chr(10), $javaScriptFooterInlineCode[$chartId]));
             }
                     
             // Add the latest Chart.js file.

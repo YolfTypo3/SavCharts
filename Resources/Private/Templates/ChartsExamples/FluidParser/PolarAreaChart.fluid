@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:polarAreaChart id="1" data="data__polarAreaChartData" options="data__polarAreaChartOptions" >
+	<c:chart.polarArea id="1" data="data__polarAreaChartData" options="data__polarAreaChartOptions" >
 		
         <c:data id="dataSet0">
             300, 200, 100
@@ -35,5 +35,5 @@
         <c:data id="polarAreaChartOptions">
         </c:data>
             
-	</c:polarAreaChart>
+	</c:chart.polarArea>
 </c:charts>

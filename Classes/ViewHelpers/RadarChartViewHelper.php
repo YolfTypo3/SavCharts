@@ -17,16 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\RadarViewHelper;
+
 /**
- * A view helper for RadarChart tag.
- *
+ * A viewHelper for compatibility with XML RadarChart tag.
  *
  * @package SavCharts
  */
-final class RadarChartViewHelper extends AbstractChartViewHelper
+final class RadarChartViewHelper extends RadarViewHelper
 {
-    protected $configuration = [
-        'type' => 'radar',
-        'options' => []
-    ];
 }

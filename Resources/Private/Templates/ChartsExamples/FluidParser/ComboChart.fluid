@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:barChart id="1" data="data__barChartData" options="data__barChartOptions" >
+	<c:chart.bar id="1" data="data__barChartData" options="data__barChartOptions" >
 	
         <c:marker id="labelSet0">My First dataset</c:marker>
         <c:marker id="labelSet1">My Second dataset</c:marker>   
@@ -51,5 +51,5 @@
         <c:data id="barChartOptions">
         </c:data>		
 		
-	</c:barChart>
+	</c:chart.bar>
 </c:charts>

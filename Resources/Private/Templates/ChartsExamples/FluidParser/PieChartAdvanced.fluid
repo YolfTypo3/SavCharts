@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:pieChart id="1" data="data#pieChartData" options="data#pieChartOptions" width="marker#width" height="marker#height">
+	<c:chart.pie id="1" data="data#pieChartData" options="data#pieChartOptions" width="marker#width" height="marker#height">
 
         <c:marker id="title">My Title</c:marker>
         <c:marker id="width">600</c:marker>
@@ -24,7 +24,7 @@
             <c:item key="hoverBackgroundColor" value="data#veryHighIntensityColors" />           
         </c:data> 
         
-        <c:data id="dataSets">
+        <c:data id="dataSets" canBeReplaced="true">
             <c:item key="0" value="data#set0" />           
         </c:data>    
         
@@ -47,5 +47,5 @@
             </c:item>                     
         </c:data>
         
-	</c:pieChart>
+	</c:chart.pie>
 </c:charts>

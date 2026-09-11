@@ -60,9 +60,7 @@ final class PiFlexformUpgradeWizard implements UpgradeWizardInterface
                 if (empty($xmlParserSheet)) {
                     // Renames the sDEF sheet en xmlParser.
                     $sheet = $xml->xpath('//sheet[@index="sDEF"]');
-                    
-    
-    
+                       
                     // Checks if the element exists.
                     if (!empty($sheet)) {
                         // Replaces the index attribute.
@@ -92,8 +90,7 @@ final class PiFlexformUpgradeWizard implements UpgradeWizardInterface
                             $newSheet->addAttribute('index', 'fluidParser');
                             $newSheet = $xml->xpath('//sheet[@index="fluidParser"]')[0];
                             
-                            $this->copyNode($existingSheet, $newSheet);
-    
+                            $this->copyNode($existingSheet, $newSheet);    
                         }
                     }
                     $sheet = $xml->xpath('//sheet[@index="fluidParser"]/language[@index="lDEF"]/field');

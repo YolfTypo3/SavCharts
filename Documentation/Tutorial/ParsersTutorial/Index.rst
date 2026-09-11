@@ -36,6 +36,7 @@ Table of Contents
     ConvertingBasicXmlTemplatesToFluidTemplates/Index
     ConvertingAdvancedXmlTemplatesToFluidTemplates/Index
     IncludingChartsInHtmlTemplates/Index
+    UsingSpreadsheets/Index
 
 
 

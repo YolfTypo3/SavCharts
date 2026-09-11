@@ -17,26 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\StackedBarViewHelper;
+
 /**
- * A view helper for StackedBarChart tag.
- *
+ * A viewHelper for compatibility with XML StackedBarChart tag.
  *
  * @package SavCharts
  */
-final class StackedBarChartViewHelper extends AbstractChartViewHelper
+final class StackedBarChartViewHelper extends StackedBarViewHelper
 {
-    protected $configuration = [
-        'type' => 'bar',
-        'options' => [
-            'scales' => [
-                'x' => [
-                    'stacked' => true
-                ],
-                'y' => [
-                    'stacked' => true,
-                    'beginAtZero' => 1
-                ]
-            ]
-        ]
-    ];
 }

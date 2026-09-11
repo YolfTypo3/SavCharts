@@ -17,16 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\PolarAreaViewHelper;
+
 /**
- * A view helper for PolarAreaChart tag.
- *
+ * A viewHelper for compatibility with XML PolarAreaChart tag.
  *
  * @package SavCharts
  */
-final class PolarAreaChartViewHelper extends AbstractChartViewHelper
+final class PolarAreaChartViewHelper extends PolarAreaViewHelper
 {
-    protected $configuration = [
-        'type' => 'polarArea',
-        'options' => []
-    ];
 }

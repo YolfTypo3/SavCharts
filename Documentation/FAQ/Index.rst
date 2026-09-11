@@ -487,7 +487,7 @@ available in `Resources\Public\Plugins\CharAreaBorder.js`.
 
         ..  code-block:: xml 
             
-            <c:plugin chartId="pieChart__1" key="chartAreaBorder" fileName="EXT:sav_charts/Resources/Public/Plugins/ChartAreaBorder.js" />
+            <c:plugin chartId="pie__1" key="chartAreaBorder" fileName="EXT:sav_charts/Resources/Public/Plugins/ChartAreaBorder.js" />
 
             <c:data id="pieChartOptions">
               <c:item key="plugins">
@@ -502,5 +502,15 @@ available in `Resources\Public\Plugins\CharAreaBorder.js`.
                 EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/PieChart.fluid
             </c:template>
 
+        ..  note::
+            
+            The argument chartId is `pie__1` if
+            you use <c:chart.pie>. It becomes `pieChart__1`
+            if you use <c:pieChart> (a viewHelper for
+            compatibility with the XML parser).
+            
 ..  figure:: ../Images/FAQ/plugin.png
-                     
+ 
+
+    
+                        

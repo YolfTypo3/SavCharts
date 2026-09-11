@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:horizontalBarChart id="1" data="data__horizontalBarChartData" options="data__horizontalBarChartOptions" width="marker__width" height="marker__height">
+	<c:chart.horizontalBar id="1" data="data__horizontalBarChartData" options="data__horizontalBarChartOptions" width="marker__width" height="marker__height">
 	
         <c:marker id="title">My Title</c:marker>
         <c:marker id="width">600</c:marker>
@@ -31,7 +31,7 @@
         </f:for> 
                                       
         <!-- Defines the sets -->
-        <c:data id="dataSets">
+        <c:data id="dataSets" canBeReplaced="true">
 	        <f:for each="{data__data}" as="value" key="key"> 
 	        		<c:item key="{key}">    
 	                <c:item key="label" value="{marker__labelSet{key}}" />
@@ -73,5 +73,5 @@
              
         <c:data id="columnHeader" values="{data__labels}" />
            
-    </c:horizontalBarChart>	
+    </c:chart.horizontalBar>	
 </c:charts>

@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:stackedBarChart id="1" data="data__stackedBarChartData" options="data__stackedBarChartOptions" >
+	<c:chart.stackedBar id="1" data="data__stackedBarChartData" options="data__stackedBarChartOptions" >
 	
         <c:marker id="labelSet0">My First dataset</c:marker>
         <c:marker id="labelSet1">My Second dataset</c:marker>   
@@ -65,5 +65,5 @@
         <c:data id="stackedBarChartOptions">
         </c:data>
         
-	</c:stackedBarChart>
+	</c:chart.stackedBar>
 </c:charts>

@@ -20,9 +20,9 @@ namespace YolfTypo3\SavCharts\ViewHelpers;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\CsvUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
- * A view helper for the exporting data in CSV.
- *
+ * A viewHelper for the exporting data in CSV.
  *
  * @package SavCharts
  */
@@ -43,13 +43,13 @@ final class ExportCsvViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
      * @return void
      */
     public function render(): void
     {
-        // Gets the arguments
+        // Gets the arguments.
         $fileName = $this->arguments['fileName'];
         $columnHeader = $this->arguments['columnHeader'];
         $rowHeader = $this->arguments['rowHeader'];

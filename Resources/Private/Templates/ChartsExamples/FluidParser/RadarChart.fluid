@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:radarChart id="1" data="data__radarChartData" options="data__radarChartOptions" >
+	<c:chart.radar id="1" data="data__radarChartData" options="data__radarChartOptions" >
 
         <c:marker id="labelSet0">My First dataset</c:marker>
         <c:marker id="labelSet1">My Second dataset</c:marker>   
@@ -49,5 +49,5 @@
         <c:data id="radarChartOptions">   
         </c:data>
         
-	</c:radarChart>
+	</c:chart.radar>
 </c:charts>

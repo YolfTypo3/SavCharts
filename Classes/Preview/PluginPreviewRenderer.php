@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\Preview;
 
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendLayout\Grid\GridColumnItem;
 use TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer;
 use TYPO3\CMS\Core\Information\Typo3Version;

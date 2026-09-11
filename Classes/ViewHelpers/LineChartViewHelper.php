@@ -17,22 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\LineViewHelper;
+
 /**
- * A view helper for LineChart tag.
- *
+ * A viewHelper for compatibility with XML LineChart tag.
  *
  * @package SavCharts
  */
-final class LineChartViewHelper extends AbstractChartViewHelper
+final class LineChartViewHelper extends LineViewHelper
 {
-    protected $configuration = [
-        'type' => 'line',
-        'options' => [
-            'scales' => [
-                'y' => [
-                    'beginAtZero' => 1
-                ]
-            ]
-        ]
-    ];
 }

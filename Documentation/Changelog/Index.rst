@@ -9,6 +9,8 @@ Changelog
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
+14.6.0   - ViewHelpers to use spreadsheets added.
+
 14.5.0   - New parser based on Fluid and viewHelpers added.
          - Version of Chart.js changed to 4.5.1.
 

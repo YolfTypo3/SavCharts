@@ -17,16 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\PieViewHelper;
+
 /**
- * A view helper for PieChart tag.
- *
+ * A viewHelper for compatibility with XML PieChart tag.
  *
  * @package SavCharts
  */
-final class PieChartViewHelper extends AbstractChartViewHelper
+final class PieChartViewHelper extends PieViewHelper
 {
-    protected $configuration = [
-        'type' => 'pie',
-        'options' => []
-    ];
 }

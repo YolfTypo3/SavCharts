@@ -17,16 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\DoughnutViewHelper;
+
 /**
- * A view helper for DoughnutChart tag.
- *
+ * A viewHelper for compatibility with XML DoughnutChart tag.
  *
  * @package SavCharts
  */
-final class DoughnutChartViewHelper extends AbstractChartViewHelper
+final class DoughnutChartViewHelper extends DoughnutViewHelper
 {
-    protected $configuration = [
-        'type' => 'doughnut',
-        'options' => []
-    ];
 }

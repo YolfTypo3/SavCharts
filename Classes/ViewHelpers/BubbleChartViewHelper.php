@@ -17,16 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\BubbleViewHelper;
+
 /**
- * A view helper for BubbleChart tag.
- *
+ * A viewHelper for compatibility with XML BubbleChart tag.
  *
  * @package SavCharts
  */
-final class BubbleChartViewHelper extends AbstractChartViewHelper
+final class BubbleChartViewHelper extends BubbleViewHelper
 {
-    protected $configuration = [
-        'type' => 'bubble',
-        'options' => []
-    ];
 }

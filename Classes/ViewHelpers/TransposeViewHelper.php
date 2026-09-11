@@ -18,8 +18,7 @@ declare(strict_types=1);
 namespace YolfTypo3\SavCharts\ViewHelpers;
  
 /**
- * A view helper for transposing data.
- *
+ * A viewHelper for transposing data.
  *
  * @package SavCharts
  */
@@ -37,13 +36,13 @@ final class TransposeViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
-     * @return void
+     * @return array
      */
     public function render(): array
     {
-        // Gets the arguments
+        // Gets the arguments.
         $data = $this->arguments['data'];    
         if (empty($data)) {
             $data = $this->renderChildren();

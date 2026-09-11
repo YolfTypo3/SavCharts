@@ -22,7 +22,6 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 /**
  * Abstract SavChars ViewHelper.
  *
- *
  * @package SavCharts
  */
 abstract class AbstractSavChartsViewHelper extends AbstractViewHelper
@@ -39,8 +38,8 @@ abstract class AbstractSavChartsViewHelper extends AbstractViewHelper
     
     /**
      * Gets value by a reference:
-     * - marker__id (ou marker#id kept for compatbility)
-     * - data__id (ou data#id kept for compatbility)
+     * - marker__id
+     * - data__id
      *
      * @param mixed $value
      * 
@@ -48,10 +47,14 @@ abstract class AbstractSavChartsViewHelper extends AbstractViewHelper
      */
     public function getByReference(mixed $value): mixed
     {
-        if (is_string($value) && preg_match('/^(marker|data)(?:#|__)(.+)$/', $value)) {
+        $matches = [];
+        if (is_string($value) && preg_match('/^((?:marker__|data__)(?:[^\.]+))(?:\.(\d+))?$/', $value, $matches)) {
             $variableProvider = $this->renderingContext->getVariableProvider();
-            if ($variableProvider->exists($value)) {
-                $value = $variableProvider->get($value);
+            if ($variableProvider->exists($matches[1])) {
+                $value = $variableProvider->get($matches[1]);
+                if (isset($matches[2]) && is_array($value)) {
+                    $value = $value[$matches[2]];
+                }
             } else {
                 throw new \InvalidArgumentException(
                     'Reference "' . $value . '" does not exist.'
@@ -88,7 +91,7 @@ abstract class AbstractSavChartsViewHelper extends AbstractViewHelper
     protected function transposeData(array $data): array
     {
         $result = [];
-        foreach ($data[0] as $key => $value) {
+        foreach (array_keys($data[0]) as $key) {
             $result[$key] = array_column($data, $key);
         }
       

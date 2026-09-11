@@ -86,8 +86,8 @@ Table of Contents
    Introduction/Index
    UsersManual/Index
    Administration/Index
-   Reference/Index
    Tutorial/Index
+   Reference/Index
    FAQ/Index
    EntityRelationshipDiagram/Index
    Changelog/Index

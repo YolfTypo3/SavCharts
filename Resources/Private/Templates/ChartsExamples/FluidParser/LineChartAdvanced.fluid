@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:lineChart id="1" data="data__lineChartData" options="data__lineChartOptions" width="marker__width" height="marker__height">
+	<c:chart.line id="1" data="data__lineChartData" options="data__lineChartOptions" width="marker__width" height="marker__height">
 			
         <c:marker id="title">My Title</c:marker>
         <c:marker id="width">600</c:marker>
@@ -31,9 +31,9 @@
         </f:for> 
                                       
         <!-- Defines the sets -->
-        <c:data id="dataSets">
+        <c:data id="dataSets" canBeReplaced="true">
 	        <f:for each="{data__data}" as="value" key="key"> 
-	        		<c:item key="{key}">  
+	        	<c:item key="{key}">  
 	                <c:item key="label" value="{marker__labelSet{key}}" />
 	                <c:item key="backgroundColor" value="{data__lowIntensityColors.{key}}" />
 	                <c:item key="borderColor" value="{data__fullIntensityColors.{key}}" />                
@@ -74,6 +74,6 @@
              
         <c:data id="columnHeader" values="{data__labels}" />
        		
-	</c:lineChart>
+	</c:chart.line>
 
 </c:charts>

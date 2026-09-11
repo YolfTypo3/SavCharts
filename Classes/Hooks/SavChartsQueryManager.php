@@ -34,8 +34,7 @@ final class SavChartsQueryManager extends AbstractQueryManager
      * @var Connection
      */
     protected ?Connection $databaseConnection = null;
-
-    
+   
     /**
      * Executes the query
      *

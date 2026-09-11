@@ -18,8 +18,7 @@ declare(strict_types=1);
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
 /**
- * A view helper for the marker tag.
- *
+ * A viewHelper for the marker tag.
  *
  * @package SavCharts
  */
@@ -39,7 +38,7 @@ final class MarkerViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper
+     * Renders the viewHelper
      *
      * @return void
      */

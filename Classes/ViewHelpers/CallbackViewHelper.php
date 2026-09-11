@@ -20,7 +20,7 @@ namespace YolfTypo3\SavCharts\ViewHelpers;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * A view helper for callbacks.
+ * A viewHelper for callbacks.
  *
  *
  * @package SavCharts
@@ -40,13 +40,13 @@ final class CallbackViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
      * @return void
      */
     public function render(): void
     {
-        // Gets the arguments
+        // Gets the arguments.
         $key = $this->arguments['key'];
         $fileName = $this->arguments['fileName'];
  

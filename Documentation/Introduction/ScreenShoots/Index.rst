@@ -90,3 +90,10 @@ Combination Chart
 =================
 
 ..  figure:: ../../Images/ScreenShots/comboChart.png
+
+Chart built from a Spreadsheet
+==============================
+
+..  figure:: ../../Images/Tutorial/ExcelWorksheetExample2.png
+
+..  figure:: ../../Images/Tutorial/ExcelWorksheetExample2PieChartPercentage.png

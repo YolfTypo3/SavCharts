@@ -20,8 +20,7 @@ namespace YolfTypo3\SavCharts\ViewHelpers;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * A view helper for the data tag.
- *
+ * A viewHelper for the data tag.
  *
  * @package SavCharts
  */
@@ -36,28 +35,30 @@ final class DataViewHelper extends AbstractSavChartsViewHelper
     public function initializeArguments(): void
     {
         $this->registerArgument('id', 'string', 'Data id', true);
+        $this->registerArgument('canBeReplaced', 'boolean', 'If true and data exist, merge both data)', false, false);
         $this->registerArgument('values', 'mixed', 'Data or comma-separated values if the child is a string)', false, '');
     }
 
     /**
-     * Renders the view helper
+     * Renders the viewHelper.
      *
      * @return void
      */
     public function render(): void
     {
-        // Gets the arguments
+        // Gets the arguments.
         $id = $this->arguments['id'];
+        $canBeReplaced =  $this->arguments['canBeReplaced'];
         $values = $this->arguments['values'];
                
         // Gets the variable provider from the rendering context.
         $variableProvider = $this->renderingContext->getVariableProvider();
 
-        // Debugs in
+        // Debugs in.
         $this->debugIn('data', $id);  
         
         // Checks if data exist.
-        if ($variableProvider->exists('data__' . $id) ) {
+        if ($variableProvider->exists('data__' . $id) && !$canBeReplaced ) {
             $viewHelperVariableValue = $variableProvider->get('data__' . $id);
         } else {
             // Checks if they are children.
@@ -94,9 +95,15 @@ final class DataViewHelper extends AbstractSavChartsViewHelper
                 $viewHelperVariableValue = $this->getByReference($values);
             }
         }
-        
+        if ($variableProvider->exists('data__' . $id) && $canBeReplaced) {
+            $exitingValue = $variableProvider->get('data__' . $id);            
+            $viewHelperVariableValue = array_replace_recursive(
+                $viewHelperVariableValue,
+                $exitingValue
+                );
+        } 
         $variableProvider->add('data__' . $id, $viewHelperVariableValue);
-
+        
         // Debugs out.
         $this->debugOut('data', $id);           
     }

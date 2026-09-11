@@ -20,8 +20,7 @@ namespace YolfTypo3\SavCharts\ViewHelpers;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * A view helper for the item tag.
- *
+ * A viewHelper for the item tag.
  *
  * @package SavCharts
  */
@@ -47,7 +46,7 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
      * @return void
      */

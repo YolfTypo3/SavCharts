@@ -17,23 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\HorizontalBarViewHelper;
+
 /**
- * A view helper for HorizontalBarChart tag.
- *
+ * A viewHelper for compatibility with XML HorizontalBarChart tag.
  *
  * @package SavCharts
  */
-final class HorizontalBarChartViewHelper extends AbstractChartViewHelper
+final class HorizontalBarChartViewHelper extends HorizontalBarViewHelper
 {
-    protected $configuration = [
-        'type' => 'bar',
-        'options' => [
-            'indexAxis' => 'y',
-            'scales' => [
-                'x' => [
-                    'beginAtZero' => 1
-                ]
-            ]
-        ]
-    ];
 }

@@ -17,16 +17,13 @@ declare(strict_types=1);
 
 namespace YolfTypo3\SavCharts\ViewHelpers;
 
+use YolfTypo3\SavCharts\ViewHelpers\Chart\ScatterViewHelper;
+
 /**
- * A view helper for ScatterChart tag.
- *
+ * A viewHelper for compatibility with XML ScatterChart tag.
  *
  * @package SavCharts
  */
-final class ScatterChartViewHelper extends AbstractChartViewHelper
+final class ScatterChartViewHelper extends ScatterViewHelper
 {
-    protected $configuration = [
-        'type' => 'scatter',
-        'options' => []
-    ];
 }

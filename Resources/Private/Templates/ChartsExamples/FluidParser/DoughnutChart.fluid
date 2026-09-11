@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:doughnutChart id="1" data="data__doughnutChartData" options="data__doughnutChartOptions" >
+	<c:chart.doughnut id="1" data="data__doughnutChartData" options="data__doughnutChartOptions" >
 			
 		<c:data id="dataSet0">
 			300, 500, 100
@@ -35,5 +35,5 @@
         <c:data id="doughnutChartOptions">
         </c:data>
         		
-	</c:doughnutChart>
+	</c:chart.doughnut>
 </c:charts>

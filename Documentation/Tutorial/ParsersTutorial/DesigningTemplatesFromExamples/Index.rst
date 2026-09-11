@@ -179,7 +179,7 @@ overloaded, as explained in the next section.
         ..  code-block:: xml
 
             <c:charts>        
-                <c:lineChart id="1" data="data__lineChartData" options="data__lineChartOptions" >
+                <c:chart.line id="1" data="data__lineChartData" options="data__lineChartOptions" >
     
                     <c:marker id="labelSet0">My First dataset</c:marker>
                     <c:marker id="labelSet1">My Second dataset</c:marker>       
@@ -227,7 +227,7 @@ overloaded, as explained in the next section.
                     <c:data id="lineChartOptions">
                     </c:data>     
     
-                </c:lineChart>
+                </c:chart.line>
             </c:charts>
 
 ..  tip::
@@ -251,7 +251,7 @@ overloaded, as explained in the next section.
     
             ..  code-block:: xml    
     
-                <c:lineChart id="1" data="data__lineChartData" options="data__lineChartOptions" />
+                <c:chart.line id="1" data="data__lineChartData" options="data__lineChartOptions" />
 
 Overloading Data
 ================
@@ -438,9 +438,9 @@ is defined as follows:
     
         ..  code-block:: xml
 
-            <c:lineChart id="1" data="data__lineChartData" options="data__lineChartOptions" >
+            <c:chart.line id="1" data="data__lineChartData" options="data__lineChartOptions" >
                 ....
-            </c:lineChart> 
+            </c:chart.line> 
 
 The `options` attribute is a reference to the
 `<data>` tag whose ID is `lineChartOptions`.

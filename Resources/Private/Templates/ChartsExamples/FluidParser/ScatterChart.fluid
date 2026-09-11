@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:scatterChart id="1" data="data__scatterChartData" options="data__scatterChartOptions" >
+	<c:chart.scatter id="1" data="data__scatterChartData" options="data__scatterChartOptions" >
 
         <c:marker id="labelSet0">My First dataset</c:marker>
         <c:marker id="labelSet1">My Second dataset</c:marker>   
@@ -61,5 +61,5 @@
         <c:data id="scatterChartOptions">   
         </c:data>
         
-	</c:scatterChart>	
+	</c:chart.scatter>	
 </c:charts>

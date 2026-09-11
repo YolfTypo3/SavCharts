@@ -21,8 +21,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\View\TemplateView;
 
 /**
- * A view helper for the template tag.
- *
+ * A viewHelper for the template tag.
  *
  * @package SavCharts
  */
@@ -41,7 +40,7 @@ final class TemplateViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
      * @return void
      */

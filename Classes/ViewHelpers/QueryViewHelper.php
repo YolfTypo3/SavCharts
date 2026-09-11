@@ -19,8 +19,7 @@ namespace YolfTypo3\SavCharts\ViewHelpers;
  
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
- * A view helper for the query tag.
- *
+ * A viewHelper for the query tag.
  *
  * @package SavCharts
  */
@@ -40,13 +39,13 @@ final class QueryViewHelper extends AbstractSavChartsViewHelper
     }
 
     /**
-     * Renders the view helper.
+     * Renders the viewHelper.
      *
      * @return void
      */
     public function render(): void
     {
-        // Gets the arguments
+        // Gets the arguments.
         $id = $this->arguments['id'];
         $manager = $this->arguments['manager'];
         $uid = $this->arguments['uid'];

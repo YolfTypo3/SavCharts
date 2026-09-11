@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:pieChart id="1" data="data__pieChartData" options="data__pieChartOptions" >
+	<c:chart.pie id="1" data="data__pieChartData" options="data__pieChartOptions" >
 	
         <c:data id="dataSet0">
             300, 500, 100
@@ -35,5 +35,5 @@
         <c:data id="pieChartOptions">
         </c:data>
         
-	</c:pieChart>
+	</c:chart.pie>
 </c:charts>

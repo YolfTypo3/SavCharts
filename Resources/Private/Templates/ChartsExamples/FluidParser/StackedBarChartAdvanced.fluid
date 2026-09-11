@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:stackedBarChart id="1" data="data__stackedBarChartData" options="data__stackedBarChartOptions" width="marker__width" height="marker__height">
+	<c:chart.stackedBar id="1" data="data__stackedBarChartData" options="data__stackedBarChartOptions" width="marker__width" height="marker__height">
 	
         <c:marker id="title">My Title</c:marker>
         <c:marker id="width">600</c:marker>
@@ -31,7 +31,7 @@
         </f:for> 
                                       
         <!-- Defines the sets -->
-        <c:data id="dataSets">
+        <c:data id="dataSets" canBeReplaced="true">
 	        <f:for each="{data__data}" as="value" key="key"> 
 	        		<c:item key="{key}">  
 	                <c:item key="label" value="{marker__labelSet{key}}" />
@@ -73,6 +73,6 @@
              
         <c:data id="columnHeader" values="{data__labels}" />
                     
-	</c:stackedBarChart>
+	</c:chart.stackedBar>
 	
 </c:charts>

@@ -1,5 +1,5 @@
 <c:charts>		
-	<c:bubbleChart id="1" data="data__bubbleChartData" options="data__bubbleChartOptions" >
+	<c:chart.bubble id="1" data="data__bubbleChartData" options="data__bubbleChartOptions" >
 	
         <c:marker id="label0">First Dataset</c:marker> 
                
@@ -38,5 +38,5 @@
         <c:data id="bubbleChartOptions">
         </c:data>
         		
-	</c:bubbleChart>
+	</c:chart.bubble>
 </c:charts>
