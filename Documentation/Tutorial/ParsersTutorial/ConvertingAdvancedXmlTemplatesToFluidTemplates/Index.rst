@@ -32,6 +32,22 @@ thanks to the "<f:for>" viewHelper.
 
 ..  tabs::
 
+    ..  tab:: Fluid parser
+
+        ..  code-block:: xml
+
+            <!-- Defines the data -->
+            <c:data id="data">
+                <f:for each="{data__lowIntensityColors}" as="color" key="key">
+                    <c:item key="{key}" value="{data__sampleData}" />
+                </f:for>
+            </c:data>
+
+            <!-- Defines the labels for the set -->
+            <f:for each="{data__data}" as="value" key="key"> 
+                <c:marker id="labelSet{key}" value="labelSet {key}"/>       
+            </f:for> 
+
     ..  tab:: XML Parser
 
         ..  code-block:: xml
@@ -56,24 +72,6 @@ thanks to the "<f:for>" viewHelper.
                 </marker>
             </for>
 
-    ..  tab:: Fluid parser
-
-        ..  code-block:: xml
-
-            <!-- Defines the data -->
-            <c:data id="data">
-                <f:for each="{data__lowIntensityColors}" as="color" key="key">
-                    <c:item key="{key}" value="{data__sampleData}" />
-                </f:for>
-            </c:data>
-
-            <!-- Defines the labels for the set -->
-            <f:for each="{data__data}" as="value" key="key"> 
-                <c:marker id="labelSet{key}" value="labelSet {key}"/>       
-            </f:for> 
-
-
-
 Similarly, the following excerpt shows how data with the id "dataSets"
 were set, using markers with ids "setId" and "labelSetId". They
 are needed to generate new markers with ids "labelSet0", "labelSet1"...
@@ -85,6 +83,26 @@ returns the value at the position given by "key" in the data with the
 id "lowIntensityColors". 
 
 ..  tabs::
+
+    ..  tab:: Fluid parser
+
+        ..  code-block:: xml
+              
+            <!-- Defines the sets -->
+            <c:data id="dataSets">
+                <f:for each="{data__data}" as="value" key="key">
+                    <c:item key="{key}">
+                        <c:item key="label" value="{marker__labelSet{key}}" />
+                        <c:item key="backgroundColor" value="{data__lowIntensityColors.{key}}" />
+                        <c:item key="borderColor" value="{data__fullIntensityColors.{key}}" />                
+                        <c:item key="pointColor" value="{data__middleIntensityColors.{key}}" />
+                        <c:item key="pointBackgroundColor">#fff</c:item>
+                        <c:item key="pointHoverBackgroundColor" value="{data__fullIntensityColors.{key}}" />
+                        <c:item key="lineTension" value="false" />
+                        <c:item key="data" value="{data__data.{key}}" />
+                    </c:item>
+                </f:for>
+            </c:data>
 
     ..  tab:: XML Parser
 
@@ -113,24 +131,4 @@ id "lowIntensityColors".
                     <item key="for#initSets:key" value="data#marker#setId" />
                 </data>                         
             </for>
-
-    ..  tab:: Fluid parser
-
-        ..  code-block:: xml
-              
-            <!-- Defines the sets -->
-            <c:data id="dataSets">
-                <f:for each="{data__data}" as="value" key="key">
-                    <c:item key="{key}">
-                        <c:item key="label" value="{marker__labelSet{key}}" />
-                        <c:item key="backgroundColor" value="{data__lowIntensityColors.{key}}" />
-                        <c:item key="borderColor" value="{data__fullIntensityColors.{key}}" />                
-                        <c:item key="pointColor" value="{data__middleIntensityColors.{key}}" />
-                        <c:item key="pointBackgroundColor">#fff</c:item>
-                        <c:item key="pointHoverBackgroundColor" value="{data__fullIntensityColors.{key}}" />
-                        <c:item key="lineTension" value="false" />
-                        <c:item key="data" value="{data__data.{key}}" />
-                    </c:item>
-                </f:for>
-            </c:data>
         

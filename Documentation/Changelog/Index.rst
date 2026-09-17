@@ -9,6 +9,9 @@ Changelog
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
+14.7.0   - ViewHelpers to generate charts with
+           the Apache ECharts library added.
+
 14.6.0   - ViewHelpers to use spreadsheets added.
 
 14.5.0   - New parser based on Fluid and viewHelpers added.

@@ -4,16 +4,28 @@
 
 :navigation-title: chart.stackedBar
 
-=======================================================
+==========================================
 StackedBar ViewHelper <c:chart.stackedBar>
-=======================================================
+==========================================
 
-ViewHelper to include a stackedBar chart.
+ViewHelper to include a stackedBar chart with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `StackedBarViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/StackedBarViewHelper.php>`_ (GitHub). 
 
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/StackedBarChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/stackedBarChart.png
+    :width: 40% 
+    
 Arguments
 =========
 
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: stackedBarOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     

@@ -8,11 +8,23 @@
 PolarArea ViewHelper <c:chart.polarArea>
 ========================================
 
-ViewHelper to include a polarArea chart.
+ViewHelper to include a polarArea chart with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `PolarAreaViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/PolarAreaViewHelper.php>`_ (GitHub). 
+
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/PolarAreaChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/polarAreaChart.png
+    :width: 40% 
 
 Arguments
 =========
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: polarAreaOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     

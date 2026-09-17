@@ -23,6 +23,8 @@ Table of Contents
     ChartsViewHelper/Index
     CallbackViewHelper/Index
     DataViewHelper/Index
+    EChart/Index    
+    EChartsViewHelper/Index
     ExportCsvViewHelper/Index
     ItemViewHelper/Index
     MarkerViewHelper/Index

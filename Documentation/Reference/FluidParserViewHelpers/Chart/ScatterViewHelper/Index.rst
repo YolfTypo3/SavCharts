@@ -8,12 +8,24 @@
 Scatter ViewHelper <c:chart.scatter>
 ====================================
 
-ViewHelper to include a scatter chart.
+ViewHelper to include a scatter chart with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `ScatterViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/ScatterViewHelper.php>`_ (GitHub). 
 
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/ScatterChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/scatterChart.png
+    :width: 40% 
+    
 Arguments
 =========
 
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: scatterOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     

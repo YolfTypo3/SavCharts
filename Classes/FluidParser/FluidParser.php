@@ -76,7 +76,7 @@ class FluidParser
         
         // Gets the result from the Charts ViewHelper.
         $variableProvider = $templateView->getRenderingContext()->getVariableProvider();
-        $result = $variableProvider->get('canvases');
+        $result = $variableProvider->get('charts');
         
         return $result;
     }  

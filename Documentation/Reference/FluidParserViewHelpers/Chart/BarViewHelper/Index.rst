@@ -8,12 +8,24 @@
 Bar ViewHelper <c:chart.bar>
 ============================
 
-ViewHelper to include a bar chart.
+ViewHelper to include a bar chart with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `BarViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/BarViewHelper.php>`_ (GitHub). 
 
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/barChart.png
+    :width: 40%  
+    
 Arguments
 =========
 
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: barOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     
@@ -51,8 +62,6 @@ Arguments
     :Default: 400
 
     Height value, or a reference to the height value
-
-
 
 Examples
 ========

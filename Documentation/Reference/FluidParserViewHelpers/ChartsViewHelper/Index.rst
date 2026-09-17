@@ -8,7 +8,7 @@
 Charts ViewHelper <c:charts>
 ============================
 
-Root ViewHelper to include charts.
+Root ViewHelper to include charts with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `ChartsViewHelper.php

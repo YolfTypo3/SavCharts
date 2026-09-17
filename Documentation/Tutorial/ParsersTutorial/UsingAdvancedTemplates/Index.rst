@@ -26,6 +26,14 @@ then save and go to the front end.
 
 ..  tabs::
 
+    ..  tab:: Fluid Parser
+
+        ..  code-block:: xml
+        
+            <c:template id="1">
+                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/LineChartAdvanced.fluid
+            </c:template> 
+
     ..  tab:: XML Parser
 
         ..  code-block:: xml
@@ -34,14 +42,6 @@ then save and go to the front end.
                 EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChartAdvanced.xml
             </template>  
 
-    ..  tab:: Fluid Parser
-
-        ..  code-block:: xml
-        
-            <c:template id="1">
-                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/LineChartAdvanced.fluid
-            </c:template> 
-    
 .. figure:: ../../../Images/Tutorial/LineChartAdvancedInFrontend.png  
 
 The chart has nine superimposed curves with the 
@@ -53,6 +53,14 @@ the front-end.
 
 ..  tabs::
 
+    ..  tab:: Fluid Parser
+
+        ..  code-block:: xml
+            
+            <c:data id="data">
+                <c:item key="0" values="10, 6, 7, 2, 1, 5, 3" />     
+            </c:data>              
+
     ..  tab:: XML Parser
 
         ..  code-block:: xml
@@ -61,19 +69,24 @@ the front-end.
                 <item key="0" values="10, 6, 7, 2, 1, 5, 3" />     
             </data>  
 
-    ..  tab:: Fluid Parser
-
-        ..  code-block:: xml
-            
-            <c:data id="data">
-                <c:item key="0" values="10, 6, 7, 2, 1, 5, 3" />     
-            </c:data>              
-                
 .. figure:: ../../../Images/Tutorial/LineChartAdvancedWithOneCurveInFrontend.png   
  
 Modify the data section as follows:
 
 ..  tabs::
+
+    ..  tab:: Fluid Parser
+
+        ..  code-block:: xml            
+            
+            <c:data id="data">
+                <c:item key="0" values="10, 6, 7, 2, 1, 5, 3" />
+                <c:item key="1" values="5, 3, 8, 1, 6, 9, 2" />
+            </c:data>  
+            
+            <c:data id="labels">
+                1, 2, 3, 4, 5, 6, 7
+            </c:data>
 
     ..  tab:: XML Parser
 
@@ -88,30 +101,9 @@ Modify the data section as follows:
                 1, 2, 3, 4, 5, 6, 7
             </data>
 
-    ..  tab:: Fluid Parser
-
-        ..  code-block:: xml            
-            
-            <c:data id="data">
-                <c:item key="0" values="10, 6, 7, 2, 1, 5, 3" />
-                <c:item key="1" values="5, 3, 8, 1, 6, 9, 2" />
-            </c:data>  
-            
-            <c:data id="labels">
-                1, 2, 3, 4, 5, 6, 7
-            </c:data>
-                            
 Enter the following code in the marker section, then save and go to the front-end.
 
 ..  tabs::
-
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-
-            <marker id="title">A line chart with two curves</marker> 
-            <marker id="labelSet0">Curve 1</marker> 
-            <marker id="labelSet1">Curve 2</marker> 
 
     ..  tab:: Fluid Parser
 
@@ -121,5 +113,12 @@ Enter the following code in the marker section, then save and go to the front-en
             <c:marker id="labelSet0">Curve 1</c:marker> 
             <c:marker id="labelSet1">Curve 2</c:marker> 
 
- 
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+
+            <marker id="title">A line chart with two curves</marker> 
+            <marker id="labelSet0">Curve 1</marker> 
+            <marker id="labelSet1">Curve 2</marker> 
+
 ..  figure:: ../../../Images/Tutorial/LineChartAdvancedWithTwoCurvesInFrontend.png       

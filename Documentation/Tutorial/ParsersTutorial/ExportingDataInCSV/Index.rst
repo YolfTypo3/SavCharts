@@ -15,26 +15,6 @@ the two curves. Add the following code to the `Templates` field of the Flexform.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-    
-        ..  code-block:: xml
-    
-            <template id="1">
-                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChart.xml
-            </template>
-            
-            <data id="data">
-              <item key="0" value="data#dataSet0" />
-              <item key="1" value="data#dataSet1" />    
-            </data>
-            
-            <data id="exportRowHeader">
-              <item key="0" value="marker#labelSet0" />
-              <item key="1" value="marker#labelSet1" />
-            </data>
-                            
-            <exportCSV reference="lineChart#1" rowHeader="data#exportRowHeader" columnHeader="data#labels" data="data#data" />
-
     ..  tab:: Fluid Parser
     
         ..  code-block:: xml
@@ -54,6 +34,26 @@ the two curves. Add the following code to the `Templates` field of the Flexform.
             </c:data>
         
             <c:exportCSV fileName="LineChart_1.csv" rowHeader="{data__exportRowHeader}" columnHeader="{data__labels}" data="{data__data}" />             
+
+    ..  tab:: XML Parser
+    
+        ..  code-block:: xml
+    
+            <template id="1">
+                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChart.xml
+            </template>
+            
+            <data id="data">
+              <item key="0" value="data#dataSet0" />
+              <item key="1" value="data#dataSet1" />    
+            </data>
+            
+            <data id="exportRowHeader">
+              <item key="0" value="marker#labelSet0" />
+              <item key="1" value="marker#labelSet1" />
+            </data>
+                            
+            <exportCSV reference="lineChart#1" rowHeader="data#exportRowHeader" columnHeader="data#labels" data="data#data" />
 
 The CSV file is saved in `typo3temp/sav_charts`.
 

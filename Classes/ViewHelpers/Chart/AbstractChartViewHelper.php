@@ -26,8 +26,8 @@ use YolfTypo3\SavCharts\ViewHelpers\AbstractSavChartsViewHelper;
  */
 abstract class AbstractChartViewHelper extends AbstractSavChartsViewHelper
 {
-    protected $configuration;
-   
+    protected $configuration = [];
+
     /**
      * Initializes arguments.
      *

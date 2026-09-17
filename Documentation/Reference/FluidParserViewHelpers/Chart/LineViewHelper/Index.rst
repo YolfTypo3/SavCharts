@@ -8,12 +8,24 @@
 Pie ViewHelper <c:chart.line>
 =============================
 
-ViewHelper to include a line chart.
+ViewHelper to include a line chart with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `LineViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/LineViewHelper.php>`_ (GitHub). 
 
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/LineChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/lineChart.png
+    :width: 40% 
+    
 Arguments
 =========
 
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: lineOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     

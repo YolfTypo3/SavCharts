@@ -1,0 +1,45 @@
+<c:echarts>		
+	<c:echart.scatter id="1" options="data__scatterChartOptions" >
+	    
+	    <c:marker id="title">Basic Scatter Chart</c:marker>    	
+	    <c:marker id="symbolSize">20</c:marker>
+	        		
+		<c:data id="series">
+		  <c:item key="0" values="10.0, 8.04" />
+          <c:item key="1" values="8.07, 6.95" />
+          <c:item key="2" values="13.0, 7.58" />
+          <c:item key="3" values="9.05, 8.81" />
+          <c:item key="4" values="11.0, 8.33" />
+          <c:item key="5" values="14.0, 7.66" />
+          <c:item key="6" values="13.4, 6.81" />
+          <c:item key="7" values="10.0, 6.33" />
+          <c:item key="8" values="14.0, 8.96" />
+          <c:item key="9" values="12.5, 6.82" />              
+          <c:item key="10" values="9.15, 7.2" />              
+          <c:item key="11" values="11.5, 7.2" />              
+          <c:item key="12" values="3.03, 4.23" />              
+          <c:item key="13" values="12.2, 7.83" />              
+          <c:item key="14" values="2.02, 4.47" />              
+          <c:item key="15" values="1.05, 3.33" />              
+          <c:item key="16" values="4.05, 4.96" />              
+          <c:item key="17" values="6.03, 7.24" />              
+          <c:item key="18" values="12.0, 6.26" />              
+          <c:item key="19" values="12.0, 8.84" />              
+          <c:item key="20" values="7.08, 5.82" />              
+          <c:item key="21" values="5.02, 5.68" />              
+		</c:data>	
+		
+        <c:data id="scatterChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="xAxis" />
+            <c:item key="yAxis" />
+            <c:item key="series"> 
+                <c:item key="symbolSize" value="{marker__symbolSize}" />        
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.scatter>
+</c:echarts>

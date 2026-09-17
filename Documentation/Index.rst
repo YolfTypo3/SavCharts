@@ -42,8 +42,12 @@ a GNU/GPL CMS/Framework available from `www.typo3.org <https://www.typo3.org/>`_
 
 ----
 
-This extension displays charts using the 
-`Chart.js library <https://www.chartjs.org/>`_. 
+This extension uses the 
+`Chart.js library <https://www.chartjs.org/>`_ or
+the `Apache ECharts library <https://echarts.apache.org/>`_
+to display charts.
+Data can be entered directly or via queries or
+spreadsheets. 
     
 ----
 
@@ -61,9 +65,12 @@ This extension displays charts using the
         
     ..  card:: :ref:`Screen Shoots <screenShoots>`
         
-        SAV Charts is provided with several basic templates and more advanced 
-        templates which simplify the implementation of charts 
-        with several sets of data.        
+        SAV Charts comes with several basic templates 
+        for `Charts.js` and `Apache ECharts`.
+        
+        Advanced 
+        templates that simplify the implementation of charts 
+        with several sets of data are also available.        
         
     ..  card:: :ref:`Tutorial <tutorial>`
         
@@ -72,14 +79,15 @@ This extension displays charts using the
 
     ..  card:: :ref:`Reference <reference>`
         
-        Tags for the XML paser and viewHelpers
-        for the Fluid parser are detailled.
+        ViewHelpers for the Fluid parser 
+        and tags for the XML parser 
+        are detailled.
         
 Table of Contents
 =================
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 2
    :titlesonly:
    :glob:
 

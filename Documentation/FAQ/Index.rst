@@ -3,9 +3,11 @@
 ..  _faq:
 ..  role:: red
 
-==========================
-Frequently Asked Questions
-==========================
+:navigation-title: F.A.Q. (Charts.js)
+
+======================================
+Frequently Asked Questions (Charts.js)
+======================================
 
 ..  warning::
 
@@ -24,6 +26,24 @@ Set the attribute `value` to `true` or `false`.
 
 ..  tabs::
 
+    ..  tab:: Fluid Parser
+        
+        ..  code-block:: xml
+        
+            <c:data id="barChartOptions">
+                <c:item key="animation" value="false" />
+                <c:item key="responsive" value="false" />
+                <c:item key="plugins">
+                    <c:item key="title">
+                        <c:item key="display" value="true" />
+                        <c:item key="text" value="{marker__title}" />
+                    </c:item>
+                    <c:item key="tooltip">
+                        <c:item key="backgroundColor">rgba(0,0,0,0.7)</c:item>
+                    </c:item>
+                </c:item>                        
+            </c:data>
+
     ..  tab:: XML Parser
         
         ..  code-block:: xml
@@ -41,25 +61,7 @@ Set the attribute `value` to `true` or `false`.
                     </item>
                 </item>                        
             </data>   
-            
-    ..  tab:: Fluid Parser
-        
-        ..  code-block:: xml
-        
-            <c:data id="barChartOptions">
-                <c:item key="animation" value="false" />
-                <c:item key="responsive" value="false" />
-                <c:item key="plugins">
-                    <c:item key="title">
-                        <c:item key="display" value="true" />
-                        <c:item key="text" value="{marker__title}" />
-                    </c:item>
-                    <c:item key="tooltip">
-                        <c:item key="backgroundColor">rgba(0,0,0,0.7)</c:item>
-                    </c:item>
-                </c:item>                        
-            </c:data>                
-   
+
 How to Set the y-Axis Properties?
 =================================
 
@@ -70,22 +72,6 @@ the minimum is 10, the maximum is 100 and the step is 5.
 Add the following configuration in the data section or in your template.
 
 ..  tabs::
-
-    ..  tab:: XML Parser
-        
-        ..  code-block:: xml
-        
-            <data id="lineChartOptions">
-                <item key="scales"> 
-                    <item key="y">
-                        <item key="max" value="100" />
-                        <item key="min" value="10" />
-                        <item key="ticks">   
-                            <item key="stepSize" value="5" />
-                        </item>
-                    </item>
-                </item>
-            </data> 
 
     ..  tab:: Fluid Parser
         
@@ -103,6 +89,22 @@ Add the following configuration in the data section or in your template.
                 </c:item>
             </c:data> 
 
+    ..  tab:: XML Parser
+        
+        ..  code-block:: xml
+        
+            <data id="lineChartOptions">
+                <item key="scales"> 
+                    <item key="y">
+                        <item key="max" value="100" />
+                        <item key="min" value="10" />
+                        <item key="ticks">   
+                            <item key="stepSize" value="5" />
+                        </item>
+                    </item>
+                </item>
+            </data> 
+
 Save, clear the cache and go to the front-end.
 
 ..  figure:: ../Images/FAQ/lineChartWithY-axisOptionsInFrontend.png
@@ -116,14 +118,6 @@ Save, clear the cache and go to the front-end.
     
     ..  tabs::
     
-        ..  tab:: XML Parser   
-    
-            -   Replace options by a `<data id="..."> ... </data>` where the `id` is the identifier for the chart options (it is defined in the template).
-            -   Replace opening braces by `<item>` tags with attributes as keys.
-            -   Replace open brackets, if any, by `<item>` tags with keys equal to 0.
-            -   Replace simple attributes inside braces by `<item />` tags with key and value attributes.
-            -   Replace closing braces or brackets by `</item>` tags.
-
         ..  tab:: Fluid Parser   
     
             -   Replace options by a `<c:data id="..."> ... </c:data>` where the `id` is the identifier for the chart options (it is defined in the template).
@@ -132,11 +126,48 @@ Save, clear the cache and go to the front-end.
             -   Replace simple attributes inside braces by `<c:item />` tags with key and value attributes.
             -   Replace closing braces or brackets by `</c:item>` tags.
 
+        ..  tab:: XML Parser   
+    
+            -   Replace options by a `<data id="..."> ... </data>` where the `id` is the identifier for the chart options (it is defined in the template).
+            -   Replace opening braces by `<item>` tags with attributes as keys.
+            -   Replace open brackets, if any, by `<item>` tags with keys equal to 0.
+            -   Replace simple attributes inside braces by `<item />` tags with key and value attributes.
+            -   Replace closing braces or brackets by `</item>` tags.
 
 For example, the following code changes also the label style of the x-axis. 
 A callback is used to modify the tick labels.
   
 ..  tabs::
+
+    ..  tab:: Fluid Parser
+
+        ..  code-block:: xml
+
+            <c:data id="lineChartOptions">
+                <c:item key="scales"> 
+                    <c:item key="y">
+                        <c:item key="max" value="100" /> 
+                        <c:item key="min" value="10" />
+                        <c:item key="ticks">      
+                            <c:item key="stepSize" value="5" />
+                        </c:item>
+                    </c:item>
+                    <c:item key="x">
+                        <c:item key="ticks">
+                            <c:item key="font">
+                                <c:item key="size" value="15" />
+                                <c:item key="tyle" value="italic" />
+                            </c:item>
+                            <c:item key="color" value="rgb(200, 0, 0)" />
+                            <c:callback key="callback">
+                                function(value, index, values) {
+                                    return '- ' + this.getLabelForValue(value) + ' -';
+                                }
+                            </c:callback>
+                        </c:item>
+                    </c:item>
+                </c:item>
+            </c:data>
 
     ..  tab:: XML Parser
 
@@ -173,37 +204,6 @@ A callback is used to modify the tick labels.
         ..  note::
 
             The JavaScript function must be in an XML comment.  
-            
-
-    ..  tab:: Fluid Parser
-
-        ..  code-block:: xml
-
-            <c:data id="lineChartOptions">
-                <c:item key="scales"> 
-                    <c:item key="y">
-                        <c:item key="max" value="100" /> 
-                        <c:item key="min" value="10" />
-                        <c:item key="ticks">      
-                            <c:item key="stepSize" value="5" />
-                        </c:item>
-                    </c:item>
-                    <c:item key="x">
-                        <c:item key="ticks">
-                            <c:item key="font">
-                                <c:item key="size" value="15" />
-                                <c:item key="tyle" value="italic" />
-                            </c:item>
-                            <c:item key="color" value="rgb(200, 0, 0)" />
-                            <c:callback key="callback">
-                                function(value, index, values) {
-                                    return '- ' + this.getLabelForValue(value) + ' -';
-                                }
-                            </c:callback>
-                        </c:item>
-                    </c:item>
-                </c:item>
-            </c:data>
 
 ..   figure:: ../Images/FAQ/lineChartWithYAndX-axesOptionsInFrontend.png   
            
@@ -231,6 +231,24 @@ Add the following configuration in the data section or in your template.
 
 ..  tabs::
 
+    ..  tab:: Fluid Parser
+
+        ..  code-block:: xml
+            
+            <c:data id="pieChartOptions">
+                <c:item key="plugins">
+                    <c:item key="tooltip">
+                        <c:item key="callbacks">
+                            <c:callback key="label">
+                                function(context) {
+                                    return context.label + ' - ' + context.formattedValue + ' €';
+                                }
+                            </c:callback>
+                        </c:item>
+                    </c:item>
+                </c:item>   
+            </c:data>
+
     ..  tab:: XML Parser
 
         ..  code-block:: xml
@@ -254,24 +272,6 @@ Add the following configuration in the data section or in your template.
         ..  note::
 
             The JavaScript function must be in an XML comment.  
-
-    ..  tab:: Fluid Parser
-
-        ..  code-block:: xml
-            
-            <c:data id="pieChartOptions">
-                <c:item key="plugins">
-                    <c:item key="tooltip">
-                        <c:item key="callbacks">
-                            <c:callback key="label">
-                                function(context) {
-                                    return context.label + ' - ' + context.formattedValue + ' €';
-                                }
-                            </c:callback>
-                        </c:item>
-                    </c:item>
-                </c:item>   
-            </c:data>
 
 Save, clear the cache and go to the front-end.
 
@@ -308,26 +308,8 @@ When the JavaScript function associated with the callback is more complex,
 you can also put it in a file and call that file in the callback 
 as shown in the following configuration.
 
-  
 ..  tabs::
 
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-            
-            <data id="pieChartOptions">
-                <item key="plugins">
-                    <item key="tooltip">
-                        <item key="callbacks">
-                            <callback key="label">
-                                EXT:sav_charts/Resources/Public/Callbacks/TooltipLabel.js                                
-                            </callback>
-                        </item>
-                    </item>
-                </item>   
-            </data>
-            
-            
     ..  tab:: Fluid Parser
 
         ..  code-block:: xml
@@ -344,6 +326,21 @@ as shown in the following configuration.
                 </c:item>   
             </c:data>            
 
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+            
+            <data id="pieChartOptions">
+                <item key="plugins">
+                    <item key="tooltip">
+                        <item key="callbacks">
+                            <callback key="label">
+                                EXT:sav_charts/Resources/Public/Callbacks/TooltipLabel.js                                
+                            </callback>
+                        </item>
+                    </item>
+                </item>   
+            </data>
 
 How to call a JavaScript Function on Events?
 ============================================
@@ -352,22 +349,6 @@ The following configuration shows how to associate the JavaScript function
 `newLegendClickHandler` with the `onClick` event of the `legend`. 
 
 ..  tabs::
-
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-
-            <data id="barChartOptions">
-                <item key="plugins">
-                    <item key="legend">
-                        <item key="onClick" type="function" value="newLegendClickHandler" />
-                    </item> 
-                </item>                        
-            </data>  
-            
-            <template id="1">
-                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/BarChart.xml
-            </template> 
             
     ..  tab:: Fluid Parser
 
@@ -384,6 +365,22 @@ The following configuration shows how to associate the JavaScript function
             <c:template id="1">
                 EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChart.fluid
             </c:template>                  
+
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+
+            <data id="barChartOptions">
+                <item key="plugins">
+                    <item key="legend">
+                        <item key="onClick" type="function" value="newLegendClickHandler" />
+                    </item> 
+                </item>                        
+            </data>  
+            
+            <template id="1">
+                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/BarChart.xml
+            </template> 
 
 The function `newLegendClickHandler`
 is available in `Resources\Public\Callbacks\NewLegendClickHandler.js` and must be
@@ -409,15 +406,6 @@ section, enter the following code, save and go to the front-end.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-        
-        ..  code-block:: xml
-        
-            <template id="1">
-                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/ComboChart.xml
-            </template>     
-
-
     ..  tab:: Fluid Parser
         
         ..  code-block:: xml
@@ -426,22 +414,20 @@ section, enter the following code, save and go to the front-end.
                 EXT:sav_charts/Resources/Private/Templates/ChartsExamples/ComboChart.xml
             </c:template>  
 
-..  figure:: ../Images/ScreenShots/comboChart.png
+    ..  tab:: XML Parser
+        
+        ..  code-block:: xml
+        
+            <template id="1">
+                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/ComboChart.xml
+            </template>     
+
+..  figure:: ../Images/ScreenShots/Charts/comboChart.png
    
 The file `ComboChart.xml` is very similar to the file `BarChart.xml`. Only slight changes were made. 
 The `type` attribute of the second dataset is set to `line` and the `fill` attribute to `false`.
 
 ..  tabs::
-
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-        
-            <data id="set1">
-                <item key="type">line</item>
-                <item key="fill" value="false"/>
-                    ...
-            </data>
 
     ..  tab:: Fluid Parser
 
@@ -453,6 +439,16 @@ The `type` attribute of the second dataset is set to `line` and the `fill` attri
                     ...
             </c:data>
 
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+        
+            <data id="set1">
+                <item key="type">line</item>
+                <item key="fill" value="false"/>
+                    ...
+            </data>
+
 The value for the `type` attribute of each chart is given in 
 the `Chart.js documentation <https://www.chartjs.org/docs/>`_.        
 
@@ -463,25 +459,6 @@ A plugin to draw a border around the chart is
 available in `Resources\Public\Plugins\CharAreaBorder.js`.
 
 ..  tabs::
-
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-            
-            <plugin chartId="pieChart#1" key="chartAreaBorder" fileName="EXT:sav_charts/Resources/Public/Plugins/ChartAreaBorder.js" />
-            
-            <data id="pieChartOptions">
-              <item key="plugins">
-                <item key="chartAreaBorder">
-                  <item key="borderColor">red</item>
-                  <item key="borderWidth">2</item>
-                </item>
-              </item>
-            </data>
-              
-            <template id="1">
-                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/PieChart.xml
-            </template>
 
     ..  tab:: Fluid Parser
 
@@ -508,9 +485,26 @@ available in `Resources\Public\Plugins\CharAreaBorder.js`.
             you use <c:chart.pie>. It becomes `pieChart__1`
             if you use <c:pieChart> (a viewHelper for
             compatibility with the XML parser).
+
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+            
+            <plugin chartId="pieChart#1" key="chartAreaBorder" fileName="EXT:sav_charts/Resources/Public/Plugins/ChartAreaBorder.js" />
+            
+            <data id="pieChartOptions">
+              <item key="plugins">
+                <item key="chartAreaBorder">
+                  <item key="borderColor">red</item>
+                  <item key="borderWidth">2</item>
+                </item>
+              </item>
+            </data>
+              
+            <template id="1">
+                EXT:sav_charts/Resources/Private/Templates/ChartsExamples/PieChart.xml
+            </template>
             
 ..  figure:: ../Images/FAQ/plugin.png
  
-
-    
-                        
+                       

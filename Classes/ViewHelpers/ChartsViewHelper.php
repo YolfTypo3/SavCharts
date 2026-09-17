@@ -38,12 +38,17 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
     public function render(): void
     {       
         $this->renderChildren();
+
+        // Creates the page renderer.
+        /** @var PageRenderer $pageRenderer */
+        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
         
         // Processes the charts.
         $javaScriptFooterInlineCode = [];
         $variableProvider = $this->renderingContext->getVariableProvider();
         $charts = $variableProvider->get('charts__');
-
+        $generatedCharts = [];
+        
         foreach ($charts as $chartKey => $chart) {
             // Sets the chart id with the contentUID, if it exists, randomly otherwise.
             if ($variableProvider->exists('contentUid')) {
@@ -85,34 +90,28 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
                        
             $javaScriptFooterInlineCode[$chartId][] = 'const canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
             $javaScriptFooterInlineCode[$chartId][] = 'const chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . $chart['type'] . '\', plugins: ' . $plugins . ', data:' . $data . ', options:' . $options . '});';      
-            $canvases[] = [
+            
+            // Adds the chart JavaScript.
+            $pageRenderer->addJsFooterInlineCode($chartId, implode(chr(10), $javaScriptFooterInlineCode[$chartId]));
+
+            $generatedCharts[] = [
+                'type' => 'Charts',
                 'chartId' => $chartId,
                 'width' => $chart['width'],
-                'height' => $chart['height'], 
-            ];
-
-            // Creates the page renderer.
-            /** @var PageRenderer $pageRenderer */
-            $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-
-            // Adds the canvas JavaScript.
-            foreach ($canvases as $canvas) {
-                $pageRenderer->addJsFooterInlineCode($chartId, implode(chr(10), $javaScriptFooterInlineCode[$chartId]));
-            }
-                    
-            // Add the latest Chart.js file.
-            $javaScriptRootDirectory = ExtensionManagementUtility::extPath('sav_charts') . DefaultController::$javaScriptRootPath;
-            $javaScriptFiles = scandir($javaScriptRootDirectory, SCANDIR_SORT_DESCENDING);
-            $javaScriptFooterFile = 'EXT:sav_charts/' . DefaultController::$javaScriptRootPath . '/' . $javaScriptFiles[0];
-                    
-            $pageRenderer->addJsFooterFile($javaScriptFooterFile);
-                    
-            // Add the css file.
-            $cssFile = 'EXT:sav_charts/' . DefaultController::$cssPath;
-            $pageRenderer->addCssFile($cssFile);
-                    
-            // Add the canvases to the variable.
-            $variableProvider->add('canvases', $canvases);                   
+                'height' => $chart['height'],
+            ];              
         }
+        // Add the latest Chart.js file.
+        $javaScriptRootDirectory = ExtensionManagementUtility::extPath('sav_charts') . DefaultController::$javaScriptRootPath . '/Charts';
+        $javaScriptFiles = scandir($javaScriptRootDirectory, SCANDIR_SORT_DESCENDING);
+        $javaScriptFooterFile = 'EXT:sav_charts/' . DefaultController::$javaScriptRootPath . '/Charts/' . $javaScriptFiles[0];
+        $pageRenderer->addJsFooterFile($javaScriptFooterFile);
+        
+        // Add the css file.
+        $cssFile = 'EXT:sav_charts/' . DefaultController::$cssPath;
+        $pageRenderer->addCssFile($cssFile);
+
+        // Add the generated charts in the variable provider.
+        $variableProvider->add('charts', $generatedCharts); 
     }
 }

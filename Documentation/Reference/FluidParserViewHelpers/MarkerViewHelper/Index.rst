@@ -50,7 +50,7 @@ With value attribute
     <c:marker id="width" value="600" />
     
 Child nodes
------------    
+-----------
 
 ..  code-block:: xml    
     

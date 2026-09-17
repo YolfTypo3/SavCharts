@@ -14,6 +14,18 @@ Go to the source code of this ViewHelper:
 `RadarViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/RadarViewHelper.php>`_ (GitHub). 
 
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/RadarChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/radarChart.png
+    :width: 40% 
+    
 Arguments
 =========
 
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: radarOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     

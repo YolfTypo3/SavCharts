@@ -31,6 +31,7 @@ Table of Contents
 
     DesigningTemplatesFromExamples/Index
     UsingAdvancedTemplates/Index
+    UsingApacheECharts/Index
     UsingAndDevelopingQueryManagers/Index
     ExportingDataInCSV/Index
     ConvertingBasicXmlTemplatesToFluidTemplates/Index

@@ -34,14 +34,6 @@ Fill in the template field of the Flexform corresponding to the selected parser 
     Use the EXT: prefix to reference the template file from the extension. 
 
     ..  tabs::
-
-        ..  tab:: XML Parser
-
-            ..  code-block:: xml
-    
-                <template id="1">
-                    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChart.xml
-                </template> 
                 
         ..  tab:: Fluid Parser
 
@@ -56,6 +48,14 @@ Fill in the template field of the Flexform corresponding to the selected parser 
             ..  code-block:: xml
                 
                 <c:template id="1" fileName="EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/LineChart.fluid" />
+
+        ..  tab:: XML Parser
+
+            ..  code-block:: xml
+    
+                <template id="1">
+                    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/LineChart.xml
+                </template> 
 
 ..  figure:: ../../../Images/Tutorial/NewSavChartsFlexformPluginFillTemplate.png
 
@@ -117,62 +117,6 @@ overloaded, as explained in the next section.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-
-            <?xml version="1.0" encoding="UTF-8"?>
-            <charts>        
-                <lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" >
-    
-                    <marker id="labelSet0">My First dataset</marker>
-                    <marker id="labelSet1">My Second dataset</marker>       
-    
-                    <data id="labels">
-                        January, February, March, April, May, June, July
-                    </data>
-    
-                    <data id="dataSet0">
-                        65, 59, 80, 81, 56, 55, 40
-                    </data>
-                
-                    <data id="dataSet1">
-                        28, 48, 40, 19, 86, 27, 90
-                    </data>         
-            
-                    <data id="set0">
-                        <item key="label" value="marker#labelSet0" />
-                        <item key="backgroundColor">rgba(220,220,220,0.2)</item>
-                        <item key="pointColor">rgba(220,220,220,1)</item>
-                        <item key="pointBackgroundColor">#fff</item>
-                        <item key="pointHoverBackgroundColor">rgba(220,220,220,1)</item>
-                        <item key="data" value="data#dataSet0" />
-                    </data> 
-    
-                    <data id="set1">
-                        <item key="label" value="marker#labelSet12" />
-                        <item key="backgroundColor">rgba(151,187,205,0.2)</item>
-                        <item key="pointColor">rgba(151,187,205,1)</item>
-                        <item key="pointBackgroundColor">#fff</item>
-                        <item key="pointHoverBackgroundColor">rgba(151,187,205,1)</item>            
-                        <item key="data" value="data#dataSet1" />
-                    </data>     
-            
-                    <data id="dataSets">
-                        <item key="0" value="data#set0" />
-                        <item key="1" value="data#set1" />
-                    </data>     
-            
-                    <data id="lineChartData">
-                        <item key="labels" value="data#labels" />           
-                        <item key="datasets" value="data#dataSets" />       
-                    </data> 
-                
-                    <data id="lineChartOptions">
-                    </data>     
-                
-                </lineChart>
-            </charts>
 
     ..  tab:: Fluid parser
 
@@ -230,6 +174,63 @@ overloaded, as explained in the next section.
                 </c:chart.line>
             </c:charts>
 
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+
+            <?xml version="1.0" encoding="UTF-8"?>
+            <charts>        
+                <lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" >
+    
+                    <marker id="labelSet0">My First dataset</marker>
+                    <marker id="labelSet1">My Second dataset</marker>       
+    
+                    <data id="labels">
+                        January, February, March, April, May, June, July
+                    </data>
+    
+                    <data id="dataSet0">
+                        65, 59, 80, 81, 56, 55, 40
+                    </data>
+                
+                    <data id="dataSet1">
+                        28, 48, 40, 19, 86, 27, 90
+                    </data>         
+            
+                    <data id="set0">
+                        <item key="label" value="marker#labelSet0" />
+                        <item key="backgroundColor">rgba(220,220,220,0.2)</item>
+                        <item key="pointColor">rgba(220,220,220,1)</item>
+                        <item key="pointBackgroundColor">#fff</item>
+                        <item key="pointHoverBackgroundColor">rgba(220,220,220,1)</item>
+                        <item key="data" value="data#dataSet0" />
+                    </data> 
+    
+                    <data id="set1">
+                        <item key="label" value="marker#labelSet12" />
+                        <item key="backgroundColor">rgba(151,187,205,0.2)</item>
+                        <item key="pointColor">rgba(151,187,205,1)</item>
+                        <item key="pointBackgroundColor">#fff</item>
+                        <item key="pointHoverBackgroundColor">rgba(151,187,205,1)</item>            
+                        <item key="data" value="data#dataSet1" />
+                    </data>     
+            
+                    <data id="dataSets">
+                        <item key="0" value="data#set0" />
+                        <item key="1" value="data#set1" />
+                    </data>     
+            
+                    <data id="lineChartData">
+                        <item key="labels" value="data#labels" />           
+                        <item key="datasets" value="data#dataSets" />       
+                    </data> 
+                
+                    <data id="lineChartOptions">
+                    </data>     
+                
+                </lineChart>
+            </charts>
+
 ..  tip::
     
     `<data>` were inserted inside the `<lineChart>`
@@ -241,17 +242,17 @@ overloaded, as explained in the next section.
 
     ..  tabs::
     
-        ..  tab:: XML Parser
-    
-            ..  code-block:: xml    
-    
-                <lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" />
-
         ..  tab:: Fluid Parser
     
             ..  code-block:: xml    
     
                 <c:chart.line id="1" data="data__lineChartData" options="data__lineChartOptions" />
+
+        ..  tab:: XML Parser
+    
+            ..  code-block:: xml    
+    
+                <lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" />
 
 Overloading Data
 ================
@@ -260,20 +261,6 @@ Open the plugin in the backend, fill out the `Data`
 section of the Flexform as follows, and then save.
 
 ..  tabs::
-
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml    
-
-            <data id="dataSet0">
-                20,22,24,20,19
-            </data>
-            <data id="dataSet1">
-                55,50,51,53,60
-            </data>
-            <data id="labels">
-                Monday, Tuesday, Wednesday, Thursdat, Friday            
-            </data>
                         
     ..  tab:: Fluid Parser
 
@@ -288,6 +275,20 @@ section of the Flexform as follows, and then save.
             <c:data id="labels">
                 Monday, Tuesday, Wednesday, Thursdat, Friday            
             </c:data>
+
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml    
+
+            <data id="dataSet0">
+                20,22,24,20,19
+            </data>
+            <data id="dataSet1">
+                55,50,51,53,60
+            </data>
+            <data id="labels">
+                Monday, Tuesday, Wednesday, Thursdat, Friday            
+            </data>
 
 Go in the front-end and you should see the following figure.
 
@@ -313,20 +314,6 @@ below.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-
-            <data id="dataSet0">
-                20,22,24,20,19
-            <data>
-            <data id="labels">
-                Monday, Tuesday, Wednesday, Thursdat, Friday            
-            <data>
-            <data id="dataSets">
-                <item key="0" value="data#set0" />
-            </data>   
-
     ..  tab:: Fluid Parser
 
         ..  code-block:: xml
@@ -340,6 +327,20 @@ below.
             <c:data id="dataSets">
                 <c:item key="0" value="{data__set0}" />
             </c:data> 
+
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+
+            <data id="dataSet0">
+                20,22,24,20,19
+            <data>
+            <data id="labels">
+                Monday, Tuesday, Wednesday, Thursdat, Friday            
+            <data>
+            <data id="dataSets">
+                <item key="0" value="data#set0" />
+            </data>   
     
 Enter the previous code in the FlexForm Data section.
 Then, save and go to the front end.
@@ -366,29 +367,6 @@ the front-end.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-
-        Markers section
-        
-        ..  code-block:: xml
-
-            <marker id="labelSet0">Temperature</marker>
-            <marker id="labelSet1">Humidity</marker>
-
-        Data section
-        
-        ..  code-block:: xml
-                    
-            <data id="dataSet0">
-                20,22,24,20,19
-            </data>
-            <data id="dataSet1">
-                55,50,51,53,60
-            </data>
-            <data id="labels">
-                Monday, Tuesday, Wednesday, Thursdat, Friday            
-            </data>        
-
     ..  tab:: Fluid Parser
 
         Markers section
@@ -412,6 +390,28 @@ the front-end.
                 Monday, Tuesday, Wednesday, Thursdat, Friday            
             </c:data>   
 
+    ..  tab:: XML Parser
+
+        Markers section
+        
+        ..  code-block:: xml
+
+            <marker id="labelSet0">Temperature</marker>
+            <marker id="labelSet1">Humidity</marker>
+
+        Data section
+        
+        ..  code-block:: xml
+                    
+            <data id="dataSet0">
+                20,22,24,20,19
+            </data>
+            <data id="dataSet1">
+                55,50,51,53,60
+            </data>
+            <data id="labels">
+                Monday, Tuesday, Wednesday, Thursdat, Friday            
+            </data>        
                 
 ..  figure:: ../../../Images/Tutorial/LineChartWithModifiedMarkerInFrontend.png     
 
@@ -426,14 +426,6 @@ is defined as follows:
  
 ..  tabs::
 
-    ..  tab:: XML Parser
-    
-        ..  code-block:: xml
-
-            <lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" >
-                ....
-            </lineChart>  
-
     ..  tab:: Fluid Parser
     
         ..  code-block:: xml
@@ -441,6 +433,14 @@ is defined as follows:
             <c:chart.line id="1" data="data__lineChartData" options="data__lineChartOptions" >
                 ....
             </c:chart.line> 
+
+    ..  tab:: XML Parser
+    
+        ..  code-block:: xml
+
+            <lineChart id="1" data="data#lineChartData" options="data#lineChartOptions" >
+                ....
+            </lineChart>  
 
 The `options` attribute is a reference to the
 `<data>` tag whose ID is `lineChartOptions`.
@@ -456,20 +456,6 @@ the line a width of 10 points.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-    
-        ..  code-block:: xml
-
-            <data id="lineChartOptions" >
-                <item key="animation"></item>
-                <item key="elements">
-                    <item key="line">
-                        <item key="tension" value="0" />
-                        <item key="borderWidth" value="10" />
-                    </item>
-                </item>
-            </data>  
-
     ..  tab:: Fluid Parser
     
         ..  code-block:: xml
@@ -483,6 +469,20 @@ the line a width of 10 points.
                     </c:item>
                 </c:item>
             </c:data>  
+
+    ..  tab:: XML Parser
+    
+        ..  code-block:: xml
+
+            <data id="lineChartOptions" >
+                <item key="animation"></item>
+                <item key="elements">
+                    <item key="line">
+                        <item key="tension" value="0" />
+                        <item key="borderWidth" value="10" />
+                    </item>
+                </item>
+            </data>  
 
 ..  note::
 

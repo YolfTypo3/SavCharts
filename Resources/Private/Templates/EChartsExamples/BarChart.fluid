@@ -1,0 +1,31 @@
+<c:echarts>		
+	<c:echart.bar id="1" options="data__barChartOptions" >
+
+        <c:marker id="title">Basic Bar Chart</c:marker>     
+	        		
+		<c:data id="labels">
+			Mon, Tue, Wed, Thu, Fri, Sat, Sun
+		</c:data>
+	
+		<c:data id="series">
+			120, 200, 150, 80, 70, 110, 130
+		</c:data>	
+		
+        <c:data id="barChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="xAxis">
+                <c:item key="type" value="category" />
+                <c:item key="data" value="{data__labels}" />
+            </c:item>
+            <c:item key="yAxis">
+                <c:item key="type" value="value" /> 
+            </c:item>            
+            <c:item key="series"> 
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.bar>
+</c:echarts>

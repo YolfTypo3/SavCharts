@@ -8,11 +8,23 @@
 Doughnut ViewHelper <c:chart.doughnut>
 ======================================
 
-ViewHelper to include a doughnut chart.
+ViewHelper to include a doughnut chart with `Charts.js`.
 
 Go to the source code of this ViewHelper: 
 `DoughnutViewHelper.php
 <https://github.com/YolfTypo3/SavCharts/blob/main/Classes/ViewHelpers/Chart/DoughnutViewHelper.php>`_ (GitHub). 
+
+Quick Test
+==========
+
+..  code-block:: xml 
+    
+    <c:template id="1">
+    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/DoughnutChart.fluid"
+    </c:template>
+
+..  figure:: ../../../../Images/ScreenShots/Charts/doughnutChart.png
+    :width: 40% 
 
 Arguments
 =========
@@ -34,7 +46,6 @@ Arguments
 ..  confval:: options
     :name: doughnutOptions
     :Type: mixed
-    :required: true
     
     Options, or a reference to options    
     
@@ -51,8 +62,6 @@ Arguments
     :Default: 400
 
     Height value, or a reference to the height value
-
-
 
 Examples
 ========

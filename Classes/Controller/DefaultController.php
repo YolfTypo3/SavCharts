@@ -55,7 +55,7 @@ final class DefaultController extends ActionController
     }
     
     /**
-     * Sets the request (can be used when sav_jpgraph is called from another extension).
+     * Sets the request (can be used when sav_charts is called from another extension).
      *
      * @param RequestInterface $request
      *
@@ -106,16 +106,16 @@ final class DefaultController extends ActionController
         if ($parserType == 1) {
             // Creates the Fluid parser.
             $fluidParser = GeneralUtility::makeInstance(FluidParser::class, $this->view, $this->settings);
-            $canvases = $fluidParser->parse();      
+            $charts = $fluidParser->parse();      
         } elseif ($parserType == 0) {
             // Creates the XML parser.
             $xmlParser = GeneralUtility::makeInstance(XmlParser::class);
             $xmlParser->injectController($this);
             $xmlParser->clearXmlTagResults();
-            $canvases = $xmlParser->parse();
+            $charts = $xmlParser->parse();
         }
-        // Adds the canvases to the view.
-        $this->view->assign('canvases', $canvases);
+        // Adds the charts to the view.
+        $this->view->assign('charts', $charts);
         
         return $this->htmlResponse($this->view->render());
     }

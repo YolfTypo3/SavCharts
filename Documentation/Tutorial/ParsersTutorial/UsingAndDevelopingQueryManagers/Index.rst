@@ -88,13 +88,6 @@ the number of pages per year.
 
     ..  tabs::
 
-        ..  tab:: XML Parser
-
-            ..  code-block:: xml
-                
-                <marker id="title">Analysis of the site</marker>
-                <marker id="labelSet0">Pages per year</marker>                
-                
         ..  tab:: Fluid Parser
 
             ..  code-block:: xml
@@ -102,9 +95,22 @@ the number of pages per year.
                 <c:marker id="title">Analysis of the site</c:marker>
                 <c:marker id="labelSet0">Pages per year</c:marker>                
 
+        ..  tab:: XML Parser
+
+            ..  code-block:: xml
+                
+                <marker id="title">Analysis of the site</marker>
+                <marker id="labelSet0">Pages per year</marker>                
+
 -   In the Queries Flexform field                
                 
     ..  tabs::
+
+        ..  tab:: Fluid Parser
+
+            ..  code-block:: xml
+                
+                <c:query id="1"  manager="savcharts" uid="1" />             
 
         ..  tab:: XML Parser
 
@@ -113,16 +119,20 @@ the number of pages per year.
                 <query id="1">
                     <setQueryManager name="savcharts" uid="1" />
                 </query>
+
+-   In the Data Flexform field                
                 
+    ..  tabs::
+
         ..  tab:: Fluid Parser
 
             ..  code-block:: xml
                 
-                <c:query id="1"  manager="savcharts" uid="1" />             
+                <c:data id="labels" values="{query__1.Year}" />
                 
--   In the Data Flexform field                
-                
-    ..  tabs::
+                <c:data id="data">
+                  <c:item key="0" value="{query__1.Count}" />
+                </c:data>                
 
         ..  tab:: XML Parser
 
@@ -138,19 +148,17 @@ the number of pages per year.
                   <item key="0" value="data#data0" />
                 </data>
                 
+-   In the Templates Flexform field                
+                
+    ..  tabs::
+
         ..  tab:: Fluid Parser
 
             ..  code-block:: xml
                 
-                <c:data id="labels" values="{query__1.Year}" />
-                
-                <c:data id="data">
-                  <c:item key="0" value="{query__1.Count}" />
-                </c:data>                
-                
--   In the Templates Flexform field                
-                
-    ..  tabs::
+                <c:template id="1">
+                    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChartAdvanced.fluid
+                </c:template>             
 
         ..  tab:: XML Parser
 
@@ -159,16 +167,7 @@ the number of pages per year.
                 <template id="1">
                     EXT:sav_charts/Resources/Private/Templates/ChartsExamples/BarChartAdvanced.xml
                 </template>
-                
-        ..  tab:: Fluid Parser
 
-            ..  code-block:: xml
-                
-                <c:template id="1">
-                    EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChartAdvanced.fluid
-                </c:template>             
-                
-                
 The default query manager, savcharts, is used 
 in the `Queries` section. It calls the query 
 with the UID 1.
@@ -203,16 +202,6 @@ then save and go to the front-end.
 
 ..  tabs::
 
-    ..  tab:: XML Parser
-
-        ..  code-block:: xml
-            
-            <marker id="title">Analysis of the site</marker>
-            <marker id="labelSet0">Pages per year</marker>
-            
-            <marker id="yearMin">2010</marker>
-            <marker id="yearMax">2020</marker>
-            
     ..  tab:: Fluid Parser
 
         ..  code-block:: xml
@@ -222,6 +211,16 @@ then save and go to the front-end.
             
             <c:marker id="yearMin">2010</c:marker>
             <c:marker id="yearMax">2020</c:marker>            
+
+    ..  tab:: XML Parser
+
+        ..  code-block:: xml
+            
+            <marker id="title">Analysis of the site</marker>
+            <marker id="labelSet0">Pages per year</marker>
+            
+            <marker id="yearMin">2010</marker>
+            <marker id="yearMax">2020</marker>
 
 .. figure:: ../../../Images/Tutorial/barChartWithQueryAndMarkersInFrontEnd.png
 
@@ -266,4 +265,3 @@ the following code in `ext_localconf.php` of your extension.
 ..  code-block:: php
 
     $TYPO3_CONF_VARS['EXTCONF'][$_EXTKEY]['queryManagerClass']['myManager'] = \MyVendorName\MyExtension\Hooks\MyQueryManager::class;
-

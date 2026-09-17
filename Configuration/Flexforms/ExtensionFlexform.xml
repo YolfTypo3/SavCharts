@@ -15,16 +15,16 @@
               <type>select</type>
               <renderType>selectSingle</renderType>
               <items>
-	            <numIndex index="0" type="array">
+                <numIndex index="0" type="array">
+                  <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.1</numIndex>
+                  <numIndex index="value">1</numIndex>
+                </numIndex>            
+	            <numIndex index="1" type="array">
                   <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.0</numIndex>
                   <numIndex index="value">0</numIndex>
 				</numIndex>
-				<numIndex index="1" type="array">
-                  <numIndex index="label">LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.parserType.1</numIndex>
-                  <numIndex index="value">1</numIndex>
-                </numIndex>
               </items>
-              <default>0</default>
+              <default>1</default>
               <size>1</size>
             </config>
           </settings.flexform.parserType>
@@ -40,7 +40,7 @@
         </el>
       </ROOT>
     </sDEF>
-    <xmlParser>EXT:sav_charts/Configuration/Flexforms/XmlParserFlexform.xml</xmlParser>
     <fluidParser>EXT:sav_charts/Configuration/Flexforms/FluidParserFlexform.xml</fluidParser>   
+    <xmlParser>EXT:sav_charts/Configuration/Flexforms/XmlParserFlexform.xml</xmlParser>
   </sheets>
 </T3DataStructure>

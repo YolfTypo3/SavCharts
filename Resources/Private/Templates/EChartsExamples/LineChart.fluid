@@ -1,0 +1,27 @@
+<c:echarts>		
+	<c:echart.line id="1" options="data__lineChartOptions" >
+
+        <c:marker id="title">Basic Line Chart</c:marker>     
+	        		
+		<c:data id="labels">
+			Mon, Tue, Wed, Thu, Fri, Sat, Sun
+		</c:data>
+	
+		<c:data id="series">
+			150, 230, 224, 218, 135, 147, 260
+		</c:data>	
+		
+        <c:data id="lineChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="xAxis">
+                <c:item key="data" value="{data__labels}" />
+            </c:item>
+            <c:item key="series"> 
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.line>
+</c:echarts>

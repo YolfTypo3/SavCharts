@@ -1,0 +1,65 @@
+<c:echarts>		
+	<c:echart.radar id="1" options="data__radarChartOptions" >
+
+        <c:marker id="title">Basic Radar Chart</c:marker>     	        	
+	    
+        <c:data id="legend">
+	        Allocated Budget, Actual Spending
+        </c:data>
+        
+        <c:data id="indicator">
+            <c:item key="0">
+                <c:item key="name" value="Sales" />
+                <c:item key="max" value="6500" />
+            </c:item>
+            <c:item key="1">
+                <c:item key="name" value="Administration" />
+                <c:item key="max" value="16000" />
+            </c:item>            
+            <c:item key="2">
+                <c:item key="name" value="Information Technology" />
+                <c:item key="max" value="30000" />
+            </c:item>  
+            <c:item key="3">
+                <c:item key="name" value="Customer Support" />
+                <c:item key="max" value="38000" />
+            </c:item>  
+            <c:item key="4">
+                <c:item key="name" value="Development" />
+                <c:item key="max" value="52000" />
+            </c:item>              
+            <c:item key="5">
+                <c:item key="name" value="Marketing" />
+                <c:item key="max" value="25000" />
+            </c:item>                                      
+        </c:data>
+       
+        	        		
+		<c:data id="series">
+			<c:item key="0">
+                <c:item key="value" values="4200, 3000, 20000, 35000, 50000, 18000" />
+                <c:item key="name" value="{data__legend.0}" />
+            </c:item>
+            <c:item key="1">
+                <c:item key="value" values="5000, 14000, 28000, 26000, 42000, 21000" />
+                <c:item key="name" value="{data__legend.1}" />
+            </c:item>                                 
+		</c:data>	
+		
+        <c:data id="radarChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="legend">
+                <c:item key="data" value="{data__legend}" />
+            </c:item>  
+            <c:item key="radar">
+                <c:item key="indicator" value="{data__indicator}" />
+            </c:item>                       
+            <c:item key="series"> 
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.radar>
+</c:echarts>

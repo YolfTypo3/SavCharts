@@ -1,0 +1,31 @@
+<c:echarts>		
+	<c:echart.candlestick id="1" options="data__candlestickChartOptions" >
+
+        <c:marker id="title">Basic Candlestick Chart</c:marker>     
+	        		
+		<c:data id="labels">
+			2017-10-24, 2017-10-25, 2017-10-26, 2017-10-27
+		</c:data>
+	
+		<c:data id="series">
+            <c:item key="0" values="20, 34, 10, 38" />
+            <c:item key="1" values="40, 35, 30, 50" />
+            <c:item key="2" values="31, 38, 33, 44" />
+            <c:item key="3" values="38, 15, 5, 42" />                                     
+		</c:data>	
+		
+        <c:data id="candlestickChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item> 
+            <c:item key="xAxis">
+                <c:item key="data" value="{data__labels}" />
+            </c:item>
+            <c:item key="yAxis" />
+            <c:item key="series"> 
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.candlestick>
+</c:echarts>

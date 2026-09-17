@@ -56,7 +56,7 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
         $key = $this->arguments['key'];
         $value = $this->arguments['value'];
         $values = $this->arguments['values'];
-                
+
         // Debugs in.
         $this->debugIn('item', $key);
         
@@ -68,9 +68,8 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
         if (is_null($value) && is_null($values)) {
             $childrenValue = $this->renderChildren();
             if ($childrenValue === null) {
-                throw new \InvalidArgumentException(
-                    'Argument "value" is null in <c:item key="' . $key . '" value="" />.'
-                    );
+                // An empty object is generated for the key.
+                $childrenValue = (object)[];
             }
             if (is_string($childrenValue)) {
                 $childrenValue = trim($childrenValue);
@@ -105,9 +104,10 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
         }
 
         self::pop();
+      
         // Checks if there are any keys left in the stack.
         if(self::stackEmpty()) {
-                // Merges the ViewHelper value if it exists.
+            // Merges the ViewHelper value if it exists.
             if (isset($viewHelperVariableValue)) {
                 $this->mergeInVariableProvider('item__', $key, $viewHelperVariableValue);
             }
@@ -118,7 +118,7 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
             // Gets the already known items.
             $items = $variableProvider->get('item__') ?? [];
 
-            // Checks if the key already exixts in items.
+            // Checks if the key already exists in items.
             if (array_key_exists($key, $items)) {
                 // Gets the children values
                 $values = [strval($key) => $items[$key]];

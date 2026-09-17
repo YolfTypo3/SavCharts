@@ -1,0 +1,31 @@
+<c:echarts>		
+	<c:echart.generic id="1" options="data__gaugeChartOptions" >
+	    
+	    <c:marker id="title">Basic Gauge Chart</c:marker>    	
+        <c:marker id="name">Score</c:marker>       
+	        		
+		<c:data id="series">
+            <c:item key="0">
+                <c:item key="value" value="50" />
+                <c:item key="name" value="{marker__name}" />	
+            </c:item>
+		</c:data>
+		
+        <c:data id="gaugeChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="tooltip">
+                <c:item key="trigger" value="item" />
+            </c:item>            
+            <c:item key="series">
+                <c:item key="type" value="gauge" /> 
+                <c:item key="progress">
+                    <c:item key="show" value="true" />
+                </c:item>
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.generic>
+</c:echarts>

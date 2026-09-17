@@ -1,0 +1,60 @@
+<c:echarts>		
+	<c:echart.funnel id="1" options="data__funnelChartOptions" >
+
+        <c:marker id="title">Basic Funnel Chart</c:marker>     	        	
+
+        <c:data id="legend">
+            Show, Click, Visit, Inquiry, Order
+        </c:data>
+        
+
+	    <c:data id="radius">
+	       <c:item key="0" value="{marker__radiusMin}" />
+	       <c:item key="1" value="{marker__radiusMax}" />
+	    </c:data>
+	        		
+		<c:data id="series">
+			<c:item key="0">
+                <c:item key="value" value="100" />
+                <c:item key="name" value="data__legend.0" />
+            </c:item>
+            <c:item key="1">
+                <c:item key="value" value="80" />
+                <c:item key="name" value="data__legend.1" />
+            </c:item>
+            <c:item key="2">
+                <c:item key="value" value="60" />
+                <c:item key="name" value="data__legend.2" />
+            </c:item>                        
+            <c:item key="3">
+                <c:item key="value" value="40" />
+                <c:item key="name" value="data__legend.3" />
+            </c:item>
+            <c:item key="4">
+                <c:item key="value" value="20" />
+                <c:item key="name" value="data__legend.4" />
+            </c:item>                                     
+		</c:data>	
+		
+        <c:data id="funnelChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="legend">
+                <c:item key="data" value="{data__legend}" />
+            </c:item>             
+            <c:item key="tooltip">
+                <c:item key="trigger" value="item" />
+            </c:item>
+           
+            <c:item key="series"> 
+                <c:item key="label">
+                    <c:item key="show" value="true" />
+                    <c:item key="position" value="inside" />
+                </c:item>            
+                <c:item key="data" value="{data__series}" /> 
+            </c:item>            
+        </c:data>		
+		
+	</c:echart.funnel>
+</c:echarts>
