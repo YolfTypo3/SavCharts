@@ -40,19 +40,62 @@ SAV Charts
 The content of this document is related to TYPO3,
 a GNU/GPL CMS/Framework available from `www.typo3.org <https://www.typo3.org/>`_.
 
+----
 
+This extension uses the 
+`Chart.js library <https://www.chartjs.org/>`_ or
+the `Apache ECharts library <https://echarts.apache.org/>`_
+to display charts.
+Data can be entered directly or via queries or
+spreadsheets. 
+    
+----
+
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :gap: 4
+    :class: pb-4
+    :card-height: 100
+
+
+    ..  card:: :ref:`Introduction <introduction>`
+        
+        General information about SAV Charts.
+        
+    ..  card:: :ref:`Screen Shoots <screenShoots>`
+        
+        SAV Charts comes with several basic templates 
+        for `Charts.js` and `Apache ECharts`.
+        
+        Advanced 
+        templates that simplify the implementation of charts 
+        with several sets of data are also available.        
+        
+    ..  card:: :ref:`Tutorial <tutorial>`
+        
+        Everything you need to know to develop and 
+        use SAV charts.
+
+    ..  card:: :ref:`Reference <reference>`
+        
+        ViewHelpers for the Fluid parser 
+        and tags for the XML parser 
+        are detailled.
+        
 Table of Contents
 =================
+
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 2
    :titlesonly:
    :glob:
 
    Introduction/Index
    UsersManual/Index
    Administration/Index
-   Reference/Index
    Tutorial/Index
+   Reference/Index
    FAQ/Index
    EntityRelationshipDiagram/Index
    Changelog/Index
@@ -62,4 +105,4 @@ Table of Contents
 .. toctree::
    :hidden:
 
-   Sitemap    
+   Sitemap
