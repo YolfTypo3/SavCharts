@@ -109,7 +109,7 @@ Using Apache Echarts
               
 -   Line charts
         
-..  figure:: ../../Images/ScreenShots/ECharts/candlestickChart.png
+..  figure:: ../../Images/ScreenShots/ECharts/lineChart.png
     :width: 50%
             
 -   Pie charts   
