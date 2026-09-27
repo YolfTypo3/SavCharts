@@ -137,7 +137,7 @@ are special cases of bar charts.
 ..  figure:: ../../Images/ScreenShots/ECharts/horizontalBarChart.png
     :width: 50%  
 
-..  figure:: ../../Images/ScreenShots/ECharts/StackedBarChart.png
+..  figure:: ../../Images/ScreenShots/ECharts/stackedBarChart.png
     :width: 50%  
             
 Doughnut charts, polar area charts  
