@@ -303,10 +303,9 @@ previously explained, the data must be transposed.
 
 The `search` and `replace` arguments behave exactly like
 the corresponding arguments in the PHP str_replace()
-function. They are used here as arrays.
-Here, they are used as arrays.
+function. Here, they are used as arrays.
 
-The bar chart colors are taker from the font color of
+The bar chart colors are taken from the font color of
 the items.
 
 ..  figure:: ../../../Images/Tutorial/ExcelWorksheetExample2BarChartPercentage.png
