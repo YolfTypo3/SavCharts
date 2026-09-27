@@ -20,18 +20,18 @@ The latter must be granted by an admin user.
 
 ..  figure:: ../../Images/Tutorial/PluginInterfaceGeneral.png
 
-The second tab is for XML parser configuration.
-It contains the same fields as the previous version
-of the SAV Charts extension.
-
-..  figure:: ../../Images/Tutorial/PluginInterfaceXmlParser.png
-
-The third tab is for the Fluid parser configuration.
-This contains the same fields as the second tab, plus
-a debug feature.
+The second tab is for the Fluid parser configuration.
+It contains fields for markers, queries, data, and templates, as well
+as a debug feature. These fields provide an easy 
+way to organize the code.
 
 ..  figure:: ../../Images/Tutorial/PluginInterfaceFluidParser.png
 
+The third tab is for the XML parser configuration.
+It contains all the fields from the second tab except
+the debug feature.
+
+..  figure:: ../../Images/Tutorial/PluginInterfaceXmlParser.png
 
 
 
