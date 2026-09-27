@@ -27,7 +27,7 @@ provided by the following Excel worksheet.
 ..  figure:: ../../../Images/Tutorial/ExcelWorksheetExample1.png
     
 Enter the following code into the template field of the Flexform.
-Then save and go to the front.   
+Then save and go to the frontend.   
 
 ..  code-block::
     
@@ -96,7 +96,7 @@ satisfaction, using the value column in the following worksheet.
 ..  figure:: ../../../Images/Tutorial/ExcelWorksheetExample2.png
  
 Enter the following code into the template field of the Flexform.
-Then save and go to the front.   
+Then save and go to the frontend.   
 
 ..  code-block::
            
@@ -140,7 +140,8 @@ Then save and go to the front.
     </c:template>
 
 As it can be seen in the following figure, the tiptool provides the
-value as entered in the worksheet.
+value as entered in the worksheet. The color of the slices is
+taken from the background color of the cells.
     
 ..  figure:: ../../../Images/Tutorial/ExcelWorksheetExample2PieChartValues.png
 
@@ -154,7 +155,7 @@ obtained using the formula `=C14/C18`. The result
 is actually 0.5, but it is displayed as 50% because 
 this cell uses the percentage format. 
 
-This has consequences for the range view helper, 
+This has consequences for the range viewHelper, 
 in that several arguments must be taken into account:
 
 -   The argument `calculateFormulas` must be set to true, 
@@ -296,7 +297,7 @@ as a bar chart. Fluid processing removes the percentage sign.
     </c:template>         
 
 In this example, the range viewHelper retains the cell 
-format.The arguments `search` and `replace` are used to
+format. The arguments `search` and `replace` are used to
 search for the percent and comma signs, respectively 
 replacing them with an empty space and a period. As 
 previously explained, the data must be transposed.
