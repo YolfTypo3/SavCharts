@@ -13,7 +13,10 @@ with several sets of data.
 XML Templates are in the directory `Resources/Private/Templates/ChartsExamples`.
 
 XML templates were also converted to Fluid templates and are available in
-`Resources/Private/Templates/ChartsExamples/FluidParser`.
+`Resources/Private/Templates/ChartsExamples/FluidParser` for the `Charts.js` library.
+
+Examples for the `Apache ECharts` library are available in
+`Resources/Private/Templates/EChartsExamples`.
 
 The following chart types are available.
 Screenshots were obtained
