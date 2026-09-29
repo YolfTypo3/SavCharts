@@ -20,10 +20,16 @@ to display charts.
 * Data can be entered directly into templates 
   or  via queries or spreadsheets.
 
+## Bar Chart with Charts.js
 ![Bar chart with Charts.js](Documentation/Images/ScreenShots/Charts/barChart.png)
-![Funnel chart with Apache ECharts](Documentation/Images/ScreenShots/ECharts/funnelChart.png)
-![Doughnut chart with ApexCharts](Documentation/Images/ScreenShots/ApexCharts/funnelChart.png)
 
+## Funnel Chart with Apache ECharts
+![Funnel chart with Apache ECharts](Documentation/Images/ScreenShots/ECharts/funnelChart.png)
+
+## Doughnut Chart with ApexCharts
+![Doughnut chart with ApexCharts](Documentation/Images/ScreenShots/ApexCharts/doughnutChart.png)
+
+## Links
 * [Github](https://github.com/YolfTypo3/SavCharts)
 * [Documentation](https://docs.typo3.org/p/yolftypo3/sav-charts/main/en-us/)
 * [TYPO3 Extension Repository](https://extensions.typo3.org/extension/sav_charts)
