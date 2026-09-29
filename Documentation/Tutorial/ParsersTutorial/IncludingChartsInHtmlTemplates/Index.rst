@@ -28,11 +28,14 @@ the number of pages created per year
         EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChartAdvanced.fluid
     </c:template>
     
-    <canvas id="canvas{canvases.0.chartId}" width="{canvases.0.width}" height="{canvases.0.height}"></canvas>
+    <canvas id="canvas{charts.0.chartId}" width="{charts.0.width}" height="{charts.0.height}"></canvas>
 
 ..  note::
     
-    The Fluid variable `canvases` contains information
+    The Fluid variable `charts` contains information
     on the created charts, starting from 0. Therefore,
-    `canvases.0.chartId` is the ID of the first chart
-    in `EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChartAdvanced.fluid`.                
+    `charts.0.chartId` is the ID of the first chart
+    in `EXT:sav_charts/Resources/Private/Templates/ChartsExamples/FluidParser/BarChartAdvanced.fluid`.       
+    
+..  figure:: ../../../Images/Tutorial/BarChartInHtmlTemplate.png
+             

@@ -1,27 +1,30 @@
 {
-	"name" : "yolftypo3/sav-charts",
-	"description" : "Extension which displays charts using the Charts.js library",
-	"type" : "typo3-cms-extension",
-	"license" : "GPL-2.0+",
-	"authors" : [{
-			"name" : "Laurent Foulloy",
-			"email" : "yolf.typo3@orange.fr",
-			"role" : "Developer"
-		}
-	],
-	"extra" : {
-		"typo3/cms" : {
-			"extension-key" : "sav_charts",
-			"version" : "14.7.0",
-			"Package" : {}
-		}
-	},
-	"require" : {
-		"typo3/cms-core" : "^13.4|^14.3"
-	},
-	"autoload" : {
-		"psr-4" : {
-			"YolfTypo3\\SavCharts\\" : "Classes/"
-		}
-	}
+    "name": "yolftypo3/sav-charts",
+    "description": "Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+        "name": "Laurent Foulloy",
+        "email": "yolf.typo3@orange.fr",
+        "role": "Developer"
+        }
+    ],
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "sav_charts",
+            "version": "14.8.0",
+			"Package": {
+				"providesPackages": {}
+			}
+        }
+    },
+    "require": {
+        "typo3/cms-core": "^13.4|^14.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "YolfTypo3\\SavCharts\\": "Classes/"
+        }
+    }
 }

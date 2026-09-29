@@ -21,6 +21,10 @@ iterative processing is required. It also provides
 simpler PHP code and makes it possible to use or
 develop other viewHelpers. 
 
+ViewHelpers for the Apache ECharts library were introduced
+in version 14.7.0, and those for the ApexCharts library
+were introduced in version 14.8.0 of SAV Charts.
+
 Table of Contents
 =================
 
@@ -32,6 +36,7 @@ Table of Contents
     DesigningTemplatesFromExamples/Index
     UsingAdvancedTemplates/Index
     UsingApacheECharts/Index
+    UsingApexCharts/Index
     UsingAndDevelopingQueryManagers/Index
     ExportingDataInCSV/Index
     ConvertingBasicXmlTemplatesToFluidTemplates/Index

@@ -1,0 +1,21 @@
+<c:apexcharts>		
+	<c:apexchart.polarArea id="1" options="data__polarAreaChartOptions" >
+
+        <c:marker id="title">Basic Polar Area Chart</c:marker>     	        	
+	        		
+        <c:data id="labels">N, NE, E, SE, S, SW, W, NW</c:data>
+                    
+        <c:data id="series">
+            12, 8, 15, 23, 18, 9, 6, 11
+        </c:data>   
+		
+        <c:data id="polarAreaChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="labels" value="{data__labels}" />
+            <c:item key="series" value="{data__series}" />            
+        </c:data>		
+		
+	</c:apexchart.polarArea>
+</c:apexcharts>

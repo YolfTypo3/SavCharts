@@ -18,7 +18,7 @@ if ($typo3Version->getMajorVersion() == 13) {
 		'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
 		'ext-savcharts-wizard',
 		'plugins',
-		'Extension which displays charts using the Charts.js library'
+		'Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries'
 	);
 
 	// Activates the display of the FlexForm field
@@ -42,11 +42,10 @@ if ($typo3Version->getMajorVersion() == 13) {
 		'LLL:EXT:sav_charts/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1',
 		'ext-savcharts-wizard',
 		'plugins',
-		'Extension which displays charts using the Charts.js library',
+		'Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries',
 		'FILE:EXT:sav_charts/Configuration/Flexforms/ExtensionFlexform.xml'
 	);
 }
 
 // Adds a preview renderer to add information to the title
 $GLOBALS['TCA']['tt_content']['types']['savcharts_default']['previewRenderer'] = PluginPreviewRenderer::class;
-

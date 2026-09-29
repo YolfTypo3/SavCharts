@@ -10,8 +10,9 @@ What Does it Do?
 ================
 
 This extension displays charts using the 
-`Chart.js library <https://www.chartjs.org/>`_ or
-the `Apache ECharts library <https://echarts.apache.org/>`_. 
+`Chart.js<https://www.chartjs.org/>`_,
+`Apache ECharts<https://echarts.apache.org/>`_, or
+`ApexCharts<https://apexcharts.com/>`_ libraries. 
 
 SAV Charts was originally designed to build chart configurations through XML 
 tags instead of JavaScript. Markers can be introduced in templates. Data can also 
@@ -29,18 +30,19 @@ to `PhpSpreadsheet<https://phpspreadsheet.readthedocs.io/en/latest/>`_.
     has been simplified.
     It also provides new extensible features 
     such as those introduced in 
-    version 14.7.0 for the Echarts library.
+    version 14.7.0 for the Echarts library or in version
+    14.8.0 for the ApexCharts library.
 
     Although generating charts is faster with the XML parser, writing complex code is much
     simpler with the Fluid parser. The XML parser is maintained for compatibility
-    but new developments relies solely on the Fluid parser.
+    but new developments rely solely on the Fluid parser.
     
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-   :glob:
+..  toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :glob:
 
-   ScreenShoots/Index
-   Sponsoring/Index
+    ScreenShoots/Index
+    Sponsoring/Index
 
         

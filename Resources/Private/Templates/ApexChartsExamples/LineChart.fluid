@@ -1,0 +1,28 @@
+<c:apexcharts>		
+	<c:apexchart.line id="1" options="data__lineChartOptions" >
+
+        <c:marker id="title">Basic Line Chart</c:marker>     
+	        		
+		<c:data id="labels">
+		  Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+		</c:data>
+	
+		<c:data id="series">
+		    <c:item key="0">
+                <c:item key="name" value="Sign-ups" /> 
+                <c:item key="data" values="210, 380, 340, 520, 480, 610, 700, 880, 820, 1040, 1180, 1520" />
+            </c:item>
+		</c:data>	
+		
+        <c:data id="lineChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="xaxis">
+                <c:item key="categories" value="{data__labels}" />
+            </c:item>
+            <c:item key="series" value="{data__series}" />           
+        </c:data>		
+		
+	</c:apexchart.line>
+</c:apexcharts>

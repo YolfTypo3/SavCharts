@@ -1,0 +1,28 @@
+<c:apexcharts>		
+	<c:apexchart.doughnut id="1" options="data__doughnutChartOptions" >
+
+        <c:marker id="title">Basic Doughnut Chart</c:marker>     	        	
+
+        <c:data id="labels">
+            North America,
+            Europe,
+            Asia Pacific,
+            Latin America,
+            Middle East
+        </c:data>
+                    
+        <c:data id="series">
+            54, 41, 38, 16, 12
+        </c:data>                                       	
+		
+        <c:data id="doughnutChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="labels" value="{data__labels}" />
+            <c:item key="series" value="{data__series}" />           
+         
+        </c:data>		
+		
+	</c:apexchart.doughnut>
+</c:apexcharts>

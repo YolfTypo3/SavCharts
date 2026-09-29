@@ -107,31 +107,16 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
       
         // Checks if there are any keys left in the stack.
         if(self::stackEmpty()) {
-            // Merges the ViewHelper value if it exists.
+            // Merges the viewHelper variable value if it exists.
             if (isset($viewHelperVariableValue)) {
                 $this->mergeInVariableProvider('item__', $key, $viewHelperVariableValue);
             }
         } else {
-            // Gets the parent key.
-            $parentKey = self::getParent();
-            
-            // Gets the already known items.
-            $items = $variableProvider->get('item__') ?? [];
-
-            // Checks if the key already exists in items.
-            if (array_key_exists($key, $items)) {
-                // Gets the children values
-                $values = [strval($key) => $items[$key]];
-                // Removes the children values in items and merges.
-                unset($items[$key]);
-                $items = array_merge_recursive($items, [strval($parentKey) => $values]);
+            // Inserts the viewHelper variable value if it exists.
+            if (isset($viewHelperVariableValue)){
+                $items = $variableProvider->get('item__') ?? [];           
+                self::insertInItems($items, $key, $viewHelperVariableValue);
                 $variableProvider->add('item__', $items);
-            } else {
-                if (isset($viewHelperVariableValue)){
-                    // Gets the children values and merges.
-                    $items[$parentKey][$key] = $viewHelperVariableValue;
-                    $variableProvider->add('item__', $items);
-                } 
             }
         }
                
@@ -139,24 +124,39 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
         $this->debugOut('item', $key);        
     }
     
-
+  
     /**
      * Helper methods
      * 
-     */             
-    protected static function push($key) {
+     */  
+    protected static function insertInItems(&$items, $key, $viewHelperVariableValue) 
+    {
+        foreach(self::$stack as $stackKey => $stackValue) {
+            if ($stackKey != array_key_last(self::$stack)) {
+                $items =  &$items[$stackValue];
+            } else {
+                $items[$stackValue][$key] = $viewHelperVariableValue;
+            }
+        }
+    }
+    
+    protected static function push($key) 
+    {
         array_push(self::$stack, $key);
     }
  
-    protected static function pop() {
+    protected static function pop() 
+    {
         return array_pop(self::$stack) ?? null;
     }
     
-    protected static function stackEmpty() {
+    protected static function stackEmpty() 
+    {
         return empty(self::$stack);
     }
     
-    protected static function getParent() {
+    protected static function getParent() 
+    {
         return end(self::$stack);
     }
 

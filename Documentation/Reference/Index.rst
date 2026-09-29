@@ -16,13 +16,6 @@ parsers.
     :class: pb-4
     :card-height: 100
 
-
-    ..  card:: :ref:`XML Parser Tags <xmlParserTags>`
-
-        XML parser is the historic parser developed for TYPO3 6.2. and later. 
-        
-        The general syntax for references is `tag#id`.
-
     ..  card:: :ref:`Fluid Parser ViewHelpers <fluidParserViewHelpers>`
 
         Fluid parser is the new parser based on Fluid syntax.
@@ -30,11 +23,18 @@ parsers.
         The general syntax for references is `tag__id`. The value
         associated with the reference is obtained by the Fluid accessor 
         `{tag__id}`. 
+        
+    ..  card:: :ref:`XML Parser Tags <xmlParserTags>`
+
+        XML parser is the historic parser developed for TYPO3 6.2. and later. 
+        
+        The general syntax for references is `tag#id`.
+
 
 ..  toctree::
     :maxdepth: 5
     :titlesonly:
     :glob:
    
-   XmlParserTags/Index
-   FluidParserViewHelpers/Index 
+    FluidParserViewHelpers/Index
+    XmlParserTags/Index 

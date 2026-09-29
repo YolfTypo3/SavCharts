@@ -23,7 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
 
 /**
- * A viewHelper for charts.
+ * A viewHelper for Apache ECharts.
  *
  * @package SavLibraryKickstarter
  */
@@ -80,7 +80,7 @@ final class EChartsViewHelper extends AbstractSavChartsViewHelper
                 'height' => $chart['height'],
             ];
         }        
-        // Adds the latest echart.js file.
+        // Adds the latest ECharts.js file.
         $javaScriptRootDirectory = ExtensionManagementUtility::extPath('sav_charts') . DefaultController::$javaScriptRootPath . '/ECharts';
         $javaScriptFiles = scandir($javaScriptRootDirectory, SCANDIR_SORT_DESCENDING);
         $javaScriptFooterFile = 'EXT:sav_charts/' . DefaultController::$javaScriptRootPath . '/ECharts/' . $javaScriptFiles[0];  

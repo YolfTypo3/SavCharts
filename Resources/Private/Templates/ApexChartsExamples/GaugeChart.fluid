@@ -1,0 +1,16 @@
+<c:apexcharts>		
+	<c:apexchart.gauge id="1" options="data__gaugeChartOptions" >
+	    
+	    <c:marker id="title">Basic Gauge Chart</c:marker>    	    
+	        		
+		<c:data id="series">72</c:data>
+		
+        <c:data id="gaugeChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>          
+            <c:item key="series" value="{data__series}" />           
+        </c:data>		
+		
+	</c:apexchart.gauge>
+</c:apexcharts>

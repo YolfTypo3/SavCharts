@@ -23,7 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
 
 /**
- * A viewHelper for charts.
+ * A viewHelper for Charts.js.
  *
  * @package SavLibraryKickstarter
  */

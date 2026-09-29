@@ -9,12 +9,15 @@ Changelog
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
+14.8.0   - ViewHelpers to generate charts with
+           the ApexCharts library has been added.
+
 14.7.0   - ViewHelpers to generate charts with
-           the Apache ECharts library added.
+           the Apache ECharts library has been added.
 
-14.6.0   - ViewHelpers to use spreadsheets added.
+14.6.0   - ViewHelpers to use spreadsheets has been added.
 
-14.5.0   - New parser based on Fluid and viewHelpers added.
+14.5.0   - New parser based on Fluid and viewHelpers has been added.
          - Version of Chart.js changed to 4.5.1.
 
 14.4.0   - Compatibility changed to TYPO3 13.4.x and 14.3.x.

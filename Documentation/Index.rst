@@ -16,7 +16,7 @@ SAV Charts
    en
 
 :Description:
-   Extension which displays charts using Charts.js or Apache ECharts.
+   Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries
 
 :Keywords:
    sav_charts
@@ -42,11 +42,12 @@ a GNU/GPL CMS/Framework available from `www.typo3.org <https://www.typo3.org/>`_
 
 ----
 
-This extension uses the 
-`Chart.js library <https://www.chartjs.org/>`_ or
-the `Apache ECharts library <https://echarts.apache.org/>`_
-to display charts.
-Data can be entered directly or via queries or
+This extension uses either the 
+`Chart.js <https://www.chartjs.org/>`_,
+`Apache ECharts <https://echarts.apache.org/>`_, or
+`ApexCharts <https://apexcharts.com/>`_
+libraries to display charts.
+Data can be entered directly in templates or via queries or
 spreadsheets. 
     
 ----
@@ -66,7 +67,7 @@ spreadsheets.
     ..  card:: :ref:`Screen Shoots <screenShoots>`
         
         SAV Charts comes with several basic templates 
-        for `Charts.js` and `Apache ECharts`.
+        for `Charts.js`, `Apache ECharts`, and `ApexCharts`.
         
         Advanced 
         templates that simplify the implementation of charts 
@@ -105,4 +106,4 @@ Table of Contents
 .. toctree::
    :hidden:
 
-   Sitemap
+   Sitemap    

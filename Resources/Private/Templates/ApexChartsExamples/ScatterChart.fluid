@@ -1,0 +1,43 @@
+<c:apexcharts>		
+	<c:apexchart.scatter id="1" options="data__scatterChartOptions" >
+	    
+	    <c:marker id="title">Basic Scatter Chart</c:marker>    	
+
+        <c:data id="labels">
+            First dataset, Second dataset
+        </c:data>
+	        		
+		<c:data id="series">
+            <c:item key="0">
+                <c:item key="name" value="{data__labels.0}" />
+                <c:item key="data">
+                    <c:item key="0" values="65, 10" />
+                    <c:item key="1" values="59, 15" />
+                    <c:item key="2" values="90, 9" />
+                    <c:item key="3" values="81, 25" />                    
+                    <c:item key="4" values="56, 19" /> 
+                </c:item>         
+            </c:item>
+            <c:item key="1">
+                <c:item key="name" value="{data__labels.1}" />
+                <c:item key="data">
+                    <c:item key="0" values="28, 2" />
+                    <c:item key="1" values="48, 4" />
+                    <c:item key="2" values="40, 10" />
+                    <c:item key="3" values="19, 9" />                    
+                    <c:item key="4" values="96, 16" /> 
+                    <c:item key="5" values="27, 7" /> 
+                    <c:item key="6" values="100, 23" /> 
+                </c:item>         
+            </c:item>           
+		</c:data>	
+		
+        <c:data id="scatterChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="series" value="{data__series}" />           
+        </c:data>		
+		
+	</c:apexchart.scatter>
+</c:apexcharts>

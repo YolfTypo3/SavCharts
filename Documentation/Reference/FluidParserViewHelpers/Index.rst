@@ -18,10 +18,12 @@ Table of Contents
     :titlesonly:
     :glob:
 
+    ApexChart/Index
+    ApexChartsViewHelper/Index
+    CallbackViewHelper/Index
     Cell/Index
     Chart/Index
     ChartsViewHelper/Index
-    CallbackViewHelper/Index
     DataViewHelper/Index
     EChart/Index    
     EChartsViewHelper/Index

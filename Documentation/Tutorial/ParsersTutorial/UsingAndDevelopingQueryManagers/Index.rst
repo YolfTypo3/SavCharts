@@ -245,7 +245,7 @@ to the query with the UID of 1.
 Developing Your Query Manager
 =============================
 
-Query managers are implemented by means of hooks.The hook for the internal query manager 
+Query managers are implemented by means of hooks. The hook for the internal query manager 
 is in `Classes/Hooks/SavChartsQueryManager.php`. This class extends the abstract class 
 AbstractQueryManager (`Classes/Hooks/AbstractQueryManager.php`)
 which itself implements the interface QueryManagerInterface 

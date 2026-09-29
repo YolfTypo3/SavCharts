@@ -1,19 +1,26 @@
 <f:flashMessages />
 
 <f:for each="{charts}" as="chart">
-    <f:if condition="{chart.type} == 'ECharts'">
-        <f:then>    
+    <f:switch expression="{chart.type}">
+
+        <f:case value="ApexCharts">
+<div id="apexchart{chart.chartId}" class="charts apexchart chart{chart.chartId}" style="width:{chart.width}px;height:{chart.height}px;"></div>
+        </f:case>
+  
+        <f:case value="ECharts">
 <div id="echart{chart.chartId}" class="charts echart chart{chart.chartId}" style="width:{chart.width}px;height:{chart.height}px;"></div>
-        </f:then>
-        <f:else>    
-<div class="charts {chart.chartId}">
+        </f:case>  
+           
+        <f:defaultCase>
+<div class="charts {chart.chartId}">        
     <canvas id="canvas{chart.chartId}" width="{chart.width}" height="{chart.height}"></canvas>
-	       <f:if condition="{chart.csvFileName}">
-	<div class="csv">
-	    <a href="{chart.csvFileName}" target="_blank"><f:image src="EXT:sav_charts/Resources/Public/Icons/csv.gif" alt="csv" /></a>
-	</div>
-	       </f:if>
-</div>
-        </f:else>
-    </f:if>
+           <f:if condition="{chart.csvFileName}">
+    <div class="csv">
+        <a href="{chart.csvFileName}" target="_blank"><f:image src="EXT:sav_charts/Resources/Public/Icons/csv.gif" alt="csv" /></a>
+    </div>
+           </f:if> 
+</div>              
+        </f:defaultCase>
+                             
+    </f:switch>
 </f:for>

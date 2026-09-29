@@ -6,7 +6,8 @@
 Exporting Data in CSV
 =====================
 
-You can easily export data associated with any chart using the exportCSV method 
+You can easily export data associated with any chart using the :ref:`exportCsvViewHelper`
+with the Fluid parser or the exportCSV method 
 associated with the `<charts>` tag (see :ref:`chart.exportCsv`).
 
 Assuming that you want to export data associated with the line chart template with 

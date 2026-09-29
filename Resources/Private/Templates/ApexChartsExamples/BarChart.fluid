@@ -1,0 +1,37 @@
+<c:apexcharts>		
+	<c:apexchart.bar id="1" options="data__barChartOptions" >
+
+        <c:marker id="title">Basic Bar Chart</c:marker>     
+	        		
+		<c:data id="labels">
+			South Korea,
+            Canada,
+            United Kingdom,
+            Netherlands,
+            Italy,
+            France,
+            Japan,
+            United States,
+            China,
+            Germany
+		</c:data>
+	
+		<c:data id="series">
+            <c:item key="0">
+                <c:item key="name" value="Visitors" />
+                <c:item key="data" values="400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380" />
+            </c:item>
+		</c:data>	
+		
+        <c:data id="barChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="xaxis">
+                <c:item key="categories" value="{data__labels}" />
+            </c:item>          
+            <c:item key="series" value="{data__series}" />            
+        </c:data>		
+		
+	</c:apexchart.bar>
+</c:apexcharts>

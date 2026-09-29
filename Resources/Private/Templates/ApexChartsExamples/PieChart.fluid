@@ -1,0 +1,27 @@
+<c:apexcharts>		
+	<c:apexchart.pie id="1" options="data__pieChartOptions" >
+
+        <c:marker id="title">Basic Pie Chart</c:marker>     	        	
+
+        <c:data id="labels">
+            Organic Search,
+            Direct,
+            Social,
+            Referral,
+            Email
+        </c:data>
+	        		
+		<c:data id="series">
+            42, 23, 15, 12, 8
+		</c:data>	
+		
+        <c:data id="pieChartOptions" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>
+            <c:item key="labels" value="{data__labels}" />
+            <c:item key="series" value="{data__series}" />           
+        </c:data>		
+		
+	</c:apexchart.pie>
+</c:apexcharts>

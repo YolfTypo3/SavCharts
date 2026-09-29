@@ -14,9 +14,9 @@ debug mode for the Fluid parser.
 ..  figure:: ../../Images/Tutorial/PluginInterfaceLayout.png
     
 The plugin options contain three tabs. The first tab
-is for general configuration. This includes selecting
-the parser type and granting the right to use queries.
-The latter must be granted by an admin user.
+is for the general configuration. This includes selecting
+the parser type and granting permission to use queries.
+Granting the right to use queries must be done by an admin user
 
 ..  figure:: ../../Images/Tutorial/PluginInterfaceGeneral.png
 
