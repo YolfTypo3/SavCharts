@@ -21,13 +21,16 @@ to display charts.
   or  via queries or spreadsheets.
 
 ## Bar Chart with Charts.js
-![Bar chart with Charts.js](Documentation/Images/ScreenShots/Charts/barChart.png)
+
+<img src="Documentation/Images/ScreenShots/Charts/barChart.png" alt="Bar chart with Charts.js" width="300">
 
 ## Funnel Chart with Apache ECharts
-![Funnel chart with Apache ECharts](Documentation/Images/ScreenShots/ECharts/funnelChart.png)
+
+<img src="Documentation/Images/ScreenShots/ECharts/funnelChart.png" alt="Funnel chart with Apache ECharts" width="300">
 
 ## Doughnut Chart with ApexCharts
-![Doughnut chart with ApexCharts](Documentation/Images/ScreenShots/ApexCharts/doughnutChart.png)
+
+<img src="Documentation/Images/ScreenShots/ApexCharts/doughnutChart.png" alt="Doughnut chart with ApexCharts" width="300">
 
 ## Links
 * [Github](https://github.com/YolfTypo3/SavCharts)
