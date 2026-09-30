@@ -10,12 +10,12 @@ Changelog
 Version  Changes
 =======  ===========================================================================
 14.8.0   - ViewHelpers to generate charts with
-           the ApexCharts library has been added.
+           the ApexCharts library have been added.
 
 14.7.0   - ViewHelpers to generate charts with
-           the Apache ECharts library has been added.
+           the Apache ECharts library have been added.
 
-14.6.0   - ViewHelpers to use spreadsheets has been added.
+14.6.0   - ViewHelpers to use spreadsheets have been added.
 
 14.5.0   - New parser based on Fluid and viewHelpers has been added.
          - Version of Chart.js changed to 4.5.1.
