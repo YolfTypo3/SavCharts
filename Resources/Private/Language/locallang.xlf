@@ -66,9 +66,21 @@
 			<trans-unit id="error.xmlSyntaxError" xml:space="preserve">
 				<source>Syntax error: %s. Check line %s in "%s".</source>
 			</trans-unit>			
+            <trans-unit id="flexform.allowConverter" xml:space="preserve">
+                <source>Allow Converter</source>
+            </trans-unit>
 			<trans-unit id="flexform.allowQueries" xml:space="preserve">
 				<source>Allow queries (Admin)</source>
 			</trans-unit>
+			<trans-unit id="flexform.converter" xml:space="preserve">
+                <source>Converter</source>
+            </trans-unit>
+            <trans-unit id="flexform.converterJavaScript" xml:space="preserve">
+                <source>JavaScript</source>
+            </trans-unit>
+            <trans-unit id="flexform.converterParser" xml:space="preserve">
+                <source>Fluid Parser</source>
+            </trans-unit>                        
 			<trans-unit id="flexform.fluidDebug" xml:space="preserve">
 				<source>Debug</source>
 			</trans-unit>

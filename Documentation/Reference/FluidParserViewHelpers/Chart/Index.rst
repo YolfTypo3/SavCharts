@@ -10,7 +10,7 @@ Chart ViewHelpers
 
 ..  note::
     
-    For compatibility with XML parser tags, 
+    For compatibility with XML Parser tags, 
     all <c:chart.`type`> can also be called
     as <c:`type`Chart>. For example, <c:chart.bar>
     can be called <c:barChart>.

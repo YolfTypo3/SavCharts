@@ -16,7 +16,7 @@ SAV Charts
    en
 
 :Description:
-   Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries
+   Extension which displays charts using the Charts.js, Apache Echarts, ApexCharts, or Plotly libraries
 
 :Keywords:
    sav_charts
@@ -44,12 +44,17 @@ a GNU/GPL CMS/Framework available from `www.typo3.org <https://www.typo3.org/>`_
 
 This extension uses either the 
 `Chart.js <https://www.chartjs.org/>`_,
-`Apache ECharts <https://echarts.apache.org/>`_, or
-`ApexCharts <https://apexcharts.com/>`_
+`Apache ECharts <https://echarts.apache.org/>`_,
+`ApexCharts <https://apexcharts.com/>`_, or
+`Plotly <https://plotly.com/javascript/>`_
 libraries to display charts.
-Data can be entered directly in templates or via queries or
+Data can be entered directly into templates or via queries or
 spreadsheets. 
-    
+
+Many basic and advanced templates are 
+available to simplify the implementation 
+of charts with multiple data sets. 
+          
 ----
 
 ..  card-grid::
@@ -64,24 +69,21 @@ spreadsheets.
         
         General information about SAV Charts.
         
-    ..  card:: :ref:`Screen Shoots <screenShoots>`
+    ..  card:: :ref:`Screenshoots <screenshoots>`
         
-        SAV Charts comes with several basic templates 
-        for `Charts.js`, `Apache ECharts`, and `ApexCharts`.
-        
-        Advanced 
-        templates that simplify the implementation of charts 
-        with several sets of data are also available.        
-        
+        SAV Charts comes with several templates 
+        for Charts.js, Apache ECharts, ApexCharts,
+        and Plotly libraries.
+                
     ..  card:: :ref:`Tutorial <tutorial>`
         
         Everything you need to know to develop and 
-        use SAV charts.
+        use SAV Charts.
 
     ..  card:: :ref:`Reference <reference>`
         
-        ViewHelpers for the Fluid parser 
-        and tags for the XML parser 
+        ViewHelpers for the Fluid Parser 
+        and tags for the XML Parser 
         are detailled.
         
 Table of Contents

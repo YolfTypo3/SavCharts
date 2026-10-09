@@ -43,7 +43,7 @@ The following arguments are available for the query ViewHelper:
     The query will only be processed if the manager 
     and UID arguments are provided. These arguments 
     are not defined as `required` for compatibility 
-    with the XML parser.
+    with the XML Parser.
 
 Example
 =======

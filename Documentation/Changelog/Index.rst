@@ -9,6 +9,11 @@ Changelog
 =======  ===========================================================================
 Version  Changes
 =======  ===========================================================================
+14.9.0   - ViewHelpers to generate charts with
+           the Plotly library have been added.
+         - A JavaScript to Fluid Parser converter has also
+           been added.
+
 14.8.0   - ViewHelpers to generate charts with
            the ApexCharts library have been added.
 

@@ -1,0 +1,23 @@
+<c:plotlycharts>		
+	<c:plotlychart.funnel id="1" data="data__funnelChartData" layout="data__funnelChartLayout" >
+
+        <c:marker id="title">Basic Funnel Chart</c:marker>     
+	
+		<c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="x" values="13873, 10533, 5443, 2703, 908" />
+                <c:item key="y" values="Website visit, Downloads, Potential customers, Invoice sent, Closed delas" />
+                <c:item key="type">funnel</c:item>
+            </c:item>
+		</c:data>	
+
+        <c:data id="funnelChartData" values="{data__dataSets}" /> 
+		
+        <c:data id="funnelChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>		
+		
+	</c:plotlychart.funnel>
+</c:plotlycharts>

@@ -1,0 +1,23 @@
+<c:plotlycharts>		
+	<c:plotlychart.bar id="1" data="data__barChartData" layout="data__barChartLayout" >
+
+        <c:marker id="title">Basic Bar Chart</c:marker>     
+	
+		<c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="x" values="giraffes, orangutans, monkeys" />
+                <c:item key="y" values="20, 14, 23" />
+                <c:item key="type">bar</c:item>
+            </c:item>
+		</c:data>	
+
+        <c:data id="barChartData" values="{data__dataSets}" /> 
+		
+        <c:data id="barChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>		
+		
+	</c:plotlychart.bar>
+</c:plotlycharts>

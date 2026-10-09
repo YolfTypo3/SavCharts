@@ -33,9 +33,9 @@
     },
     "emconf": {
         "1": {
-            "version": "14.8.0",
+            "version": "14.9.0",
             "title": "SAV Charts",
-            "description": "Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries",
+            "description": "Extension which displays charts using the Charts.js, Apache Echarts, ApexCharts, or Plotly libraries",
             "state": "stable",
             "dependencies": "",
             "author": "Laurent Foulloy",

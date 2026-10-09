@@ -1,0 +1,10 @@
+<c:plotlycharts>        
+    <c:plotlychart.generic id="1" data="data__genericChartData" layout="data__genericChartLayout" height="500">
+
+        <c:data id="genericChartData" values="{data__dataSets}" /> 
+        
+        <c:data id="genericChartLayout" canBeReplaced="true">
+        </c:data>       
+        
+    </c:plotlychart.generic>
+</c:plotlycharts>

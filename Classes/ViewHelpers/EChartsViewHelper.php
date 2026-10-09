@@ -63,9 +63,11 @@ final class EChartsViewHelper extends AbstractSavChartsViewHelper
                 $options = '{}';
             } else {
                 // Processes strings converted into objects (callbacks).
-                $options = json_encode($chart['options'], JSON_NUMERIC_CHECK);
+                $options = json_encode($chart['options'], JSON_NUMERIC_CHECK|JSON_UNESCAPED_SLASHES);
                 $options = preg_replace(['/\\\n/', '/\\\r/', '/\\\t/', '/{"scalar":"(.*?)"}/s'], [chr(10), '', '    ', '$1'], $options);
-            }                                 
+            }
+            
+            // Creates the Javascript for the chart.
             $javaScriptFooterInlineCode[$chartId][] = 'var echart' . $chartId . ' = echarts.init(document.getElementById(\'echart' . $chartId . '\'));';
             $javaScriptFooterInlineCode[$chartId][] = 'var option' . $chartId . ' = ' . $options .';';
             $javaScriptFooterInlineCode[$chartId][] = 'echart' . $chartId . '.setOption(option' . $chartId . ');';

@@ -21,6 +21,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3Fluid\Fluid\View\TemplateView;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\View\ViewInterface;
+use YolfTypo3\SavCharts\ViewHelpers;
 
 /**
  * Class Fluid Parser
@@ -44,22 +45,37 @@ class FluidParser
         /** @var TemplateView $templateView */
         $templateView = GeneralUtility::makeInstance(TemplateView::class);
         
-        $template = '{namespace c=YolfTypo3\\SavCharts\\ViewHelpers}';
-        $template .= $this->settings['flexform']['fluidMarkersConfig'];
+        $template = $this->settings['flexform']['fluidMarkersConfig'];
         $template .= $this->settings['flexform']['fluidQueriesConfig'];
         $template .= $this->settings['flexform']['fluidDataConfig'];
         $template .= $this->settings['flexform']['fluidTemplatesConfig'];
+   
+        // Checks if the converter is allowed
+        if ($this->settings['flexform']['allowConverter'] ?? false) {
+            $template = str_replace('###INCLUDE_CONVERTER###', ($this->settings['flexform']['converterParser'] ?? ''), $template);
+        } 
         
-        // Sets information in the rendering context.
+        // Gets the rendering contexts.
         $renderingContext = $templateView->getRenderingContext();
-        $variableProvider = $this->view->getRenderingContext()->getVariableProvider();
+        $viewRenderingContext = $this->view->getRenderingContext();
+
+        // Sets the viewHelper resolver.
+        $viewHelperResolver = $viewRenderingContext->getViewHelperResolver();
+        $viewHelperResolver->addNamespace('c', ViewHelpers::class);
+        $renderingContext->setViewHelperResolver($viewHelperResolver);
+        // Sets the variable provider.
+        $variableProvider = $viewRenderingContext->getVariableProvider();
         $renderingContext->setVariableProvider($variableProvider);
-        $controllerAction = $this->view->getRenderingContext()->getControllerAction();
+        // Sets the controller action.
+        $controllerAction = $viewRenderingContext->getControllerAction();
         $renderingContext->setControllerAction($controllerAction);
-        $controllerName = $this->view->getRenderingContext()->getControllerName();
+        // Sets the controller name.
+        $controllerName = $viewRenderingContext->getControllerName();
         $renderingContext->setControllerName($controllerName);
+        // Sets the template source
         $renderingContext->getTemplatePaths()->setTemplateSource($template);
-        $request = $this->view->getRenderingContext()->getAttribute(ServerRequestInterface::class);
+        // Sets the the attribute
+        $request = $viewRenderingContext->getAttribute(ServerRequestInterface::class);
         $renderingContext->setAttribute(ServerRequestInterface::class, $request);
         
         // Sets special variables.

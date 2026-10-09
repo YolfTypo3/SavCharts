@@ -63,10 +63,11 @@ final class ApexChartsViewHelper extends AbstractSavChartsViewHelper
                 $options = '{}';
             } else {
                 // Processes strings converted into objects (callbacks).
-                $options = json_encode($chart['options'], JSON_NUMERIC_CHECK);
+                $options = json_encode($chart['options'], JSON_NUMERIC_CHECK|JSON_UNESCAPED_SLASHES);
                 $options = preg_replace(['/\\\n/', '/\\\r/', '/\\\t/', '/{"scalar":"(.*?)"}/s'], [chr(10), '', '    ', '$1'], $options);
             }                                 
 
+            // Creates the Javascript for the chart.
             $javaScriptFooterInlineCode[$chartId][] = 'var option' . $chartId . ' = ' . $options .';';
             $javaScriptFooterInlineCode[$chartId][] = 'var apexchart' . $chartId . ' = new ApexCharts(document.getElementById(\'apexchart' . $chartId . '\'), option'. $chartId . ');';
             $javaScriptFooterInlineCode[$chartId][] = 'apexchart' . $chartId . '.render();';

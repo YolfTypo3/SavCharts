@@ -1,0 +1,36 @@
+<c:plotlycharts>		
+	<c:plotlychart.scatter id="1" data="data__lineChartData" layout="data__lineChartLayout" >
+
+        <c:marker id="title">Basic Line Chart</c:marker>     
+	
+		<c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="x" values="1, 2, 3, 4" />
+                <c:item key="y" values="10, 15, 13, 17" />
+                <c:item key="type">scatter</c:item>
+                <c:item key="mode">markers</c:item>
+            </c:item>
+            <c:item key="1">
+                <c:item key="x" values="1, 2, 3, 4" />
+                <c:item key="y" values="16, 5, 11, 9" />
+                <c:item key="type">scatter</c:item>
+                <c:item key="mode">lines</c:item>
+            </c:item>  
+            <c:item key="2">
+                <c:item key="x" values="1, 2, 3, 4" />
+                <c:item key="y" values="12, 9, 15, 12" />
+                <c:item key="type">scatter</c:item>
+                <c:item key="mode">lines+markers</c:item>
+            </c:item>                       
+		</c:data>	
+
+        <c:data id="lineChartData" values="{data__dataSets}" /> 
+		
+        <c:data id="lineChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>		
+		
+	</c:plotlychart.scatter>
+</c:plotlycharts>

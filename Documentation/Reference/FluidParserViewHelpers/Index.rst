@@ -2,9 +2,9 @@
 
 ..  _fluidParserViewHelpers:
 
-========================
-Fluid Parser ViewHelpers
-========================
+=================
+Fluid ViewHelpers
+=================
 
 The general syntax for references is `tag__id`. 
 The value associated with the reference is obtained by 
@@ -30,6 +30,8 @@ Table of Contents
     ExportCsvViewHelper/Index
     ItemViewHelper/Index
     MarkerViewHelper/Index
+    PlotlyChart/Index    
+    PlotlyChartsViewHelper/Index
     PluginViewHelper/Index
     QueryViewHelper/Index
     SpreadsheetViewHelper/Index

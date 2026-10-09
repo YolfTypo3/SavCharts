@@ -3,7 +3,7 @@
 ..  _faq:
 ..  role:: red
 
-:navigation-title: F.A.Q. (Charts.js)
+:navigation-title: F.A.Q.
 
 ======================================
 Frequently Asked Questions (Charts.js)
@@ -14,7 +14,7 @@ Frequently Asked Questions (Charts.js)
     SAV Charts is now using  Chart.js 4.x. Several breaking changes were made in 
     Chart.js 3.0 and Chart.js 4.0 (see `3.x Migration Guide <https://www.chartjs.org/docs/latest/migration/v3-migration.html>`_
     and `4.x Migration Guide <https://www.chartjs.org/docs/latest/migration/v4-migration.html>`_).
-    All templates in `Resources/Private/Templates/ChartsExamples` 
+    All templates in :guilabel:`Resources/Private/Templates/ChartsExamples` 
     were modified to take these changes into consideration.
     
     If you are upgrading Sav Charts, you may have to modify your templates.  
@@ -108,7 +108,8 @@ Add the following configuration in the data section or in your template.
 Save, clear the cache and go to the front-end.
 
 ..  figure:: ../Images/FAQ/lineChartWithY-axisOptionsInFrontend.png
-
+    :width: 50%
+    
 ..  tip::
 
     You can easily adapt the previous configuration to other cases by translating 
@@ -122,7 +123,7 @@ Save, clear the cache and go to the front-end.
     
             -   Replace options by a `<c:data id="..."> ... </c:data>` where the `id` is the identifier for the chart options (it is defined in the template).
             -   Replace opening braces by `<c:item>` tags with attributes as keys.
-            -   Replace open brackets, if any, by `<c:item>` tags with keys equal to 0.
+            -   Replace open brackets, if any, by `<c:item>` tags with keys equal to 0, 1, 2...
             -   Replace simple attributes inside braces by `<c:item />` tags with key and value attributes.
             -   Replace closing braces or brackets by `</c:item>` tags.
 
@@ -130,7 +131,7 @@ Save, clear the cache and go to the front-end.
     
             -   Replace options by a `<data id="..."> ... </data>` where the `id` is the identifier for the chart options (it is defined in the template).
             -   Replace opening braces by `<item>` tags with attributes as keys.
-            -   Replace open brackets, if any, by `<item>` tags with keys equal to 0.
+            -   Replace open brackets, if any, by `<item>` tags with keys equal to 0, 1, 2...
             -   Replace simple attributes inside braces by `<item />` tags with key and value attributes.
             -   Replace closing braces or brackets by `</item>` tags.
 
@@ -206,20 +207,18 @@ A callback is used to modify the tick labels.
             The JavaScript function must be in an XML comment.  
 
 ..   figure:: ../Images/FAQ/lineChartWithYAndX-axesOptionsInFrontend.png   
-           
-..  note::
-
-    In Chart.js 3.0 , the former `xAxes` and `yAxes` arrays in `scales` were removed.
+    :width: 50%
+               
                 
 How to Modify the Tooltip Format?
 =================================
 
 The tooltip format can be modified using callbacks that are provided with Chart.js.
 For example let us assume that data provided with the Pie Chart example 
-are in €. Let us also assume that we want to change the tiptool content
+are in €. Also assume that we want to change the tiptool content
 in order to have `label - value €` instead of the defaut format `label:value`.
 
-Chart.js library allows to modify several behaviors by means of callbacks. 
+The Chart.js library allows you to modify several behaviors by using callbacks.
 Please consult the `Chart.js documentation <https://www.chartjs.org/docs/>`_ for details.
 
 The tooltip label can been changed by means of the label callback in `tooltip` options.
@@ -276,7 +275,8 @@ Add the following configuration in the data section or in your template.
 Save, clear the cache and go to the front-end.
 
 ..  figure:: ../Images/FAQ/tooltipLabelCallbackInFrontend.png
-    
+    :width: 50%
+        
 The configuration is simply the translation of the following JavaScript configuration.   
 
 ..  code-block:: javascript
@@ -292,15 +292,7 @@ The configuration is simply the translation of the following JavaScript configur
             }
         }
     }
-
-..  note::
-
-    In Chart.js 3.0 `tooltips` was renamed `tooltip` and 
-    is now in the `plugins` item of the `options`. A tooltip item context is avaible in callbacks.
-    For more information see the `tooltip section <https://www.chartjs.org/docs/latest/configuration/tooltip.html>`_
-    in Chart.js documentation. 
-           
-
+         
 JavaScript Function in a File
 -----------------------------
 
@@ -395,7 +387,7 @@ inserted by TypoScript.
 Open the console and click on the chart legend.
 
 ..  figure:: ../Images/FAQ/functionOnEvent.png    
-
+    :width: 50%
 
 How to Create a Combination Chart?
 ==================================
@@ -423,7 +415,8 @@ section, enter the following code, save and go to the front-end.
             </template>     
 
 ..  figure:: ../Images/ScreenShots/Charts/comboChart.png
-   
+    :width: 50%
+       
 The file `ComboChart.xml` is very similar to the file `BarChart.xml`. Only slight changes were made. 
 The `type` attribute of the second dataset is set to `line` and the `fill` attribute to `false`.
 
@@ -482,9 +475,9 @@ available in `Resources\Public\Plugins\CharAreaBorder.js`.
         ..  note::
             
             The argument chartId is `pie__1` if
-            you use <c:chart.pie>. It becomes `pieChart__1`
-            if you use <c:pieChart> (a viewHelper for
-            compatibility with the XML parser).
+            you use `<c:chart.pie>`. It becomes `pieChart__1`
+            if you use `<c:pieChart>` (a viewHelper for
+            compatibility with the XML Parser).
 
     ..  tab:: XML Parser
 
@@ -506,5 +499,5 @@ available in `Resources\Public\Plugins\CharAreaBorder.js`.
             </template>
             
 ..  figure:: ../Images/FAQ/plugin.png
- 
+    :width: 50% 
                        

@@ -2,6 +2,7 @@
 
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use YolfTypo3\SavCharts\Controller\DefaultController;
+use YolfTypo3\SavCharts\Hooks\SavChartsFlexformProcessor;
 use YolfTypo3\SavCharts\Hooks\SavChartsQueryManager;
 
 defined('TYPO3') or die();
@@ -23,6 +24,6 @@ defined('TYPO3') or die();
 
     // Adds a hook for the query manager.
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sav_charts']['queryManagerClass']['savcharts'] = SavChartsQueryManager::class;
-    
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = SavChartsFlexformProcessor::class;
 })();
 

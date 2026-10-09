@@ -2,9 +2,9 @@
 
 ..     _xmlParserTags:
 
-===============
-XML Parser Tags
-===============
+========
+XML Tags
+========
 
 All tag attributes can take a value or be a reference to a specific tag. 
 The allowed syntaxes are:

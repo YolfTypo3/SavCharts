@@ -1,0 +1,8 @@
+<c:apexcharts>		
+	<c:apexchart.generic id="1" options="data__genericChartOptions" >
+
+        <c:data id="genericChartOptions" canBeReplaced="true">
+        </c:data>		
+		
+	</c:apexchart.generic>
+</c:apexcharts>

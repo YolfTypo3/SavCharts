@@ -1,0 +1,34 @@
+<T3DataStructure>
+  <ROOT>
+    <sheetTitle>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.converter</sheetTitle>
+    <type>array</type>
+    <displayCond>
+      <AND>
+        <numIndex index="0">FIELD:sDEF.settings.flexform.parserType:=:1
+        </numIndex>
+        <numIndex index="1">FIELD:sDEF.settings.flexform.allowConverter:=:1
+        </numIndex>
+       </AND>    
+    </displayCond>    
+    <el>
+      <settings.flexform.converterJavaScript>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.converterJavaScript</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+        </config>
+      </settings.flexform.converterJavaScript>         
+      <settings.flexform.converterParser>
+        <exclude>1</exclude>
+        <label>LLL:EXT:sav_charts/Resources/Private/Language/locallang.xlf:flexform.converterParser</label>
+        <config>
+          <type>text</type>
+          <cols>48</cols>
+          <rows>5</rows>
+        </config>
+      </settings.flexform.converterParser>                           
+    </el>
+  </ROOT>
+</T3DataStructure>

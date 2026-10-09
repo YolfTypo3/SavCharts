@@ -22,9 +22,8 @@ The following arguments are available for the range ViewHelper:
 ..  confval:: range
     :name: rangeRange
     :Type: string
-    :required: true
     
-    Range of cells
+    Range of cells. If empty, all the cells are returned.
 
 ..  confval:: nullValue
     :name: rangeNullValue
@@ -91,3 +90,11 @@ Inline
 
         </c:worksheet>
     </c:spreadsheet>
+
+..  code-block:: xml   
+     
+    <c:spreadsheet  fileName="EXT:sav_charts/Resources/Private/Templates/PlotlyChartsExamples/Surface3D.csv"> 
+        <c:worksheet>
+            <c:data id="csv" values="{c:cell.range()->c:transpose()}" />
+        </c:worksheet>
+    </c:spreadsheet>    

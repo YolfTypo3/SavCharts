@@ -10,7 +10,11 @@
         <f:case value="ECharts">
 <div id="echart{chart.chartId}" class="charts echart chart{chart.chartId}" style="width:{chart.width}px;height:{chart.height}px;"></div>
         </f:case>  
-           
+
+        <f:case value="PlotlyCharts">
+<div id="plotly{chart.chartId}" class="charts plotlychart chart{chart.chartId}" style="width:{chart.width}px;height:{chart.height}px;"></div>
+        </f:case>  
+                   
         <f:defaultCase>
 <div class="charts {chart.chartId}">        
     <canvas id="canvas{chart.chartId}" width="{chart.width}" height="{chart.height}"></canvas>

@@ -30,7 +30,7 @@ that converts the existing
 Flexforms on your website. The upgrade wizard adds 
 three sheets to the Flexforms 
 (see :ref:`_pluginInterface`). It also duplicates existing
-XML parser configurations as closely as possible 
-to Fluid parser configurations.
+XML Parser configurations as closely as possible 
+to Fluid Parser configurations.
 
 ..  figure:: ../Images/Administration/upgradeWizard.png  

@@ -22,9 +22,10 @@ The following arguments are available for the worksheet ViewHelper:
 ..  confval:: name
     :name: worksheetName
     :Type: string
-    :required: true
     
-    Worksheet name
+    Worksheet name. 
+    
+    If not set, the worksheet is the active sheet 
 
 Examples
 ========
@@ -37,3 +38,10 @@ Examples
         </c:worksheet> 
     </c:spreadsheet>   
 
+..  code-block:: xml
+
+    <c:spreadsheet fileName="EXT:sav_charts/Resources/Private/Templates/PlotlyChartsExamples/Gaussian2D.csv"> 
+        <c:worksheet>
+        
+        </c:worksheet> 
+    </c:spreadsheet> 

@@ -4,9 +4,9 @@
 
 :navigation-title: apexchart.generic
 
-========================================
-Scatter ViewHelper <c:apexchart.generic>
-========================================
+=========================================
+GGeneric ViewHelper <c:apexchart.generic>
+=========================================
 
 ViewHelper to include a generic chart, that is a
 chart that has no predefined type, with `ApexCharts`.

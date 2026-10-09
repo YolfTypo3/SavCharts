@@ -5,12 +5,18 @@
 
 This exension uses the 
 [Chart.js](https://www.chartjs.org/),
-[Apache ECharts](https://echarts.apache.org/), or
-[ApexCharts](https://apexcharts.com/) libraries
+[Apache ECharts](https://echarts.apache.org/), 
+[ApexCharts](https://apexcharts.com/), or [Plotly](https://plotly.com/javascript/) libraries
 to display charts.
 
 * SAV Charts comes with several basic templates 
-  for Charts.js, Apache ECharts and ApexCharts.
+  for Charts.js, Apache ECharts, ApexCharts,
+  and Plotly.
+  
+* A JavaScript to Fluid Parser converter 
+  simplifies testing examples from
+  Charts.js, Apache ECharts, ApexCharts,
+  and Plotly websites.
         
 * Advanced templates that simplify 
   the  implementation 
@@ -18,7 +24,7 @@ to display charts.
   also available for the Charts.js library.
 
 * Data can be entered directly into templates 
-  or  via queries or spreadsheets.
+  or via queries or spreadsheets.
 
 ## Bar Chart with Charts.js
 
@@ -31,6 +37,10 @@ to display charts.
 ## Doughnut Chart with ApexCharts
 
 <img src="Documentation/Images/ScreenShots/ApexCharts/doughnutChart.png" alt="Doughnut chart with ApexCharts" width="300">
+
+## 2D Histogram Contour Chart with Plotly and CSV Spreadsheet
+
+<img src="Documentation/Images/ScreenShots/PlotlyCharts/gaussian2D.png" alt="2D Histogram Contour Chart with Plotly and CSV Spreadsheet" width="300">
 
 ## Links
 * [Github](https://github.com/YolfTypo3/SavCharts)

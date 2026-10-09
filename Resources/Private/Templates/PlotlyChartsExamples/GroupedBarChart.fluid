@@ -1,0 +1,30 @@
+<c:plotlycharts>        
+    <c:plotlychart.generic id="1" data="data__genericChartData" layout="data__genericChartLayout" >
+
+        <c:marker id="title">Basic Grouped Bar Chart</c:marker>     
+    
+        <c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="x" values="giraffes, orangutans, monkeys" />
+                <c:item key="y" values="20, 14, 23" />
+                <c:item key="name">SF Zoo</c:item>
+                <c:item key="type">bar</c:item>
+            </c:item>
+            <c:item key="1">
+                <c:item key="x" values="giraffes, orangutans, monkeys" />
+                <c:item key="y" values="12, 18, 29" />
+                <c:item key="name">LA Zoo</c:item>
+                <c:item key="type">bar</c:item>
+            </c:item>            
+        </c:data>   
+
+        <c:data id="genericChartData" values="{data__dataSets}" /> 
+        
+        <c:data id="genericChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>       
+        
+    </c:plotlychart.generic>
+</c:plotlycharts>

@@ -34,7 +34,7 @@ final class WorkSheetViewHelper extends AbstractSavChartsViewHelper
      */
     public function initializeArguments(): void
     {
-        $this->registerArgument('name', 'string', 'Worksheet name', true);
+        $this->registerArgument('name', 'string', 'Worksheet name', false);
     }
 
     /**
@@ -53,7 +53,11 @@ final class WorkSheetViewHelper extends AbstractSavChartsViewHelper
         
         if ($spreadsheet !== null)  {
             // Gets the worksheet and saves it in the variable provider.
-            $worksheet = $spreadsheet->getSheetByNameOrThrow($name);
+            if (empty($name)) {
+                $worksheet = $spreadsheet->getActiveSheet();
+            } else {
+                $worksheet = $spreadsheet->getSheetByNameOrThrow($name);
+            }
             $variableProvider->add('worksheet__', $worksheet);
 
             // Renders the children and removes the worksheet from the variable provider.

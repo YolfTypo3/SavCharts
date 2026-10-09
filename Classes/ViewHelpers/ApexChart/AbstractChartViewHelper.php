@@ -36,7 +36,7 @@ abstract class AbstractChartViewHelper extends AbstractSavChartsViewHelper
     public function initializeArguments(): void
     {
         $this->registerArgument('id', 'string', 'Chart ID', true);
-        $this->registerArgument('options', 'string', 'Options, or a reference to options', true);
+        $this->registerArgument('options', 'mixed', 'Options, or a reference to options', true);
         $this->registerArgument('width', 'string', 'Width value, or a reference to the width value', false, '600');
         $this->registerArgument('height', 'string', 'Height value, or a reference to the height value', false, '400');
     }

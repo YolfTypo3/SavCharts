@@ -1,0 +1,23 @@
+<c:plotlycharts>		
+	<c:plotlychart.indicator id="1" data="data__indicatorChartData" layout="data__indicatorChartLayout" >
+
+        <c:marker id="title">Basic Gauge Chart</c:marker>     
+	
+		<c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="value" value="450" />
+                <c:item key="type">indicator</c:item>
+                <c:item key="mode">gauge+number</c:item>
+            </c:item>
+		</c:data>	
+
+        <c:data id="indicatorChartData" values="{data__dataSets}" /> 
+		
+        <c:data id="indicatorChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>		
+		
+	</c:plotlychart.indicator>
+</c:plotlycharts>

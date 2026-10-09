@@ -5,7 +5,7 @@
 :navigation-title: echart.generic
 
 =====================================
-Scatter ViewHelper <c:echart.generic>
+Generic ViewHelper <c:echart.generic>
 =====================================
 
 ViewHelper to include a generic chart, that is a

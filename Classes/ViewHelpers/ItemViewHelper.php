@@ -43,6 +43,7 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
         $this->registerArgument('key', 'string', 'Item key', true);
         $this->registerArgument('value', 'mixed', 'Item value', false, null);    
         $this->registerArgument('values', 'string', 'Item comma-separated values', false, null);        
+        $this->registerArgument('callback', 'boolean', 'If set the child is a callback', false, false);       
     }
 
     /**
@@ -56,6 +57,7 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
         $key = $this->arguments['key'];
         $value = $this->arguments['value'];
         $values = $this->arguments['values'];
+        $callback = $this->arguments['callback'];
 
         // Debugs in.
         $this->debugIn('item', $key);
@@ -73,6 +75,9 @@ final class ItemViewHelper extends AbstractSavChartsViewHelper
             }
             if (is_string($childrenValue)) {
                 $childrenValue = trim($childrenValue);
+                if ($callback) {
+                    $childrenValue = (object) str_replace([chr(13), chr(10)], ['', ''], $childrenValue);
+                }               
             }           
             if (empty($childrenValue)) { 
                 if ($variableProvider->exists('callback__')) {

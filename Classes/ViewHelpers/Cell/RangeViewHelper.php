@@ -34,7 +34,7 @@ final class RangeViewHelper extends AbstractSavChartsViewHelper
      */
     public function initializeArguments(): void
     {
-        $this->registerArgument('range', 'string', 'Range of cells', true);
+        $this->registerArgument('range', 'string', 'Range of cells. If empty, all the cells are returned', false, '');
         $this->registerArgument('nullValue', 'mixed', 'Value returned in the array entry if a cell doesn\'t exist', false, null);
         $this->registerArgument('calculateFormulas', 'boolean', 'If true, formulas are calculated', false, true);
         $this->registerArgument('formatData', 'boolean', 'If true, formatting is applied to the cell values', false, false);
@@ -66,7 +66,9 @@ final class RangeViewHelper extends AbstractSavChartsViewHelper
         $worksheet = $variableProvider->get('worksheet__');
         
         if ($worksheet !== null)  {
-            
+            if (empty($range)) {
+                $range = 'A1:'. $worksheet->getHighestDataColumn() . $worksheet->getHighestDataRow();
+            }
             // Gets the cells and return its value.
             $dataArray = $worksheet->rangeToArray(
                     $range,             // The worksheet range that we want to retrieve

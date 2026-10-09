@@ -1,6 +1,6 @@
 {
     "name": "yolftypo3/sav-charts",
-    "description": "Extension which displays charts using the Charts.js, Apache Echarts, or ApexCharts libraries",
+    "description": "Extension which displays charts using the Charts.js, Apache Echarts, ApexCharts, or Plotly libraries",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0+",
     "authors": [
@@ -13,7 +13,7 @@
     "extra": {
         "typo3/cms": {
             "extension-key": "sav_charts",
-            "version": "14.8.0",
+            "version": "14.9.0",
 			"Package": {
 				"providesPackages": {}
 			}

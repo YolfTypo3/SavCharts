@@ -59,15 +59,16 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
             }
         
             // Creates the JavaScript for data. 
-            $data = $chart['data'];
-            $data = json_encode($chart['data']);
+            $data = $chart['data'];         
+            $data = json_encode($chart['data'], JSON_NUMERIC_CHECK|JSON_UNESCAPED_SLASHES);
+            $data = preg_replace(['/\\\n/', '/\\\r/', '/\\\t/', '/{"scalar":"(.*?)"}/s'], [chr(10), '', '    ', '$1'], $data);
             
             // Creates the JavaScript for options.
             if (empty($chart['options'])) {
                 $options = '{}';
             } else {
                 // Processes strings converted into objects (callbacks).
-                $options = json_encode($chart['options'], JSON_NUMERIC_CHECK);
+                $options = json_encode($chart['options'], JSON_NUMERIC_CHECK|JSON_UNESCAPED_SLASHES);
                 $options = preg_replace(['/\\\n/', '/\\\r/', '/\\\t/', '/{"scalar":"(.*?)"}/s'], [chr(10), '', '    ', '$1'], $options);
             }
             
@@ -79,7 +80,7 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
                 foreach ($chart['plugins'] as $pluginKey => $plugin) {
                     $javaScriptFooterInlineCode[$chartId][] = '{';
                     $javaScriptFooterInlineCode[$chartId][] = 'id: \'' . $pluginKey . '\',' ;
-                    $plugin = json_encode($plugin, JSON_NUMERIC_CHECK);
+                    $plugin = json_encode($plugin, JSON_NUMERIC_CHECK|JSON_UNESCAPED_SLASHES);
                     $plugin = preg_replace(['/\\\n/', '/\\\r/', '/\\\t/', '/{"scalar":"(.*?)"}/s'], [chr(10), '', '    ', '$1'], $plugin);
                     $javaScriptFooterInlineCode[$chartId][] = $plugin;
                     $javaScriptFooterInlineCode[$chartId][] = $pluginKey == $lastKey ? '}' : '},';
@@ -87,7 +88,8 @@ final class ChartsViewHelper extends AbstractSavChartsViewHelper
                 $javaScriptFooterInlineCode[$chartId][] = '];';
                 $plugins = 'plugin' . $chartId . '';
             }
-                       
+
+            // Creates the Javascript for the chart.
             $javaScriptFooterInlineCode[$chartId][] = 'const canvas' . $chartId . ' = document.getElementById(\'canvas' . $chartId . '\').getContext(\'2d\');';
             $javaScriptFooterInlineCode[$chartId][] = 'const chart' . $chartId . ' = new Chart(canvas' . $chartId . ', {type:\'' . $chart['type'] . '\', plugins: ' . $plugins . ', data:' . $data . ', options:' . $options . '});';      
             

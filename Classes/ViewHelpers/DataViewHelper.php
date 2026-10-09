@@ -37,6 +37,7 @@ final class DataViewHelper extends AbstractSavChartsViewHelper
         $this->registerArgument('id', 'string', 'Data id', true);
         $this->registerArgument('canBeReplaced', 'boolean', 'If true and data exist, merge both data)', false, false);
         $this->registerArgument('values', 'mixed', 'Data or comma-separated values if the child is a string)', false, '');
+        $this->registerArgument('callback', 'boolean', 'If set the child is a callback', false, false);       
     }
 
     /**
@@ -50,6 +51,7 @@ final class DataViewHelper extends AbstractSavChartsViewHelper
         $id = $this->arguments['id'];
         $canBeReplaced =  $this->arguments['canBeReplaced'];
         $values = $this->arguments['values'];
+        $callback = $this->arguments['callback'];
                
         // Gets the variable provider from the rendering context.
         $variableProvider = $this->renderingContext->getVariableProvider();
@@ -67,6 +69,9 @@ final class DataViewHelper extends AbstractSavChartsViewHelper
                 $childrenValue = $this->renderChildren();
                 if (is_string($childrenValue)) {
                     $childrenValue = trim($childrenValue);
+                    if ($callback) {
+                        $childrenValue = (object) str_replace([chr(13), chr(10)], ['', ''], $childrenValue);
+                    }
                 }                
                 if (empty($childrenValue)) {
                     // Checks if items where associated to the data tag.

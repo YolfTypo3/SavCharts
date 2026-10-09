@@ -1,0 +1,32 @@
+<c:plotlycharts>		
+	<c:plotlychart.scatter id="1" data="data__scatterChartData" layout="data__scatterChartLayout" >
+
+        <c:marker id="title">Basic Scatter Chart</c:marker>     
+	
+		<c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="x" values="1, 2, 3, 4, 5" />
+                <c:item key="y" values="1, 6, 3, 6, 1" />
+                <c:item key="type">scatter</c:item>
+                <c:item key="mode">markers</c:item>
+                <c:item key="name">Team A</c:item>
+            </c:item>
+            <c:item key="1">
+                <c:item key="x" values="1.5, 2.5, 3.5, 4.5, 5.5" />
+                <c:item key="y" values="4, 1, 7, 1, 4" />
+                <c:item key="type">scatter</c:item>
+                <c:item key="mode">markers</c:item>
+                <c:item key="name">Team B</c:item>
+            </c:item>                     
+		</c:data>	
+
+        <c:data id="scatterChartData" values="{data__dataSets}" /> 
+		
+        <c:data id="scatterChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>		
+		
+	</c:plotlychart.scatter>
+</c:plotlycharts>

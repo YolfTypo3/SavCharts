@@ -44,7 +44,8 @@ class PluginPreviewRenderer extends StandardContentPreviewRenderer
     
     protected function renderPageModulePreviewHeaderForV13(GridColumnItem $item): string
     {
-        $record = $item->getRecord();        
+        $record = $item->getRecord(); 
+        // @extensionScannerIgnoreLine
         $itemLabels = $item->getContext()->getItemLabels();
         $table = $item->getTable();
         $outHeader = '';
@@ -66,6 +67,7 @@ class PluginPreviewRenderer extends StandardContentPreviewRenderer
         if ($label !== '') {
             
             // Modifies the label.
+            // @extensionScannerIgnoreLine
             $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
             $sheets = $flexFormService->convertFlexFormContentToSheetsArray($record['pi_flexform']);
             $label = $this->modifyLabel($label, $sheets);

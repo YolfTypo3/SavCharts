@@ -1,0 +1,24 @@
+<c:plotlycharts>		
+	<c:plotlychart.pie id="1" data="data__pieChartData" layout="data__pieChartLayout" >
+
+        <c:marker id="title">Basic Doughnut Chart</c:marker>     
+	
+		<c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="values" values="19, 26, 55" />
+                <c:item key="labels" values="Residential, Non-Residential, Utility" />
+                <c:item key="type">pie</c:item>
+                <c:item key="hole">0.5</c:item>
+            </c:item>
+		</c:data>	
+
+        <c:data id="pieChartData" values="{data__dataSets}" /> 
+		
+        <c:data id="pieChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>           
+        </c:data>		
+		
+	</c:plotlychart.pie>
+</c:plotlycharts>

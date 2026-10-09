@@ -1,0 +1,31 @@
+<c:spreadsheet  fileName="EXT:sav_charts/Resources/Private/Templates/PlotlyChartsExamples/Gaussian2D.csv"> 
+    <c:worksheet>
+        <c:data id="csv" values="{c:cell.range()->c:transpose()}" />
+    </c:worksheet>
+</c:spreadsheet>
+
+<c:plotlycharts>        
+    <c:plotlychart.generic id="1" data="data__genericChartData" layout="data__genericChartLayout" >
+
+        <c:marker id="title">Gaussian 2D</c:marker>     
+    
+        <c:data id="dataSets">
+            <c:item key="0">
+                <c:item key="x" value="{data__csv.1}" />
+                <c:item key="y" value="{data__csv.2}" />
+                <c:item key="name">density</c:item>
+                <c:item key="ncontours">25</c:item>
+                <c:item key="type">histogram2dcontour</c:item>
+            </c:item>
+        </c:data>   
+
+        <c:data id="genericChartData" values="{data__dataSets}" /> 
+        
+        <c:data id="genericChartLayout" canBeReplaced="true">
+            <c:item key="title">
+                <c:item key="text" value="{marker__title}" />
+            </c:item>                
+        </c:data>       
+        
+    </c:plotlychart.generic>
+</c:plotlycharts>
